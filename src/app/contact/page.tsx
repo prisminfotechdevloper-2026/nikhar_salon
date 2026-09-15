@@ -8,7 +8,7 @@ export default function ContactPage() {
     name: '',
     phone: '',
     email: '',
-    service: 'Haircut & Styling',
+    service: '',
     message: ''
   });
   const [sent, setSent] = useState(false);
@@ -23,7 +23,7 @@ export default function ContactPage() {
       `👤 Name: ${formData.name}\n` +
       `📞 Phone: ${formData.phone}\n` +
       `📧 Email: ${formData.email || 'N/A'}\n` +
-      `✂️ Service: ${formData.service}\n` +
+      `✂️ Service: ${formData.service || 'Not specified'}\n` +
       `💬 Message: ${formData.message}`
     );
     window.open(`https://wa.me/918239239249?text=${text}`, '_blank');
@@ -156,24 +156,36 @@ export default function ContactPage() {
                   placeholder="contact.prisminfotech@gmail.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-[#18181b] border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-white"
+                  className="w-full bg-[#18181b] border border-zinc-800 rounded-xl px-3.5 py-3 text-xs sm:text-sm placeholder:text-[11px] sm:placeholder:text-sm placeholder:text-zinc-500 focus:outline-none focus:border-gold text-white"
                 />
               </div>
 
               <div>
                 <label className="text-xs uppercase text-zinc-400 tracking-wider block mb-1">Service Interested In</label>
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full bg-[#18181b] border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-white"
-                >
-                  <option>Haircut & Styling</option>
-                  <option>Beard Grooming</option>
-                  <option>Facial Care</option>
-                  <option>Hair Treatment</option>
-                  <option>Hot Towel Shave</option>
-                  <option>Complete Package</option>
-                </select>
+                <div className="relative">
+                  <select
+                    required
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full bg-[#18181b] border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-white appearance-none cursor-pointer pr-10"
+                  >
+                    <option value="" disabled className="bg-[#18181b] text-zinc-500">
+                      Select a service...
+                    </option>
+                    <option value="Haircut & Styling" className="bg-[#18181b] text-white">Haircut & Styling</option>
+                    <option value="Beard Grooming" className="bg-[#18181b] text-white">Beard Grooming</option>
+                    <option value="Facial Care" className="bg-[#18181b] text-white">Facial Care</option>
+                    <option value="Hair Treatment" className="bg-[#18181b] text-white">Hair Treatment</option>
+                    <option value="Hot Towel Shave" className="bg-[#18181b] text-white">Hot Towel Shave</option>
+                    <option value="Complete Package" className="bg-[#18181b] text-white">Complete Package</option>
+                  </select>
+
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-400">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <div>
