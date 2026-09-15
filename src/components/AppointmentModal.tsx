@@ -170,7 +170,7 @@ export default function AppointmentModal({ onClose }: AppointmentModalProps) {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Aman Verma"
+                  placeholder="e.g. Ishan"
                   value={customer.name}
                   onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
                   className="w-full bg-[#17171a] border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-white"

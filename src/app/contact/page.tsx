@@ -53,7 +53,7 @@ export default function ContactPage() {
 
           <div className="space-y-6">
             <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800">
-              <div className="p-3 bg-gold/10 text-gold rounded-lg">
+              <div className="p-3 bg-gold/10 text-gold rounded-lg shrink-0">
                 <Phone size={22} />
               </div>
               <div>
@@ -71,18 +71,20 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800">
-              <div className="p-3 bg-gold/10 text-gold rounded-lg">
+              <div className="p-3 bg-gold/10 text-gold rounded-lg shrink-0">
                 <Mail size={22} />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <h4 className="text-xs uppercase text-zinc-400 font-semibold tracking-wider">Email Address</h4>
-                <p className="text-white font-medium text-base mt-1">contact.prisminfotech@gmail.com</p>
+                <p className="text-white font-medium text-sm sm:text-base mt-1 break-all">
+                  contact.prisminfotech@gmail.com
+                </p>
                 <p className="text-xs text-zinc-500 mt-0.5">We reply within 24 hours</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800">
-              <div className="p-3 bg-gold/10 text-gold rounded-lg">
+              <div className="p-3 bg-gold/10 text-gold rounded-lg shrink-0">
                 <MapPin size={22} />
               </div>
               <div>
@@ -93,7 +95,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800">
-              <div className="p-3 bg-gold/10 text-gold rounded-lg">
+              <div className="p-3 bg-gold/10 text-gold rounded-lg shrink-0">
                 <Clock size={22} />
               </div>
               <div>
@@ -128,7 +130,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   required
-                  placeholder="Ishan"
+                  placeholder="Ishaan"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-[#18181b] border border-zinc-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold text-white"
