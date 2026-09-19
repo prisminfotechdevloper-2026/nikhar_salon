@@ -66,7 +66,7 @@ export default function FloatingActions() {
 
           {/* Left Floating Tooltip */}
           <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#0E1012] border border-[#BA9D6A]/50 text-[10.5px] font-semibold text-[#BA9D6A] whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
-            <Sparkles size={11} /> Book Appointment
+            Book Appointment
           </span>
         </Link>
       )}
