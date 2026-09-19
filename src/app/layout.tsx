@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppFloat from '@/components/WhatsAppFloat';
+import MobileBottomNav from '@/components/MobileBottomNav';
+import FloatingActions from '@/components/FloatingActions';
 
 export const metadata: Metadata = {
   title: "Nikhar Salon | Luxury Men's Grooming & Styling in Kota",
@@ -26,8 +27,8 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-[#0E1012] text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-[#0E1012] font-sans">
-        {/* Navigation Bar */}
+      <body className="bg-[#0E1012] text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-[#0E1012] font-sans pb-16 lg:pb-0">
+        {/* Top Navigation Bar (Clean on mobile: Logo + Direct Call) */}
         <Navbar />
 
         {/* Dynamic Page Content */}
@@ -35,8 +36,11 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* Floating WhatsApp Quick Action Button */}
-        <WhatsAppFloat />
+        {/* Fixed Right-Bottom Floating Actions (Book Appointment + WhatsApp) */}
+        <FloatingActions />
+
+        {/* Mobile Bottom Navigation Bar (Home, Services, Lookbook, About, Contact) */}
+        <MobileBottomNav />
 
         {/* Footer */}
         <Footer />
