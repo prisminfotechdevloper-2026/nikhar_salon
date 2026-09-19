@@ -35,11 +35,10 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-10 flex items-center justify-between">
-        {/* Salon Brand Logo */}
-        <Logo size="sm" className="sm:hidden" />
-        <Logo size="md" className="hidden sm:inline-flex" />
+        {/* Single Responsive Brand Logo */}
+        <Logo size="responsive" />
 
-        {/* Desktop Navigation Links with Amaia-Style Gold Indicator */}
+        {/* Desktop Navigation Links with Amaia-Style Gold Underline Indicator */}
         <nav className="hidden lg:flex items-center gap-7 xl:gap-9 text-[11.5px] xl:text-[12px] font-medium tracking-[0.14em] uppercase" aria-label="Main Navigation">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -65,10 +64,10 @@ export default function Navbar() {
 
         {/* Top Header Actions */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-          {/* Direct Call Button */}
+          {/* Direct Call Button (Mobile & Desktop Friendly) */}
           <a
             href="tel:+918239239249"
-            className="group relative inline-flex items-center justify-center gap-1.5 rounded-full border border-[#E8D4B0]/30 bg-white/[0.06] hover:bg-white/[0.12] hover:border-[#BA9D6A]/60 px-3 sm:px-4 py-1.5 sm:py-2 text-[10.5px] sm:text-[11px] font-semibold tracking-[0.08em] text-white/90 uppercase transition-all duration-300 backdrop-blur-md cursor-pointer shadow-xs active:scale-95"
+            className="group relative inline-flex items-center justify-center gap-1.5 rounded-full border border-[#E8D4B0]/30 bg-white/[0.06] hover:bg-white/[0.12] hover:border-[#BA9D6A]/60 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.08em] text-white/90 uppercase transition-all duration-300 backdrop-blur-md cursor-pointer shadow-xs active:scale-95"
             aria-label="Direct Call: +91 82392 39249"
           >
             <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#BA9D6A] group-hover:scale-110 transition-transform" />
@@ -76,7 +75,7 @@ export default function Navbar() {
             <span className="sm:hidden whitespace-nowrap font-bold text-[#BA9D6A]">Call Salon</span>
           </a>
 
-          {/* Desktop Book Appointment CTA (Hidden on mobile because mobile has bottom floating button) */}
+          {/* Desktop & Tablet Book Appointment CTA */}
           <Link
             href="/book-appointment"
             className="hidden sm:inline-flex group relative items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-110 px-4 sm:px-5 py-1.5 sm:py-2 text-[10.5px] sm:text-[11.5px] font-semibold tracking-[0.1em] text-[#141619] uppercase transition-all duration-300 shadow-[0_2px_14px_rgba(186,157,106,0.3)] hover:shadow-[0_4px_22px_rgba(186,157,106,0.45)] active:scale-95 border border-[#E8D4B0]/40 cursor-pointer whitespace-nowrap"

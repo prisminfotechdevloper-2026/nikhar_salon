@@ -534,6 +534,7 @@ export default function HomePage() {
                   src="/images/craft-experience.jpg"
                   alt="Nikhar Salon Craftsmanship"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
@@ -669,6 +670,7 @@ export default function HomePage() {
                   src={REVIEWS[currentReview].avatar}
                   alt={REVIEWS[currentReview].name}
                   fill
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>

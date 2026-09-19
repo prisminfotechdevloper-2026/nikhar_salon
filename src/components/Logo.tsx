@@ -4,33 +4,33 @@ import Link from 'next/link';
 
 interface LogoProps {
   variant?: 'full' | 'mark' | 'horizontal';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'responsive';
   className?: string;
   href?: string;
 }
 
 export default function Logo({
   variant = 'full',
-  size = 'md',
+  size = 'responsive',
   className = '',
   href = '/',
 }: LogoProps) {
   // Dimensions based on size
   const sizes = {
-    sm: { icon: 34, text: 'text-sm sm:text-base', sub: 'text-[7.5px] sm:text-[8px]', gap: 'gap-2.5' },
-    md: { icon: 42, text: 'text-base sm:text-lg', sub: 'text-[8.5px] sm:text-[9.5px]', gap: 'gap-3' },
-    lg: { icon: 56, text: 'text-xl sm:text-2xl', sub: 'text-[10px] sm:text-[11px]', gap: 'gap-3.5' },
-    xl: { icon: 72, text: 'text-3xl sm:text-4xl', sub: 'text-[12px] sm:text-[13px]', gap: 'gap-4' },
+    sm: { icon: 'w-8 h-8', text: 'text-sm', sub: 'text-[7.5px]', gap: 'gap-2' },
+    md: { icon: 'w-10 h-10', text: 'text-base sm:text-lg', sub: 'text-[8.5px] sm:text-[9.5px]', gap: 'gap-2.5 sm:gap-3' },
+    lg: { icon: 'w-12 h-12 sm:w-14 sm:h-14', text: 'text-xl sm:text-2xl', sub: 'text-[10px] sm:text-[11px]', gap: 'gap-3 sm:gap-3.5' },
+    xl: { icon: 'w-16 h-16 sm:w-20 sm:h-20', text: 'text-2xl sm:text-4xl', sub: 'text-[11px] sm:text-[13px]', gap: 'gap-3.5 sm:gap-4' },
+    responsive: { icon: 'w-8 h-8 sm:w-10 sm:h-10', text: 'text-sm sm:text-lg', sub: 'text-[7.5px] sm:text-[9.5px]', gap: 'gap-2 sm:gap-3' },
   };
 
-  const currentSize = sizes[size] || sizes.md;
+  const currentSize = sizes[size] || sizes.responsive;
 
   const LogoContent = (
-    <div className={`inline-flex items-center ${currentSize.gap} group select-none ${className}`}>
+    <div className={`inline-flex items-center ${currentSize.gap} group select-none`}>
       {/* Golden Framed Emblem Mark */}
       <div 
-        className="relative shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-        style={{ width: currentSize.icon, height: currentSize.icon }}
+        className={`relative shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${currentSize.icon}`}
       >
         <svg
           viewBox="0 0 100 100"
@@ -63,19 +63,19 @@ export default function Logo({
             </filter>
           </defs>
 
-          {/* Luxury Geometric Outer Frame (with signature corner cutouts like reference image) */}
+          {/* Luxury Geometric Outer Frame (Signature corner cutouts) */}
           {/* Top-Left & Bottom Corner Stroke */}
           <path
             d="M8 32 V10 H80"
             stroke="url(#goldSheen)"
-            strokeWidth="3.2"
+            strokeWidth="3.5"
             strokeLinecap="square"
           />
           {/* Bottom-Right & Top Corner Stroke */}
           <path
             d="M92 68 V90 H20"
             stroke="url(#goldSheen)"
-            strokeWidth="3.2"
+            strokeWidth="3.5"
             strokeLinecap="square"
           />
 
@@ -86,7 +86,7 @@ export default function Logo({
             x2="8"
             y2="76"
             stroke="url(#goldSheen)"
-            strokeWidth="3.2"
+            strokeWidth="3.5"
             strokeLinecap="square"
           />
 
@@ -97,28 +97,24 @@ export default function Logo({
             x2="92"
             y2="50"
             stroke="url(#goldSheen)"
-            strokeWidth="3.2"
+            strokeWidth="3.5"
             strokeLinecap="square"
           />
 
-          {/* Center Stylized Serif 'N' with Luxury Swash Ribbons */}
-          {/* Left Stem */}
+          {/* Center Stylized Serif 'N' */}
           <path
             d="M26 73 V27 L33 27 V73 H26 Z"
             fill="url(#goldLetter)"
           />
-          {/* Left Serif caps */}
           <path
             d="M22 28 H37 V25 H22 V28 Z M22 75 H37 V72 H22 V75 Z"
             fill="url(#goldLetter)"
           />
 
-          {/* Right Stem */}
           <path
             d="M67 73 V27 L74 27 V73 H67 Z"
             fill="url(#goldLetter)"
           />
-          {/* Right Serif caps */}
           <path
             d="M63 28 H78 V25 H63 V28 Z M63 75 H78 V72 H63 V75 Z"
             fill="url(#goldLetter)"
@@ -142,20 +138,20 @@ export default function Logo({
         <div className="flex flex-col justify-center">
           <div className="flex items-center">
             <span
-              className={`font-serif-title tracking-[0.22em] font-normal leading-none bg-gradient-to-r from-[#F9EED9] via-[#BA9D6A] to-[#C2A774] bg-clip-text text-transparent drop-shadow-sm ${currentSize.text}`}
+              className={`font-serif-title tracking-[0.2em] font-normal leading-none bg-gradient-to-r from-[#F9EED9] via-[#BA9D6A] to-[#C2A774] bg-clip-text text-transparent drop-shadow-sm ${currentSize.text}`}
             >
               NIKHAR
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5 mt-1 sm:mt-1.5 opacity-90">
-            <span className="w-2.5 sm:w-3.5 h-[1px] bg-gradient-to-r from-transparent to-[#BA9D6A]" />
+          <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5 sm:mt-1 opacity-90">
+            <span className="w-2 sm:w-3.5 h-[1px] bg-gradient-to-r from-transparent to-[#BA9D6A]" />
             <span
-              className={`tracking-[0.28em] font-semibold text-[#BA9D6A] uppercase font-sans whitespace-nowrap ${currentSize.sub}`}
+              className={`tracking-[0.25em] sm:tracking-[0.28em] font-semibold text-[#BA9D6A] uppercase font-sans whitespace-nowrap ${currentSize.sub}`}
             >
               SALON • KOTA
             </span>
-            <span className="w-2.5 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent to-[#BA9D6A]" />
+            <span className="w-2 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent to-[#BA9D6A]" />
           </div>
         </div>
       )}
@@ -164,11 +160,11 @@ export default function Logo({
 
   if (href) {
     return (
-      <Link href={href} className="inline-block focus:outline-none" aria-label="Nikhar Salon Kota Home">
+      <Link href={href} className={`inline-block focus:outline-none shrink-0 ${className}`} aria-label="Nikhar Salon Kota Home">
         {LogoContent}
       </Link>
     );
   }
 
-  return LogoContent;
+  return <div className={className}>{LogoContent}</div>;
 }

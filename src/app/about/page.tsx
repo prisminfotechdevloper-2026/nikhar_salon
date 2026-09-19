@@ -83,6 +83,7 @@ export default function AboutPage() {
               src="/images/salon-interior.jpg"
               alt="Nikhar Salon Kota Interior"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               priority
             />
@@ -183,6 +184,7 @@ export default function AboutPage() {
                   src={member.img}
                   alt={member.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#141619] via-transparent to-transparent" />

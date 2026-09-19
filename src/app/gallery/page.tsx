@@ -114,6 +114,7 @@ export default function GalleryPage() {
                 src={activeImage.imgUrl}
                 alt={activeImage.altText}
                 fill
+                sizes="(max-width: 1024px) 100vw, 900px"
                 className="object-contain"
               />
             </div>
