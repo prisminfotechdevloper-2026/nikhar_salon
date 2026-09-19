@@ -22,7 +22,7 @@ const HERO_SLIDES = [
     title: "The Art of Modern Grooming.",
     subtitle: "PRECISION CUTS & ROYAL BEARD SCULPTING IN KOTA",
     desc: "Experience premier male grooming in Rajasthan. From bespoke fade craft to traditional hot towel razor shave and revitalizing skin therapies.",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=85",
+    image: "/images/hero-slide-1.jpg",
     tag: "SIGNATURE EXPERIENCE"
   },
   {
@@ -30,7 +30,7 @@ const HERO_SLIDES = [
     title: "Master Barbers. Pure Distinction.",
     subtitle: "BESPOKE HAIR STYLING & TEXTURE CRAFT",
     desc: "Our master stylists bring over a decade of precision craft to give you a sharp, commanding look customized to your face profile.",
-    image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&q=85",
+    image: "/images/hero-slide-2.jpg",
     tag: "MASTER STYLISTS"
   },
   {
@@ -38,7 +38,7 @@ const HERO_SLIDES = [
     title: "Luxury Skin Therapies & Spa.",
     subtitle: "CHARCOAL DETOX & KERATIN REPAIR",
     desc: "Rejuvenate your skin and hair with top-tier international organic serums, essential oils, and soothing hot steam relaxation.",
-    image: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1920&q=85",
+    image: "/images/hero-slide-3.jpg",
     tag: "VIP WELLNESS"
   }
 ];
@@ -52,7 +52,7 @@ const REVIEWS = [
     rating: 5,
     service: "Fade Haircut & Beard Sculpting",
     text: "Nikhar Salon is hands down the most premium men's salon in Kota! The attention to detail, hygienic equipment, and exact fade cut result was top notch.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+    avatar: "/images/avatar-rohit.jpg"
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ const REVIEWS = [
     rating: 5,
     service: "Keratin Spa Treatment",
     text: "Mera hair spa ka experience bohot hi luxury raha. Salon ka ambience international level ka hai aur staff bohot courteous hai. Worth every rupee.",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+    avatar: "/images/avatar-aman.jpg"
   },
   {
     id: 3,
@@ -70,7 +70,7 @@ const REVIEWS = [
     rating: 5,
     service: "Royal Beard Sculpting",
     text: "Best beard styling artist in Kota. Pehli baar meri beard ko exact sharp lines aur healthy shine mila. Highly recommended to everyone.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
+    avatar: "/images/avatar-vikram.jpg"
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ const REVIEWS = [
     rating: 5,
     service: "Charcoal Detox Facial",
     text: "Deep clean facial ke baad meri skin fresh aur hydrated feel kar rahi hai. Premium imported products use karte hain.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+    avatar: "/images/avatar-priyansh.jpg"
   }
 ];
 
@@ -531,7 +531,7 @@ export default function HomePage() {
                 className="group relative aspect-[16/10] rounded-2xl md:rounded-3xl overflow-hidden border border-[#BA9D6A]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] cursor-pointer"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80"
+                  src="/images/craft-experience.jpg"
                   alt="Nikhar Salon Craftsmanship"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"

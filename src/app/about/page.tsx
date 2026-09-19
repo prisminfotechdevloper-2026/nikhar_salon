@@ -9,28 +9,28 @@ const TEAM = [
     role: "Master Barber & Founder",
     exp: "10+ Years Experience",
     speciality: "Precision Fade Architecture & Royal Shave",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80"
+    img: "/images/team-vikram.jpg"
   },
   {
     name: "Rahul Verma",
     role: "Senior Beard Specialist",
     exp: "7+ Years Experience",
     speciality: "Bespoke Beard Sculpting & Organic Conditioning",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
+    img: "/images/team-rahul.jpg"
   },
   {
     name: "Sameer Khan",
     role: "Skin & Facial Expert",
     exp: "6+ Years Experience",
     speciality: "Charcoal Detox & Anti-Pollution Skin Revival",
-    img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80"
+    img: "/images/team-sameer.jpg"
   },
   {
     name: "Karan Rathore",
     role: "Hair Spa & Keratin Artist",
     exp: "5+ Years Experience",
     speciality: "Keratin Protein Repair & Scalp Wellness",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
+    img: "/images/team-karan.jpg"
   }
 ];
 
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="lg:col-span-6">
           <div className="relative h-80 sm:h-[420px] rounded-2xl md:rounded-3xl overflow-hidden border border-[#BA9D6A]/30 shadow-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80"
+              src="/images/salon-interior.jpg"
               alt="Nikhar Salon Kota Interior"
               fill
               className="object-cover"
