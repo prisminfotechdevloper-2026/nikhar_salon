@@ -1,98 +1,160 @@
 import Link from 'next/link';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050506] border-t border-zinc-800/80 pt-12 sm:pt-16 pb-28 sm:pb-12 px-4 sm:px-6 text-zinc-400">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10">
-        {/* Brand Info */}
-        <div className="space-y-3">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 border border-[#e4a863] flex items-center justify-center font-serif-luxury text-[#e4a863] font-bold text-base">
-              N
-            </div>
-            <span className="font-serif-luxury font-bold tracking-[0.2em] text-white text-base sm:text-lg">
-              NIKHAR SALON
-            </span>
-          </div>
-          <p className="text-xs leading-relaxed text-zinc-400">
-            Kota&apos;s premier men&apos;s salon offering precision haircuts, tailored beard grooming, signature facials, and luxury spa treatments.
+    <footer className="bg-[#0A0C0E] border-t border-white/[0.08] pt-14 sm:pt-20 pb-28 sm:pb-14 px-4 sm:px-6 lg:px-12 text-[#9E9B95] font-sans">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+        {/* Brand Column (5 cols) */}
+        <div className="lg:col-span-4 space-y-4">
+          <Logo size="lg" />
+          <p className="text-xs sm:text-[13px] leading-relaxed text-[#9E9B95] max-w-sm pt-2">
+            Kota&apos;s premier destination for luxury men&apos;s grooming. Precision haircutting, bespoke beard sculpting, rejuvenating skincare, and VIP salon hospitality.
           </p>
+          <div className="flex items-center gap-3 pt-2">
+            <a
+              href="https://wa.me/918239239249"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#BA9D6A] hover:text-[#C2A774] transition-colors"
+            >
+              <MessageCircle size={15} /> Chat on WhatsApp
+            </a>
+          </div>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-xs uppercase tracking-widest text-[#e4a863] font-semibold mb-3 sm:mb-4">
-            Quick Links
-          </h4>
-          <ul className="space-y-2 text-xs">
-            <li><Link href="/" className="hover:text-[#e4a863] transition">Home</Link></li>
-            <li><Link href="/about" className="hover:text-[#e4a863] transition">About Us</Link></li>
-            <li><Link href="/services" className="hover:text-[#e4a863] transition">Services</Link></li>
-            <li><Link href="/gallery" className="hover:text-[#e4a863] transition">Gallery</Link></li>
-            <li><Link href="/contact" className="hover:text-[#e4a863] transition">Contact</Link></li>
+        {/* Quick Navigation (2 cols) */}
+        <div className="lg:col-span-2">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold">
+              Explore
+            </h4>
+          </div>
+          <ul className="space-y-2.5 text-xs tracking-wider uppercase">
+            <li>
+              <Link href="/" className="hover:text-[#BA9D6A] transition-colors duration-200">Home</Link>
+            </li>
+            <li>
+              <Link href="/about" className="hover:text-[#BA9D6A] transition-colors duration-200">Our Story</Link>
+            </li>
+            <li>
+              <Link href="/services" className="hover:text-[#BA9D6A] transition-colors duration-200">Services Menu</Link>
+            </li>
+            <li>
+              <Link href="/gallery" className="hover:text-[#BA9D6A] transition-colors duration-200">Lookbook</Link>
+            </li>
+            <li>
+              <Link href="/book-appointment" className="hover:text-[#BA9D6A] transition-colors duration-200 text-[#BA9D6A]">Book Slot</Link>
+            </li>
           </ul>
         </div>
 
-        {/* Contact Info */}
-        <div>
-          <h4 className="text-xs uppercase tracking-widest text-[#e4a863] font-semibold mb-3 sm:mb-4">
-            Contact Us
-          </h4>
+        {/* Services Highlight (3 cols) */}
+        <div className="lg:col-span-3">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold">
+              Signature Craft
+            </h4>
+          </div>
+          <ul className="space-y-2 text-xs text-[#8A8680]">
+            <li className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <span>Executive Haircut & Fade</span>
+              <span className="text-[#BA9D6A] font-semibold">₹350</span>
+            </li>
+            <li className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <span>Royal Beard Sculpting</span>
+              <span className="text-[#BA9D6A] font-semibold">₹200</span>
+            </li>
+            <li className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <span>Charcoal Detox Facial</span>
+              <span className="text-[#BA9D6A] font-semibold">₹800</span>
+            </li>
+            <li className="flex items-center justify-between py-1 border-b border-white/[0.04]">
+              <span>Keratin Hair Spa Therapy</span>
+              <span className="text-[#BA9D6A] font-semibold">₹950</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Visit & Contact (3 cols) */}
+        <div className="lg:col-span-3 space-y-3.5">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+            <h4 className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold">
+              Kota Salon Studio
+            </h4>
+          </div>
+
           <div className="space-y-2.5 text-xs">
-            <p className="flex items-center gap-2 text-zinc-300">
-              <Phone size={14} className="text-[#e4a863] shrink-0" />
-              <a href="tel:+918239239249" className="hover:text-[#e4a863] transition">
+            <p className="flex items-start gap-2.5 text-white/90">
+              <MapPin size={15} className="text-[#BA9D6A] shrink-0 mt-0.5" />
+              <span>Shop No. 12, 1st Floor, City Mall, Kota, Rajasthan - 324001</span>
+            </p>
+            <p className="flex items-center gap-2.5 text-white/90">
+              <Phone size={15} className="text-[#BA9D6A] shrink-0" />
+              <a href="tel:+918239239249" className="hover:text-[#BA9D6A] transition">
                 +91 82392 39249
               </a>
             </p>
-            <p className="flex items-start gap-2 text-zinc-300">
-              <MapPin size={14} className="text-[#e4a863] shrink-0 mt-0.5" />
-              <span>Shop 12, 1st Floor, City Mall, Kota</span>
-            </p>
-            <p className="flex items-center gap-2 text-zinc-300">
-              <Clock size={14} className="text-[#e4a863] shrink-0" />
-              <span>9:00 AM – 10:00 PM (All Days)</span>
+            <p className="flex items-center gap-2.5 text-white/90">
+              <Clock size={15} className="text-[#BA9D6A] shrink-0" />
+              <span>Mon - Sun: 9:00 AM – 10:00 PM</span>
             </p>
           </div>
-        </div>
 
-        {/* Social Links */}
-        <div>
-          <h4 className="text-xs uppercase tracking-widest text-[#e4a863] font-semibold mb-3">
-            Follow Us
-          </h4>
-          <div className="flex gap-4 mb-4 text-zinc-400">
-            {/* Instagram */}
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#e4a863] transition" aria-label="Instagram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <div className="pt-2 flex gap-3 text-white/70">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noreferrer"
+              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
+              aria-label="Instagram"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
               </svg>
             </a>
-            {/* Facebook */}
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#e4a863] transition" aria-label="Facebook">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noreferrer"
+              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
+              aria-label="Facebook"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
             </a>
-            {/* YouTube */}
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-[#e4a863] transition" aria-label="YouTube">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noreferrer"
+              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
+              aria-label="YouTube"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
                 <polygon points="10 15 15 12 10 9 10 15"/>
               </svg>
             </a>
           </div>
-          <p className="font-script text-2xl sm:text-3xl text-[#e4a863]">Stay Connected</p>
-          <p className="text-[11px] text-zinc-500 mt-0.5">Because you deserve the best.</p>
         </div>
       </div>
 
-      {/* Copyright Line */}
-      <div className="border-t border-zinc-900 pt-6 text-center text-[11px] sm:text-xs text-zinc-600">
-        © 2026 Nikhar Salon. All Rights Reserved. | Kota, Rajasthan
+      {/* Bottom Bar */}
+      <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#736F67]">
+        <p>© 2026 Nikhar Salon Kota. All Rights Reserved. Luxury Grooming Experience.</p>
+        <div className="flex items-center gap-6">
+          <Link href="/about" className="hover:text-white transition">About</Link>
+          <Link href="/services" className="hover:text-white transition">Services</Link>
+          <Link href="/contact" className="hover:text-white transition">Contact</Link>
+          <span className="text-[#BA9D6A]">Made for Excellence</span>
+        </div>
       </div>
     </footer>
   );

@@ -5,21 +5,53 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   Scissors, Sparkles, ShieldCheck, Clock, ArrowRight, Star, 
-  Phone, MapPin, Send, ChevronLeft, ChevronRight, Menu, X, Heart
+  Phone, MapPin, Send, ChevronLeft, ChevronRight, Play, Check, 
+  ArrowUpRight, MessageCircle, Calendar, Award, User
 } from 'lucide-react';
 import { servicesData } from '@/data/services';
 import { galleryData } from '@/data/gallery';
 import ServiceCard from '@/components/ServiceCard';
+import VideoTourModal from '@/components/VideoTourModal';
+import AppointmentModal from '@/components/AppointmentModal';
+import Logo from '@/components/Logo';
 
-// 5 Real Customer Reviews
+// Hero Background Slides
+const HERO_SLIDES = [
+  {
+    id: 1,
+    title: "The Art of Modern Grooming.",
+    subtitle: "PRECISION CUTS & ROYAL BEARD SCULPTING IN KOTA",
+    desc: "Experience premier male grooming in Rajasthan. From bespoke fade craft to traditional hot towel razor shave and revitalizing skin therapies.",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=85",
+    tag: "SIGNATURE EXPERIENCE"
+  },
+  {
+    id: 2,
+    title: "Master Barbers. Pure Distinction.",
+    subtitle: "BESPOKE HAIR STYLING & TEXTURE CRAFT",
+    desc: "Our master stylists bring over a decade of precision craft to give you a sharp, commanding look customized to your face profile.",
+    image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1920&q=85",
+    tag: "MASTER STYLISTS"
+  },
+  {
+    id: 3,
+    title: "Luxury Skin Therapies & Spa.",
+    subtitle: "CHARCOAL DETOX & KERATIN REPAIR",
+    desc: "Rejuvenate your skin and hair with top-tier international organic serums, essential oils, and soothing hot steam relaxation.",
+    image: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1920&q=85",
+    tag: "VIP WELLNESS"
+  }
+];
+
+// Customer Testimonials
 const REVIEWS = [
   {
     id: 1,
     name: "Rohit Sharma",
     location: "Kota, Rajasthan",
     rating: 5,
-    service: "Fade Haircut & Beard",
-    text: "Nikhar Salon is hands down the best men's salon in Kota! Great service, polite professional staff, and amazing fade styling results. Highly recommended to everyone.",
+    service: "Fade Haircut & Beard Sculpting",
+    text: "Nikhar Salon is hands down the most premium men's salon in Kota! The attention to detail, hygienic equipment, and exact fade cut result was top notch.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
   },
   {
@@ -28,7 +60,7 @@ const REVIEWS = [
     location: "Talwandi, Kota",
     rating: 5,
     service: "Keratin Spa Treatment",
-    text: "Mera hair spa ka experience bohot hi premium raha. Salon ka interior luxury look deta hai aur staff bahut polite aur hygienic equipment use karta hai.",
+    text: "Mera hair spa ka experience bohot hi luxury raha. Salon ka ambience international level ka hai aur staff bohot courteous hai. Worth every rupee.",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
   },
   {
@@ -36,8 +68,8 @@ const REVIEWS = [
     name: "Vikram Rathore",
     location: "Gumanpura, Kota",
     rating: 5,
-    service: "Beard Sculpting & Shape",
-    text: "Best beard styling artist in Kota. Pehli baar meri beard ko exact jaisa chahiye tha waisa perfect sharp look mila. Super satisfied!",
+    service: "Royal Beard Sculpting",
+    text: "Best beard styling artist in Kota. Pehli baar meri beard ko exact sharp lines aur healthy shine mila. Highly recommended to everyone.",
     avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80"
   },
   {
@@ -46,473 +78,690 @@ const REVIEWS = [
     location: "Kunhari, Kota",
     rating: 5,
     service: "Charcoal Detox Facial",
-    text: "Deep clean facial ke baad meri skin ekdum fresh aur glowing ho gayi. Top quality products use karte hain jo skin ke liye totally safe hain.",
+    text: "Deep clean facial ke baad meri skin fresh aur hydrated feel kar rahi hai. Premium imported products use karte hain.",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+  }
+];
+
+// VIP Club Passes
+const VIP_PASSES = [
+  {
+    title: "Classic Gentleman",
+    price: "₹1,499",
+    period: "per month",
+    badge: "POPULAR",
+    features: [
+      "2x Signature Precision Haircuts",
+      "2x Royal Beard Sculpt & Lineup",
+      "1x Hot Towel Shave & Steam",
+      "Complimentary Hair Wash & Styling",
+      "Priority WhatsApp Slot Booking"
+    ]
   },
   {
-    id: 5,
-    name: "Mohit Jain",
-    location: "Dadabari, Kota",
-    rating: 5,
-    service: "Executive Grooming Combo",
-    text: "Appointment time par bilkul zero wait time mila. VIP treatment jaisa feel hota hai yahan. Har month yahi se grooming karwata hoon.",
-    avatar: "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=200&q=80"
+    title: "Executive Royal Club",
+    price: "₹2,999",
+    period: "per month",
+    badge: "MOST LUXURY",
+    featured: true,
+    features: [
+      "Unlimited Precision Haircuts",
+      "Unlimited Beard Sculpt & Trims",
+      "1x Deep Charcoal Detox Facial",
+      "1x Keratin Protein Hair Spa",
+      "VIP Dedicated Master Barber",
+      "Zero Waiting Time Guarantee"
+    ]
+  },
+  {
+    title: "Groom's Royal Wedding Pass",
+    price: "₹4,999",
+    period: "package",
+    badge: "SPECIAL OCCASION",
+    features: [
+      "Complete Bridal Groom Transformation",
+      "Skin Glow Gold Facial & Peeling",
+      "Keratin Treatment & Scalp Massage",
+      "Royal Beard Architecture & Shave",
+      "Hair Styling & Setting on Event Day",
+      "Complimentary Champagne Coffee"
+    ]
   }
 ];
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentReview, setCurrentReview] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    service: 'Haircut & Styling',
-    message: ''
-  });
-  const [sent, setSent] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  
+  // Quick Booking Widget state
+  const [quickService, setQuickService] = useState('Haircut & Styling');
+  const [quickDate, setQuickDate] = useState('');
+  const [quickStylist, setQuickStylist] = useState('Master Stylist');
 
-  // Automatic Review Slider (Har 4 seconds me slide hoga)
+  // Hero Carousel Auto Slide
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
-    }, 4000);
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 6000);
     return () => clearInterval(timer);
   }, []);
 
-  const nextReview = () => {
-    setCurrentReview((prev) => (prev + 1) % REVIEWS.length);
-  };
+  // Filtered services
+  const filteredServices = selectedCategory === 'All' 
+    ? servicesData 
+    : servicesData.filter(s => {
+        if (selectedCategory === 'Haircut') return s.title.includes('Haircut');
+        if (selectedCategory === 'Beard') return s.title.includes('Beard') || s.title.includes('Shave');
+        if (selectedCategory === 'Facial') return s.title.includes('Facial');
+        if (selectedCategory === 'Spa') return s.title.includes('Treatment') || s.title.includes('Products');
+        return true;
+      });
 
-  const prevReview = () => {
-    setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length);
-  };
-
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleQuickBook = (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    const text = encodeURIComponent(
-      `*New Inquiry - Nikhar Salon Kota*\n\n` +
-      `👤 Name: ${formData.name}\n` +
-      `📞 Phone: ${formData.phone}\n` +
-      `✂️ Service: ${formData.service}\n` +
-      `💬 Message: ${formData.message}`
-    );
-    window.open(`https://wa.me/918239239249?text=${text}`, '_blank');
+    setIsBookingModalOpen(true);
   };
 
   return (
-    <main className="overflow-x-hidden antialiased flex flex-col min-h-screen">
-      {/* 1. HERO SECTION (Explicit mobile responsive fix for screenshot overflow and missing image) */}
-      <section className="relative min-h-[85vh] md:min-h-[90vh] flex items-center px-4 sm:px-8 md:px-16 overflow-hidden bg-gradient-to-r from-black via-[#0d0d0e] to-black border-b border-zinc-800/60">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center w-full max-w-7xl mx-auto py-10 md:py-16">
-          <div className="space-y-4 sm:space-y-5 antialiased flex flex-col items-center md:items-start text-center md:text-left">
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-[#e4a863] font-semibold">
-              MEN'S SALON
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif-luxury font-bold leading-tight text-white antialiased">
-              Style Beyond <br />
-              <span className="italic font-normal text-zinc-300">Just a Haircut</span>
-            </h1>
-            <p className="text-zinc-400 text-xs sm:text-sm md:text-base leading-relaxed antialiased">
-              At Nikhar Salon, we believe every man deserves to look and feel his best. From sharp haircuts to premium grooming, we bring out your best look.
-            </p>
-
-            <div className="pt-2 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/book-appointment"
-                className="inline-flex justify-center items-center gap-2 gold-gradient text-black font-semibold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full shadow-lg shadow-[#e4a863]/20 hover:scale-105 transition antialiased"
-              >
-                Book Your Appointment <ArrowRight size={15} />
-              </Link>
-              <a
-                href="#services"
-                className="inline-flex justify-center items-center border border-zinc-700 text-zinc-300 hover:text-white px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition antialiased"
-              >
-                Explore Services
-              </a>
+    <div className="overflow-x-hidden antialiased bg-[#0E1012] text-[#FAF8F5] font-sans selection:bg-[#BA9D6A] selection:text-[#0E1012]">
+      
+      {/* ========================================================================= */}
+      {/* 1. CINEMATIC HERO SECTION (Amaia Design Aesthetic) */}
+      {/* ========================================================================= */}
+      <section className="relative isolate min-h-[100dvh] w-full flex flex-col justify-between pt-24 pb-6 sm:pt-28 sm:pb-8 lg:pt-32 lg:pb-10 overflow-hidden select-none border-b border-white/[0.08]">
+        {/* Background Image Carousel with Atmospheric Gradient Overlays */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {HERO_SLIDES.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={index === 0}
+                className="object-cover object-center scale-105 transition-transform duration-1000 ease-out"
+                sizes="100vw"
+              />
             </div>
-            <p className="text-xs text-zinc-500 pt-1">📍 Kota, Rajasthan</p>
-          </div>
+          ))}
 
-          {/* Hero Photo - Properly sized for all devices including mobile screens */}
-          <div className="relative h-64 sm:h-80 md:h-[500px] rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-            <Image
-              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85"
-              alt="Salon Styling"
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-            <span className="absolute bottom-6 right-6 font-script text-3xl lg:text-4xl text-[#e4a863] drop-shadow-md">
-              Grooming Redefined
+          {/* Deep Obsidian Overlays */}
+          <div className="absolute inset-0 bg-black/55 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1012]/80 via-transparent to-[#0E1012] z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E1012]/80 via-transparent to-[#0E1012]/80 z-10" />
+        </div>
+
+        {/* Hero Center Content */}
+        <div className="relative z-20 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 flex-1 flex flex-col justify-center items-center text-center my-auto pt-4 sm:pt-6">
+          {/* Amaia-style Gold Pill Badge with Vertical Accent Lines */}
+          <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4 animate-in fade-in duration-500">
+            <div className="h-3 sm:h-3.5 w-[2px] bg-[#BA9D6A]" />
+            <span className="text-[10px] sm:text-[11.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+              {HERO_SLIDES[currentSlide].subtitle}
             </span>
+            <div className="h-3 sm:h-3.5 w-[2px] bg-[#BA9D6A]" />
+          </div>
+
+          {/* Grand Heading in DM Serif Display */}
+          <h1 className="font-serif-title text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-normal tracking-[-0.03em] text-white leading-[1.1] sm:leading-[1.05] max-w-4xl drop-shadow-lg transition-all duration-500">
+            {HERO_SLIDES[currentSlide].title}
+          </h1>
+
+          {/* Subtext */}
+          <p className="mt-3 sm:mt-5 max-w-2xl text-xs sm:text-base md:text-lg font-normal leading-relaxed text-white/85 drop-shadow px-2 sm:px-0">
+            {HERO_SLIDES[currentSlide].desc}
+          </p>
+
+          {/* ===================================================================== */}
+          {/* AMAIA-STYLE QUICK APPOINTMENT / FILTER WIDGET */}
+          {/* ===================================================================== */}
+          <div className="w-full max-w-4xl mt-6 sm:mt-8">
+            <div className="w-full rounded-2xl md:rounded-3xl bg-[#141619]/95 backdrop-blur-xl p-3.5 sm:p-5 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[#BA9D6A]/30">
+              <form onSubmit={handleQuickBook} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2.5 sm:gap-3 md:gap-4 items-end text-left">
+                {/* 1. Service Picker */}
+                <div className="relative lg:col-span-4">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                    Signature Service
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={quickService}
+                      onChange={(e) => setQuickService(e.target.value)}
+                      className="w-full rounded-xl border border-white/[0.1] bg-[#181A1C] hover:border-[#BA9D6A]/50 px-3.5 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer pr-9"
+                    >
+                      <option value="Haircut & Styling">Executive Haircut & Styling (₹350)</option>
+                      <option value="Beard Grooming">Royal Beard Sculpting (₹200)</option>
+                      <option value="Facial Care">Charcoal Detox Facial (₹800)</option>
+                      <option value="Hair Treatment">Keratin Hair Spa (₹950)</option>
+                      <option value="Shave & Clean Up">Hot Towel Razor Shave (₹250)</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#BA9D6A]">
+                      <Scissors size={14} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Barber / Stylist */}
+                <div className="relative lg:col-span-3">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                    Master Stylist
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={quickStylist}
+                      onChange={(e) => setQuickStylist(e.target.value)}
+                      className="w-full rounded-xl border border-white/[0.1] bg-[#181A1C] hover:border-[#BA9D6A]/50 px-3.5 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer pr-9"
+                    >
+                      <option value="Any Master Stylist">Any Master Stylist</option>
+                      <option value="Vikram Sen">Vikram Sen (Founder)</option>
+                      <option value="Rahul Verma">Rahul Verma (Beard)</option>
+                      <option value="Sameer Khan">Sameer Khan (Skin)</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-[#BA9D6A]">
+                      <User size={14} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Preferred Date */}
+                <div className="relative lg:col-span-2">
+                  <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                    Date
+                  </label>
+                  <input
+                    type="date"
+                    value={quickDate}
+                    onChange={(e) => setQuickDate(e.target.value)}
+                    className="w-full rounded-xl border border-white/[0.1] bg-[#181A1C] hover:border-[#BA9D6A]/50 px-3 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-white focus:outline-none focus:border-[#BA9D6A] cursor-pointer"
+                  />
+                </div>
+
+                {/* 4. Action Button */}
+                <div className="lg:col-span-3 sm:col-span-2">
+                  <button
+                    type="submit"
+                    className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-110 px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-[13px] font-bold tracking-[0.1em] text-[#141619] uppercase transition-all duration-200 shadow-md shadow-[#BA9D6A]/25 cursor-pointer active:scale-98"
+                  >
+                    <span>Reserve Slot</span>
+                    <ArrowRight className="h-4 w-4 text-[#141619] group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* Quick Buttons: Watch Video & Direct WhatsApp */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 sm:mt-6">
+            <button
+              type="button"
+              onClick={() => setIsVideoModalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 hover:bg-white/[0.08] hover:border-[#BA9D6A] px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer"
+            >
+              <div className="h-6 w-6 rounded-full bg-[#BA9D6A] text-[#0E1012] flex items-center justify-center">
+                <Play size={11} fill="currentColor" />
+              </div>
+              <span>Watch Salon Experience</span>
+            </button>
+
+            <a
+              href="https://wa.me/918239239249?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20inquire%20about%20a%20grooming%20appointment."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-950/30 hover:bg-emerald-900/40 px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-emerald-300 transition-all backdrop-blur-md"
+            >
+              <MessageCircle size={15} />
+              <span>WhatsApp Concierge</span>
+            </a>
           </div>
         </div>
-      </section>
 
-      {/* FEATURE STRIP */}
-      <section className="bg-[#0f0f12] border-b border-zinc-800/80 py-7 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center antialiased">
-          <div className="flex flex-col items-center antialiased">
-            <Scissors className="text-[#e4a863] mb-2 antialiased" size={24} />
-            <h4 className="font-semibold text-xs sm:text-sm text-white antialiased antialiased">Professional Stylists</h4>
-            <p className="text-[11px] text-zinc-500 mt-0.5 antialiased antialiased antialiased">Top industry experts</p>
-          </div>
-          <div className="flex flex-col items-center antialiased">
-            <ShieldCheck className="text-[#e4a863] mb-2 antialiased" size={24} />
-            <h4 className="font-semibold text-xs sm:text-sm text-white antialiased antialiased">Hygienic & Safe</h4>
-            <p className="text-[11px] text-zinc-500 mt-0.5 antialiased antialiased antialiased">Sterilized equipment</p>
-          </div>
-          <div className="flex flex-col items-center antialiased">
-            <Sparkles className="text-[#e4a863] mb-2 antialiased" size={24} />
-            <h4 className="font-semibold text-xs sm:text-sm text-white antialiased antialiased">Premium Products</h4>
-            <p className="text-[11px] text-zinc-500 mt-0.5 antialiased antialiased antialiased">100% skin safe</p>
-          </div>
-          <div className="flex flex-col items-center antialiased">
-            <Clock className="text-[#e4a863] mb-2 antialiased" size={24} />
-            <h4 className="font-semibold text-xs sm:text-sm text-white antialiased antialiased">On-Time Service</h4>
-            <p className="text-[11px] text-zinc-500 mt-0.5 antialiased antialiased antialiased">Zero waiting with booking</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. ABOUT US SECTION */}
-      <section id="about" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-16 flex flex-col antialiased">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center flex flex-col antialiased">
-          <div className="space-y-4 flex flex-col antialiased flex flex-col items-center lg:items-start text-center lg:text-left">
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e4a863] font-semibold antialiased">
-              ABOUT NIKHAR SALON
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white antialiased antialiased antialiased">
-              Your Style, Our Passion
-            </h2>
-            <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed antialiased antialiased antialiased">
-              Nikhar Salon is a premier men's salon in Kota, Rajasthan, dedicated to giving you the best grooming experience. Our expert stylists, modern techniques, and high-quality products ensure you always look sharp, confident, and refreshed.
-            </p>
-            <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed antialiased antialiased antialiased">
-              Founded with the belief that men deserve a dedicated luxury retreat, we combine traditional grooming craft with modern aesthetics.
-            </p>
-
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-zinc-800 antialiased">
-              <div className="antialiased">
-                <p className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#e4a863] antialiased">5+</p>
-                <p className="text-[10px] sm:text-xs uppercase text-zinc-400 tracking-wider antialiased">Stylists</p>
-              </div>
-              <div className="antialiased">
-                <p className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#e4a863] antialiased">1000+</p>
-                <p className="text-[10px] sm:text-xs uppercase text-zinc-400 tracking-wider antialiased">Clients</p>
-              </div>
-              <div className="antialiased">
-                <p className="text-2xl sm:text-3xl font-serif-luxury font-bold text-[#e4a863] antialiased">5★</p>
-                <p className="text-[10px] sm:text-xs uppercase text-zinc-400 tracking-wider antialiased">Rating</p>
-              </div>
+        {/* Hero Bottom Bar: Scroll Indicator & Carousel Controls (Amaia Reference) */}
+        <div className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12 mt-4 sm:mt-6">
+          <div className="flex items-center justify-between text-xs tracking-widest text-white/70">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="h-3.5 sm:h-4 w-[1px] bg-[#BA9D6A]" />
+              <span className="text-[9.5px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-white/80 whitespace-nowrap">
+                SCROLL TO DISCOVER
+              </span>
             </div>
 
-            <div className="pt-2 antialiased">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#e4a863] font-semibold hover:gap-3 transition-all antialiased antialiased antialiased antialiased"
-              >
-                Read Our Full Story & Meet Team →
-              </Link>
+            <div className="hidden md:block text-[11px] uppercase tracking-[0.25em] text-[#BA9D6A] font-medium">
+              LUXURY GROOMING • KOTA, RAJASTHAN
             </div>
-          </div>
 
-          <div className="relative h-72 sm:h-96 rounded-2xl overflow-hidden border border-zinc-800 shadow-xl flex flex-col antialiased">
-            <Image
-              src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1000&q=80"
-              alt="Nikhar Salon Ambience"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <span className="font-sans text-[11px] sm:text-xs tracking-wider text-white/90 tabular-nums">
+                0{currentSlide + 1} <span className="text-[#BA9D6A] mx-0.5 sm:mx-1">—</span> 0{HERO_SLIDES.length}
+              </span>
+              <div className="flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
+                  className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-all cursor-pointer"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
+                  className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-all cursor-pointer"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. SERVICES SECTION */}
-      <section id="services" className="py-20 px-4 sm:px-6 bg-[#0c0c0e] border-y border-zinc-800/80 flex flex-col antialiased">
-        <div className="max-w-7xl mx-auto flex flex-col antialiased">
-          <div className="text-center mb-12 sm:mb-16 flex flex-col antialiased">
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e4a863] font-semibold mb-2 antialiased antialiased">
-              OUR SERVICES
-            </p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif-luxury font-bold text-white antialiased antialiased antialiased antialiased">
-              Complete Grooming for Modern Men
-            </h2>
-            <p className="text-zinc-400 text-xs sm:text-sm mt-3 max-w-xl mx-auto antialiased antialiased antialiased">
-              From hair to beard, skin to style — we cover everything you need to look your best.
+
+      {/* ========================================================================= */}
+      {/* 2. SALON HERITAGE & TRUST METRICS (Amaia Editorial Row) */}
+      {/* ========================================================================= */}
+      <section className="py-12 sm:py-16 bg-[#0B0D0F] border-b border-white/[0.08]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 text-center">
+          <div className="space-y-1">
+            <p className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-[#BA9D6A]">10+ Yrs</p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#A6A29A] font-semibold">
+              Heritage in Kota
             </p>
           </div>
+          <div className="space-y-1">
+            <p className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-[#BA9D6A]">15,000+</p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#A6A29A] font-semibold">
+              Precision Haircuts
+            </p>
+          </div>
+          <div className="space-y-1">
+            <p className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-[#BA9D6A]">5.0 ★</p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#A6A29A] font-semibold">
+              Client Satisfaction
+            </p>
+          </div>
+          <div className="space-y-1">
+            <p className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-[#BA9D6A]">100%</p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#A6A29A] font-semibold">
+              Sanitized & Safe
+            </p>
+          </div>
+        </div>
+      </section>
 
-          {/* Grid layout ensuring single column on mobile */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex flex-col antialiased">
-            {servicesData.slice(0, 6).map((s) => (
-              <ServiceCard key={s.id} service={s} />
-            ))}
+
+      {/* ========================================================================= */}
+      {/* 3. SIGNATURE SERVICES (Curated Collection with Amaia Design) */}
+      {/* ========================================================================= */}
+      <section id="services" className="py-16 sm:py-24 bg-[#0E1012] relative overflow-hidden border-b border-white/[0.08]">
+        {/* Subtle Ambient Gold Glow */}
+        <div className="pointer-events-none absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-[#BA9D6A]/[0.06] blur-[160px]" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          {/* Header Row */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
+            <div className="space-y-2 max-w-xl">
+              <div className="inline-flex items-center gap-2">
+                <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+                <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+                  CURATED SERVICES
+                </span>
+              </div>
+              <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-tight">
+                Signature Grooming & Therapies
+              </h2>
+              <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed">
+                Handcrafted cuts, razor sculpts, skin glow facials, and hair restoration therapies tailored exclusively for modern gentlemen.
+              </p>
+            </div>
+
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap gap-2">
+              {['All', 'Haircut', 'Beard', 'Facial', 'Spa'].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
+                    selectedCategory === cat
+                      ? 'bg-[#BA9D6A] text-[#0E1012] shadow-sm'
+                      : 'border border-white/10 bg-white/[0.04] text-white/75 hover:border-[#BA9D6A]/50 hover:text-white'
+                  }`}
+                >
+                  {cat === 'All' ? 'All Offerings' : cat}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="text-center mt-12 flex flex-col antialiased">
+          {/* Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredServices.map((service, index) => {
+              const tags = ['SIGNATURE', 'ROYAL CRAFT', 'EXECUTIVE', 'SPA THERAPY', 'CLASSIC', 'PREMIUM'];
+              return (
+                <ServiceCard 
+                  key={service.id} 
+                  service={service} 
+                  tag={tags[index % tags.length]} 
+                />
+              );
+            })}
+          </div>
+
+          {/* View All Services Footer */}
+          <div className="mt-12 text-center">
             <Link
               href="/services"
-              className="inline-block border border-[#e4a863] text-[#e4a863] hover:bg-[#e4a863] hover:text-black transition px-7 py-3 rounded-full text-xs uppercase tracking-wider font-semibold antialiased antialiased antialiased antialiased"
+              className="inline-flex items-center gap-2 rounded-full border border-[#BA9D6A]/50 bg-white/[0.04] hover:bg-[#BA9D6A]/15 hover:border-[#BA9D6A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#C2A774] transition-all"
             >
-              View All Services & Pricing →
+              <span>Explore Complete Grooming Menu</span>
+              <ArrowUpRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 4. GALLERY SECTION */}
-      <section id="gallery" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col antialiased">
-        <div className="text-center mb-12 flex flex-col antialiased">
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e4a863] font-semibold mb-2 antialiased antialiased">
-            OUR GALLERY
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white antialiased antialiased antialiased antialiased">
-            Moments of Style & Confidence
-          </h2>
-          <p className="text-zinc-400 text-xs sm:text-sm mt-2 antialiased antialiased antialiased">
-            Real people, real transformations.
-          </p>
-        </div>
 
-        {/* Grid layout for small devices */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 flex flex-col antialiased">
-          {galleryData.map((item) => (
-            <div
-              key={item.id}
-              className="group relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-lg flex flex-col antialiased"
-            >
-              <Image
-                src={item.imgUrl}
-                alt={item.altText}
-                fill
-                className="object-cover group-hover:scale-105 transition duration-500"
-                sizes="(max-width: 640px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3 sm:p-4">
-                <span className="text-[9px] sm:text-[10px] tracking-[0.2em] text-[#e4a863] font-semibold uppercase antialiased antialiased antialiased antialiased">
-                  {item.category}
+      {/* ========================================================================= */}
+      {/* 4. THE CRAFT & VIDEO SHOWCASE SECTION (Amaia Cinematic Video Block) */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#141619] border-b border-white/[0.08] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Content Column */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2">
+                <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+                <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+                  THE CRAFTSMANSHIP
                 </span>
-                <p className="text-white text-xs sm:text-sm font-medium mt-0.5 antialiased antialiased antialiased">{item.altText}</p>
+              </div>
+
+              <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-tight">
+                More Than a Haircut. <br />
+                <span className="italic text-[#BA9D6A]">A Ritual of Confidence.</span>
+              </h2>
+
+              <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed">
+                Step inside Nikhar Salon Kota, where bespoke barbering meets tranquil hospitality. Every session begins with a consultation on your facial structure, lifestyle, and hair texture to craft a signature silhouette.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div className="flex items-center gap-3 text-xs text-white/90">
+                  <div className="h-5 w-5 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/40 flex items-center justify-center text-[#BA9D6A]">
+                    <Check size={12} />
+                  </div>
+                  <span>Traditional Italian hot towel & straight razor shaving</span>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-white/90">
+                  <div className="h-5 w-5 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/40 flex items-center justify-center text-[#BA9D6A]">
+                    <Check size={12} />
+                  </div>
+                  <span>Organic botanical hair detox & scalp massage</span>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-white/90">
+                  <div className="h-5 w-5 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/40 flex items-center justify-center text-[#BA9D6A]">
+                    <Check size={12} />
+                  </div>
+                  <span>Custom fade architecture & beard line detailing</span>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="inline-flex items-center gap-2.5 gold-gradient text-[#0E1012] font-bold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full shadow-lg shadow-[#BA9D6A]/20 hover:scale-105 transition cursor-pointer"
+                >
+                  <Play size={14} fill="currentColor" /> Play Studio Tour Video
+                </button>
               </div>
             </div>
-          ))}
-        </div>
 
-        <div className="text-center mt-10 flex flex-col antialiased">
-          <Link
-            href="/gallery"
-            className="inline-block border border-zinc-700 text-zinc-300 hover:text-white hover:border-[#e4a863] transition px-7 py-2.5 rounded-full text-xs uppercase tracking-wider antialiased antialiased antialiased antialiased antialiased"
-          >
-            Explore Full Lookbook →
-          </Link>
+            {/* Right Video / Visual Showcase Card */}
+            <div className="lg:col-span-7">
+              <div 
+                onClick={() => setIsVideoModalOpen(true)}
+                className="group relative aspect-[16/10] rounded-2xl md:rounded-3xl overflow-hidden border border-[#BA9D6A]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] cursor-pointer"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80"
+                  alt="Nikhar Salon Craftsmanship"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
+
+                {/* Center Play Button Pulse */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative flex items-center justify-center">
+                    <span className="absolute h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-[#BA9D6A]/30 animate-ping" />
+                    <div className="relative h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] text-[#0E1012] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                      <Play size={22} fill="currentColor" className="ml-0.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 flex items-center justify-between text-xs">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white font-medium">
+                    <Sparkles size={12} className="text-[#BA9D6A]" /> The Nikhar Salon Experience
+                  </span>
+                  <span className="text-white/80 hidden sm:inline">Kota Studio • Rajasthan</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 5. AUTOMATIC REVIEWS SLIDER (NEW & UPDATED) */}
-      <section className="py-20 px-4 sm:px-6 bg-[#0f0f12] border-y border-zinc-800 relative flex flex-col antialiased">
-        <div className="max-w-4xl mx-auto text-center flex flex-col antialiased">
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e4a863] font-semibold mb-2 antialiased antialiased antialiased">
-            CLIENT EXPERIENCES
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white mb-8 antialiased antialiased antialiased antialiased">
-            What Our Clients Say
-          </h2>
 
-          {/* Slider Content */}
-          <div className="relative min-h-[220px] flex items-center justify-center flex flex-col antialiased">
-            {/* Prev Button */}
-            <button
-              onClick={prevReview}
-              className="absolute left-0 sm:-left-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:text-[#e4a863] hover:border-[#e4a863] flex items-center justify-center transition z-10 antialiased antialiased antialiased"
-              aria-label="Previous Review"
-            >
-              <ChevronLeft size={20} />
-            </button>
-
-            {/* Current Active Review Card */}
-            <div className="max-w-2xl px-8 transition-opacity duration-500 ease-in-out flex flex-col antialiased">
-              {/* 5 Stars */}
-              <div className="flex justify-center gap-1 text-[#e4a863] mb-5 antialiased">
-                {[...Array(REVIEWS[currentReview].rating)].map((_, i) => (
-                  <Star key={i} size={18} fill="currentColor" />
-                ))}
-              </div>
-
-              {/* Review Text */}
-              <blockquote className="text-base sm:text-lg text-zinc-200 italic leading-relaxed font-normal antialiased antialiased antialiased">
-                "{REVIEWS[currentReview].text}"
-              </blockquote>
-
-              {/* Client Info */}
-              <div className="mt-6 flex items-center justify-center gap-3 antialiased">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#e4a863]">
-                  <Image
-                    src={REVIEWS[currentReview].avatar}
-                    alt={REVIEWS[currentReview].name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-left antialiased antialiased antialiased">
-                  <h4 className="font-semibold text-sm text-white antialiased antialiased antialiased antialiased">
-                    {REVIEWS[currentReview].name}
-                  </h4>
-                  <p className="text-[11px] text-zinc-400 antialiased antialiased antialiased">
-                    {REVIEWS[currentReview].location} • <span className="text-[#e4a863]">{REVIEWS[currentReview].service}</span>
-                  </p>
-                </div>
-              </div>
+      {/* ========================================================================= */}
+      {/* 5. VIP MEMBERSHIP & GROOMING PASSES (Luxury Real-Estate Inspired Cards) */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#0E1012] border-b border-white/[0.08]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
+            <div className="inline-flex items-center gap-2">
+              <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+              <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+                EXCLUSIVE MEMBERSHIP
+              </span>
+              <div className="h-3 w-[2px] bg-[#BA9D6A]" />
             </div>
-
-            {/* Next Button */}
-            <button
-              onClick={nextReview}
-              className="absolute right-0 sm:-right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900/80 text-zinc-300 hover:text-[#e4a863] hover:border-[#e4a863] flex items-center justify-center transition z-10 antialiased antialiased antialiased"
-              aria-label="Next Review"
-            >
-              <ChevronRight size={20} />
-            </button>
+            <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-tight">
+              Nikhar Gentlemen&apos;s Club
+            </h2>
+            <p className="text-xs sm:text-sm text-[#A6A29A]">
+              Join our VIP Grooming Club for unlimited styling sessions, zero waiting queues, and bespoke care.
+            </p>
           </div>
 
-          {/* Indicator Dots */}
-          <div className="flex justify-center gap-2 mt-8 antialiased">
-            {REVIEWS.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentReview(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  currentReview === idx ? 'w-8 bg-[#e4a863]' : 'w-2 bg-zinc-700 hover:bg-zinc-500'
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {VIP_PASSES.map((plan, i) => (
+              <div
+                key={i}
+                className={`relative flex flex-col justify-between rounded-2xl md:rounded-3xl p-6 sm:p-8 transition-all duration-300 ${
+                  plan.featured
+                    ? 'bg-[#181A1C] border-2 border-[#BA9D6A] shadow-[0_16px_40px_rgba(186,157,106,0.25)] scale-[1.02]'
+                    : 'bg-[#141619] border border-white/[0.08] hover:border-[#BA9D6A]/50'
                 }`}
-                aria-label={`Slide to review ${idx + 1}`}
-              />
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#BA9D6A] bg-[#BA9D6A]/10 px-2.5 py-1 rounded-full border border-[#BA9D6A]/30">
+                      {plan.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif-title text-2xl text-white mb-2">{plan.title}</h3>
+                  <div className="flex items-baseline gap-1.5 mb-6">
+                    <span className="font-serif-title text-3xl sm:text-4xl text-[#BA9D6A] font-medium">
+                      {plan.price}
+                    </span>
+                    <span className="text-xs text-[#A6A29A]">/ {plan.period}</span>
+                  </div>
+
+                  <div className="space-y-3 border-t border-white/[0.08] pt-6 mb-8 text-xs text-white/90">
+                    {plan.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5">
+                        <Check size={14} className="text-[#BA9D6A] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <Link
+                  href="/book-appointment"
+                  className={`w-full text-center py-3 sm:py-3.5 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-all ${
+                    plan.featured
+                      ? 'gold-gradient text-[#0E1012] shadow-md shadow-[#BA9D6A]/30 hover:brightness-105'
+                      : 'border border-white/20 text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A]'
+                  }`}
+                >
+                  Join Membership
+                </Link>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. CONTACT & QUICK INQUIRY (WITH 8239239249) */}
-      <section id="contact" className="py-20 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col antialiased">
-        <div className="text-center mb-12 flex flex-col antialiased">
-          <p className="text-[11px] sm:text-xs uppercase tracking-[0.3em] text-[#e4a863] font-semibold mb-2 antialiased antialiased antialiased">
-            GET IN TOUCH
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-serif-luxury font-bold text-white antialiased antialiased antialiased antialiased">
-            Visit Us or Book Your Slot
-          </h2>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 flex flex-col antialiased">
-          {/* Details */}
-          <div className="space-y-4 flex flex-col antialiased">
-            <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800 antialiased">
-              <Phone className="text-[#e4a863] shrink-0 mt-1 antialiased" size={20} />
-              <div className="antialiased">
-                <h4 className="text-xs uppercase text-zinc-400 font-semibold tracking-wider antialiased antialiased antialiased">Phone & WhatsApp</h4>
-                {/* Updated to 8239239249 */}
-                <a 
-                  href="tel:+918239239249" 
-                  className="text-white font-medium text-sm mt-0.5 hover:text-[#e4a863] transition block antialiased antialiased antialiased antialiased"
-                >
-                  +91 82392 39249
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 bg-[#121214] p-5 rounded-xl border border-zinc-800 antialiased">
-              <MapPin className="text-[#e4a863] shrink-0 mt-1 antialiased" size={20} />
-              <div className="antialiased">
-                <h4 className="text-xs uppercase text-zinc-400 font-semibold tracking-wider antialiased antialiased antialiased">Address</h4>
-                <p className="text-white font-medium text-sm mt-0.5 antialiased antialiased antialiased">Shop No. 12, 1st Floor, City Mall, Kota, Rajasthan - 324001</p>
-              </div>
-            </div>
-
-            <div className="w-full h-56 rounded-xl overflow-hidden border border-zinc-800 flex flex-col antialiased">
-              <iframe
-                title="Nikhar Salon Kota"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115545.98147573426!2d75.7663242!3d25.1764654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f849f2b874533%3A0x89988a8f895c2e3!2sKota%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
-                allowFullScreen={false}
-                loading="lazy"
-              />
-            </div>
+      {/* ========================================================================= */}
+      {/* 6. CLIENT REVIEWS & STORIES (Amaia Carousel Style) */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-[#141619] border-b border-white/[0.08]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+            <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+              TESTIMONIALS
+            </span>
+            <div className="h-3 w-[2px] bg-[#BA9D6A]" />
           </div>
 
-          {/* Quick Message Form */}
-          <div className="bg-[#121214] border border-zinc-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col antialiased">
-            <h3 className="text-xl font-serif-luxury font-bold text-white mb-4 antialiased antialiased antialiased antialiased antialiased">Send Us a Quick Message</h3>
-            {sent ? (
-              <div className="text-center py-8 flex flex-col antialiased">
-                <p className="text-[#e4a863] font-semibold text-sm antialiased antialiased antialiased">Message Sent to WhatsApp!</p>
-                <button onClick={() => setSent(false)} className="mt-4 text-xs text-zinc-400 underline antialiased antialiased antialiased">
-                  Send another message
-                </button>
+          <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-white font-normal mb-8 sm:mb-12">
+            Trusted by Kota&apos;s Gentlemen
+          </h2>
+
+          <div className="relative bg-[#181A1C] border border-white/[0.08] rounded-2xl md:rounded-3xl p-6 sm:p-10 shadow-xl">
+            <div className="flex justify-center gap-1.5 text-[#BA9D6A] mb-6">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={18} fill="currentColor" />
+              ))}
+            </div>
+
+            <blockquote className="font-serif-title text-lg sm:text-2xl text-white/95 leading-relaxed italic max-w-3xl mx-auto">
+              &ldquo;{REVIEWS[currentReview].text}&rdquo;
+            </blockquote>
+
+            <div className="mt-8 flex flex-col items-center justify-center">
+              <div className="relative h-12 w-12 rounded-full overflow-hidden border border-[#BA9D6A] mb-2">
+                <Image
+                  src={REVIEWS[currentReview].avatar}
+                  alt={REVIEWS[currentReview].name}
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleContactSubmit} className="space-y-4 antialiased">
-                <div className="antialiased">
-                  <label className="text-xs uppercase text-zinc-400 tracking-wider block mb-1 antialiased">Your Name *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Full Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e4a863]"
-                  />
-                </div>
-                <div className="antialiased">
-                  <label className="text-xs uppercase text-zinc-400 tracking-wider block mb-1 antialiased">WhatsApp Number *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 82392 39249"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e4a863]"
-                  />
-                </div>
-                <div className="antialiased">
-                  <label className="text-xs uppercase text-zinc-400 tracking-wider block mb-1 antialiased">Service</label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e4a863]"
-                  >
-                    <option>Haircut & Styling</option>
-                    <option>Beard Grooming</option>
-                    <option>Facial Care</option>
-                    <option>Hair Treatment</option>
-                    <option>Shave & Clean Up</option>
-                  </select>
-                </div>
-                <div className="antialiased">
-                  <label className="text-xs uppercase text-zinc-400 tracking-wider block mb-1 antialiased">Message</label>
-                  <textarea
-                    rows={3}
-                    placeholder="Your inquiry or preference..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#e4a863] resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full gold-gradient text-black py-3 rounded-xl font-semibold uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-lg shadow-[#e4a863]/20 hover:opacity-95 transition antialiased antialiased antialiased antialiased antialiased"
-                >
-                  <Send size={14} /> Send Message on WhatsApp
-                </button>
-              </form>
-            )}
+              <h4 className="font-serif-title text-base text-white">{REVIEWS[currentReview].name}</h4>
+              <p className="text-xs text-[#BA9D6A] font-medium">{REVIEWS[currentReview].service}</p>
+              <p className="text-[11px] text-[#A6A29A]">{REVIEWS[currentReview].location}</p>
+            </div>
+
+            {/* Slider Controls */}
+            <div className="flex items-center justify-center gap-3 mt-8">
+              <button
+                type="button"
+                onClick={() => setCurrentReview((prev) => (prev - 1 + REVIEWS.length) % REVIEWS.length)}
+                className="h-9 w-9 rounded-full border border-white/20 text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition cursor-pointer"
+                aria-label="Previous review"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <span className="text-xs text-white/60 tabular-nums">
+                0{currentReview + 1} / 0{REVIEWS.length}
+              </span>
+              <button
+                type="button"
+                onClick={() => setCurrentReview((prev) => (prev + 1) % REVIEWS.length)}
+                className="h-9 w-9 rounded-full border border-white/20 text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition cursor-pointer"
+                aria-label="Next review"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
-    </main>
+
+
+      {/* ========================================================================= */}
+      {/* 7. QUICK RESERVATION BANNER & KOTA LOCATION (Call To Action) */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-[#0E1012] to-[#0A0C0E] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="rounded-2xl md:rounded-3xl border border-[#BA9D6A]/40 bg-[#141619] p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div className="space-y-3 max-w-xl text-center md:text-left">
+              <div className="inline-flex items-center gap-2">
+                <div className="h-3 w-[2px] bg-[#BA9D6A]" />
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#BA9D6A] font-semibold">
+                  INSTANT WHATSAPP BOOKING
+                </span>
+              </div>
+              <h3 className="font-serif-title text-2xl sm:text-4xl text-white">
+                Ready to Upgrade Your Signature Look?
+              </h3>
+              <p className="text-xs sm:text-sm text-[#A6A29A]">
+                Reserve your priority slot at Nikhar Salon Kota. Open Monday to Sunday, 9:00 AM to 10:00 PM.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+              <Link
+                href="/book-appointment"
+                className="gold-gradient text-[#0E1012] text-xs font-bold uppercase tracking-[0.12em] px-7 py-3.5 rounded-full text-center shadow-lg shadow-[#BA9D6A]/30 hover:scale-105 transition"
+              >
+                Book Online Slot
+              </Link>
+              <a
+                href="https://wa.me/918239239249?text=Hello%20Nikhar%20Salon!%20I%20want%20to%20book%20an%20appointment."
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 border border-[#BA9D6A]/50 bg-white/[0.05] hover:bg-[#BA9D6A]/15 text-white px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition"
+              >
+                <MessageCircle size={16} className="text-[#BA9D6A]" /> WhatsApp Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Tour Modal Dialog */}
+      <VideoTourModal 
+        isOpen={isVideoModalOpen} 
+        onClose={() => setIsVideoModalOpen(false)} 
+      />
+
+      {/* Interactive Booking Modal Dialog (Triggered from Quick Widget) */}
+      {isBookingModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in">
+          <div className="relative w-full max-w-2xl">
+            <AppointmentModal 
+              defaultService={quickService} 
+              onClose={() => setIsBookingModalOpen(false)} 
+            />
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

@@ -3,21 +3,28 @@
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppFloat() {
-  const phone = "918239239249"; 
-  const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a grooming appointment.");
+  const phone = "918239239249";
+  const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a luxury grooming appointment.");
 
   return (
     <a
       href={`https://wa.me/${phone}?text=${defaultMsg}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Contact on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20ba59] text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 group border border-white/20"
+      aria-label="Chat on WhatsApp with Nikhar Salon"
+      className="fixed bottom-6 right-6 z-50 group flex items-center gap-2.5 rounded-full bg-[#141619] border border-[#BA9D6A]/50 p-2 sm:pr-4 shadow-[0_8px_30px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:border-[#BA9D6A] hover:shadow-[0_8px_32px_rgba(186,157,106,0.35)]"
     >
-      <MessageCircle size={28} className="fill-current" />
-      <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out text-xs font-semibold pl-0 group-hover:pl-2">
-        Chat with Us
-      </span>
+      <div className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full bg-gradient-to-tr from-[#25D366] to-[#128C7E] text-white shadow-md">
+        <MessageCircle size={22} className="fill-current" />
+      </div>
+      <div className="hidden sm:flex flex-col text-left">
+        <span className="text-[9.5px] uppercase tracking-[0.16em] font-bold text-[#BA9D6A]">
+          Direct WhatsApp
+        </span>
+        <span className="text-xs font-semibold text-white">
+          Book Appointment
+        </span>
+      </div>
     </a>
   );
 }

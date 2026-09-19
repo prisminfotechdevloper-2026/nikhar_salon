@@ -1,98 +1,140 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MapPin, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, Calendar, MapPin, Sparkles } from 'lucide-react';
+import Logo from '@/components/Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Gallery', href: '/gallery' },
+    { name: 'Lookbook', href: '/gallery' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#080808]/95 backdrop-blur-md border-b border-zinc-800">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-        {/* Salon Brand Logo */}
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 shrink-0">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 border border-[#e4a863] flex items-center justify-center font-serif-luxury text-[#e4a863] font-bold text-base sm:text-xl">
-            N
-          </div>
-          <div>
-            <span className="font-serif-luxury text-sm sm:text-lg tracking-[0.18em] sm:tracking-[0.2em] font-bold text-white block leading-none">
-              NIKHAR
-            </span>
-            <span className="text-[8px] sm:text-[9px] tracking-[0.25em] text-[#e4a863] block mt-0.5 uppercase font-medium">
-              Salon • Kota
-            </span>
-          </div>
-        </Link>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#0E1012]/95 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.45)] py-2 sm:py-2.5'
+          : 'bg-[#0E1012]/80 backdrop-blur-md border-b border-white/[0.05] py-3 sm:py-4'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
+        {/* Redesigned Brand Logo */}
+        <Logo size="md" />
 
-        {/* Desktop Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.18em] font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`transition ${
-                pathname === link.href
-                  ? 'text-[#e4a863] font-semibold'
-                  : 'text-zinc-300 hover:text-[#e4a863]'
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        {/* Desktop Navigation Links with Amaia-Style Gold Indicator */}
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-9 text-[11.5px] xl:text-[12px] font-medium tracking-[0.14em] uppercase" aria-label="Main Navigation">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`group relative py-1.5 transition-colors duration-200 ${
+                  isActive ? 'text-white font-semibold' : 'text-white/75 hover:text-white'
+                }`}
+              >
+                <span>{link.name}</span>
+                {/* Gold Underline Bar */}
+                <span
+                  className={`absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#BA9D6A] rounded-full transition-all duration-300 origin-left ${
+                    isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* City & Appointment CTA */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="hidden lg:flex items-center gap-1.5 text-xs text-zinc-400">
-            <MapPin size={15} className="text-[#e4a863]" />
-            <span>Kota, Rajasthan</span>
-          </div>
+        {/* CTA Actions: Direct Call + Book Appointment */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Direct Call Button (Amaia Reference Style) */}
+          <a
+            href="tel:+918239239249"
+            className="group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-[#E8D4B0]/30 bg-white/[0.06] hover:bg-white/[0.12] hover:border-[#BA9D6A]/60 px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.1em] text-white/90 uppercase transition-all duration-300 backdrop-blur-md cursor-pointer shadow-xs active:scale-95"
+            aria-label="Direct Call: +91 82392 39249"
+          >
+            <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#BA9D6A] group-hover:scale-110 transition-transform" />
+            <span className="hidden sm:inline whitespace-nowrap">+91 82392 39249</span>
+            <span className="sm:hidden whitespace-nowrap">Call</span>
+          </a>
 
+          {/* Book Appointment Gold Pill CTA */}
           <Link
             href="/book-appointment"
-            className="gold-gradient text-black font-semibold text-[10px] sm:text-xs tracking-wider uppercase px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition transform hover:scale-105 shadow-md shadow-[#e4a863]/20 whitespace-nowrap"
+            className="group relative inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-110 px-3.5 sm:px-5 py-1.5 sm:py-2 text-[10.5px] sm:text-[11.5px] font-semibold tracking-[0.1em] text-[#141619] uppercase transition-all duration-300 shadow-[0_2px_14px_rgba(186,157,106,0.3)] hover:shadow-[0_4px_22px_rgba(186,157,106,0.45)] active:scale-95 border border-[#E8D4B0]/40 cursor-pointer whitespace-nowrap"
           >
-            <span className="inline sm:hidden">Book Now</span>
-            <span className="hidden sm:inline">Book Appointment</span>
+            <Calendar className="h-3.5 w-3.5 text-[#141619] shrink-0" />
+            <span className="whitespace-nowrap">Book Appointment</span>
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Trigger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-zinc-300 hover:text-white p-1"
-            aria-label="Toggle menu"
+            className="lg:hidden flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/[0.07] hover:bg-white/[0.14] text-white hover:text-[#BA9D6A] hover:border-[#BA9D6A]/50 transition-all duration-200 active:scale-95 cursor-pointer ml-1"
+            aria-label="Toggle navigation menu"
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            {isOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#0e0e11] border-b border-zinc-800 px-6 py-4 space-y-3 text-sm uppercase tracking-wider font-medium">
-          {navLinks.map((link) => (
+        <div className="lg:hidden bg-[#0E1012]/98 border-b border-white/[0.08] px-6 py-5 space-y-3 backdrop-blur-2xl animate-in slide-in-from-top-2 duration-300">
+          <div className="pb-3 border-b border-white/[0.06] flex items-center justify-between text-xs text-[#BA9D6A]">
+            <span className="flex items-center gap-1.5">
+              <MapPin size={13} /> Kota, Rajasthan
+            </span>
+            <span>9:00 AM – 10:00 PM</span>
+          </div>
+
+          <nav className="space-y-1 pt-1 font-sans">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block py-2.5 px-3 rounded-xl text-xs uppercase tracking-[0.14em] font-semibold transition-all ${
+                    isActive
+                      ? 'text-[#BA9D6A] bg-white/[0.05] border border-[#BA9D6A]/30'
+                      : 'text-white/80 hover:text-white hover:bg-white/[0.03]'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="pt-3">
             <Link
-              key={link.name}
-              href={link.href}
+              href="/book-appointment"
               onClick={() => setIsOpen(false)}
-              className={`block py-2 ${
-                pathname === link.href ? 'text-[#e4a863]' : 'text-zinc-300 hover:text-[#e4a863]'
-              }`}
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] py-3 text-xs font-bold tracking-[0.12em] text-[#141619] uppercase shadow-md shadow-[#BA9D6A]/20"
             >
-              {link.name}
+              <Calendar size={14} /> Book Instant Appointment
             </Link>
-          ))}
+          </div>
         </div>
       )}
     </header>
