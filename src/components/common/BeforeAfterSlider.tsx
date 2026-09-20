@@ -13,6 +13,7 @@ interface BeforeAfterSliderProps {
   afterLabel?: string;
   className?: string;
   aspectRatio?: string;
+  /** CSS object-position value, e.g. 'center 25%' or 'center top' */
   objectPosition?: string;
   initialPosition?: number;
 }
@@ -26,7 +27,7 @@ export default function BeforeAfterSlider({
   afterLabel = "AFTER (HAIR PATCH)",
   className = "",
   aspectRatio = "aspect-[4/5] sm:aspect-[1/1] md:aspect-[4/5]",
-  objectPosition = "object-top",
+  objectPosition = "center 25%",
   initialPosition = 50,
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(initialPosition);
@@ -112,7 +113,8 @@ export default function BeforeAfterSlider({
           alt={afterAlt}
           fill
           sizes="(max-width: 1024px) 100vw, 60vw"
-          className={`object-cover ${objectPosition} pointer-events-none`}
+          className="object-cover pointer-events-none"
+          style={{ objectPosition }}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
@@ -131,7 +133,8 @@ export default function BeforeAfterSlider({
           alt={beforeAlt}
           fill
           sizes="(max-width: 1024px) 100vw, 60vw"
-          className={`object-cover ${objectPosition} pointer-events-none`}
+          className="object-cover pointer-events-none"
+          style={{ objectPosition }}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
@@ -139,20 +142,24 @@ export default function BeforeAfterSlider({
 
       {/* 3. Static Labels */}
       {/* BEFORE Badge */}
-      <div
-        className="pointer-events-none absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-opacity duration-300 shadow-md"
-        style={{ opacity: sliderPosition < 15 ? 0 : 1 }}
-      >
-        <span>{beforeLabel}</span>
-      </div>
+      {beforeLabel && (
+        <div
+          className="pointer-events-none absolute top-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-opacity duration-300 shadow-md"
+          style={{ opacity: sliderPosition < 15 ? 0 : 1 }}
+        >
+          <span>{beforeLabel}</span>
+        </div>
+      )}
 
       {/* AFTER Badge */}
-      <div
-        className="pointer-events-none absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#BA9D6A] text-[#0E1012] text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-opacity duration-300 shadow-md"
-        style={{ opacity: sliderPosition > 85 ? 0 : 1 }}
-      >
-        <span>{afterLabel}</span>
-      </div>
+      {afterLabel && (
+        <div
+          className="pointer-events-none absolute top-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#BA9D6A] text-[#0E1012] text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-opacity duration-300 shadow-md"
+          style={{ opacity: sliderPosition > 85 ? 0 : 1 }}
+        >
+          <span>{afterLabel}</span>
+        </div>
+      )}
 
       {/* 4. Interactive Vertical Split Line & Handle */}
       <div

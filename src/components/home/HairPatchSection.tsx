@@ -188,20 +188,21 @@ export default function HairPatchSection() {
                   afterImage={current.afterImg}
                   beforeAlt={`${current.title} Before`}
                   afterAlt={`${current.title} After`}
-                  beforeLabel="BEFORE"
-                  afterLabel="AFTER (HAIR PATCH)"
-                  aspectRatio="aspect-[4/4] sm:aspect-[4/3.5] lg:aspect-[16/11] max-h-[380px] sm:max-h-[420px]"
-                  objectPosition="object-top"
+                  beforeLabel=""
+                  afterLabel=""
+                  aspectRatio="aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] max-h-[520px] sm:max-h-[560px]"
+                  objectPosition="center 25%"
                 />
               ) : (
                 /* View 2: Side-by-Side Dual View */
-                <div className="relative aspect-[4/4] sm:aspect-[4/3.5] lg:aspect-[16/11] max-h-[380px] sm:max-h-[420px] w-full rounded-2xl md:rounded-3xl overflow-hidden border border-[#E5E0D8] dark:border-white/[0.1] bg-[#181A1C] shadow-lg group">
+                <div className="relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-[3/4] max-h-[520px] sm:max-h-[560px] w-full rounded-2xl md:rounded-3xl overflow-hidden border border-[#E5E0D8] dark:border-white/[0.1] bg-[#181A1C] shadow-lg group">
                   <Image
                     src={current.sideBySideImg}
                     alt={current.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700"
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    style={{ objectPosition: 'center 25%' }}
                     priority
                   />
                   <div className="absolute top-2.5 left-2.5 bg-black/80 backdrop-blur-md border border-[#BA9D6A]/70 text-[#BA9D6A] px-2.5 py-0.5 rounded-full text-[9.5px] font-bold uppercase tracking-wider shadow-md">
