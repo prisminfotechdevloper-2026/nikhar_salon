@@ -1,6 +1,8 @@
 import Link from 'next/link';
-import { Phone, MapPin, Clock, Mail, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 import Logo from '@/components/Logo';
+import ThemeToggle from '@/components/ThemeToggle';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function Footer() {
   return (
@@ -8,19 +10,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
         {/* Brand Column (5 cols) */}
         <div className="lg:col-span-4 space-y-4">
-          <Logo size="lg" />
+          <Logo size="lg" forceDark />
           <p className="text-xs sm:text-[13px] leading-relaxed text-[#9E9B95] max-w-sm pt-2">
             Kota&apos;s premier destination for luxury men&apos;s grooming. Precision haircutting, bespoke beard sculpting, rejuvenating skincare, and VIP salon hospitality.
           </p>
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex items-center gap-4 pt-2">
             <a
               href="https://wa.me/918239239249"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#BA9D6A] hover:text-[#C2A774] transition-colors"
             >
-              <MessageCircle size={15} /> Chat on WhatsApp
+              <WhatsAppIcon size={16} variant="authentic" /> Chat on WhatsApp
             </a>
+            <ThemeToggle showLabel />
           </div>
         </div>
 
@@ -46,7 +49,7 @@ export default function Footer() {
               <Link href="/gallery" className="hover:text-[#BA9D6A] transition-colors duration-200">Lookbook</Link>
             </li>
             <li>
-              <Link href="/book-appointment" className="hover:text-[#BA9D6A] transition-colors duration-200 text-[#BA9D6A]">Book Slot</Link>
+              <Link href="/book-appointment" className="hover:text-[#C2A774] transition-colors duration-200 text-[#BA9D6A] font-semibold">Book Slot</Link>
             </li>
           </ul>
         </div>
@@ -91,7 +94,7 @@ export default function Footer() {
           <div className="space-y-2.5 text-xs">
             <p className="flex items-start gap-2.5 text-white/90">
               <MapPin size={15} className="text-[#BA9D6A] shrink-0 mt-0.5" />
-              <span>Shop No. 12, 1st Floor, City Mall, Kota, Rajasthan - 324001</span>
+              <span>Shop Number 9, Old Police Station Ke Samne, Vigyan Nagar, Kota, Rajasthan - 324005</span>
             </p>
             <p className="flex items-center gap-2.5 text-white/90">
               <Phone size={15} className="text-[#BA9D6A] shrink-0" />
@@ -153,7 +156,7 @@ export default function Footer() {
           <Link href="/about" className="hover:text-white transition">About</Link>
           <Link href="/services" className="hover:text-white transition">Services</Link>
           <Link href="/contact" className="hover:text-white transition">Contact</Link>
-          <span className="text-[#BA9D6A]">Made for Excellence</span>
+          <span className="text-[#BA9D6A] font-medium">Made for Excellence</span>
         </div>
       </div>
     </footer>

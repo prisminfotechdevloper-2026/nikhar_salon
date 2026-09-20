@@ -8,6 +8,7 @@ import { galleryData, GalleryImage } from '@/data/gallery';
 
 const CATEGORIES = [
   'All',
+  'Hair Patch Transformations',
   'Haircuts & Styling',
   'Beard Grooming',
   'Facials',
@@ -33,8 +34,8 @@ export default function GalleryGrid() {
             onClick={() => setActiveCat(cat)}
             className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
               activeCat === cat
-                ? 'bg-[#BA9D6A] text-[#0E1012] shadow-md shadow-[#BA9D6A]/20'
-                : 'border border-white/10 bg-white/[0.04] text-white/75 hover:border-[#BA9D6A]/50 hover:text-white'
+                ? 'bg-[#BA9D6A] text-[#0E1012] shadow-sm'
+                : 'border border-[#D9D4CB] dark:border-white/10 bg-[#ECE8E1]/80 dark:bg-white/[0.04] text-[#555047] dark:text-white/75 hover:border-[#BA9D6A]/50 hover:text-[#181A1C] dark:hover:text-white'
             }`}
           >
             {cat}
@@ -48,7 +49,7 @@ export default function GalleryGrid() {
           <div
             key={item.id}
             onClick={() => setActiveImage(item)}
-            className="group relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden border border-white/[0.08] hover:border-[#BA9D6A]/60 bg-[#141619] shadow-md cursor-pointer transition-all duration-300"
+            className="group relative aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/60 bg-[#EAE6DF] dark:bg-[#141619] shadow-xs hover:shadow-md dark:shadow-md cursor-pointer transition-all duration-300"
           >
             <Image
               src={item.imgUrl}
@@ -82,11 +83,11 @@ export default function GalleryGrid() {
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full bg-[#141619] border border-[#BA9D6A]/40 rounded-2xl overflow-hidden shadow-2xl"
+            className="relative max-w-4xl w-full bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-[#BA9D6A]/40 rounded-2xl overflow-hidden shadow-2xl"
           >
             <button
               onClick={() => setActiveImage(null)}
-              className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:text-[#BA9D6A]"
+              className="absolute top-4 right-4 z-20 h-9 w-9 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:text-[#BA9D6A] cursor-pointer"
               aria-label="Close lightbox"
             >
               <X size={18} />
@@ -102,18 +103,18 @@ export default function GalleryGrid() {
               />
             </div>
 
-            <div className="p-5 bg-[#0E1012] border-t border-white/[0.08] flex items-center justify-between">
+            <div className="p-5 bg-[#FAF8F5] dark:bg-[#0E1012] border-t border-[#E5E0D8] dark:border-white/[0.08] flex items-center justify-between">
               <div>
-                <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#BA9D6A] font-semibold">
+                <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold">
                   {activeImage.category}
                 </span>
-                <h4 className="font-serif-title text-xl text-white mt-0.5">{activeImage.altText}</h4>
+                <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white mt-0.5">{activeImage.altText}</h4>
               </div>
 
               <Link
                 href="/book-appointment"
                 onClick={() => setActiveImage(null)}
-                className="gold-gradient text-[#0E1012] font-bold text-xs tracking-wider uppercase px-5 py-2.5 rounded-full"
+                className="gold-gradient text-[#0E1012] font-bold text-xs tracking-wider uppercase px-5 py-2.5 rounded-full shadow-sm hover:scale-105 transition"
               >
                 Get This Style
               </Link>

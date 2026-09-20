@@ -23,7 +23,7 @@ export default function HomeServicesSection() {
       });
 
   return (
-    <section id="services" className="py-5 sm:py-7 bg-[#0E1012] relative overflow-hidden border-b border-white/[0.08]">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-[#FAF8F5] dark:bg-[#0E1012] relative overflow-hidden border-b border-[#E5E0D8] dark:border-white/[0.08] transition-colors duration-300">
       {/* Subtle Ambient Gold Glow */}
       <div className="pointer-events-none absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-[#BA9D6A]/[0.06] blur-[160px]" />
       
@@ -33,14 +33,14 @@ export default function HomeServicesSection() {
           <div className="space-y-2 max-w-xl">
             <div className="inline-flex items-center gap-2">
               <div className="h-3 w-[2px] bg-[#BA9D6A]" />
-              <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#BA9D6A] uppercase">
+              <span className="text-[10.5px] font-semibold tracking-[0.25em] text-[#8C734B] dark:text-[#BA9D6A] uppercase font-sans">
                 CURATED SERVICES
               </span>
             </div>
-            <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-white font-normal leading-tight">
+            <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl text-[#181A1C] dark:text-white font-normal leading-tight">
               Signature Grooming & Therapies
             </h2>
-            <p className="text-xs sm:text-sm text-[#A6A29A] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] leading-relaxed">
               Handcrafted cuts, razor sculpts, skin glow facials, and hair restoration therapies tailored exclusively for modern gentlemen.
             </p>
           </div>
@@ -54,7 +54,7 @@ export default function HomeServicesSection() {
                 className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-[#BA9D6A] text-[#0E1012] shadow-sm'
-                    : 'border border-white/10 bg-white/[0.04] text-white/75 hover:border-[#BA9D6A]/50 hover:text-white'
+                    : 'border border-[#D9D4CB] dark:border-white/10 bg-[#ECE8E1]/80 dark:bg-white/[0.04] text-[#555047] dark:text-white/75 hover:border-[#BA9D6A]/50 hover:text-[#181A1C] dark:hover:text-white'
                 }`}
               >
                 {cat === 'All' ? 'All Offerings' : cat}
@@ -78,7 +78,7 @@ export default function HomeServicesSection() {
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-[#BA9D6A]/50 bg-white/[0.04] hover:bg-[#BA9D6A]/15 hover:border-[#BA9D6A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#C2A774] transition-all"
+            className="inline-flex items-center gap-2 rounded-full border border-[#BA9D6A]/50 bg-white dark:bg-white/[0.04] hover:bg-[#BA9D6A]/15 hover:border-[#BA9D6A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8C734B] dark:text-[#C2A774] transition-all shadow-2xs"
           >
             <span>Explore Complete Grooming Menu</span>
             <ArrowUpRight size={15} />

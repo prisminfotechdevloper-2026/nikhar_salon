@@ -24,19 +24,19 @@ export default function SectionHeader({
       {subtitle && (
         <div className={`inline-flex items-center gap-2 ${isCenter ? 'justify-center' : ''}`}>
           <div className="h-3 w-[2px] bg-[#BA9D6A]" />
-          <span className="text-[10.5px] uppercase tracking-[0.25em] text-[#BA9D6A] font-semibold">
+          <span className="text-[10.5px] uppercase tracking-[0.25em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold font-sans">
             {subtitle}
           </span>
           {isCenter && <div className="h-3 w-[2px] bg-[#BA9D6A]" />}
         </div>
       )}
 
-      <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-[1.15]">
+      <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-5xl font-normal text-[#181A1C] dark:text-white leading-[1.15] transition-colors duration-200">
         {title}
       </h2>
 
       {description && (
-        <p className="text-[#A6A29A] text-xs sm:text-sm md:text-base leading-relaxed">
+        <p className="text-[#555047] dark:text-[#A6A29A] text-xs sm:text-sm md:text-base leading-relaxed transition-colors duration-200">
           {description}
         </p>
       )}

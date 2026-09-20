@@ -5,7 +5,7 @@ import AboutCta from '@/components/about/AboutCta';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-20 sm:space-y-28 font-sans">
+    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-20 sm:space-y-28 font-sans transition-colors duration-300">
       {/* 1. Header & Story Hero */}
       <AboutHero />
 

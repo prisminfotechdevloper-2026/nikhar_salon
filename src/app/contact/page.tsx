@@ -3,20 +3,20 @@ import ContactForm from '@/components/contact/ContactForm';
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-16 sm:space-y-20 font-sans">
+    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-16 sm:space-y-20 font-sans transition-colors duration-300">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2">
           <div className="h-3 w-[2px] bg-[#BA9D6A]" />
-          <span className="text-[10.5px] uppercase tracking-[0.25em] text-[#BA9D6A] font-semibold">
+          <span className="text-[10.5px] uppercase tracking-[0.25em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold font-sans">
             GET IN TOUCH
           </span>
           <div className="h-3 w-[2px] bg-[#BA9D6A]" />
         </div>
-        <h1 className="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-normal text-white">
+        <h1 className="font-serif-title text-4xl sm:text-5xl lg:text-6xl font-normal text-[#181A1C] dark:text-white">
           Contact Nikhar Salon Kota
         </h1>
-        <p className="text-[#A6A29A] text-xs sm:text-sm md:text-base leading-relaxed">
+        <p className="text-[#555047] dark:text-[#A6A29A] text-xs sm:text-sm md:text-base leading-relaxed">
           Have a question about our signature hair and beard treatments, VIP packages, or wish to make an appointment? Our concierge team is ready to assist you.
         </p>
       </div>
@@ -27,32 +27,32 @@ export default function ContactPage() {
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <div className="h-3 w-[2px] bg-[#BA9D6A]" />
-              <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#BA9D6A] font-semibold">
+              <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold font-sans">
                 DIRECT CHANNELS
               </span>
             </div>
-            <h2 className="font-serif-title text-3xl text-white">Let&apos;s Connect</h2>
-            <p className="text-xs sm:text-sm text-[#A6A29A] mt-1">
+            <h2 className="font-serif-title text-3xl text-[#181A1C] dark:text-white">Let&apos;s Connect</h2>
+            <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] mt-1">
               Reach out directly by phone, WhatsApp, or visit our studio in Kota.
             </p>
           </div>
 
           <div className="space-y-4">
             {/* Phone & WhatsApp Card */}
-            <div className="flex items-start gap-4 bg-[#141619] p-5 sm:p-6 rounded-2xl border border-white/[0.08] hover:border-[#BA9D6A]/50 transition">
-              <div className="p-3 bg-[#BA9D6A]/10 text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
+            <div className="flex items-start gap-4 bg-white dark:bg-[#141619] p-5 sm:p-6 rounded-2xl border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/50 transition shadow-xs">
+              <div className="p-3 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
                 <Phone size={22} />
               </div>
               <div className="space-y-1">
-                <h4 className="text-[11px] uppercase text-[#A6A29A] font-semibold tracking-wider">Phone & WhatsApp</h4>
-                <a href="tel:+918239239249" className="text-white font-serif-title text-xl block hover:text-[#BA9D6A] transition">
+                <h4 className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] font-semibold tracking-wider">Phone & WhatsApp</h4>
+                <a href="tel:+918239239249" className="text-[#181A1C] dark:text-white font-serif-title text-xl block hover:text-[#BA9D6A] transition">
                   +91 82392 39249
                 </a>
                 <a
                   href="https://wa.me/918239239249"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs text-[#BA9D6A] inline-flex items-center gap-1.5 font-semibold hover:underline pt-0.5"
+                  className="text-xs text-[#8C734B] dark:text-[#BA9D6A] inline-flex items-center gap-1.5 font-semibold hover:underline pt-0.5"
                 >
                   <MessageCircle size={14} /> Open Direct WhatsApp
                 </a>
@@ -60,40 +60,40 @@ export default function ContactPage() {
             </div>
 
             {/* Email Address */}
-            <div className="flex items-start gap-4 bg-[#141619] p-5 sm:p-6 rounded-2xl border border-white/[0.08] hover:border-[#BA9D6A]/50 transition">
-              <div className="p-3 bg-[#BA9D6A]/10 text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
+            <div className="flex items-start gap-4 bg-white dark:bg-[#141619] p-5 sm:p-6 rounded-2xl border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/50 transition shadow-xs">
+              <div className="p-3 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
                 <Mail size={22} />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-[11px] uppercase text-[#A6A29A] font-semibold tracking-wider">Email Concierge</h4>
-                <p className="text-white font-medium text-sm break-all">
+                <h4 className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] font-semibold tracking-wider">Email Concierge</h4>
+                <p className="text-[#181A1C] dark:text-white font-medium text-sm break-all">
                   contact.nikharsalon@gmail.com
                 </p>
-                <p className="text-[11px] text-[#A6A29A]">We respond within 24 hours</p>
+                <p className="text-[11px] text-[#7D776D] dark:text-[#A6A29A]">We respond within 24 hours</p>
               </div>
             </div>
 
             {/* Location Card */}
-            <div className="flex items-start gap-4 bg-[#141619] p-5 sm:p-6 rounded-2xl border border-white/[0.08] hover:border-[#BA9D6A]/50 transition">
-              <div className="p-3 bg-[#BA9D6A]/10 text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
+            <div className="flex items-start gap-4 bg-white dark:bg-[#141619] p-5 sm:p-6 rounded-2xl border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/50 transition shadow-xs">
+              <div className="p-3 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
                 <MapPin size={22} />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-[11px] uppercase text-[#A6A29A] font-semibold tracking-wider">Studio Location</h4>
-                <p className="text-white font-medium text-sm">Shop No. 12, 1st Floor, City Mall,</p>
-                <p className="text-xs text-[#A6A29A]">Kota, Rajasthan - 324001</p>
+                <h4 className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] font-semibold tracking-wider">Studio Location</h4>
+                <p className="text-[#181A1C] dark:text-white font-medium text-sm">Shop Number 9, Old Police Station Ke Samne,</p>
+                <p className="text-xs text-[#7D776D] dark:text-[#A6A29A]">Vigyan Nagar, Kota, Rajasthan - 324005</p>
               </div>
             </div>
 
             {/* Operating Hours */}
-            <div className="flex items-start gap-4 bg-[#141619] p-5 sm:p-6 rounded-2xl border border-white/[0.08] hover:border-[#BA9D6A]/50 transition">
-              <div className="p-3 bg-[#BA9D6A]/10 text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
+            <div className="flex items-start gap-4 bg-white dark:bg-[#141619] p-5 sm:p-6 rounded-2xl border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/50 transition shadow-xs">
+              <div className="p-3 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] rounded-xl shrink-0 border border-[#BA9D6A]/30">
                 <Clock size={22} />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-[11px] uppercase text-[#A6A29A] font-semibold tracking-wider">Salon Hours</h4>
-                <p className="text-white font-medium text-sm">Mon - Sun: 9:00 AM – 10:00 PM</p>
-                <p className="text-[11px] text-[#BA9D6A]">Open All 7 Days a Week</p>
+                <h4 className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] font-semibold tracking-wider">Salon Hours</h4>
+                <p className="text-[#181A1C] dark:text-white font-medium text-sm">Mon - Sun: 9:00 AM – 10:00 PM</p>
+                <p className="text-[11px] text-[#8C734B] dark:text-[#BA9D6A] font-semibold">Open All 7 Days a Week</p>
               </div>
             </div>
           </div>
@@ -106,27 +106,27 @@ export default function ContactPage() {
       </div>
 
       {/* Google Map Section */}
-      <section className="bg-[#141619] border border-white/[0.08] rounded-2xl md:rounded-3xl p-6 sm:p-8 space-y-4">
+      <section className="bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl md:rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs transition-colors">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <div>
             <div className="inline-flex items-center gap-2">
               <div className="h-3 w-[2px] bg-[#BA9D6A]" />
-              <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#BA9D6A] font-semibold">
+              <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold font-sans">
                 SALON LOCATION
               </span>
             </div>
-            <h3 className="font-serif-title text-2xl text-white">Visit Us in Kota, Rajasthan</h3>
+            <h3 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">Visit Us in Kota, Rajasthan</h3>
           </div>
-          <span className="text-xs text-[#A6A29A]">Shop No. 12, 1st Floor, City Mall</span>
+          <span className="text-xs text-[#7D776D] dark:text-[#A6A29A]">Shop Number 9, Vigyan Nagar, Kota</span>
         </div>
 
-        <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-white/[0.08]">
+        <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#E5E0D8] dark:border-white/[0.08]">
           <iframe
-            title="Nikhar Salon Location Kota"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115545.98147573426!2d75.7663242!3d25.1764654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f849f2b874533%3A0x89988a8f895c2e3!2sKota%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+            title="Nikhar Salon Location Vigyan Nagar Kota"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14441.576885361254!2d75.8366472!3d25.1328965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f84d6a695b263%3A0xe5433a0b59b3c37d!2sVigyan%20Nagar%2C%20Kota%2C%20Rajasthan%20324005!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
             width="100%"
             height="100%"
-            style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg)' }}
+            className="border-0 w-full h-full dark:invert-[0.9] dark:hue-rotate-180"
             allowFullScreen={false}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

@@ -8,10 +8,10 @@ export interface TeamMember {
 
 export const TEAM: TeamMember[] = [
   {
-    name: "Vikram Sen",
-    role: "Master Barber & Founder",
+    name: "Firoz Khan",
+    role: "Owner & Master Hair Patch Specialist",
     exp: "10+ Years Experience",
-    speciality: "Precision Fade Architecture & Royal Shave",
+    speciality: "Non-Surgical Hair Replacement, Micro-Skin Systems & Precision Fades",
     img: "/images/team-vikram.jpg"
   },
   {

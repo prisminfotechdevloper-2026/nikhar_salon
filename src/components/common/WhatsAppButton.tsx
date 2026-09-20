@@ -23,7 +23,7 @@ export default function WhatsAppButton({
 }: WhatsAppButtonProps) {
   const whatsappUrl = `https://wa.me/${DEFAULT_PHONE}?text=${encodeURIComponent(message)}`;
 
-  // 1. Hero Pill Variant (Luxury dark glass + emerald glow + real WhatsApp badge)
+  // 1. Hero Pill Variant (Luxury glass + emerald glow + real WhatsApp badge)
   if (variant === 'hero') {
     return (
       <a
@@ -31,7 +31,7 @@ export default function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        className={`group relative inline-flex items-center gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#141619]/90 border border-emerald-500/30 hover:border-[#25D366] text-white backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_25px_rgba(37,211,102,0.25)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer ${className}`}
+        className={`group relative inline-flex items-center gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/90 dark:bg-[#141619]/90 border border-emerald-500/30 hover:border-[#25D366] text-[#181A1C] dark:text-white backdrop-blur-xl shadow-[0_4px_16px_rgba(0,0,0,0.1)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_25px_rgba(37,211,102,0.25)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer ${className}`}
       >
         {/* WhatsApp Real Vector Icon with Pulse Dot */}
         <div className="relative flex items-center justify-center shrink-0">
@@ -39,7 +39,7 @@ export default function WhatsAppButton({
           {showOnlineStatus && (
             <span className="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#25D366] border border-[#0E1012]" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#25D366] border border-white dark:border-[#0E1012]" />
             </span>
           )}
         </div>
@@ -47,12 +47,12 @@ export default function WhatsAppButton({
         {/* Text Container */}
         <div className="flex flex-col text-left">
           <div className="flex items-center gap-1.5">
-            <span className="text-[11.5px] sm:text-xs font-semibold tracking-wider uppercase text-white/95 group-hover:text-white transition-colors">
+            <span className="text-[11.5px] sm:text-xs font-semibold tracking-wider uppercase text-[#181A1C] dark:text-white/95 group-hover:text-emerald-600 dark:group-hover:text-white transition-colors">
               {label}
             </span>
           </div>
           {subLabel && (
-            <span className="text-[9.5px] tracking-widest uppercase text-[#25D366] font-semibold -mt-0.5">
+            <span className="text-[9.5px] tracking-widest uppercase text-[#128C7E] dark:text-[#25D366] font-semibold -mt-0.5">
               {subLabel}
             </span>
           )}
@@ -69,7 +69,7 @@ export default function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        className={`inline-flex items-center justify-center gap-2.5 w-full py-3 px-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-600 hover:text-white hover:border-emerald-500 font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-md active:scale-[0.98] ${className}`}
+        className={`inline-flex items-center justify-center gap-2.5 w-full py-3 px-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-600 hover:text-white hover:border-emerald-500 font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-xs active:scale-[0.98] ${className}`}
       >
         <WhatsAppIcon size={18} variant="authentic" />
         <span>{label}</span>
@@ -85,7 +85,7 @@ export default function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        className={`group inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-gradient-to-tr from-[#C2A774] via-[#BA9D6A] to-[#B3935B] text-[#0E1012] font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#BA9D6A]/20 hover:scale-105 active:scale-95 transition-all ${className}`}
+        className={`group inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-gradient-to-tr from-[#C2A774] via-[#BA9D6A] to-[#B3935B] text-[#0E1012] font-bold text-xs uppercase tracking-wider shadow-md shadow-[#BA9D6A]/20 hover:scale-105 active:scale-95 transition-all ${className}`}
       >
         <WhatsAppIcon size={18} variant="mono" className="text-[#0E1012]" />
         <span>{label}</span>
@@ -101,7 +101,7 @@ export default function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
-        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-white/90 hover:text-white hover:border-emerald-400 bg-white/[0.03] text-xs uppercase tracking-wider transition-all duration-200 ${className}`}
+        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/40 text-[#181A1C] dark:text-white/90 hover:text-emerald-600 dark:hover:text-white hover:border-emerald-500 bg-emerald-50/50 dark:bg-white/[0.03] text-xs uppercase tracking-wider transition-all duration-200 ${className}`}
       >
         <WhatsAppIcon size={16} variant="authentic" />
         <span>{label}</span>
@@ -116,7 +116,7 @@ export default function WhatsAppButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400 hover:text-emerald-300 transition-colors ${className}`}
+      className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors ${className}`}
     >
       <WhatsAppIcon size={16} variant="authentic" />
       <span>{label}</span>

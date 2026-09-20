@@ -30,11 +30,11 @@ export interface VipPass {
 export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 1,
-    title: "The Art of Modern Grooming.",
-    subtitle: "PRECISION CUTS & ROYAL BEARD SCULPTING IN KOTA",
-    desc: "Experience premier male grooming in Rajasthan. From bespoke fade craft to traditional hot towel razor shave and revitalizing skin therapies.",
+    title: "The Art of Hair Patch & Grooming.",
+    subtitle: "KOTA'S #1 NON-SURGICAL HAIR REPLACEMENT & STYLING",
+    desc: "Experience 100% natural human hair patch transformations with undetectable hairline, bespoke fade haircuts, and royal beard sculpting by Master Specialist Firoz Khan.",
     image: "/images/hero-slide-1.jpg",
-    tag: "SIGNATURE EXPERIENCE"
+    tag: "PRIMARY SPECIALIZATION"
   },
   {
     id: 2,
@@ -42,7 +42,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     subtitle: "BESPOKE HAIR STYLING & TEXTURE CRAFT",
     desc: "Our master stylists bring over a decade of precision craft to give you a sharp, commanding look customized to your face profile.",
     image: "/images/hero-slide-2.jpg",
-    tag: "MASTER STYLISTS"
+    tag: "MASTER ARTISANS"
   },
   {
     id: 3,
@@ -59,10 +59,10 @@ export const REVIEWS: Review[] = [
   {
     id: 1,
     name: "Rohit Sharma",
-    location: "Kota, Rajasthan",
+    location: "Vigyan Nagar, Kota",
     rating: 5,
-    service: "Fade Haircut & Beard Sculpting",
-    text: "Nikhar Salon is hands down the most premium men's salon in Kota! The attention to detail, hygienic equipment, and exact fade cut result was top notch.",
+    service: "Non-Surgical Hair Patch",
+    text: "Firoz Khan ji ne mera hair patch fixing itne natural tarike se kiya ki koi pehchan hi nahi pata! Invisible hairline aur confident look ne mera confidence double kar diya. Kota me best hair patch centre!",
     avatar: "/images/avatar-rohit.jpg"
   },
   {
@@ -70,8 +70,8 @@ export const REVIEWS: Review[] = [
     name: "Aman Verma",
     location: "Talwandi, Kota",
     rating: 5,
-    service: "Keratin Spa Treatment",
-    text: "Mera hair spa ka experience bohot hi luxury raha. Salon ka ambience international level ka hai aur staff bohot courteous hai. Worth every rupee.",
+    service: "Hair Patch Servicing & Fade",
+    text: "Monthly hair patch service aur skin fade karwata hu yaha se. Cleanliness, premium tape/glue bonding, aur styling 10/10 hai. Truly luxury experience.",
     avatar: "/images/avatar-aman.jpg"
   },
   {
@@ -97,8 +97,8 @@ export const REVIEWS: Review[] = [
     name: "Harshvardhan Singh",
     location: "Vigyan Nagar, Kota",
     rating: 5,
-    service: "VIP Royal Combo",
-    text: "Pre-wedding grooming package liya tha. Master barber ne complete look transform kar diya. Zero waiting time and royal hospitality.",
+    service: "Hair Patch & VIP Combo",
+    text: "Mera pre-wedding look Nikhar Salon se ready hua. Hair patch transformation itna natural tha ki shaadi me sab tareef kar rahe the. Zero waiting and royal hospitality.",
     avatar: "/images/avatar-rohit.jpg"
   },
   {

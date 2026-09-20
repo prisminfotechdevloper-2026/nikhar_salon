@@ -7,6 +7,7 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'responsive';
   className?: string;
   href?: string;
+  forceDark?: boolean;
 }
 
 export default function Logo({
@@ -14,6 +15,7 @@ export default function Logo({
   size = 'responsive',
   className = '',
   href = '/',
+  forceDark = false,
 }: LogoProps) {
   // Dimensions based on size
   const sizes = {
@@ -36,7 +38,7 @@ export default function Logo({
           viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-[0_2px_12px_rgba(186,157,106,0.35)]"
+          className="w-full h-full drop-shadow-[0_2px_10px_rgba(186,157,106,0.35)]"
         >
           <defs>
             {/* Linear Gold Gradient for Frames & Strokes */}
@@ -138,20 +140,26 @@ export default function Logo({
         <div className="flex flex-col justify-center">
           <div className="flex items-center">
             <span
-              className={`font-serif-title tracking-[0.2em] font-normal leading-none bg-gradient-to-r from-[#F9EED9] via-[#BA9D6A] to-[#C2A774] bg-clip-text text-transparent drop-shadow-sm ${currentSize.text}`}
+              className={`font-serif-title tracking-[0.2em] font-normal leading-none ${
+                forceDark
+                  ? 'bg-gradient-to-r from-[#F9EED9] via-[#BA9D6A] to-[#C2A774] bg-clip-text text-transparent drop-shadow-sm'
+                  : 'text-[#181A1C] dark:bg-gradient-to-r dark:from-[#F9EED9] dark:via-[#BA9D6A] dark:to-[#C2A774] dark:bg-clip-text dark:text-transparent drop-shadow-xs'
+              } transition-colors duration-200 ${currentSize.text}`}
             >
               NIKHAR
             </span>
           </div>
 
-          <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5 sm:mt-1 opacity-90">
-            <span className="w-2 sm:w-3.5 h-[1px] bg-gradient-to-r from-transparent to-[#BA9D6A]" />
+          <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5 sm:mt-1 opacity-95">
+            <span className={`w-2 sm:w-3.5 h-[1px] bg-gradient-to-r from-transparent ${forceDark ? 'to-[#BA9D6A]' : 'to-[#8C734B] dark:to-[#BA9D6A]'}`} />
             <span
-              className={`tracking-[0.25em] sm:tracking-[0.28em] font-semibold text-[#BA9D6A] uppercase font-sans whitespace-nowrap ${currentSize.sub}`}
+              className={`tracking-[0.25em] sm:tracking-[0.28em] font-semibold ${
+                forceDark ? 'text-[#BA9D6A]' : 'text-[#8C734B] dark:text-[#BA9D6A]'
+              } uppercase font-sans whitespace-nowrap transition-colors duration-200 ${currentSize.sub}`}
             >
               SALON • KOTA
             </span>
-            <span className="w-2 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent to-[#BA9D6A]" />
+            <span className={`w-2 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent ${forceDark ? 'to-[#BA9D6A]' : 'to-[#8C734B] dark:to-[#BA9D6A]'}`} />
           </div>
         </div>
       )}

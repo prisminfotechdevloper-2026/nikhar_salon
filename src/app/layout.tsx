@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import FloatingActions from '@/components/FloatingActions';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nikharsaloon.vercel.app'),
@@ -83,6 +84,30 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         />
+        {/* Anti-Flicker Theme Initialization Script (Defaults to Light) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('nikhar_theme');
+                  var theme = (saved === 'dark' || saved === 'light') ? saved : 'light';
+                  document.documentElement.setAttribute('data-theme', theme);
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.remove('light');
+                  } else {
+                    document.documentElement.classList.add('light');
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch(e) {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                  document.documentElement.classList.add('light');
+                }
+              })();
+            `,
+          }}
+        />
         {/* OpenGraph & Social Preview Fallback Meta Tags */}
         <meta property="og:image" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
         <meta property="og:image:secure_url" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
@@ -92,23 +117,25 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Nikhar Salon Kota" />
         <meta name="twitter:image" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
       </head>
-      <body className="bg-[#0E1012] text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-[#0E1012] font-sans pb-16 lg:pb-0">
-        {/* Top Navigation Bar (Clean on mobile: Logo + Direct Call) */}
-        <Navbar />
+      <body className="bg-[#FAF8F5] dark:bg-[#0E1012] text-[#181A1C] dark:text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-white dark:selection:text-[#0E1012] font-sans pb-16 lg:pb-0 transition-colors duration-300">
+        <ThemeProvider>
+          {/* Top Navigation Bar (Clean on mobile: Logo + Theme Toggle + Direct Call) */}
+          <Navbar />
 
-        {/* Dynamic Page Content */}
-        <main className="flex-grow">
-          {children}
-        </main>
+          {/* Dynamic Page Content */}
+          <main className="flex-grow">
+            {children}
+          </main>
 
-        {/* Fixed Right-Bottom Floating Actions (Book Appointment + WhatsApp) */}
-        <FloatingActions />
+          {/* Fixed Right-Bottom Floating Actions (Book Appointment + WhatsApp) */}
+          <FloatingActions />
 
-        {/* Mobile Bottom Navigation Bar (Home, Services, Lookbook, About, Contact) */}
-        <MobileBottomNav />
+          {/* Mobile Bottom Navigation Bar (Home, Services, Lookbook, About, Contact) */}
+          <MobileBottomNav />
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

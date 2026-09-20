@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     --gold: #BA9D6A;
@@ -7,26 +9,52 @@
     --gold-dark: #8C734B;
     --gold-deep: #B3935B;
     --gold-border: #E8D4B0;
-    --bg-dark: #0E1012;
+    
+    /* Light Theme Palette (Default - Inspired by Amaia Luxury) */
+    --bg-page: #FAF8F5;
+    --bg-surface: #FFFFFF;
+    --bg-card: #F5F2ED;
+    --bg-inset: #ECE8E1;
+    --bg-elevated: #FFFFFF;
+    --text-primary: #181A1C;
+    --text-secondary: #242629;
+    --text-muted: #555047;
+    --text-subtle: #7D776D;
+    --border-main: #E5E0D8;
+    --border-soft: #D9D4CB;
+  }
+
+  .dark {
+    /* Dark Theme Palette (Obsidian Luxury) */
+    --bg-page: #0E1012;
     --bg-surface: #141619;
     --bg-card: #181A1C;
-    --bg-elevated: #242629;
-    --bg-warm: #FAF8F5;
-    --bg-warm-card: #F5F2ED;
-    --border-light: #E5E0D8;
-    --border-dark: rgba(255, 255, 255, 0.08);
+    --bg-inset: #242629;
+    --bg-elevated: #1F2226;
+    --text-primary: #FAF8F5;
+    --text-secondary: #F3F4F6;
+    --text-muted: #A6A29A;
+    --text-subtle: #736F67;
+    --border-main: rgba(255, 255, 255, 0.08);
+    --border-soft: rgba(255, 255, 255, 0.12);
   }
 
   body {
-    background-color: #0E1012;
-    color: #F3F4F6;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 14px;
     overflow-x: hidden;
     letter-spacing: -0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   ::selection {
+    background-color: #BA9D6A;
+    color: #FFFFFF;
+  }
+
+  .dark ::selection {
     background-color: #BA9D6A;
     color: #0E1012;
   }
@@ -99,12 +127,21 @@
 }
 
 ::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+.dark ::-webkit-scrollbar-track {
   background: #0E1012;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #242629;
+  background: #D9D4CB;
   border-radius: 9999px;
+  border: 1px solid rgba(186, 157, 106, 0.3);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #242629;
   border: 1px solid rgba(186, 157, 106, 0.2);
 }
 

@@ -1,5 +1,6 @@
 import HeroSection from '@/components/home/HeroSection';
 import MetricsSection from '@/components/home/MetricsSection';
+import HairPatchSection from '@/components/home/HairPatchSection';
 import HomeServicesSection from '@/components/home/HomeServicesSection';
 import CraftsmanshipSection from '@/components/home/CraftsmanshipSection';
 import VipMembershipsSection from '@/components/home/VipMembershipsSection';
@@ -8,26 +9,29 @@ import HomeCtaSection from '@/components/home/HomeCtaSection';
 
 export default function HomePage() {
   return (
-    <div className="overflow-x-hidden antialiased bg-[#0E1012] text-[#FAF8F5] font-sans selection:bg-[#BA9D6A] selection:text-[#0E1012]">
+    <div className="overflow-x-hidden antialiased bg-[#FAF8F5] dark:bg-[#0E1012] text-[#181A1C] dark:text-[#FAF8F5] font-sans selection:bg-[#BA9D6A] selection:text-white dark:selection:text-[#0E1012] transition-colors duration-300">
       {/* 1. Cinematic Hero Section */}
       <HeroSection />
 
       {/* 2. Salon Heritage & Trust Metrics */}
       <MetricsSection />
 
-      {/* 3. Signature Services Collection */}
+      {/* 3. Primary Flagship: Non-Surgical Hair Patch & Before/After Showcase */}
+      <HairPatchSection />
+
+      {/* 4. Complete Services Collection */}
       <HomeServicesSection />
 
-      {/* 4. The Craftsmanship & Video Showcase */}
+      {/* 5. The Craftsmanship & Video Showcase */}
       <CraftsmanshipSection />
 
-      {/* 5. VIP Membership & Grooming Passes */}
+      {/* 6. VIP Membership & Grooming Passes */}
       <VipMembershipsSection />
 
-      {/* 6. Client Reviews & Testimonials */}
+      {/* 7. Client Reviews & Testimonials */}
       <TestimonialsSection />
 
-      {/* 7. Quick Reservation Banner */}
+      {/* 8. Quick Reservation Banner */}
       <HomeCtaSection />
     </div>
   );

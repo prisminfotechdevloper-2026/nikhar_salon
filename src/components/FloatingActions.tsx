@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { MessageCircle, Calendar, Sparkles } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function FloatingActions() {
   const pathname = usePathname();
@@ -22,14 +22,14 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0E1012]/95 border border-[#25D366]/50 shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#25D366] hover:shadow-[0_8px_25px_rgba(37,211,102,0.45)]"
+        className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#E5E0D8] dark:border-white/15 shadow-[0_4px_16px_rgba(0,0,0,0.15)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_25px_rgba(186,157,106,0.35)]"
       >
-        <div className="flex items-center justify-center w-full h-full rounded-full bg-gradient-to-tr from-[#25D366] to-[#128C7E] text-white shadow-inner">
-          <MessageCircle size={22} className="fill-current" />
+        <div className="flex items-center justify-center w-full h-full rounded-full">
+          <WhatsAppIcon size={26} variant="authentic" />
         </div>
 
         {/* Left Floating Tooltip */}
-        <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center px-2.5 py-1 rounded-lg bg-[#0E1012] border border-[#25D366]/50 text-[10.5px] font-semibold text-white whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
+        <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center px-2.5 py-1 rounded-lg bg-[#181A1C] dark:bg-[#0E1012] border border-[#BA9D6A]/40 text-[10.5px] font-semibold text-[#BA9D6A] whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
           WhatsApp Us
         </span>
       </a>
@@ -39,7 +39,7 @@ export default function FloatingActions() {
         <Link
           href="/book-appointment"
           aria-label="Book Appointment"
-          className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0E1012]/95 border border-[#BA9D6A]/60 shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_30px_rgba(186,157,106,0.5)] active:scale-95"
+          className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#BA9D6A]/60 shadow-[0_4px_16px_rgba(186,157,106,0.25)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_30px_rgba(186,157,106,0.5)] active:scale-95"
         >
           {/* Pulsing Gold Aura Ring */}
           <span className="absolute inset-0 rounded-full bg-[#BA9D6A] opacity-25 animate-ping pointer-events-none" />
@@ -65,7 +65,7 @@ export default function FloatingActions() {
           </div>
 
           {/* Left Floating Tooltip */}
-          <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#0E1012] border border-[#BA9D6A]/50 text-[10.5px] font-semibold text-[#BA9D6A] whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
+          <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#181A1C] dark:bg-[#0E1012] border border-[#BA9D6A]/50 text-[10.5px] font-semibold text-[#BA9D6A] whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
             Book Appointment
           </span>
         </Link>
