@@ -31,7 +31,7 @@ export default function BookAppointmentPage() {
         <aside className="lg:col-span-4 bg-[#141619] border border-white/[0.08] rounded-2xl md:rounded-3xl p-6 sm:p-8 space-y-6 lg:sticky lg:top-28">
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
-              <Sparkles size={15} className="text-[#BA9D6A]" />
+              
               <span className="text-[10.5px] uppercase tracking-[0.2em] text-[#BA9D6A] font-semibold">
                 VIP SALON ASSURANCE
               </span>

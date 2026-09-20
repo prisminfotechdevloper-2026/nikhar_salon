@@ -28,7 +28,7 @@ export default function ServicesPage() {
       {/* Bottom Booking Touchpoint */}
       <div className="border border-[#BA9D6A]/30 bg-[#141619] rounded-2xl md:rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-xl">
         <div className="inline-flex items-center gap-2">
-          <Sparkles size={16} className="text-[#BA9D6A]" />
+          
           <span className="text-xs uppercase tracking-[0.2em] text-[#BA9D6A] font-semibold">
             BESPOKE APPOINTMENTS
           </span>

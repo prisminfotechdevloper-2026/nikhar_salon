@@ -25,13 +25,13 @@ export default function ServiceCard({ service, tag = 'SIGNATURE' }: ServiceCardP
         {/* Floating Badges */}
         <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
           <span className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[9.5px] font-semibold tracking-[0.2em] text-[#8C734B] bg-[#FAF8F5]/95 backdrop-blur-md border border-[#BA9D6A]/40 rounded-full uppercase shadow-xs">
-            <Sparkles size={11} className="text-[#BA9D6A]" /> {tag}
+          {tag}
           </span>
           {service.time !== 'N/A' && (
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 text-[9.5px] font-medium tracking-[0.12em] text-white/90 bg-black/60 backdrop-blur-md border border-white/20 rounded-full uppercase">
               <Clock size={11} className="text-[#BA9D6A]" /> {service.time}
             </span>
-          )}
+          )} 
         </div>
       </div>
 
