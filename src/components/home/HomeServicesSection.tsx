@@ -6,21 +6,22 @@ import { ArrowUpRight } from 'lucide-react';
 import { servicesData } from '@/data/services';
 import ServiceCard from '@/components/ServiceCard';
 
-const CATEGORIES = ['All', 'Haircut', 'Beard', 'Facial', 'Spa'];
-const TAGS = ['SIGNATURE', 'ROYAL CRAFT', 'EXECUTIVE', 'SPA THERAPY', 'CLASSIC', 'PREMIUM'];
+const CATEGORIES = [
+  { id: 'All', label: 'All Offerings' },
+  { id: 'hair-patch', label: 'Hair Patch' },
+  { id: 'hair', label: 'Haircuts' },
+  { id: 'beard', label: 'Beard & Shave' },
+  { id: 'skin', label: 'Facials' },
+  { id: 'spa', label: 'Hair Spa' },
+];
+const TAGS = ['PRIMARY SERVICE', 'ROYAL CRAFT', 'EXECUTIVE', 'SPA THERAPY', 'CLASSIC', 'PREMIUM'];
 
 export default function HomeServicesSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredServices = selectedCategory === 'All' 
     ? servicesData 
-    : servicesData.filter(s => {
-        if (selectedCategory === 'Haircut') return s.title.includes('Haircut');
-        if (selectedCategory === 'Beard') return s.title.includes('Beard') || s.title.includes('Shave');
-        if (selectedCategory === 'Facial') return s.title.includes('Facial');
-        if (selectedCategory === 'Spa') return s.title.includes('Treatment') || s.title.includes('Products');
-        return true;
-      });
+    : servicesData.filter(s => s.category === selectedCategory);
 
   return (
     <section id="services" className="py-12 sm:py-16 lg:py-20 bg-[#FAF8F5] dark:bg-[#0E1012] relative overflow-hidden border-b border-[#E5E0D8] dark:border-white/[0.08] transition-colors duration-300">
@@ -49,15 +50,15 @@ export default function HomeServicesSection() {
           <div className="flex flex-wrap gap-2">
             {CATEGORIES.map((cat) => (
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer ${
-                  selectedCategory === cat
-                    ? 'bg-[#BA9D6A] text-[#0E1012] shadow-sm'
+                  selectedCategory === cat.id
+                    ? 'bg-[#BA9D6A] text-[#0E1012] shadow-sm font-bold'
                     : 'border border-[#D9D4CB] dark:border-white/10 bg-[#ECE8E1]/80 dark:bg-white/[0.04] text-[#555047] dark:text-white/75 hover:border-[#BA9D6A]/50 hover:text-[#181A1C] dark:hover:text-white'
                 }`}
               >
-                {cat === 'All' ? 'All Offerings' : cat}
+                {cat.label}
               </button>
             ))}
           </div>

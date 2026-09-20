@@ -6,7 +6,7 @@ import ServiceCard from '@/components/ServiceCard';
 
 const CATEGORIES = [
   { id: 'All', label: 'All Offerings' },
-  { id: 'HairPatch', label: '★ Hair Patch & Systems (Primary)' },
+  { id: 'HairPatch', label: 'Hair Patch & Systems (Primary)' },
   { id: 'Haircut', label: 'Haircuts & Styling' },
   { id: 'Beard', label: 'Beard & Shave' },
   { id: 'Facial', label: 'Skin & Facials' },
