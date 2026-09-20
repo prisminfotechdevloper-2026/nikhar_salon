@@ -65,7 +65,7 @@ export default function CraftsmanshipSection() {
 
             {/* Right Video / Visual Showcase Card */}
             <div className="lg:col-span-7">
-              <div 
+              <div
                 onClick={() => setIsVideoModalOpen(true)}
                 className="group relative aspect-[16/10] rounded-2xl md:rounded-3xl overflow-hidden border border-[#BA9D6A]/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] cursor-pointer"
               >
@@ -91,7 +91,7 @@ export default function CraftsmanshipSection() {
                 {/* Bottom Overlay Label */}
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 flex items-center justify-between text-xs">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white font-medium">
-                    <Sparkles size={12} className="text-[#BA9D6A]" /> The Nikhar Salon Experience
+                    The Nikhar Salon Experience
                   </span>
                   <span className="text-white/80 hidden sm:inline">Kota Studio • Rajasthan</span>
                 </div>
@@ -101,9 +101,9 @@ export default function CraftsmanshipSection() {
         </div>
       </section>
 
-      <VideoTourModal 
-        isOpen={isVideoModalOpen} 
-        onClose={() => setIsVideoModalOpen(false)} 
+      <VideoTourModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
       />
     </>
   );

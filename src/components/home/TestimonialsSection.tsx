@@ -182,11 +182,7 @@ export default function TestimonialsSection() {
                       </div>
                     </div>
 
-                    {/* Verified Chip */}
-                    <div className="hidden sm:flex items-center gap-1 text-[9.5px] uppercase font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2 py-0.5 rounded-full shrink-0">
-                      <ShieldCheck size={11} />
-                      <span>Verified</span>
-                    </div>
+                     
                   </div>
                 </div>
               </div>
