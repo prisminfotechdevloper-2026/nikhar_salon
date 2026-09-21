@@ -25,7 +25,7 @@ export default function AboutTeam() {
   };
 
   return (
-    <section className="space-y-8 sm:space-y-10">
+    <section id="team" className="space-y-8 sm:space-y-10">
       {/* ========================================================================= */}
       {/* 1. LUXURY EDITORIAL 2-COLUMN SPLIT HEADER (Amaia Style)                   */}
       {/* ========================================================================= */}
