@@ -45,7 +45,7 @@ export default function OwnerProfileSection() {
 
   return (
     <>
-      <section className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-8 lg:px-10 lg:py-8 shadow-sm dark:shadow-2xl">
+      <section className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-4 lg:px-10 lg:py-5 shadow-sm dark:shadow-2xl">
         {/* Subtle Ambient Gold Glow */}
         <div className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />

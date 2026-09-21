@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { X, ShieldCheck, Sparkles, Volume2, Play } from 'lucide-react';
+import { X, ShieldCheck, Volume2, Play } from 'lucide-react';
 import Link from 'next/link';
 
 interface VideoTourModalProps {

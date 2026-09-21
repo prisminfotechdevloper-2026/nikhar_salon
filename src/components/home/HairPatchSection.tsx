@@ -10,6 +10,11 @@ import {
   SlidersHorizontal,
   Columns2,
   ImageOff,
+  BadgeCheck,
+  ShieldCheck,
+  Layers,
+  Droplets,
+  Clock,
 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import AppointmentModal from '@/components/AppointmentModal';
@@ -91,20 +96,32 @@ const TRANSFORMATIONS: Transformation[] = [
 
 const FEATURES = [
   {
+    step: '01',
+    icon: BadgeCheck,
     title: '100% Real Human Hair',
-    desc: 'Custom color, thickness & wave matching for natural movement, shine, and hair flexibility.',
+    tag: 'Natural Cuticle Texture',
+    desc: 'Custom color, thickness & wave matching for natural movement, shine, and complete styling flexibility.',
   },
   {
+    step: '02',
+    icon: Layers,
     title: 'Undetectable Micro Base',
-    desc: 'Ultra-breathable micro-skin & Swiss lace that looks just like your natural scalp skin.',
+    tag: 'Breathable Membrane',
+    desc: 'Ultra-thin micro-skin & Swiss lace that seamlessly mimics your natural scalp pores and skin tone.',
   },
   {
+    step: '03',
+    icon: Droplets,
     title: 'Gym, Shower & Swim Ready',
-    desc: 'Medical-grade hypoallergenic bonding lets you swim, workout, and wash hair with total freedom.',
+    tag: 'Waterproof Bonding',
+    desc: 'Medical-grade hypoallergenic bonding lets you swim, workout, and shampoo hair with absolute freedom.',
   },
   {
+    step: '04',
+    icon: Clock,
     title: 'Instant 60-Min Results',
-    desc: 'Zero surgery, zero pain, zero side effects. Walk out looking 10 years younger in one session.',
+    tag: 'Zero Downtime',
+    desc: 'Zero surgery, zero pain, zero side effects. Walk out looking 10 years younger in one private chair session.',
   },
 ];
 
@@ -369,26 +386,71 @@ export default function HairPatchSection() {
       <div className="pointer-events-none absolute -right-32 bottom-1/4 h-72 w-72 rounded-full bg-[#25D366]/[0.04] blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl space-y-8 px-4 sm:space-y-10 sm:px-6 lg:px-10">
-        {/* Header */}
-        <div className="mx-auto max-w-3xl space-y-2 text-center">
-          <div className="inline-flex items-center gap-2">
-            <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
-            <span className="font-sans text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
-              PRIMARY SALON SPECIALIZATION
-            </span>
-            <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
+        {/* Editorial Header Section */}
+        <div className="space-y-4 sm:space-y-6">
+          {/* Top Live Metadata Strip */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3 text-left dark:border-white/[0.08]">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-2 w-2 rounded-full bg-[#BA9D6A] animate-pulse" />
+              <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
+                CHAPTER 03 • PRIMARY SPECIALIZATION
+              </span>
+              <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
+              <span className="hidden sm:inline font-mono text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
+                KOTA&apos;S #1 HAIR REPLACEMENT STUDIO
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E5E0D8] bg-white/80 px-2.5 py-0.5 text-[10px] font-medium text-[#555047] backdrop-blur-xs dark:border-white/10 dark:bg-white/[0.04] dark:text-[#A6A29A]">
+                <BadgeCheck size={13} className="text-[#8C734B] dark:text-[#BA9D6A]" />
+                <span>Crafted Personally by Firoz Khan</span>
+              </span>
+            </div>
           </div>
 
-          <h2 className="font-serif-title text-2xl font-normal leading-tight text-[#181A1C] dark:text-white sm:text-3xl lg:text-4xl">
-            Non-Surgical Hair Patch &amp;{' '}
-            <span className="italic text-[#8C734B] dark:text-[#BA9D6A]">Hair Replacement</span>
-          </h2>
+          {/* Main Editorial 2-Column Split */}
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-10 items-end text-left">
+            {/* Left Column: Title */}
+            <div className="lg:col-span-7 space-y-2 text-left">
+              <div className="inline-flex items-center gap-2">
+                <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] font-sans">
+                  NON-SURGICAL HAIR ARCHITECTURE
+                </span>
+              </div>
 
-          <p className="mx-auto max-w-2xl text-xs leading-relaxed text-[#555047] dark:text-[#A6A29A] sm:text-[13px]">
-            100% natural human hair systems crafted &amp; styled personally by{' '}
-            <strong>Firoz Khan</strong>. Undetectable hairline, zero surgery, and 60-min instant
-            transformation.
-          </p>
+              <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-[42px] font-normal leading-[1.15] text-[#181A1C] dark:text-white">
+                Non-Surgical Hair Patch &amp;{' '}
+                <span className="italic font-serif text-[#8C734B] dark:text-[#BA9D6A]">
+                  Hair Replacement
+                </span>
+              </h2>
+            </div>
+
+            {/* Right Column: Lead Description & Trust Pills */}
+            <div className="lg:col-span-5 space-y-3 text-left">
+              <p className="text-xs sm:text-[13px] leading-relaxed text-[#555047] dark:text-[#A6A29A] border-l-2 border-[#BA9D6A]/50 pl-3.5">
+                100% natural human hair systems engineered with ultra-breathable membranes and seamless razor fade blending. Completely undetectable in direct daylight, zero surgery, and 60-minute instant confidence restoration.
+              </p>
+
+              {/* 3 Micro Trust Metrics */}
+              <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                <span className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-[10px] font-semibold text-[#181A1C] shadow-2xs border border-[#E5E0D8] dark:border-white/10 dark:bg-white/[0.05] dark:text-white">
+                  <CheckCircle2 size={11} className="text-[#8C734B] dark:text-[#BA9D6A]" />
+                  <span>60-Min Instant Result</span>
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-[10px] font-semibold text-[#181A1C] shadow-2xs border border-[#E5E0D8] dark:border-white/10 dark:bg-white/[0.05] dark:text-white">
+                  <BadgeCheck size={11} className="text-[#8C734B] dark:text-[#BA9D6A]" />
+                  <span>100% Real Human Hair</span>
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-md bg-white px-2 py-0.5 text-[10px] font-semibold text-[#181A1C] shadow-2xs border border-[#E5E0D8] dark:border-white/10 dark:bg-white/[0.05] dark:text-white">
+                  <ShieldCheck size={11} className="text-[#8C734B] dark:text-[#BA9D6A]" />
+                  <span>Zero Pain &amp; Surgery</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Showcase */}
@@ -565,17 +627,30 @@ export default function HairPatchSection() {
           </div>
         </div>
 
-        {/* Feature pillars */}
-        <div className="grid grid-cols-2 gap-3.5 sm:gap-4 lg:grid-cols-4">
-          {FEATURES.map(({ title, desc }) => (
+        {/* Feature pillars - Enhanced with Luxury Step Badges & Icons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+          {FEATURES.map(({ step, icon: Icon, title, tag, desc }) => (
             <div
               key={title}
-              className="space-y-1.5 rounded-xl border border-[#E5E0D8] bg-white p-3.5 text-left shadow-sm transition-all duration-300 hover:border-[#BA9D6A]/50 dark:border-white/[0.08] dark:bg-[#141619] sm:rounded-2xl sm:p-4"
+              className="group relative space-y-2 rounded-2xl border border-[#E5E0D8] bg-white p-4 text-left shadow-xs transition-all duration-300 hover:border-[#BA9D6A]/60 hover:shadow-md dark:border-white/[0.08] dark:bg-[#141619] sm:p-5"
             >
-              <h4 className="font-serif-title text-sm leading-snug text-[#181A1C] dark:text-white sm:text-base">
-                {title}
-              </h4>
-              <p className="text-[10.5px] leading-relaxed text-[#555047] dark:text-[#A6A29A] sm:text-[11px]">
+              <div className="flex items-center justify-between">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">
+                  <Icon size={17} />
+                </div>
+                <span className="font-mono text-[10px] font-bold tracking-widest text-[#8C734B]/70 dark:text-[#BA9D6A]/70">
+                  {step}
+                </span>
+              </div>
+              <div className="space-y-0.5">
+                <span className="block text-[9px] font-bold uppercase tracking-wider text-[#8C734B] dark:text-[#BA9D6A]">
+                  {tag}
+                </span>
+                <h4 className="font-serif-title text-sm sm:text-base font-semibold leading-snug text-[#181A1C] dark:text-white">
+                  {title}
+                </h4>
+              </div>
+              <p className="text-[11px] leading-relaxed text-[#555047] dark:text-[#A6A29A]">
                 {desc}
               </p>
             </div>

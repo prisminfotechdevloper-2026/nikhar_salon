@@ -7,10 +7,10 @@ import { servicesData } from '@/data/services';
 
 const STYLISTS = [
   { name: 'Any Available Master Stylist', role: 'Fastest Slot Available' },
-  { name: 'Firoz Khan', role: 'Owner & Hair Patch Specialist (10+ Yrs)' },
-  { name: 'Rahul Verma', role: 'Senior Beard Specialist (7+ Yrs)' },
-  { name: 'Sameer Khan', role: 'Facial & Skin Therapy Expert' },
-  { name: 'Karan Rathore', role: 'Hair Spa & Keratin Artist' },
+  { name: 'Firoz Khan', role: 'Owner & Hair Patch Specialist (12+ Yrs)' },
+  { name: 'Firoz Durrani', role: 'Senior Barber & Fade Specialist (7+ Yrs)' },
+  { name: 'Arman', role: 'Senior Hair Artisan & Beard Sculptor (6+ Yrs)' },
+  { name: 'Monu', role: 'Hair Styling & Texture Specialist (5+ Yrs)' },
 ];
 
 const TIME_SLOTS = [

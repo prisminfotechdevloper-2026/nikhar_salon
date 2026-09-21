@@ -1,4 +1,4 @@
-import { Scissors, Sparkles, ShieldCheck, Heart } from 'lucide-react';
+import { Scissors, Award, ShieldCheck, Heart } from 'lucide-react';
 
 export default function AboutPillars() {
   return (
@@ -27,7 +27,7 @@ export default function AboutPillars() {
 
         <div className="bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.06] p-6 rounded-2xl space-y-3 hover:border-[#BA9D6A]/50 transition">
           <div className="h-10 w-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
-            <Sparkles size={20} />
+            <Award size={20} />
           </div>
           <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white">Premium Products</h4>
           <p className="text-xs text-[#555047] dark:text-[#A6A29A] leading-relaxed">

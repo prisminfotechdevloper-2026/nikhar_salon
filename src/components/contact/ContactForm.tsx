@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function ContactForm() {
@@ -46,7 +46,7 @@ export default function ContactForm() {
       {sent ? (
         <div className="text-center py-12 space-y-3">
           <div className="h-14 w-14 rounded-full bg-[#BA9D6A]/20 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center mx-auto">
-            <Sparkles size={28} />
+            <CheckCircle2 size={28} />
           </div>
           <h4 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">Inquiry Transmitted!</h4>
           <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto">

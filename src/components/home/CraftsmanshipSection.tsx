@@ -10,7 +10,6 @@ import {
   Flame,
   ArrowRight,
   Film,
-  Sparkles,
 } from 'lucide-react';
 import VideoTourModal from '@/components/VideoTourModal';
 import AppointmentModal from '@/components/AppointmentModal';

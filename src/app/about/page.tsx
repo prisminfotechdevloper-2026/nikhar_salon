@@ -6,18 +6,20 @@ import AboutCta from '@/components/about/AboutCta';
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-28 pb-20 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-20 sm:space-y-28 font-sans transition-colors duration-300">
+    <div className="min-h-screen pt-28 pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto space-y-20 sm:space-y-28 font-sans transition-colors duration-300">
       {/* 1. Header & Story Hero */}
       <AboutHero />
 
       {/* 2. Founder & Owner Profile Section (Firoz Khan) */}
       <OwnerProfileSection />
 
-      {/* 3. Four Pillars of Nikhar Salon */}
+      {/* 3. Meet the Master Barbers & Stylists */}
+      <AboutTeam />
+    
+      {/* 4. Four Pillars of Nikhar Salon */}
       <AboutPillars />
 
-      {/* 4. Meet the Master Barbers & Stylists */}
-      <AboutTeam />
+
 
       {/* 5. Bottom Reservation Card */}
       <AboutCta />
