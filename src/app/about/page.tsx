@@ -1,4 +1,5 @@
 import AboutHero from '@/components/about/AboutHero';
+import OwnerProfileSection from '@/components/about/OwnerProfileSection';
 import AboutPillars from '@/components/about/AboutPillars';
 import AboutTeam from '@/components/about/AboutTeam';
 import AboutCta from '@/components/about/AboutCta';
@@ -9,13 +10,16 @@ export default function AboutPage() {
       {/* 1. Header & Story Hero */}
       <AboutHero />
 
-      {/* 2. Four Pillars of Nikhar Salon */}
+      {/* 2. Founder & Owner Profile Section (Firoz Khan) */}
+      <OwnerProfileSection />
+
+      {/* 3. Four Pillars of Nikhar Salon */}
       <AboutPillars />
 
-      {/* 3. Meet the Master Barbers & Stylists */}
+      {/* 4. Meet the Master Barbers & Stylists */}
       <AboutTeam />
 
-      {/* 4. Bottom Reservation Card */}
+      {/* 5. Bottom Reservation Card */}
       <AboutCta />
     </div>
   );

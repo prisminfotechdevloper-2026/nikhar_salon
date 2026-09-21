@@ -22,12 +22,13 @@ const TIME_SLOTS = [
 interface AppointmentModalProps {
   onClose?: () => void;
   defaultService?: string;
+  defaultStylist?: string;
 }
 
-export default function AppointmentModal({ onClose, defaultService }: AppointmentModalProps) {
+export default function AppointmentModal({ onClose, defaultService, defaultStylist }: AppointmentModalProps) {
   const [step, setStep] = useState(1);
   const [service, setService] = useState(defaultService || 'Haircut & Styling');
-  const [stylist, setStylist] = useState('Any Available Master Stylist');
+  const [stylist, setStylist] = useState(defaultStylist || 'Any Available Master Stylist');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('04:00 PM');
   const [customer, setCustomer] = useState({ name: '', phone: '', note: '' });

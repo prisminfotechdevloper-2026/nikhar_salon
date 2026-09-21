@@ -3,10 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import {
-  Sparkles,
-  ShieldCheck,
-  Waves,
-  Zap,
   ArrowRight,
   CheckCircle2,
   ChevronLeft,
@@ -95,22 +91,18 @@ const TRANSFORMATIONS: Transformation[] = [
 
 const FEATURES = [
   {
-    icon: Sparkles,
     title: '100% Real Human Hair',
     desc: 'Custom color, thickness & wave matching for natural movement, shine, and hair flexibility.',
   },
   {
-    icon: ShieldCheck,
     title: 'Undetectable Micro Base',
     desc: 'Ultra-breathable micro-skin & Swiss lace that looks just like your natural scalp skin.',
   },
   {
-    icon: Waves,
     title: 'Gym, Shower & Swim Ready',
     desc: 'Medical-grade hypoallergenic bonding lets you swim, workout, and wash hair with total freedom.',
   },
   {
-    icon: Zap,
     title: 'Instant 60-Min Results',
     desc: 'Zero surgery, zero pain, zero side effects. Walk out looking 10 years younger in one session.',
   },
@@ -575,14 +567,11 @@ export default function HairPatchSection() {
 
         {/* Feature pillars */}
         <div className="grid grid-cols-2 gap-3.5 sm:gap-4 lg:grid-cols-4">
-          {FEATURES.map(({ icon: Icon, title, desc }) => (
+          {FEATURES.map(({ title, desc }) => (
             <div
               key={title}
               className="space-y-1.5 rounded-xl border border-[#E5E0D8] bg-white p-3.5 text-left shadow-sm transition-all duration-300 hover:border-[#BA9D6A]/50 dark:border-white/[0.08] dark:bg-[#141619] sm:rounded-2xl sm:p-4"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#BA9D6A]/30 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A]">
-                <Icon size={16} />
-              </div>
               <h4 className="font-serif-title text-sm leading-snug text-[#181A1C] dark:text-white sm:text-base">
                 {title}
               </h4>

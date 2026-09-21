@@ -8,12 +8,14 @@ interface VideoTourModalProps {
   isOpen: boolean;
   onClose: () => void;
   videoId?: string;
+  videoTitle?: string;
 }
 
 export default function VideoTourModal({
   isOpen,
   onClose,
   videoId = 'fW_n6b6fLhQ', // High-definition luxury grooming tour
+  videoTitle = 'Nikhar Salon • The Cinematic Experience',
 }: VideoTourModalProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -49,8 +51,8 @@ export default function VideoTourModal({
         <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 border-b border-white/[0.08] bg-[#0E1012] shrink-0">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#BA9D6A] animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.2em] text-[#BA9D6A] uppercase font-sans">
-              Nikhar Salon • The Cinematic Experience
+            <span className="text-[11px] sm:text-xs font-semibold tracking-[0.15em] text-[#BA9D6A] uppercase font-sans line-clamp-1">
+              {videoTitle}
             </span>
           </div>
 

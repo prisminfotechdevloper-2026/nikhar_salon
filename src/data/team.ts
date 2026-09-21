@@ -10,9 +10,9 @@ export const TEAM: TeamMember[] = [
   {
     name: "Firoz Khan",
     role: "Owner & Master Hair Patch Specialist",
-    exp: "10+ Years Experience",
+    exp: "12+ Years Experience",
     speciality: "Non-Surgical Hair Systems, Micro-Skin Base & Precision Fades",
-    img: "/images/team-vikram.jpg"
+    img: "/images/owner/firoz-khan-clean.png"
   },
   {
     name: "Rahul Verma",
