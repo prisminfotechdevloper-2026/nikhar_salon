@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Calendar, Phone, MapPin, Clock } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';

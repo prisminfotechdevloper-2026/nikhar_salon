@@ -94,7 +94,7 @@ export default function Footer() {
           <div className="space-y-2.5 text-xs">
             <p className="flex items-start gap-2.5 text-white/90">
               <MapPin size={15} className="text-[#BA9D6A] shrink-0 mt-0.5" />
-              <span>Shop Number 9, Old Police Station Ke Samne, Vigyan Nagar, Kota, Rajasthan - 324005</span>
+              <span>Shop Number 9, Old Police Station, Vigyan Nagar, Kota, Rajasthan - 324005</span>
             </p>
             <p className="flex items-center gap-2.5 text-white/90">
               <Phone size={15} className="text-[#BA9D6A] shrink-0" />

@@ -1,92 +1,115 @@
-# Spec: React Doctor Diagnostic Remediation & Codebase Quality Hardening
+# Spec: Production-Grade Full System Optimization (Nikhar Salon)
 
 ## Objective
-Remediate all 79 diagnostic issues reported by `react-doctor` across the codebase, raising the codebase health score from **52/100 (Critical)** to **100/100 (Clean)**, eliminating all bugs, accessibility violations, performance bottlenecks, and maintainability concerns without altering existing UI design or business functionality.
+Transform the Nikhar Salon Next.js application into a production-hardened, high-performance, SEO-optimized, accessible, and secure digital flagship following the comprehensive audit in `optimize.md`. Achieve 0 ESLint errors/warnings, optimal Core Web Vitals (LCP/CLS), complete Local Business Schema.org coverage, automated indexing (robots/sitemap), clean React Server Component boundaries, and robust HTTP security headers.
 
 ---
 
-## Diagnostic Summary (79 Issues Across 17 Files)
-
-| Category | Issue Count | Primary Rules | Affected Files |
-|---|---|---|---|
-| **Accessibility (a11y)** | 34 | `label-has-associated-control`, `no-placeholder-only-field`, `control-has-associated-label`, `no-static-element-interactions`, `click-events-have-key-events` | `SimpleBookingForm.tsx`, `ContactForm.tsx`, `HeroSection.tsx`, `ServiceHero.tsx`, `VideoStoriesSection.tsx` |
-| **Performance** | 27 | `no-transition-all`, `no-locale-format-in-render`, `rerender-state-only-in-handlers`, `jsx-no-constructed-context-values` | `ThemeContext.tsx`, `ServiceHero.tsx`, `HeroSection.tsx`, `TestimonialsSection.tsx`, `HairPatchSection.tsx`, `CaseStudyCard.tsx`, `TransformationCta.tsx`, `TransformationsHero.tsx`, `VideoStoriesSection.tsx`, `HomeServicesSection.tsx`, `HomeCtaSection.tsx`, `SimpleBookingForm.tsx` |
-| **Bugs & React Reactivity** | 13 | `prefer-use-effect-event`, `no-reset-all-state-on-prop-change`, `no-adjust-state-on-prop-change`, `no-array-index-as-key`, `anchor-target-exists` | `VideoTourModal.tsx`, `TestimonialsSection.tsx`, `HairPatchSection.tsx`, `VipMembershipsSection.tsx`, `ServiceHero.tsx`, `CaseStudyCard.tsx`, `TransformationsHero.tsx`, `VideoStoriesSection.tsx`, `HeroSection.tsx` |
-| **Maintainability & Architecture** | 5 | `no-giant-component`, `no-high-complexity-react-function`, `duplicate-jsx-subtree` | `SimpleBookingForm.tsx`, `CraftsmanshipSection.tsx`, `ServiceHero.tsx`, `AboutTeam.tsx` |
+## Assumptions
+1. Deployment target is Vercel / modern Node.js edge runtime with Turbopack support.
+2. The primary domain is `https://nikharsaloon.vercel.app`.
+3. The business is a luxury men's & unisex salon located at Vigyan Nagar, Kota, Rajasthan (coordinates: 25.1328965, 75.8366472).
+4. No external database or CMS is required; appointment bookings and inquiries continue to securely dispatch to WhatsApp concierge and local UI confirmation.
+5. All design aesthetics, color schemes (obsidian `#0E1012` and metallic gold `#BA9D6A`), animations, and typography remain completely preserved without visual regressions.
 
 ---
 
-## Tech Stack & Tooling
-- **Framework:** Next.js 14+ / React 18+
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Diagnostic Tool:** `npx react-doctor@latest --verbose`
+## Capability Map
+
+| Module ID | Capability & Responsibility | Depends On | Files Touched |
+| :--- | :--- | :--- | :--- |
+| `MOD-01-LINT-EFFECTS` | Resolve cascading render errors (`react-hooks/set-state-in-effect`) and all unused variables to achieve 0 lint issues | — | `ThemeContext.tsx`, `SimpleBookingForm.tsx`, `VideoTourModal.tsx`, `contact/page.tsx`, `BookingInfoCard.tsx`, `HairPatchSection.tsx`, `TransformationsGrid.tsx`, `VideoStoriesSection.tsx` |
+| `MOD-02-IMAGE-PERF` | Restore Next.js AVIF/WebP image optimization, remove `unoptimized` flags, and remove orphaned bloated image assets | `MOD-01-LINT-EFFECTS` | `next.config.ts`, `OwnerProfileSection.tsx`, `HairPatchSection.tsx`, `public/images/` |
+| `MOD-03-SEO-METADATA` | Implement automated discovery (`robots.ts`, `sitemap.ts`), Schema.org `BeautySalon` JSON-LD, page metadata on `/`, `/about`, `/services`, and clean redundant `<head>` tags | — | `src/app/robots.ts`, `src/app/sitemap.ts`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/app/about/page.tsx`, `src/app/services/page.tsx` |
+| `MOD-04-RSC-ARCHITECTURE` | Convert static presentation components to RSC, delete dead components (`AppointmentModal.tsx`, `BeforeAfterSlider.tsx`), and add `loading.tsx`, `error.tsx`, `not-found.tsx` | `MOD-01-LINT-EFFECTS` | `Logo.tsx`, `AboutHero.tsx`, `BookAppointmentHero.tsx`, `BookingInfoCard.tsx`, `TransformationsHero.tsx`, `TransformationCta.tsx`, `src/app/loading.tsx`, `src/app/error.tsx`, `src/app/not-found.tsx` |
+| `MOD-05-SECURITY-UX` | Add HTTP security headers, disable `x-powered-by`, add passive scroll listener, and eliminate hydration layout shift | `MOD-02-IMAGE-PERF` | `next.config.ts`, `Navbar.tsx`, `TestimonialsSection.tsx`, `VideoStoriesSection.tsx` |
+| `MOD-06-VALIDATION` | End-to-end multi-axis verification: linting, build prerendering, and React Doctor score verification | All Modules | Entire repository |
+
+---
+
+## Tech Stack
+- **Framework**: Next.js 16.3.5 (App Router, Turbopack)
+- **Library**: React 19.2.8 & React DOM 19.2.8
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS v4 (`@tailwindcss/postcss`)
+- **Smooth Scroll**: Lenis v1.3.26
+- **Icons**: Lucide React v1.46.0
 
 ---
 
 ## Commands
-- **Run Full Diagnostics:** `npx react-doctor@latest --verbose`
-- **Check Health Score:** `npx react-doctor@latest --score`
-- **Type Check / Build:** `npm run build`
-- **Development Server:** `npm run dev`
+```bash
+# Development server
+npm run dev
+
+# Code quality & React 19 hook validation
+npm run lint
+
+# Production compilation & static prerendering
+npm run build
+
+# Production server preview
+npm run start
+
+# React health & architecture audit
+npx react-doctor@latest --verbose
+```
 
 ---
 
-## Code Style & Architectural Patterns for Remediation
+## Project Structure
+```text
+src/
+├── app/
+│   ├── layout.tsx              # Root HTML, fonts, theme wrapper, JSON-LD Schema
+│   ├── page.tsx                # Homepage + dedicated metadata
+│   ├── robots.ts               # Automated robots.txt generation
+│   ├── sitemap.ts              # Automated sitemap.xml generation
+│   ├── loading.tsx             # Global luxury loading fallback boundary
+│   ├── error.tsx               # Client error containment boundary
+│   ├── not-found.tsx           # Custom 404 page
+│   ├── globals.css             # Tailwind v4 theme & Lenis styles
+│   ├── about/page.tsx          # About page + dedicated metadata
+│   ├── services/page.tsx       # Services directory + dedicated metadata
+│   ├── transformations/page.tsx # Case studies & video stories
+│   ├── contact/page.tsx        # Contact concierge + location
+│   └── book-appointment/      # Booking reservation wizard
+├── components/                 # Client & Server React components
+├── context/                    # ThemeContext provider
+├── data/                       # Static typed catalogs (services, appointments, reviews)
+public/                         # Optimized static assets & brand icons
+```
 
-### 1. Context Optimization (`ThemeContext.tsx`)
-- **Rule:** `jsx-no-constructed-context-values` & `rerender-state-only-in-handlers`
-- **Pattern:** Memoize context provider values with `useMemo` so consumers don't re-render on unrelated state ticks. Ensure state isn't held for values only accessed imperatively in callbacks (or use `useRef` when reactivity isn't needed).
+---
 
-### 2. Accessibility & Form Controls (`SimpleBookingForm.tsx`, `ContactForm.tsx`, `HeroSection.tsx`)
-- **Rules:** `label-has-associated-control`, `no-placeholder-only-field`, `control-has-associated-label`
-- **Pattern:** 
-  - Ensure every `<input>`, `<select>`, `<textarea>` has an explicit `id` and corresponding `<label htmlFor="...">`.
-  - Add explicit screen-reader / accessible labels (`aria-label` or visible `<label>`) instead of relying solely on `placeholder`.
-  - Give interactive controls (buttons, select dropdown triggers) proper `aria-label` or `title`.
-
-### 3. CSS Transitions (`no-transition-all`)
-- **Rule:** `react-doctor/no-transition-all` (24 occurrences)
-- **Pattern:** Replace broad `transition-all` Tailwind utility classes with explicit transition properties: `transition-colors`, `transition-opacity`, `transition-transform`, `transition-[color,background-color,border-color,transform]`.
-
-### 4. Interactive Elements & Key Listeners
-- **Rules:** `no-static-element-interactions`, `click-events-have-key-events`
-- **Pattern:** Replace clickable `<div>` / `<span>` elements with semantic `<button type="button">`, or add `role="button"`, `tabIndex={0}`, and `onKeyDown` (handling Enter and Space).
-
-### 5. Stable Keys (`no-array-index-as-key`)
-- **Pattern:** Generate or use stable unique identifiers (e.g., `item.id`, `item.slug`, `item.title`, or a deterministic compound key) instead of array index `idx` in `.map()`.
-
-### 6. Event Callback Stability & Effect Separation
-- **Rules:** `prefer-use-effect-event`, `no-reset-all-state-on-prop-change`, `no-adjust-state-on-prop-change`
-- **Pattern:** 
-  - Extract non-reactive callback reads out of `useEffect` dependencies or wrap handler in a stable ref pattern / `useEffectEvent` polyfill.
-  - Avoid resetting state synchronously during render when props change; use React keys on child components (`key={propId}`) to reset state declaratively, or calculate derived values during render without redundant state.
-
-### 7. Component Modularization & Complexity Reduction
-- **Rules:** `no-giant-component`, `no-high-complexity-react-function`, `duplicate-jsx-subtree`
-- **Pattern:** Decompose monolithic components into cohesive subcomponents:
-  - `SimpleBookingForm.tsx` -> Extract step subcomponents (`BookingPersonalDetails`, `BookingServiceSelect`, `BookingDateTime`, `BookingSummary`).
-  - `CraftsmanshipSection.tsx` & `ServiceHero.tsx` -> Extract distinct sub-sections into child components.
-  - `AboutTeam.tsx` -> Extract repeated team card JSX into a `<TeamMemberCard />` reusable component.
+## Code Style & Architectural Conventions
+1. **Server Components First**: Components that do not access browser APIs (`window`, `localStorage`), state (`useState`, `useReducer`), or event listeners MUST NOT use `'use client'`.
+2. **State Synchronization**: Avoid setting state synchronously inside `useEffect`. Derive values during render, use lazy state initialization `useState(() => init)`, or synchronize DOM nodes declaratively.
+3. **Semantic HTML**: Use `<button>` for clickable triggers, `<article>` for cards, and `<nav>` for navigation groupings.
+4. **Image Optimization**: All images must use `next/image` without `unoptimized` unless explicitly required. Provide exact `sizes` attribute.
 
 ---
 
 ## Boundaries
-- **Always:** 
-  - Preserve visual design, layouts, animations, and user interactions.
-  - Re-run `npx react-doctor@latest --verbose` after each module fix to verify score increment.
-  - Ensure zero TypeScript compiler errors (`npm run build`).
-- **Ask First:** 
-  - If any external library installation is considered.
-  - If any user-facing API routes or data contracts require structural modification.
-- **Never:** 
-  - Silence or disable rules using ignore comments without explicit approval.
-  - Break responsive layouts across mobile, tablet, or desktop viewports.
+- **Always Do**:
+  - Run `npm run lint` and `npm run build` to verify every change.
+  - Preserve all existing responsive styles, colors, animations, and typography.
+  - Use semantic HTML tags with accessible ARIA attributes.
+- **Ask First**:
+  - Adding or modifying runtime dependencies in `package.json`.
+  - Changing public routing structures or deleting non-dead assets.
+- **Never Do**:
+  - Never silence linter errors with `// eslint-disable` or `@ts-ignore`.
+  - Never place unoptimized multi-megabyte images in production render paths.
+  - Never hardcode manual duplicate SEO tags in `<head>` when Next.js metadata is available.
 
 ---
 
 ## Success Criteria
-1. `react-doctor` score reaches **95-100 / 100** with **0 critical or high-severity warnings**.
-2. Zero build or TypeScript lint errors (`npm run build`).
-3. All form inputs, modal dialogs, and video players are accessible via keyboard and screen readers.
-4. CSS performance is optimized by eliminating `transition-all` reflow bottlenecks.
+1. `npm run lint` passes with **0 errors and 0 warnings**.
+2. `npm run build` succeeds cleanly with Turbopack, pre-rendering all static routes.
+3. `npx react-doctor@latest --verbose` scores **100 / 100 Great** with 0 issues.
+4. Google-compliant Schema.org `BeautySalon` structured data validated on root.
+5. Automated `sitemap.xml` and `robots.txt` accessible via standard App Router endpoints.
+6. All unused files (`AppointmentModal.tsx`, `BeforeAfterSlider.tsx`, debug images) eliminated.
+7. Next.js serves optimized AVIF/WebP image formats for all local and remote images.

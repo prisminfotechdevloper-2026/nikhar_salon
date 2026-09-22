@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useSyncExternalStore } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -14,17 +14,43 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const STORAGE_KEY = 'nikhar_theme';
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
+const themeListeners = new Set<() => void>();
 
-  useEffect(() => {
-    try {
-      const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
-      if (savedTheme === 'dark' || savedTheme === 'light') {
-        setThemeState(savedTheme);
-      }
-    } catch {}
-  }, []);
+function notifyThemeListeners() {
+  for (const listener of themeListeners) {
+    listener();
+  }
+}
+
+function subscribeToTheme(listener: () => void) {
+  themeListeners.add(listener);
+  window.addEventListener('storage', listener);
+  return () => {
+    themeListeners.delete(listener);
+    window.removeEventListener('storage', listener);
+  };
+}
+
+function getThemeSnapshot(): Theme {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'dark' || saved === 'light') {
+      return saved;
+    }
+  } catch {}
+  return 'light';
+}
+
+function getServerThemeSnapshot(): Theme {
+  return 'light';
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    getThemeSnapshot,
+    getServerThemeSnapshot
+  );
 
   useEffect(() => {
     const root = document.documentElement;
@@ -36,18 +62,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.classList.add('light');
       root.classList.remove('dark');
     }
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch {}
   }, [theme]);
 
   const setTheme = React.useCallback((newTheme: Theme) => {
-    setThemeState(newTheme);
+    try {
+      localStorage.setItem(STORAGE_KEY, newTheme);
+    } catch {}
+    notifyThemeListeners();
   }, []);
 
   const toggleTheme = React.useCallback(() => {
-    setThemeState((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  }, []);
+    const current = getThemeSnapshot();
+    const next = current === 'light' ? 'dark' : 'light';
+    setTheme(next);
+  }, [setTheme]);
 
   const contextValue = React.useMemo(() => ({
     theme,

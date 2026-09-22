@@ -1,7 +1,5 @@
-'use client';
-
 import Image from 'next/image';
-import { ShieldCheck, Clock, MapPin, Phone, Award, CheckCircle2, Coffee } from 'lucide-react';
+import { Clock, MapPin, Phone, Award, CheckCircle2, Coffee } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function BookingInfoCard() {

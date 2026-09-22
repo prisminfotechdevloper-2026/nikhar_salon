@@ -1,5 +1,3 @@
-'use client';
-
 import { TRANSFORMATION_METRICS } from '@/data/transformations';
 import { ShieldCheck, Award, Clock } from 'lucide-react';
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { X, ShieldCheck, Volume2, Play } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import { X, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 
 interface VideoTourModalProps {
@@ -17,7 +17,6 @@ export default function VideoTourModal({
   videoId = 'fW_n6b6fLhQ', // High-definition luxury grooming tour
   videoTitle = 'Nikhar Salon • The Cinematic Experience',
 }: VideoTourModalProps) {
-  const [mounted, setMounted] = useState(false);
   const onCloseRef = useRef(onClose);
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function VideoTourModal({
   });
 
   useEffect(() => {
-    setMounted(true);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onCloseRef.current();
@@ -41,7 +39,7 @@ export default function VideoTourModal({
     };
   }, [isOpen]);
 
-  if (!isOpen || !mounted) return null;
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5 md:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-300">

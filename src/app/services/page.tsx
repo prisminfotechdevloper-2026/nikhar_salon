@@ -1,7 +1,32 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import ServicesFilterGrid from '@/components/services/ServicesFilterGrid';
 import ServiceHero from '@/components/services/ServiceHero';
+
+export const metadata: Metadata = {
+  title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Salon Kota",
+  description:
+    "Browse complete men's grooming services and transparent prices at Nikhar Salon Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
+  alternates: {
+    canonical: 'https://nikharsaloon.vercel.app/services',
+  },
+  openGraph: {
+    title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Salon Kota",
+    description:
+      "Browse complete men's grooming services and transparent prices at Nikhar Salon Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
+    url: 'https://nikharsaloon.vercel.app/services',
+    siteName: 'Nikhar Salon Kota',
+    images: [
+      {
+        url: 'https://nikharsaloon.vercel.app/images/service-hair-patch.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Nikhar Salon Services Menu Kota",
+      },
+    ],
+  },
+};
 
 export default function ServicesPage() {
   return (

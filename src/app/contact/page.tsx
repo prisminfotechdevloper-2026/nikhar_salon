@@ -1,6 +1,6 @@
 import ContactHero from '@/components/contact/ContactHero';
 import ContactForm from '@/components/contact/ContactForm';
-import { Phone, Mail, MapPin, Clock, MessageCircle, ShieldCheck } from 'lucide-react';
+import { MessageCircle, ShieldCheck } from 'lucide-react';
 
 export default function ContactPage() {
   return (

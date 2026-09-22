@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { User, Phone, Scissors, Calendar, Clock, MessageSquare, CheckCircle, ShieldCheck, UserCheck } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
@@ -338,11 +338,121 @@ function BookingDateTimeFields({
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* MAIN SIMPLE BOOKING FORM                                                   */
-/* -------------------------------------------------------------------------- */
+function BookingNotesField({
+  notes,
+  onChange,
+}: {
+  notes: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor="booking-notes"
+        className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1"
+      >
+        Special Requests / Style Reference (Optional)
+      </label>
+      <div className="relative">
+        <textarea
+          id="booking-notes"
+          rows={2}
+          placeholder="e.g. Skin fade with textured top, hair patch consultation, beard shape, etc."
+          value={notes}
+          onChange={(e) => onChange(e.target.value)}
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A] resize-none"
+        />
+        <MessageSquare
+          size={14}
+          className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]"
+        />
+      </div>
+    </div>
+  );
+}
 
-export default function SimpleBookingForm({ defaultService, defaultStylist, onSuccess }: SimpleBookingFormProps) {
+function BookingPreselectionBadge({
+  service,
+  stylist,
+}: {
+  service: string;
+  stylist: string;
+}) {
+  const isCustomStylist = stylist && stylist !== 'Any Available Master Stylist';
+  return (
+    <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#BA9D6A]/10 border border-[#BA9D6A]/30 text-xs text-[#8C734B] dark:text-[#C2A774]">
+      <ShieldCheck size={14} className="shrink-0" />
+      <span>
+        Pre-selected from your choice: <strong>{service}</strong>
+        {isCustomStylist ? <> with <strong>{stylist}</strong></> : null}
+      </span>
+    </div>
+  );
+}
+
+function resolveStylist(queryStylist: string, defaultStylist?: string): string {
+  if (queryStylist) {
+    if (queryStylist.toLowerCase().includes('firoz khan')) {
+      return 'Firoz Khan (Owner)';
+    }
+    return queryStylist;
+  }
+  return defaultStylist || 'Any Available Master Stylist';
+}
+
+function resolveInitialDate(queryDate: string): string {
+  if (queryDate) return queryDate;
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function computeQuickDateString(daysAhead: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() + daysAhead);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function openWhatsAppBooking({
+  name,
+  phone,
+  service,
+  stylist,
+  date,
+  time,
+  notes,
+}: {
+  name: string;
+  phone: string;
+  service: string;
+  stylist: string;
+  date: string;
+  time: string;
+  notes: string;
+}) {
+  const bookingRef = `NS-${Math.floor(100000 + Math.random() * 900000)}`;
+  const text = encodeURIComponent(
+    `*APPOINTMENT RESERVATION - NIKHAR SALON KOTA*\n\n` +
+    `*Ref:* #${bookingRef}\n` +
+    `*Name:* ${name}\n` +
+    `*WhatsApp:* ${phone}\n` +
+    `*Service:* ${service}\n` +
+    `*Stylist:* ${stylist}\n` +
+    `*Date:* ${date}\n` +
+    `*Time Slot:* ${time}\n` +
+    `*Special Notes:* ${notes || 'None'}\n\n` +
+    `*Location:* Shop No. 9, Vigyan Nagar, Kota (Raj)\n` +
+    `_Dispatched via Nikhar Salon Online Booking_`
+  );
+  window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
+}
+
+function useSimpleBookingForm({ defaultService, defaultStylist, onSuccess }: SimpleBookingFormProps) {
   const searchParams = useSearchParams();
   const queryService = searchParams?.get('service') || '';
   const queryStylist = searchParams?.get('stylist') || '';
@@ -351,49 +461,26 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [service, setService] = useState(queryService || defaultService || 'Non-Surgical Hair Patch System');
-  const [stylist, setStylist] = useState(() => {
-    if (queryStylist) {
-      if (queryStylist.toLowerCase().includes('firoz khan')) return 'Firoz Khan (Owner)';
-      return queryStylist;
-    }
-    return defaultStylist || 'Any Available Master Stylist';
-  });
-  const [date, setDate] = useState(() => {
-    if (queryDate) return queryDate;
-    const d = new Date();
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
-    return `${yyyy}-${mm}-${dd}`;
-  });
+  const [stylist, setStylist] = useState(() => resolveStylist(queryStylist, defaultStylist));
+  const [date, setDate] = useState(() => resolveInitialDate(queryDate));
   const [time, setTime] = useState('04:00 PM');
   const [notes, setNotes] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  // Sync state if URL query params change
-  useEffect(() => {
-    if (queryService) {
-      setService(queryService);
-    }
-    if (queryStylist) {
-      if (queryStylist.toLowerCase().includes('firoz khan')) {
-        setStylist('Firoz Khan (Owner)');
-      } else {
-        setStylist(queryStylist);
-      }
-    }
-    if (queryDate) {
-      setDate(queryDate);
-    }
-  }, [queryService, queryStylist, queryDate]);
+  const [prevQuery, setPrevQuery] = useState({ queryService, queryStylist, queryDate });
+  if (
+    prevQuery.queryService !== queryService ||
+    prevQuery.queryStylist !== queryStylist ||
+    prevQuery.queryDate !== queryDate
+  ) {
+    setPrevQuery({ queryService, queryStylist, queryDate });
+    if (queryService) setService(queryService);
+    if (queryStylist) setStylist(resolveStylist(queryStylist));
+    if (queryDate) setDate(queryDate);
+  }
 
   const handleQuickDate = (daysAhead: number) => {
-    const d = new Date();
-    d.setDate(d.getDate() + daysAhead);
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    const dd = String(d.getDate()).padStart(2, '0');
-    setDate(`${yyyy}-${mm}-${dd}`);
+    setDate(computeQuickDateString(daysAhead));
   };
 
   const formattedDate = useMemo(() => formatBookingDate(date), [date]);
@@ -402,42 +489,56 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
     e.preventDefault();
     setSubmitted(true);
     if (onSuccess) onSuccess();
-
-    const bookingRef = `NS-${Math.floor(100000 + Math.random() * 900000)}`;
-
-    const text = encodeURIComponent(
-      `*APPOINTMENT RESERVATION - NIKHAR SALON KOTA*\n\n` +
-      `*Ref:* #${bookingRef}\n` +
-      `*Name:* ${name}\n` +
-      `*WhatsApp:* ${phone}\n` +
-      `*Service:* ${service}\n` +
-      `*Stylist:* ${stylist}\n` +
-      `*Date:* ${formattedDate}\n` +
-      `*Time Slot:* ${time}\n` +
-      `*Special Notes:* ${notes || 'None'}\n\n` +
-      `*Location:* Shop No. 9, Vigyan Nagar, Kota (Raj)\n` +
-      `_Dispatched via Nikhar Salon Online Booking_`
-    );
-
-    window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
+    openWhatsAppBooking({ name, phone, service, stylist, date: formattedDate, time, notes });
   };
 
-  if (submitted) {
+  return {
+    name,
+    setName,
+    phone,
+    setPhone,
+    service,
+    setService,
+    stylist,
+    setStylist,
+    date,
+    setDate,
+    time,
+    setTime,
+    notes,
+    setNotes,
+    submitted,
+    setSubmitted,
+    formattedDate,
+    hasPreselection: Boolean(queryService || queryStylist),
+    handleQuickDate,
+    handleSubmit,
+  };
+}
+
+/* -------------------------------------------------------------------------- */
+/* MAIN SIMPLE BOOKING FORM                                                   */
+/* -------------------------------------------------------------------------- */
+
+export default function SimpleBookingForm(props: SimpleBookingFormProps) {
+  const form = useSimpleBookingForm(props);
+
+  if (form.submitted) {
     return (
       <BookingSuccessView
-        name={name}
-        service={service}
-        stylist={stylist}
-        formattedDate={formattedDate}
-        time={time}
-        onReset={() => setSubmitted(false)}
+        name={form.name}
+        service={form.service}
+        stylist={form.stylist}
+        formattedDate={form.formattedDate}
+        time={form.time}
+        onReset={() => form.setSubmitted(false)}
       />
     );
   }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={form.handleSubmit}
       className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-[0_10px_35px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_50px_rgba(0,0,0,0.7)] space-y-4 transition-colors"
     >
       {/* Form Header */}
@@ -455,60 +556,41 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
         </div>
       </div>
 
-      {/* Pre-selection indicator */}
-      {(queryService || queryStylist) && (
-        <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#BA9D6A]/10 border border-[#BA9D6A]/30 text-xs text-[#8C734B] dark:text-[#C2A774]">
-          <ShieldCheck size={14} className="shrink-0" />
-          <span>
-            Pre-selected from your choice: <strong>{service}</strong>
-            {stylist && stylist !== 'Any Available Master Stylist' ? <> with <strong>{stylist}</strong></> : null}
-          </span>
-        </div>
+      {form.hasPreselection && (
+        <BookingPreselectionBadge service={form.service} stylist={form.stylist} />
       )}
 
       {/* Inputs Grid */}
       <div className="space-y-3.5">
         <BookingPersonalFields
-          name={name}
-          phone={phone}
-          onNameChange={setName}
-          onPhoneChange={setPhone}
+          name={form.name}
+          phone={form.phone}
+          onNameChange={form.setName}
+          onPhoneChange={form.setPhone}
         />
 
         <BookingServiceSelect
-          service={service}
-          onServiceChange={setService}
+          service={form.service}
+          onServiceChange={form.setService}
         />
 
         <BookingStylistSelect
-          stylist={stylist}
-          onStylistChange={setStylist}
+          stylist={form.stylist}
+          onStylistChange={form.setStylist}
         />
 
         <BookingDateTimeFields
-          date={date}
-          time={time}
-          onDateChange={setDate}
-          onTimeChange={setTime}
-          onQuickDate={handleQuickDate}
+          date={form.date}
+          time={form.time}
+          onDateChange={form.setDate}
+          onTimeChange={form.setTime}
+          onQuickDate={form.handleQuickDate}
         />
 
-        <div>
-          <label htmlFor="booking-notes" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-            Special Requests / Style Reference (Optional)
-          </label>
-          <div className="relative">
-            <textarea
-              id="booking-notes"
-              rows={2}
-              placeholder="e.g. Skin fade with textured top, hair patch consultation, beard shape, etc."
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A] resize-none"
-            />
-            <MessageSquare size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
-          </div>
-        </div>
+        <BookingNotesField
+          notes={form.notes}
+          onChange={form.setNotes}
+        />
       </div>
 
       {/* Submit Button */}

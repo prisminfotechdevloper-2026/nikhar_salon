@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CASE_STUDIES, CaseStudy } from '@/data/transformations';
+import { CASE_STUDIES } from '@/data/transformations';
 import CaseStudyCard from './CaseStudyCard';
 import { SlidersHorizontal } from 'lucide-react';
 

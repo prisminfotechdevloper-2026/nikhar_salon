@@ -2,8 +2,12 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { Phone, MapPin, Mail, ArrowRight, Play } from 'lucide-react';
-import VideoTourModal from '@/components/VideoTourModal';
+
+const VideoTourModal = dynamic(() => import('@/components/VideoTourModal'), {
+  ssr: false,
+});
 
 export default function ContactHero() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);

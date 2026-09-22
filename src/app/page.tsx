@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import HeroSection from '@/components/home/HeroSection';
 import MetricsSection from '@/components/home/MetricsSection';
 import HairPatchSection from '@/components/home/HairPatchSection';
@@ -6,6 +7,30 @@ import CraftsmanshipSection from '@/components/home/CraftsmanshipSection';
 import VipMembershipsSection from '@/components/home/VipMembershipsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import HomeCtaSection from '@/components/home/HomeCtaSection';
+
+export const metadata: Metadata = {
+  title: "Nikhar Salon | Luxury Men's Grooming & Hair Patch Studio in Kota",
+  description:
+    "Experience royal haircutting, non-surgical hair patch restoration, precision beard sculpting, and luxury skincare at Nikhar Salon Vigyan Nagar, Kota.",
+  alternates: {
+    canonical: 'https://nikharsaloon.vercel.app',
+  },
+  openGraph: {
+    title: "Nikhar Salon | Luxury Men's Grooming & Hair Patch Studio in Kota",
+    description:
+      "Experience royal haircutting, non-surgical hair patch restoration, precision beard sculpting, and luxury skincare at Nikhar Salon Vigyan Nagar, Kota.",
+    url: 'https://nikharsaloon.vercel.app',
+    siteName: 'Nikhar Salon Kota',
+    images: [
+      {
+        url: 'https://nikharsaloon.vercel.app/images/og-cover.jpg',
+        width: 1200,
+        height: 630,
+        alt: "Nikhar Salon Kota - Luxury Grooming",
+      },
+    ],
+  },
+};
 
 export default function HomePage() {
   return (

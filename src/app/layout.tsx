@@ -97,6 +97,59 @@ export const metadata: Metadata = {
   },
 };
 
+const salonSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BeautySalon',
+  name: 'Nikhar Salon Kota',
+  alternateName: "Nikhar Unisex Saloon",
+  image: 'https://nikharsaloon.vercel.app/images/og-cover.jpg',
+  logo: 'https://nikharsaloon.vercel.app/icon.svg',
+  telephone: '+919784711323',
+  url: 'https://nikharsaloon.vercel.app',
+  priceRange: '₹₹',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Shop No. 9, Old Police Station Ke Samne, Vigyan Nagar',
+    addressLocality: 'Kota',
+    addressRegion: 'Rajasthan',
+    postalCode: '324005',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 25.1328965,
+    longitude: 75.8366472,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '09:00',
+      closes: '22:00',
+    },
+  ],
+  sameAs: [
+    'https://www.instagram.com/nikhar__mens_parlour',
+    'https://youtube.com/@nikharunisexsaloonkota',
+  ],
+};
+
+// Safely serialize JSON-LD to prevent HTML script breakout
+function safeJsonLd(data: unknown): string {
+  return JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -105,18 +158,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-        {/* OpenGraph & Social Preview Fallback Meta Tags */}
-        <meta property="og:image" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
-        <meta property="og:image:secure_url" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Nikhar Salon Kota" />
-        <meta name="twitter:image" content="https://nikharsaloon.vercel.app/images/og-cover.jpg" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(salonSchema) }}
+        />
       </head>
       <body className={`${manrope.variable} ${dmSerifDisplay.variable} ${playfairDisplay.variable} ${caveat.variable} bg-[#FAF8F5] dark:bg-[#0E1012] text-[#181A1C] dark:text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-white dark:selection:text-[#0E1012] font-sans pb-16 lg:pb-0 transition-colors duration-300`}>
         <ThemeProvider>

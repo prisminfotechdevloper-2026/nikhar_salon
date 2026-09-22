@@ -1,25 +1,35 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { Star, ChevronLeft, ChevronRight, Quote, MapPin } from 'lucide-react';
 import { REVIEWS } from '@/data/home';
 
+function subscribeDesktopMedia(callback: () => void) {
+  if (typeof window === 'undefined') return () => {};
+  const mql = window.matchMedia('(min-width: 768px)');
+  mql.addEventListener('change', callback);
+  return () => mql.removeEventListener('change', callback);
+}
+
+function getDesktopSnapshot(): boolean {
+  return typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : false;
+}
+
+function getServerDesktopSnapshot(): boolean {
+  return false;
+}
+
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
-  // Determine screen width for 1 card (mobile) vs 3 cards (desktop)
-  useEffect(() => {
-    const checkScreen = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-    checkScreen();
-    window.addEventListener('resize', checkScreen);
-    return () => window.removeEventListener('resize', checkScreen);
-  }, []);
+  const isDesktop = useSyncExternalStore(
+    subscribeDesktopMedia,
+    getDesktopSnapshot,
+    getServerDesktopSnapshot
+  );
 
   const visibleCards = isDesktop ? 3 : 1;
   const maxIndex = Math.max(0, REVIEWS.length - visibleCards);
@@ -38,9 +48,14 @@ export default function TestimonialsSection() {
     handleNextRef.current = handleNext;
   });
 
-  // Auto-play interval (4.5s) with pause on hover
+  // Auto-play interval (4.5s) with pause on hover & respect prefers-reduced-motion
   useEffect(() => {
     if (isPaused) return;
+    try {
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mediaQuery.matches) return;
+    } catch {}
+
     const timer = setInterval(() => {
       handleNextRef.current();
     }, 4500);
@@ -119,14 +134,14 @@ export default function TestimonialsSection() {
 
         {/* Carousel Slider Track */}
         <div 
-          className="overflow-hidden relative -mx-2 sm:-mx-3"
+          className="overflow-hidden relative -mx-2 sm:-mx-3 [--cards-per-view:1] md:[--cards-per-view:3]"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <div
             className="flex transition-transform duration-700 ease-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / visibleCards)}%)`,
+              transform: `translateX(calc(-1 * ${currentIndex} * (100% / var(--cards-per-view, 1))))`,
             }}
           >
             {REVIEWS.map((review) => (

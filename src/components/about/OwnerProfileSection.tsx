@@ -57,7 +57,6 @@ export default function OwnerProfileSection() {
                 alt="Firoz Khan - Owner & Founder of Nikhar Unisex Saloon Kota"
                 fill
                 priority
-                unoptimized
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -174,7 +174,6 @@ function SafeImage({
         sizes={IMAGE_SIZES}
         priority={priority}
         draggable={false}
-        unoptimized
         onLoad={() => setLoadedSrc(src)}
         onError={() => setFailedSrc(src)}
         className={`select-none object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
@@ -354,7 +353,6 @@ export default function HairPatchSection() {
 
   const current = TRANSFORMATIONS[activeTransform];
   const total = TRANSFORMATIONS.length;
-  const next = TRANSFORMATIONS[(activeTransform + 1) % total];
 
   const toggleBase =
     'inline-flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold transition-all';
@@ -495,12 +493,6 @@ export default function HairPatchSection() {
                   priority={activeTransform === 0}
                 />
               )}
-
-              {/* Warm the browser cache for the next case so switching feels instant */}
-              <div className="pointer-events-none absolute h-0 w-0 overflow-hidden opacity-0" aria-hidden>
-                <link rel="prefetch" href={next.beforeImg} as="image" />
-                <link rel="prefetch" href={next.afterImg} as="image" />
-              </div>
 
               {/* Case selector */}
               <div className="mx-auto flex w-full max-w-[560px] items-center justify-between gap-2 pt-1">

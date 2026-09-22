@@ -2,9 +2,13 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { VIDEO_STORIES, VideoStory } from '@/data/transformations';
+import dynamic from 'next/dynamic';
+import { VIDEO_STORIES } from '@/data/transformations';
 import { Play, Eye, Clock, Film, CheckCircle2 } from 'lucide-react';
-import VideoTourModal from '@/components/VideoTourModal';
+
+const VideoTourModal = dynamic(() => import('@/components/VideoTourModal'), {
+  ssr: false,
+});
 
 export default function VideoStoriesSection() {
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
@@ -44,13 +48,11 @@ export default function VideoStoriesSection() {
                 className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] shadow-2xs hover:shadow-xl transition-[border-color,box-shadow] duration-300 flex flex-col justify-between"
               >
                 {/* Video Thumbnail with Play Button */}
-                <div
+                <button
+                  type="button"
                   onClick={() => setActiveVideoId(video.id)}
-                  role="button"
-                  tabIndex={0}
                   aria-label={`Play ${video.title}`}
-                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveVideoId(video.id)}
-                  className="relative aspect-[4/3] w-full overflow-hidden bg-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#BA9D6A]"
+                  className="relative aspect-[4/3] w-full overflow-hidden bg-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#BA9D6A] block text-left"
                 >
                   <Image
                     src={video.thumbnail}
@@ -86,7 +88,7 @@ export default function VideoStoriesSection() {
                     <Eye size={12} className="text-[#BA9D6A]" />
                     <span>{video.views}</span>
                   </div>
-                </div>
+                </button>
 
                 {/* Video Info */}
                 <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
