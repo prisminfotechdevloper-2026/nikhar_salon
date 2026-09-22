@@ -23,7 +23,7 @@ export default function ContactHero() {
         {/* Outer Section Layout Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-10 items-center">
-            
+
             {/* =========================================================================
                 LEFT COLUMN: Header, Description, Micro Info Pills & Action Buttons
                 ========================================================================= */}
@@ -110,7 +110,7 @@ export default function ContactHero() {
                   href="https://maps.google.com/?q=Nikhar+Salon+Vigyan+Nagar+Kota"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 gold-gradient text-[#0E1012] font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md shadow-[#BA9D6A]/20 hover:brightness-105 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 gold-gradient text-[#0E1012] font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md shadow-[#BA9D6A]/20 hover:brightness-105 hover:scale-105 active:scale-95 transition duration-300 cursor-pointer"
                 >
                   Get Directions <ArrowRight size={14} />
                 </a>
@@ -120,7 +120,7 @@ export default function ContactHero() {
                   onClick={() => setIsVideoModalOpen(true)}
                   className="inline-flex items-center gap-2.5 text-xs text-white/90 hover:text-[#BA9D6A] transition-colors cursor-pointer group"
                 >
-                  <div className="w-8 h-8 rounded-full border border-white/25 bg-white/[0.04] flex items-center justify-center text-white group-hover:border-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-all">
+                  <div className="w-8 h-8 rounded-full border border-white/25 bg-white/[0.04] flex items-center justify-center text-white group-hover:border-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors duration-200">
                     <Play size={12} className="ml-0.5 fill-current" />
                   </div>
                   <span className="font-medium tracking-wide border-b border-white/30 group-hover:border-[#BA9D6A] pb-0.5">
@@ -131,34 +131,36 @@ export default function ContactHero() {
             </div>
 
             {/* =========================================================================
-                CENTER COLUMN: Featured Luxury Salon Roman Arch Showcase
+                CENTER COLUMN: Featured Luxury Salon Circular Porthole Cutout
                 ========================================================================= */}
-            <div className="lg:col-span-4 flex justify-center relative z-10 py-4 lg:py-0">
-              {/* Decorative Geometric Star Accent at left arch apex */}
-              <div className="absolute -left-3 sm:-left-5 top-1/4 -translate-y-1/2 z-20 pointer-events-none text-[#BA9D6A] opacity-90 animate-pulse">
+            <div className="lg:col-span-4 flex justify-center items-center relative z-10 py-6 lg:py-0">
+              {/* Behind the image: Gold concentric circular rings wrapping around the photo */}
+              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full border border-[#BA9D6A]/25 opacity-70" />
+              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] sm:w-[330px] sm:h-[330px] lg:w-[365px] lg:h-[365px] rounded-full border border-[#BA9D6A]/40 opacity-90" />
+
+              {/* Decorative Geometric Star Accent at left ring intersection */}
+              <div className="absolute left-2 sm:left-[6px] top-[30%] -translate-y-1/2 z-20 pointer-events-none text-[#C2A774] opacity-90 animate-pulse">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
                 </svg>
               </div>
 
-              {/* Arch Frame Container */}
-              <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[300px] xl:max-w-[330px]">
-                <div className="relative aspect-[3/4.2] rounded-t-[140px] sm:rounded-t-[170px] rounded-b-2xl overflow-hidden border border-[#BA9D6A]/40 shadow-[0_20px_60px_rgba(0,0,0,0.85)] bg-[#141619] group">
+              {/* Circular Porthole Image Frame */}
+              <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[310px] lg:h-[310px]">
+                <div className="relative w-full h-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
                   <Image
                     src="/images/contact/contact.png"
                     alt="Nikhar Salon Luxury Interior & Styling Ambience"
                     fill
                     priority
-                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 330px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 310px"
+                    className="object-cover object-center select-none"
                   />
-                  {/* Subtle Dark Vignette & Gold Rim */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
                 </div>
 
-                {/* Floating Handwritten Luxury Script Accent */}
-                <div className="absolute -bottom-4 right-[-14px] sm:right-[-20px] z-20 pointer-events-none select-none">
-                  <span className="font-script text-2xl sm:text-3xl text-[#E8D4B0] drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] block -rotate-6 tracking-wide">
+                {/* Floating Handwritten Luxury Script Accent — overlaps bottom-right edge of the circle */}
+                <div className="absolute bottom-2 sm:bottom-4 -right-6 sm:-right-10 z-20 pointer-events-none select-none">
+                  <span className="font-script text-xl sm:text-2xl lg:text-3xl text-[#E8D4B0] drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)] block -rotate-6 tracking-wide whitespace-nowrap">
                     Your Beauty Our Priority
                   </span>
                 </div>
@@ -166,11 +168,11 @@ export default function ContactHero() {
             </div>
 
             {/* =========================================================================
-                RIGHT COLUMN: Glassmorphism Contact Info Card & Stay Connected Vertical Tab
+                RIGHT COLUMN: Contact Info Card & Stay Connected Vertical Tab
                 ========================================================================= */}
             <div className="lg:col-span-3 relative flex items-center gap-4 z-10">
-              {/* Glass Card */}
-              <div className="w-full bg-[#121417]/90 backdrop-blur-md border border-white/[0.1] rounded-2xl p-5 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+              {/* Card */}
+              <div className="w-full bg-[#121417]/80 border border-[#BA9D6A]/15 rounded-2xl p-5 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
                 {/* Header */}
                 <span className="block text-[10.5px] font-sans tracking-[0.2em] text-[#8C734B] dark:text-[#BA9D6A] font-bold uppercase">
                   CONTACT INFO
@@ -244,11 +246,11 @@ export default function ContactHero() {
                       href="https://www.instagram.com/nikhar__mens_parlour?stkn=Z3FmZmwyaG9tb3do&utm_source=qr"
                       target="_blank"
                       rel="noreferrer"
-                      className="h-8 w-8 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-white/80 hover:text-[#0E1012] hover:bg-[#BA9D6A] hover:border-[#BA9D6A] transition-all cursor-pointer"
+                      className="h-8 w-8 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-white/80 hover:text-[#0E1012] hover:bg-[#BA9D6A] hover:border-[#BA9D6A] transition-colors duration-200 cursor-pointer"
                       aria-label="Instagram"
                     >
                       <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                       </svg>
                     </a>
 
@@ -257,11 +259,11 @@ export default function ContactHero() {
                       href="https://youtube.com"
                       target="_blank"
                       rel="noreferrer"
-                      className="h-8 w-8 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-white/80 hover:text-[#0E1012] hover:bg-[#BA9D6A] hover:border-[#BA9D6A] transition-all cursor-pointer"
+                      className="h-8 w-8 rounded-full border border-white/15 bg-white/[0.03] flex items-center justify-center text-white/80 hover:text-[#0E1012] hover:bg-[#BA9D6A] hover:border-[#BA9D6A] transition-colors duration-200 cursor-pointer"
                       aria-label="YouTube"
                     >
                       <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                       </svg>
                     </a>
                   </div>

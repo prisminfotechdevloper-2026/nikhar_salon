@@ -129,7 +129,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://youtube.com"
+              href="https://youtube.com/@nikharunisexsaloonkota?si=33SamjrNAJU1Vyg2"
               target="_blank"
               rel="noreferrer"
               className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"

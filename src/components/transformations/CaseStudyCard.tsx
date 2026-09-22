@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { CaseStudy } from '@/data/transformations';
 import { Star, Clock, User, Calendar, Quote, CheckCircle2 } from 'lucide-react';
-import AppointmentModal from '@/components/AppointmentModal';
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
@@ -12,7 +12,6 @@ interface CaseStudyCardProps {
 
 export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   const [activeView, setActiveView] = useState<'both' | 'before' | 'after'>('both');
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -200,33 +199,19 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
         {/* Card Footer Action */}
         <div className="p-4 sm:p-6 pt-0 mt-2">
-          <button
-            type="button"
-            onClick={() => setIsModalOpen(true)}
+          <Link
+            href={`/book-appointment?service=${encodeURIComponent(
+              caseStudy.category === 'hair-patch' ? 'Non-Surgical Hair Patch System' : caseStudy.title
+            )}&stylist=${encodeURIComponent(
+              caseStudy.stylist.includes('Firoz Khan') ? 'Firoz Khan (Owner)' : caseStudy.stylist.split(' (')[0]
+            )}`}
             className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0E1012] transition-all cursor-pointer shadow-sm active:scale-98"
           >
             <span>Book Similar Transformation</span>
             <Calendar size={13} className="shrink-0" />
-          </button>
+          </Link>
         </div>
       </article>
-
-      {/* Appointment Booking Modal */}
-      {isModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setIsModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
-        >
-          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
-            <AppointmentModal
-              defaultService={caseStudy.title}
-              onClose={() => setIsModalOpen(false)}
-            />
-          </div>
-        </div>
-      )}
     </>
   );
 }

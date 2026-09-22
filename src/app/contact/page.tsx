@@ -1,6 +1,6 @@
 import ContactHero from '@/components/contact/ContactHero';
 import ContactForm from '@/components/contact/ContactForm';
-import { Phone, Mail, MapPin, Clock, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, MessageCircle, ShieldCheck } from 'lucide-react';
 
 export default function ContactPage() {
   return (
@@ -33,7 +33,7 @@ export default function ContactPage() {
 
             <div className="space-y-4">
               {/* WhatsApp Direct Action Card */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] space-y-3 shadow-xs hover:border-[#BA9D6A]/50 transition-all">
+              <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] space-y-3 shadow-xs hover:border-[#BA9D6A]/50 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] rounded-xl border border-[#BA9D6A]/30">
                     <MessageCircle size={20} />
@@ -119,6 +119,7 @@ export default function ContactPage() {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-popups"
             />
           </div>
         </section>

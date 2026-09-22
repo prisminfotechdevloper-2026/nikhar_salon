@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRight,
   ChevronRight,
   ChevronLeft,
 } from 'lucide-react';
-import AppointmentModal from '@/components/AppointmentModal';
 
 export interface ServiceHeroCard {
   id: string;
@@ -121,7 +121,6 @@ export default function ServiceHero() {
   // Mobile-first default: exactly 1 card visible on initial load
   const [visibleCount, setVisibleCount] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
-  const [bookingService, setBookingService] = useState<string | null>(null);
   const [enableTransition, setEnableTransition] = useState(true);
 
   // Drag & Touch support
@@ -482,19 +481,14 @@ export default function ServiceHero() {
                             <span className="text-[9.5px] sm:text-[10px] uppercase tracking-wider font-semibold text-[#8C734B] dark:text-[#BA9D6A]">
                               Book Service
                             </span>
-                            <button
-                              type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                if (!hasMovedRef.current) {
-                                  setBookingService(card.title);
-                                }
-                              }}
+                            <Link
+                              href="/book-appointment"
+                              onClick={(e) => e.stopPropagation()}
                               className="w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full border border-[#D9D4CB] dark:border-white/15 bg-[#FAF8F5] dark:bg-[#1C1F23] flex items-center justify-center text-[#181A1C] dark:text-white group-hover:bg-[#BA9D6A] group-hover:border-[#BA9D6A] group-hover:text-[#0E1012] group-hover:scale-105 transition-all duration-300 shadow-xs cursor-pointer"
                               aria-label={`Book ${card.title}`}
                             >
                               <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform group-hover:translate-x-0.5" />
-                            </button>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -588,26 +582,6 @@ export default function ServiceHero() {
           </div>
         </div>
       </div>
-
-      {/* Full-Screen Ultra-Premium Appointment Modal Dialog */}
-      {bookingService && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md animate-in fade-in duration-200"
-          onClick={() => setBookingService(null)}
-        >
-          <div
-            className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <AppointmentModal
-              defaultService={bookingService}
-              onClose={() => setBookingService(null)}
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

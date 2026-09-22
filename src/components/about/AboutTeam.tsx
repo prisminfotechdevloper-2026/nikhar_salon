@@ -1,7 +1,5 @@
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRight,
   Calendar,
@@ -11,18 +9,8 @@ import {
   Users,
 } from 'lucide-react';
 import { TEAM } from '@/data/team';
-import AppointmentModal from '@/components/AppointmentModal';
 
 export default function AboutTeam() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedStylist, setSelectedStylist] = useState<string>('Any Available Master Stylist');
-  const [selectedService, setSelectedService] = useState<string>('Haircut & Styling');
-
-  const handleOpenBooking = (stylistName: string, serviceName?: string) => {
-    setSelectedStylist(stylistName);
-    if (serviceName) setSelectedService(serviceName);
-    setIsModalOpen(true);
-  };
 
   return (
     <section id="team" className="space-y-8 sm:space-y-10">
@@ -33,7 +21,7 @@ export default function AboutTeam() {
         {/* Top Live Metadata Strip */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3 text-left dark:border-white/[0.08]">
           <div className="flex items-center gap-2.5">
-             <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
+            <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
               NIKHAR SALON FLOOR • RESIDENT CRAFTSMEN
             </span>
             <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
@@ -99,7 +87,7 @@ export default function AboutTeam() {
         {TEAM.map((member) => (
           <div
             key={member.id}
-            className="group flex flex-col justify-between overflow-hidden rounded-2xl md:rounded-3xl border border-[#E5E0D8] bg-white transition-all duration-300 hover:border-[#BA9D6A]/60 hover:shadow-xl dark:border-white/[0.08] dark:bg-[#141619] shadow-xs"
+            className="group flex flex-col justify-between overflow-hidden rounded-2xl md:rounded-3xl border border-[#E5E0D8] bg-white transition duration-300 hover:border-[#BA9D6A]/60 hover:shadow-xl dark:border-white/[0.08] dark:bg-[#141619] shadow-xs"
           >
             {/* Clean Portrait Photo */}
             <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#181A1C]">
@@ -148,38 +136,23 @@ export default function AboutTeam() {
 
               {/* Book Chair Action */}
               <div className="pt-2">
-                <button
-                  type="button"
-                  onClick={() => handleOpenBooking(member.name, member.id === 'firoz-khan' ? 'Non-Surgical Hair Patch System' : 'Haircut & Styling')}
+                <Link
+                  href={`/book-appointment?stylist=${encodeURIComponent(
+                    member.id === 'firoz-khan' ? 'Firoz Khan (Owner)' : member.name
+                  )}&service=${encodeURIComponent(
+                    member.id === 'firoz-khan' ? 'Non-Surgical Hair Patch System' : 'Executive Fade & Precision Cut'
+                  )}`}
                   className="gold-gradient inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2.5 text-[11px] font-bold uppercase tracking-wider text-[#0E1012] shadow-xs hover:brightness-105 transition active:scale-95 cursor-pointer"
                 >
                   <Calendar size={13} />
                   <span>Book with {member.name.split(' ')[0]}</span>
                   <ArrowRight size={13} />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* Appointment Modal */}
-      {isModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setIsModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
-        >
-          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
-            <AppointmentModal
-              defaultService={selectedService}
-              defaultStylist={selectedStylist}
-              onClose={() => setIsModalOpen(false)}
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

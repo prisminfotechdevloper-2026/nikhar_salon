@@ -22,7 +22,7 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#E5E0D8] dark:border-white/15 shadow-[0_4px_16px_rgba(0,0,0,0.15)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_25px_rgba(186,157,106,0.35)]"
+        className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#E5E0D8] dark:border-white/15 shadow-[0_4px_16px_rgba(0,0,0,0.15)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_25px_rgba(186,157,106,0.35)]"
       >
         <div className="flex items-center justify-center w-full h-full rounded-full">
           <WhatsAppIcon size={26} variant="authentic" />
@@ -39,7 +39,7 @@ export default function FloatingActions() {
         <Link
           href="/book-appointment"
           aria-label="Book Appointment"
-          className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#BA9D6A]/60 shadow-[0_4px_16px_rgba(186,157,106,0.25)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_30px_rgba(186,157,106,0.5)] active:scale-95"
+          className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#BA9D6A]/60 shadow-[0_4px_16px_rgba(186,157,106,0.25)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_30px_rgba(186,157,106,0.5)] active:scale-95"
         >
           {/* Pulsing Gold Aura Ring */}
           <span className="absolute inset-0 rounded-full bg-[#BA9D6A] opacity-25 animate-ping pointer-events-none" />

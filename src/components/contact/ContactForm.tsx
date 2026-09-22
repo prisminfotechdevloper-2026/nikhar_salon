@@ -20,13 +20,14 @@ export default function ContactForm() {
 
     // Direct WhatsApp send
     const text = encodeURIComponent(
-      `*🌟 NEW INQUIRY - NIKHAR SALON KOTA 🌟*\n\n` +
-      `👤 *Name:* ${formData.name}\n` +
-      `📱 *Phone:* ${formData.phone}\n` +
-      `📧 *Email:* ${formData.email || 'N/A'}\n` +
-      `✂️ *Service Interested:* ${formData.service || 'General Inquiry'}\n` +
-      `💬 *Message:* ${formData.message}\n\n` +
-      `_Sent via Nikhar Salon Contact Page_`
+      `*NEW INQUIRY - NIKHAR SALON KOTA*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Email:* ${formData.email || 'N/A'}\n` +
+      `*Service Interested:* ${formData.service || 'General Inquiry'}\n` +
+      `*Message:* ${formData.message}\n\n` +
+      `*Location:* Shop No. 9, Vigyan Nagar, Kota (Raj)\n` +
+      `_Sent via Nikhar Salon Official Website_`
     );
     window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
   };

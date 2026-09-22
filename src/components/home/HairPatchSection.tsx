@@ -16,8 +16,8 @@ import {
   Droplets,
   Clock,
 } from 'lucide-react';
+import Link from 'next/link';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import AppointmentModal from '@/components/AppointmentModal';
 
 /* -------------------------------------------------------------------------- */
 /* DATA                                                                       */
@@ -354,24 +354,10 @@ function SideBySide({
 export default function HairPatchSection() {
   const [activeTransform, setActiveTransform] = useState(0);
   const [viewMode, setViewMode] = useState<'split' | 'side-by-side'>('split');
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const current = TRANSFORMATIONS[activeTransform];
   const total = TRANSFORMATIONS.length;
   const next = TRANSFORMATIONS[(activeTransform + 1) % total];
-
-  // Close modal on Escape + lock body scroll while open.
-  useEffect(() => {
-    if (!isBookingModalOpen) return;
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsBookingModalOpen(false);
-    document.addEventListener('keydown', onKey);
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prevOverflow;
-    };
-  }, [isBookingModalOpen]);
 
   const toggleBase =
     'inline-flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold transition-all';
@@ -600,14 +586,13 @@ export default function HairPatchSection() {
               </div>
 
               <div className="flex flex-wrap gap-2.5 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsBookingModalOpen(true)}
+                <Link
+                  href={`/book-appointment?service=${encodeURIComponent('Non-Surgical Hair Patch System')}&stylist=${encodeURIComponent('Firoz Khan (Owner)')}`}
                   className="gold-gradient inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-[11.5px] font-bold uppercase tracking-wider text-[#0E1012] shadow-md transition hover:scale-105 active:scale-95"
                 >
-                  <span>Book Consultation</span>
+                  <span>Book Consultation Slot</span>
                   <ArrowRight size={13} />
-                </button>
+                </Link>
 
                 <a
                   href={`https://wa.me/919784711323?text=${encodeURIComponent(
@@ -657,23 +642,6 @@ export default function HairPatchSection() {
           ))}
         </div>
       </div>
-
-      {/* Booking modal */}
-      {isBookingModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
-        >
-          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
-            <AppointmentModal
-              defaultService="Non-Surgical Hair Patch System"
-              onClose={() => setIsBookingModalOpen(false)}
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
 import {
   Phone,
@@ -13,8 +10,8 @@ import {
   HeartHandshake,
   Scissors,
 } from 'lucide-react';
+import Link from 'next/link';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
-import AppointmentModal from '@/components/AppointmentModal';
 
 /* -------------------------------------------------------------------------- */
 /* SOCIAL ICONS                                                               */
@@ -23,7 +20,7 @@ import AppointmentModal from '@/components/AppointmentModal';
 function InstagramIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
     </svg>
   );
 }
@@ -41,8 +38,6 @@ function YouTubeIcon({ className = 'h-4 w-4' }: { className?: string }) {
 /* -------------------------------------------------------------------------- */
 
 export default function OwnerProfileSection() {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   return (
     <>
       <section id="founder" className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-4 lg:px-10 lg:py-2 shadow-sm dark:shadow-2xl">
@@ -297,16 +292,15 @@ export default function OwnerProfileSection() {
 
             {/* Bottom Action CTAs - Guaranteed Single Row on Desktop */}
             <div className="pt-1 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-3.5 sm:flex-nowrap">
-              <button
-                type="button"
-                onClick={() => setIsBookingModalOpen(true)}
+              <Link
+                href={`/book-appointment?stylist=${encodeURIComponent('Firoz Khan (Owner)')}&service=${encodeURIComponent('Non-Surgical Hair Patch System')}`}
                 className="gold-gradient inline-flex items-center justify-center gap-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0E1012] shadow-md transition hover:scale-[1.02] active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
               >
                 <span>
                   Book Consultation <span className="inline lg:hidden xl:inline">with Firoz Khan</span>
                 </span>
                 <ArrowRight size={14} className="shrink-0" />
-              </button>
+              </Link>
 
               <a
                 href="https://youtube.com/@nikharunisexsaloonkota?si=33SamjrNAJU1Vyg2"
@@ -322,24 +316,6 @@ export default function OwnerProfileSection() {
           </div>
         </div>
       </section>
-
-      {/* Appointment Modal with Firoz Khan Pre-selected */}
-      {isBookingModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
-        >
-          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
-            <AppointmentModal
-              defaultService="Non-Surgical Hair Patch System"
-              defaultStylist="Firoz Khan"
-              onClose={() => setIsBookingModalOpen(false)}
-            />
-          </div>
-        </div>
-      )}
     </>
   );
 }

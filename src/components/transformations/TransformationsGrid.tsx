@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { CASE_STUDIES, CaseStudy } from '@/data/transformations';
 import CaseStudyCard from './CaseStudyCard';
-import { SlidersHorizontal, Sparkles } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'all', label: 'All Case Studies' },

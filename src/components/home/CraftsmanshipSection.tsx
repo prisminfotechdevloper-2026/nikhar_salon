@@ -11,8 +11,8 @@ import {
   ArrowRight,
   Film,
 } from 'lucide-react';
+import Link from 'next/link';
 import VideoTourModal from '@/components/VideoTourModal';
-import AppointmentModal from '@/components/AppointmentModal';
 
 /* -------------------------------------------------------------------------- */
 /* YOUTUBE ICON COMPONENT                                                     */
@@ -117,7 +117,6 @@ export default function CraftsmanshipSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Videos');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   const activeVideo = SALON_VIDEOS.find((v) => v.id === activeVideoId) || SALON_VIDEOS[0];
 
@@ -145,7 +144,7 @@ export default function CraftsmanshipSection() {
             {/* Top Broadcast Bar */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3.5 dark:border-white/[0.08]">
               <div className="flex items-center gap-2.5">
-                 <span className="font-mono text-[10.5px] font-semibold tracking-[0.25em] text-[#8C734B] uppercase dark:text-[#BA9D6A]">
+                <span className="font-mono text-[10.5px] font-semibold tracking-[0.25em] text-[#8C734B] uppercase dark:text-[#BA9D6A]">
                   REC ● NIKHAR STUDIO REEL ARCHIVE
                 </span>
                 <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
@@ -219,19 +218,17 @@ export default function CraftsmanshipSection() {
                       key={cat}
                       type="button"
                       onClick={() => setSelectedCategory(cat)}
-                      className={`inline-flex items-center gap-2 rounded-lg sm:rounded-xl px-3 sm:px-3.5 py-1.5 text-[11px] font-semibold transition-all cursor-pointer ${
-                        active
+                      className={`inline-flex items-center gap-2 rounded-lg sm:rounded-xl px-3 sm:px-3.5 py-1.5 text-[11px] font-semibold transition-all cursor-pointer ${active
                           ? 'bg-[#181A1C] text-white shadow-sm dark:bg-[#BA9D6A] dark:text-[#0E1012] font-bold scale-[1.02]'
                           : 'text-[#555047] hover:text-[#181A1C] hover:bg-white/60 dark:text-[#A6A29A] dark:hover:text-white dark:hover:bg-white/[0.06]'
-                      }`}
+                        }`}
                     >
                       {active && <span className="h-1.5 w-1.5 rounded-full bg-[#BA9D6A] dark:bg-[#0E1012]" />}
                       <span>{cat}</span>
-                      <span className={`text-[9.5px] rounded-full px-1.5 py-0.2 font-mono ${
-                        active
+                      <span className={`text-[9.5px] rounded-full px-1.5 py-0.2 font-mono ${active
                           ? 'bg-white/20 dark:bg-black/20 text-current'
                           : 'bg-black/5 dark:bg-white/10 text-[#7D776D] dark:text-[#888]'
-                      }`}>
+                        }`}>
                         {count}
                       </span>
                     </button>
@@ -387,14 +384,17 @@ export default function CraftsmanshipSection() {
                   <span className="text-[11px] text-[#7D776D] dark:text-[#A6A29A]">
                     Want to achieve this exact look with Firoz Khan?
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => setIsBookingModalOpen(true)}
+                  <Link
+                    href={`/book-appointment?service=${encodeURIComponent(
+                      activeVideo.category === 'Hair Patch'
+                        ? 'Non-Surgical Hair Patch System'
+                        : 'Executive Fade & Precision Cut'
+                    )}&stylist=${encodeURIComponent('Firoz Khan (Owner)')}`}
                     className="gold-gradient inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-[#0E1012] shadow-sm transition hover:scale-105 active:scale-95 cursor-pointer"
                   >
-                    <span>Book Transformation</span>
+                    <span>Book Transformation Slot</span>
                     <ArrowRight size={13} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -423,11 +423,10 @@ export default function CraftsmanshipSection() {
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleSelectVideo(video.id)}
-                      className={`group flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-300 cursor-pointer ${
-                        isActive
+                      className={`group flex items-center gap-3 rounded-xl p-2.5 text-left transition-all duration-300 cursor-pointer ${isActive
                           ? 'border-2 border-[#BA9D6A] bg-[#BA9D6A]/10 shadow-md dark:bg-[#BA9D6A]/15 ring-1 ring-[#BA9D6A]/40'
                           : 'border border-[#E5E0D8] bg-white hover:border-[#BA9D6A]/50 hover:bg-[#FAF8F5] dark:border-white/[0.08] dark:bg-[#141619] dark:hover:bg-white/[0.04]'
-                      }`}
+                        }`}
                     >
                       {/* Thumbnail Container */}
                       <div className="relative aspect-video h-18 sm:h-20 w-28 sm:w-32 shrink-0 overflow-hidden rounded-lg bg-black">
@@ -450,9 +449,8 @@ export default function CraftsmanshipSection() {
                               <span className="w-0.5 bg-[#BA9D6A] h-2 animate-pulse" />
                             </div>
                           ) : (
-                            <div className={`flex h-6 w-6 items-center justify-center rounded-full transition-transform group-hover:scale-110 ${
-                              isActive ? 'bg-[#BA9D6A] text-[#0E1012]' : 'bg-black/70 text-white'
-                            }`}>
+                            <div className={`flex h-6 w-6 items-center justify-center rounded-full transition-transform group-hover:scale-110 ${isActive ? 'bg-[#BA9D6A] text-[#0E1012]' : 'bg-black/70 text-white'
+                              }`}>
                               <Play size={10} fill="currentColor" className="ml-0.5" />
                             </div>
                           )}
@@ -467,9 +465,8 @@ export default function CraftsmanshipSection() {
                       {/* Content Metadata */}
                       <div className="min-w-0 flex-1 space-y-1">
                         <div className="flex items-center justify-between gap-1">
-                          <span className={`text-[9.5px] font-bold uppercase tracking-wider ${
-                            isActive ? 'text-[#8C734B] dark:text-[#BA9D6A]' : 'text-[#7D776D] dark:text-[#A6A29A]'
-                          }`}>
+                          <span className={`text-[9.5px] font-bold uppercase tracking-wider ${isActive ? 'text-[#8C734B] dark:text-[#BA9D6A]' : 'text-[#7D776D] dark:text-[#A6A29A]'
+                            }`}>
                             {video.tag}
                           </span>
                           {isActive && (
@@ -547,23 +544,6 @@ export default function CraftsmanshipSection() {
         videoId={activeVideo.id}
         videoTitle={activeVideo.title}
       />
-
-      {/* Consultation Booking Modal */}
-      {isBookingModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
-        >
-          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
-            <AppointmentModal
-              defaultService={activeVideo.category === 'Hair Patch' ? 'Non-Surgical Hair Patch System' : 'Haircut & Styling'}
-              onClose={() => setIsBookingModalOpen(false)}
-            />
-          </div>
-        </div>
-      )}
     </>
   );
 }

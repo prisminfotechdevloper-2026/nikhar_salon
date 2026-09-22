@@ -58,14 +58,14 @@ export default function VipMembershipsSection() {
               </div>
 
               <Link
-                href="/book-appointment"
+                href={`/book-appointment?service=${encodeURIComponent(`VIP Membership: ${plan.title}`)}`}
                 className={`w-full text-center py-3 sm:py-3.5 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-all ${
                   plan.featured
                     ? 'gold-gradient text-[#0E1012] shadow-md shadow-[#BA9D6A]/30 hover:brightness-105'
                     : 'border border-[#D9D4CB] dark:border-white/20 text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A]'
                 }`}
               >
-                Join Membership
+                Book VIP Membership Slot
               </Link>
             </div>
           ))}
