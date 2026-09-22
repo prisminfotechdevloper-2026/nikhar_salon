@@ -54,10 +54,10 @@ export default function TransformationsHero() {
 
         {/* 4 Trust Metric Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 pt-2">
-          {TRANSFORMATION_METRICS.map((metric, idx) => (
+          {TRANSFORMATION_METRICS.map((metric) => (
             <div
-              key={idx}
-              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] shadow-2xs group hover:border-[#BA9D6A]/50 transition-all duration-300"
+              key={metric.label}
+              className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] shadow-2xs group hover:border-[#BA9D6A]/50 transition-[border-color,box-shadow] duration-300"
             >
               <div className="font-serif-title text-2xl sm:text-3xl lg:text-4xl font-normal text-[#181A1C] dark:text-white tracking-tight mb-1 group-hover:text-[#BA9D6A] transition-colors">
                 {metric.value}

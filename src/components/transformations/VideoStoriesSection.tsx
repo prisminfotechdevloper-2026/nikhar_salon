@@ -41,12 +41,16 @@ export default function VideoStoriesSection() {
             {VIDEO_STORIES.map((video) => (
               <div
                 key={video.id}
-                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] shadow-2xs hover:shadow-xl transition-[border-color,box-shadow] duration-300 flex flex-col justify-between"
               >
                 {/* Video Thumbnail with Play Button */}
                 <div
                   onClick={() => setActiveVideoId(video.id)}
-                  className="relative aspect-[4/3] w-full overflow-hidden bg-black cursor-pointer"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Play ${video.title}`}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setActiveVideoId(video.id)}
+                  className="relative aspect-[4/3] w-full overflow-hidden bg-black cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#BA9D6A]"
                 >
                   <Image
                     src={video.thumbnail}
@@ -62,7 +66,7 @@ export default function VideoStoriesSection() {
 
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-12 w-12 rounded-full bg-[#BA9D6A] group-hover:scale-110 group-hover:brightness-110 transition-all duration-300 flex items-center justify-center shadow-lg text-[#0E1012] pl-0.5">
+                    <div className="h-12 w-12 rounded-full bg-[#BA9D6A] group-hover:scale-110 group-hover:brightness-110 transition-transform duration-300 flex items-center justify-center shadow-lg text-[#0E1012] pl-0.5">
                       <Play size={20} fill="currentColor" />
                     </div>
                   </div>
@@ -96,8 +100,8 @@ export default function VideoStoriesSection() {
                   </div>
 
                   <div className="space-y-1 pt-1 border-t border-[#E5E0D8] dark:border-white/[0.06]">
-                    {video.highlights.map((h, i) => (
-                      <div key={i} className="flex items-center gap-1.5 text-[10px] text-[#555047] dark:text-white/70">
+                    {video.highlights.map((h) => (
+                      <div key={h} className="flex items-center gap-1.5 text-[10px] text-[#555047] dark:text-white/70">
                         <CheckCircle2 size={11} className="text-[#BA9D6A] shrink-0" />
                         <span className="truncate">{h}</span>
                       </div>

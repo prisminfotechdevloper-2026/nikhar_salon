@@ -15,7 +15,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
   return (
     <>
-      <article className="rounded-2xl sm:rounded-3xl bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] overflow-hidden shadow-2xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+      <article className="rounded-2xl sm:rounded-3xl bg-white dark:bg-[#121416] border border-[#E5E0D8] dark:border-white/[0.08] overflow-hidden shadow-2xs hover:shadow-xl transition-[border-color,box-shadow] duration-300 flex flex-col justify-between">
         <div>
           {/* Visual Showcase (Before & After Image Display) */}
           <div className="relative bg-[#ECE8E1] dark:bg-[#0A0C0E] border-b border-[#E5E0D8] dark:border-white/[0.08] p-3 sm:p-4">
@@ -178,9 +178,9 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
               </div>
 
               <div className="flex flex-wrap gap-1.5 pt-1">
-                {caseStudy.keyBenefits.map((benefit, i) => (
+                {caseStudy.keyBenefits.map((benefit) => (
                   <span
-                    key={i}
+                    key={benefit}
                     className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium bg-[#ECE8E1] dark:bg-white/[0.06] text-[#555047] dark:text-white/80"
                   >
                     <CheckCircle2 size={11} className="text-[#BA9D6A]" /> {benefit}
@@ -205,7 +205,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             )}&stylist=${encodeURIComponent(
               caseStudy.stylist.includes('Firoz Khan') ? 'Firoz Khan (Owner)' : caseStudy.stylist.split(' (')[0]
             )}`}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0E1012] transition-all cursor-pointer shadow-sm active:scale-98"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-sm active:scale-98"
           >
             <span>Book Similar Transformation</span>
             <Calendar size={13} className="shrink-0" />

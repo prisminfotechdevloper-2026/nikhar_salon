@@ -23,10 +23,10 @@ export default function VipMembershipsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {VIP_PASSES.map((plan, i) => (
+          {VIP_PASSES.map((plan) => (
             <div
-              key={i}
-              className={`relative flex flex-col justify-between rounded-2xl md:rounded-3xl p-6 sm:p-8 transition-all duration-300 ${
+              key={plan.title}
+              className={`relative flex flex-col justify-between rounded-2xl md:rounded-3xl p-6 sm:p-8 transition-[border-color,box-shadow,transform] duration-300 ${
                 plan.featured
                   ? 'bg-white dark:bg-[#181A1C] border-2 border-[#BA9D6A] shadow-[0_16px_40px_rgba(186,157,106,0.2)] scale-[1.02]'
                   : 'bg-[#F5F2ED] dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/50 shadow-xs'
@@ -48,8 +48,8 @@ export default function VipMembershipsSection() {
                 </div>
 
                 <div className="space-y-3 border-t border-[#E5E0D8] dark:border-white/[0.08] pt-6 mb-8 text-xs text-[#181A1C] dark:text-white/90">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5">
                       <Check size={14} className="text-[#8C734B] dark:text-[#BA9D6A] shrink-0 mt-0.5" />
                       <span className="leading-snug">{feature}</span>
                     </div>
@@ -59,7 +59,7 @@ export default function VipMembershipsSection() {
 
               <Link
                 href={`/book-appointment?service=${encodeURIComponent(`VIP Membership: ${plan.title}`)}`}
-                className={`w-full text-center py-3 sm:py-3.5 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-all ${
+                className={`w-full text-center py-3 sm:py-3.5 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-colors ${
                   plan.featured
                     ? 'gold-gradient text-[#0E1012] shadow-md shadow-[#BA9D6A]/30 hover:brightness-105'
                     : 'border border-[#D9D4CB] dark:border-white/20 text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A]'

@@ -32,7 +32,7 @@ export default function HomeCtaSection() {
               href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20want%20to%20book%20an%20appointment."
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 border border-[#D9D4CB] dark:border-white/20 bg-[#FAF8F5] dark:bg-white/[0.05] hover:border-[#BA9D6A] text-[#181A1C] dark:text-white px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-105 shadow-xs"
+              className="group inline-flex items-center justify-center gap-2.5 border border-[#D9D4CB] dark:border-white/20 bg-[#FAF8F5] dark:bg-white/[0.05] hover:border-[#BA9D6A] text-[#181A1C] dark:text-white px-6 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors duration-300 hover:scale-105 active:scale-95 shadow-xs"
             >
               <WhatsAppIcon size={18} variant="authentic" />
               <span className="group-hover:text-[#BA9D6A] transition-colors">WhatsApp Us</span>

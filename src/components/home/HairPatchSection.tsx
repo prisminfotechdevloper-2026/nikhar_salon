@@ -149,14 +149,11 @@ function SafeImage({
   focusY?: string;
   priority?: boolean;
 }) {
-  const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [loadedSrc, setLoadedSrc] = useState<string | null>(null);
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
 
-  // Reset when the source changes (switching cases).
-  useEffect(() => {
-    setLoaded(false);
-    setFailed(false);
-  }, [src]);
+  const loaded = loadedSrc === src;
+  const failed = failedSrc === src;
 
   if (failed) {
     return (
@@ -178,8 +175,8 @@ function SafeImage({
         priority={priority}
         draggable={false}
         unoptimized
-        onLoad={() => setLoaded(true)}
-        onError={() => setFailed(true)}
+        onLoad={() => setLoadedSrc(src)}
+        onError={() => setFailedSrc(src)}
         className={`select-none object-cover transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ objectPosition: focusY }}
       />
@@ -617,7 +614,7 @@ export default function HairPatchSection() {
           {FEATURES.map(({ step, icon: Icon, title, tag, desc }) => (
             <div
               key={title}
-              className="group relative space-y-2 rounded-2xl border border-[#E5E0D8] bg-white p-4 text-left shadow-xs transition-all duration-300 hover:border-[#BA9D6A]/60 hover:shadow-md dark:border-white/[0.08] dark:bg-[#141619] sm:p-5"
+              className="group relative space-y-2 rounded-2xl border border-[#E5E0D8] bg-white p-4 text-left shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-[#BA9D6A]/60 hover:shadow-md dark:border-white/[0.08] dark:bg-[#141619] sm:p-5"
             >
               <div className="flex items-center justify-between">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">

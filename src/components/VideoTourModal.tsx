@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, ShieldCheck, Volume2, Play } from 'lucide-react';
 import Link from 'next/link';
 
@@ -18,11 +18,18 @@ export default function VideoTourModal({
   videoTitle = 'Nikhar Salon • The Cinematic Experience',
 }: VideoTourModalProps) {
   const [mounted, setMounted] = useState(false);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     setMounted(true);
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onCloseRef.current();
+      }
     };
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -32,7 +39,7 @@ export default function VideoTourModal({
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen || !mounted) return null;
 

@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { User, Phone, Scissors, Calendar, Clock, MessageSquare, CheckCircle, ShieldCheck, ArrowRight, UserCheck } from 'lucide-react';
+import { User, Phone, Scissors, Calendar, Clock, MessageSquare, CheckCircle, ShieldCheck, UserCheck } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import { servicesData } from '@/data/services';
 
@@ -31,11 +31,316 @@ const TIME_OPTIONS = [
   '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '09:30 PM'
 ];
 
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] as const;
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
+
+function formatBookingDate(dateStr: string): string {
+  if (!dateStr) return 'Today';
+  try {
+    const [y, m, d] = dateStr.split('-').map(Number);
+    const dateObj = new Date(y, m - 1, d);
+    if (isNaN(dateObj.getTime())) return dateStr;
+    return `${DAYS[dateObj.getDay()]}, ${MONTHS[dateObj.getMonth()]} ${dateObj.getDate()}`;
+  } catch {
+    return dateStr;
+  }
+}
+
 interface SimpleBookingFormProps {
   defaultService?: string;
   defaultStylist?: string;
   onSuccess?: () => void;
 }
+
+/* -------------------------------------------------------------------------- */
+/* SUB-COMPONENTS FOR BOOKING FORM                                            */
+/* -------------------------------------------------------------------------- */
+
+function BookingSuccessView({
+  name,
+  service,
+  stylist,
+  formattedDate,
+  time,
+  onReset,
+}: {
+  name: string;
+  service: string;
+  stylist: string;
+  formattedDate: string;
+  time: string;
+  onReset: () => void;
+}) {
+  return (
+    <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-lg">
+      <div className="w-14 h-14 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/60 flex items-center justify-center text-[#C2A774] mx-auto shadow-sm">
+        <CheckCircle size={32} />
+      </div>
+      <div className="space-y-1">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#C2A774] font-bold block">
+          REQUEST SENT VIA WHATSAPP
+        </span>
+        <h3 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">
+          Appointment Requested, {name}!
+        </h3>
+        <p className="text-xs text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto leading-relaxed">
+          Our salon concierge has received your request for <strong>{service}</strong> on <strong>{formattedDate} at {time}</strong>.
+        </p>
+      </div>
+
+      <div className="p-4 rounded-xl bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#E5E0D8] dark:border-white/10 text-left text-xs space-y-2 max-w-sm mx-auto">
+        <div className="flex justify-between">
+          <span className="text-neutral-500">Service:</span>
+          <span className="font-semibold text-[#181A1C] dark:text-white">{service}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-neutral-500">Stylist:</span>
+          <span className="font-semibold text-[#181A1C] dark:text-white">{stylist}</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-neutral-500">Slot:</span>
+          <span className="font-semibold text-[#8C734B] dark:text-[#C2A774]">{formattedDate} • {time}</span>
+        </div>
+      </div>
+
+      <div className="pt-2 flex flex-col sm:flex-row gap-2.5 justify-center max-w-sm mx-auto">
+        <a
+          href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Salon! Checking on my appointment for ${service} by ${name}`)}`}
+          target="_blank"
+          rel="noreferrer"
+          className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-colors"
+        >
+          <WhatsAppIcon size={15} variant="authentic" /> Open Chat
+        </a>
+        <button
+          type="button"
+          onClick={onReset}
+          className="py-3 px-4 rounded-xl border border-[#D9D4CB] dark:border-white/15 text-xs font-semibold text-[#555047] dark:text-white/80 hover:text-[#181A1C] dark:hover:text-white transition-colors cursor-pointer"
+        >
+          Book Another
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function BookingPersonalFields({
+  name,
+  phone,
+  onNameChange,
+  onPhoneChange,
+}: {
+  name: string;
+  phone: string;
+  onNameChange: (val: string) => void;
+  onPhoneChange: (val: string) => void;
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label htmlFor="booking-name" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+          Your Full Name *
+        </label>
+        <div className="relative">
+          <input
+            id="booking-name"
+            type="text"
+            required
+            placeholder="e.g. Aman Sharma"
+            value={name}
+            onChange={(e) => onNameChange(e.target.value)}
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
+          />
+          <User size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="booking-phone" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+          WhatsApp Mobile Number *
+        </label>
+        <div className="relative">
+          <input
+            id="booking-phone"
+            type="tel"
+            required
+            placeholder="+91 97847 11323"
+            value={phone}
+            onChange={(e) => onPhoneChange(e.target.value)}
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
+          />
+          <Phone size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BookingServiceSelect({
+  service,
+  onServiceChange,
+}: {
+  service: string;
+  onServiceChange: (val: string) => void;
+}) {
+  return (
+    <div>
+      <label htmlFor="booking-service" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+        Select Grooming Service *
+      </label>
+      <div className="relative">
+        <select
+          id="booking-service"
+          aria-label="Select Grooming Service"
+          value={service}
+          onChange={(e) => onServiceChange(e.target.value)}
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+        >
+          <optgroup label="Popular Services">
+            {POPULAR_SERVICES.map((s) => (
+              <option key={s.title} value={s.title}>
+                {s.title} ({s.price})
+              </option>
+            ))}
+          </optgroup>
+          <optgroup label="Full Catalog">
+            {servicesData.map((s) => (
+              <option key={s.id} value={s.title}>
+                {s.title} ({s.price})
+              </option>
+            ))}
+          </optgroup>
+          {service &&
+            !POPULAR_SERVICES.some((s) => s.title === service) &&
+            !servicesData.some((s) => s.title === service) && (
+              <optgroup label="Selected Offering">
+                <option value={service}>{service}</option>
+              </optgroup>
+            )}
+        </select>
+        <Scissors size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
+        <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
+      </div>
+    </div>
+  );
+}
+
+function BookingStylistSelect({
+  stylist,
+  onStylistChange,
+}: {
+  stylist: string;
+  onStylistChange: (val: string) => void;
+}) {
+  return (
+    <div>
+      <label htmlFor="booking-stylist" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+        Preferred Specialist / Barber
+      </label>
+      <div className="relative">
+        <select
+          id="booking-stylist"
+          aria-label="Preferred Specialist or Barber"
+          value={stylist}
+          onChange={(e) => onStylistChange(e.target.value)}
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+        >
+          {STYLIST_OPTIONS.map((st) => (
+            <option key={st.name} value={st.name}>
+              {st.name} — {st.role}
+            </option>
+          ))}
+          {stylist && !STYLIST_OPTIONS.some((st) => st.name === stylist) && (
+            <option value={stylist}>{stylist}</option>
+          )}
+        </select>
+        <UserCheck size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
+        <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
+      </div>
+    </div>
+  );
+}
+
+function BookingDateTimeFields({
+  date,
+  time,
+  onDateChange,
+  onTimeChange,
+  onQuickDate,
+}: {
+  date: string;
+  time: string;
+  onDateChange: (val: string) => void;
+  onTimeChange: (val: string) => void;
+  onQuickDate: (daysAhead: number) => void;
+}) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <div className="flex items-center justify-between mb-1">
+          <label htmlFor="booking-date" className="text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold">
+            Date *
+          </label>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => onQuickDate(0)}
+              className="text-[10px] px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-white/10 border border-[#D9D4CB] dark:border-white/15 text-[#8C734B] dark:text-[#C2A774] font-semibold hover:border-[#BA9D6A] cursor-pointer"
+            >
+              Today
+            </button>
+            <button
+              type="button"
+              onClick={() => onQuickDate(1)}
+              className="text-[10px] px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-white/10 border border-[#D9D4CB] dark:border-white/15 text-[#8C734B] dark:text-[#C2A774] font-semibold hover:border-[#BA9D6A] cursor-pointer"
+            >
+              Tmrw
+            </button>
+          </div>
+        </div>
+        <div className="relative">
+          <input
+            id="booking-date"
+            aria-label="Select Appointment Date"
+            type="date"
+            required
+            value={date}
+            onChange={(e) => onDateChange(e.target.value)}
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A]"
+          />
+          <Calendar size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="booking-time" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+          Preferred Time *
+        </label>
+        <div className="relative">
+          <select
+            id="booking-time"
+            aria-label="Select Preferred Time Slot"
+            value={time}
+            onChange={(e) => onTimeChange(e.target.value)}
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+          >
+            {TIME_OPTIONS.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+          <Clock size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
+          <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/* MAIN SIMPLE BOOKING FORM                                                   */
+/* -------------------------------------------------------------------------- */
 
 export default function SimpleBookingForm({ defaultService, defaultStylist, onSuccess }: SimpleBookingFormProps) {
   const searchParams = useSearchParams();
@@ -82,7 +387,6 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
     }
   }, [queryService, queryStylist, queryDate]);
 
-  // Quick date setter
   const handleQuickDate = (daysAhead: number) => {
     const d = new Date();
     d.setDate(d.getDate() + daysAhead);
@@ -92,16 +396,7 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
     setDate(`${yyyy}-${mm}-${dd}`);
   };
 
-  const formattedDate = useMemo(() => {
-    if (!date) return 'Today';
-    try {
-      const [y, m, d] = date.split('-').map(Number);
-      const dateObj = new Date(y, m - 1, d);
-      return dateObj.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-    } catch {
-      return date;
-    }
-  }, [date]);
+  const formattedDate = useMemo(() => formatBookingDate(date), [date]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -129,55 +424,14 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
 
   if (submitted) {
     return (
-      <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-lg">
-        <div className="w-14 h-14 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/60 flex items-center justify-center text-[#C2A774] mx-auto shadow-sm">
-          <CheckCircle size={32} />
-        </div>
-        <div className="space-y-1">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#C2A774] font-bold block">
-            REQUEST SENT VIA WHATSAPP
-          </span>
-          <h3 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">
-            Appointment Requested, {name}!
-          </h3>
-          <p className="text-xs text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto leading-relaxed">
-            Our salon concierge has received your request for <strong>{service}</strong> on <strong>{formattedDate} at {time}</strong>.
-          </p>
-        </div>
-
-        <div className="p-4 rounded-xl bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#E5E0D8] dark:border-white/10 text-left text-xs space-y-2 max-w-sm mx-auto">
-          <div className="flex justify-between">
-            <span className="text-neutral-500">Service:</span>
-            <span className="font-semibold text-[#181A1C] dark:text-white">{service}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-neutral-500">Stylist:</span>
-            <span className="font-semibold text-[#181A1C] dark:text-white">{stylist}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-neutral-500">Slot:</span>
-            <span className="font-semibold text-[#8C734B] dark:text-[#C2A774]">{formattedDate} • {time}</span>
-          </div>
-        </div>
-
-        <div className="pt-2 flex flex-col sm:flex-row gap-2.5 justify-center max-w-sm mx-auto">
-          <a
-            href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Salon! Checking on my appointment for ${service} by ${name}`)}`}
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition"
-          >
-            <WhatsAppIcon size={15} variant="authentic" /> Open Chat
-          </a>
-          <button
-            type="button"
-            onClick={() => setSubmitted(false)}
-            className="py-3 px-4 rounded-xl border border-[#D9D4CB] dark:border-white/15 text-xs font-semibold text-[#555047] dark:text-white/80 hover:text-[#181A1C] dark:hover:text-white transition"
-          >
-            Book Another
-          </button>
-        </div>
-      </div>
+      <BookingSuccessView
+        name={name}
+        service={service}
+        stylist={stylist}
+        formattedDate={formattedDate}
+        time={time}
+        onReset={() => setSubmitted(false)}
+      />
     );
   }
 
@@ -214,171 +468,38 @@ export default function SimpleBookingForm({ defaultService, defaultStylist, onSu
 
       {/* Inputs Grid */}
       <div className="space-y-3.5">
-        {/* Row 1: Name & Phone */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-              Your Full Name *
-            </label>
-            <div className="relative">
-              <input
-                type="text"
-                required
-                placeholder="e.g. Aman Sharma"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
-              />
-              <User size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
-            </div>
-          </div>
+        <BookingPersonalFields
+          name={name}
+          phone={phone}
+          onNameChange={setName}
+          onPhoneChange={setPhone}
+        />
 
-          <div>
-            <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-              WhatsApp Mobile Number *
-            </label>
-            <div className="relative">
-              <input
-                type="tel"
-                required
-                placeholder="+91 97847 11323"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
-              />
-              <Phone size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
-            </div>
-          </div>
-        </div>
+        <BookingServiceSelect
+          service={service}
+          onServiceChange={setService}
+        />
 
-        {/* Row 2: Service Selection */}
+        <BookingStylistSelect
+          stylist={stylist}
+          onStylistChange={setStylist}
+        />
+
+        <BookingDateTimeFields
+          date={date}
+          time={time}
+          onDateChange={setDate}
+          onTimeChange={setTime}
+          onQuickDate={handleQuickDate}
+        />
+
         <div>
-          <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-            Select Grooming Service *
-          </label>
-          <div className="relative">
-            <select
-              value={service}
-              onChange={(e) => setService(e.target.value)}
-              className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
-            >
-              <optgroup label="Popular Services">
-                {POPULAR_SERVICES.map((s) => (
-                  <option key={s.title} value={s.title}>
-                    {s.title} ({s.price})
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Full Catalog">
-                {servicesData.map((s) => (
-                  <option key={s.id} value={s.title}>
-                    {s.title} ({s.price})
-                  </option>
-                ))}
-              </optgroup>
-              {service &&
-                !POPULAR_SERVICES.some((s) => s.title === service) &&
-                !servicesData.some((s) => s.title === service) && (
-                  <optgroup label="Selected Offering">
-                    <option value={service}>{service}</option>
-                  </optgroup>
-                )}
-            </select>
-            <Scissors size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
-            <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
-          </div>
-        </div>
-
-        {/* Row 3: Stylist Selection */}
-        <div>
-          <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-            Preferred Specialist / Barber
-          </label>
-          <div className="relative">
-            <select
-              value={stylist}
-              onChange={(e) => setStylist(e.target.value)}
-              className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
-            >
-              {STYLIST_OPTIONS.map((st) => (
-                <option key={st.name} value={st.name}>
-                  {st.name} — {st.role}
-                </option>
-              ))}
-              {stylist && !STYLIST_OPTIONS.some((st) => st.name === stylist) && (
-                <option value={stylist}>{stylist}</option>
-              )}
-            </select>
-            <UserCheck size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
-            <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
-          </div>
-        </div>
-
-        {/* Row 4: Date & Time Slot */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <div className="flex items-center justify-between mb-1">
-              <label className="text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold">
-                Date *
-              </label>
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={() => handleQuickDate(0)}
-                  className="text-[10px] px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-white/10 border border-[#D9D4CB] dark:border-white/15 text-[#8C734B] dark:text-[#C2A774] font-semibold hover:border-[#BA9D6A]"
-                >
-                  Today
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleQuickDate(1)}
-                  className="text-[10px] px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-white/10 border border-[#D9D4CB] dark:border-white/15 text-[#8C734B] dark:text-[#C2A774] font-semibold hover:border-[#BA9D6A]"
-                >
-                  Tmrw
-                </button>
-              </div>
-            </div>
-            <div className="relative">
-              <input
-                type="date"
-                required
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A]"
-              />
-              <Calendar size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
-              Preferred Time *
-            </label>
-            <div className="relative">
-              <select
-                value={time}
-                onChange={(e) => setTime(e.target.value)}
-                className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
-              >
-                {TIME_OPTIONS.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-              <Clock size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774] pointer-events-none" />
-              <div className="absolute right-3.5 top-3.5 pointer-events-none border-t-4 border-t-[#8C734B] dark:border-t-[#C2A774] border-x-4 border-x-transparent" />
-            </div>
-          </div>
-        </div>
-
-        {/* Row 5: Notes */}
-        <div>
-          <label className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
+          <label htmlFor="booking-notes" className="block text-[11px] uppercase tracking-wider text-[#7D776D] dark:text-[#C2A774] font-bold mb-1">
             Special Requests / Style Reference (Optional)
           </label>
           <div className="relative">
             <textarea
+              id="booking-notes"
               rows={2}
               placeholder="e.g. Skin fade with textured top, hair patch consultation, beard shape, etc."
               value={notes}

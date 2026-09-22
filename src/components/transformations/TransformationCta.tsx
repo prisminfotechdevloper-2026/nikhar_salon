@@ -36,7 +36,7 @@ export default function TransformationCta() {
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/book-appointment"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#0E1012] transition-all cursor-pointer shadow-lg active:scale-95 border border-[#E8D4B0]/40"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-lg active:scale-95 border border-[#E8D4B0]/40"
             >
               <Calendar size={16} />
               <span>Book Transformation Slot</span>
@@ -46,7 +46,7 @@ export default function TransformationCta() {
               href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon,%20I%20saw%20your%20transformations%20and%20want%20a%20consultation"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.08] hover:bg-white/[0.16] hover:border-[#BA9D6A] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.08] hover:bg-white/[0.16] hover:border-[#BA9D6A] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white transition-[border-color,background-color] backdrop-blur-md"
             >
               <WhatsAppIcon size={16} variant="authentic" />
               <span>WhatsApp Firoz Khan</span>

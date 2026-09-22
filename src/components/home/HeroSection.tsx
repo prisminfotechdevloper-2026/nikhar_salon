@@ -75,7 +75,7 @@ export default function HeroSection() {
         </div>
 
         {/* Grand Heading in DM Serif Display */}
-        <h1 className="font-serif-title text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-normal tracking-[-0.03em] text-white leading-[1.1] sm:leading-[1.05] max-w-4xl drop-shadow-lg transition-all duration-500">
+        <h1 className="font-serif-title text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-normal tracking-[-0.03em] text-white leading-[1.1] sm:leading-[1.05] max-w-4xl drop-shadow-lg transition-opacity duration-500">
           {HERO_SLIDES[currentSlide].title}
         </h1>
 
@@ -92,13 +92,15 @@ export default function HeroSection() {
             <form onSubmit={handleQuickBook} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2.5 sm:gap-3 md:gap-4 items-end text-left">
               {/* 1. Service Picker */}
               <div className="relative lg:col-span-4">
-                <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                <label htmlFor="hero-quick-service" className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
                   Signature Service
                 </label>
                 <div className="relative">
                   <select
+                    id="hero-quick-service"
                     value={quickService}
                     onChange={(e) => setQuickService(e.target.value)}
+                    aria-label="Select Signature Service"
                     className="w-full rounded-xl border border-[#D9D4CB] dark:border-white/[0.1] bg-[#ECE8E1]/80 dark:bg-[#181A1C] hover:bg-[#ECE8E1] hover:border-[#BA9D6A]/60 dark:hover:border-[#BA9D6A]/50 px-3.5 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer pr-9"
                   >
                     <option value="Non-Surgical Hair Patch System" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white font-semibold">★ Non-Surgical Hair Patch (₹5,999+)</option>
@@ -116,13 +118,15 @@ export default function HeroSection() {
 
               {/* 2. Barber / Stylist */}
               <div className="relative lg:col-span-3">
-                <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                <label htmlFor="hero-quick-stylist" className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
                   Master Stylist
                 </label>
                 <div className="relative">
                   <select
+                    id="hero-quick-stylist"
                     value={quickStylist}
                     onChange={(e) => setQuickStylist(e.target.value)}
+                    aria-label="Select Master Stylist"
                     className="w-full rounded-xl border border-[#D9D4CB] dark:border-white/[0.1] bg-[#ECE8E1]/80 dark:bg-[#181A1C] hover:bg-[#ECE8E1] hover:border-[#BA9D6A]/60 dark:hover:border-[#BA9D6A]/50 px-3.5 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer pr-9"
                   >
                     <option value="Any Available Master Stylist" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Any Available Master Stylist</option>
@@ -139,13 +143,15 @@ export default function HeroSection() {
 
               {/* 3. Preferred Date */}
               <div className="relative lg:col-span-2">
-                <label className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
+                <label htmlFor="hero-quick-date" className="block text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A] mb-1 sm:mb-1.5 pl-1">
                   Date
                 </label>
                 <input
                   type="date"
+                  id="hero-quick-date"
                   value={quickDate}
                   onChange={(e) => setQuickDate(e.target.value)}
+                  aria-label="Select Appointment Date"
                   className="w-full rounded-xl border border-[#D9D4CB] dark:border-white/[0.1] bg-[#ECE8E1]/80 dark:bg-[#181A1C] hover:border-[#BA9D6A]/60 dark:hover:border-[#BA9D6A]/50 px-3 py-2.5 sm:py-3 text-xs md:text-sm font-medium text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] cursor-pointer"
                 />
               </div>
@@ -154,7 +160,7 @@ export default function HeroSection() {
               <div className="lg:col-span-3 sm:col-span-2">
                 <button
                   type="submit"
-                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-[13px] font-bold tracking-[0.1em] text-[#141619] uppercase transition-all duration-200 shadow-md shadow-[#BA9D6A]/25 cursor-pointer active:scale-98"
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-[13px] font-bold tracking-[0.1em] text-[#141619] uppercase transition-transform duration-200 shadow-md shadow-[#BA9D6A]/25 cursor-pointer active:scale-98"
                 >
                   <span>Book Slot Now</span>
                   <ArrowRight className="h-4 w-4 text-[#141619] group-hover:translate-x-1 transition-transform" />
@@ -168,7 +174,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-5 sm:mt-6">
           <a
             href="#craftsmanship-experience"
-            className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.1] hover:border-[#BA9D6A] px-4.5 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer shadow-md active:scale-95"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.1] hover:border-[#BA9D6A] px-4.5 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors backdrop-blur-md cursor-pointer shadow-md active:scale-95"
           >
             <div className="h-6 w-6 rounded-full bg-[#BA9D6A] text-[#0E1012] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs">
               <Play size={11} fill="currentColor" className="ml-0.5" />
@@ -180,7 +186,7 @@ export default function HeroSection() {
             href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20inquire%20about%20a%20grooming%20appointment."
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.1] hover:border-[#BA9D6A] px-4.5 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer shadow-md hover:scale-105 active:scale-95"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.1] hover:border-[#BA9D6A] px-4.5 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors backdrop-blur-md cursor-pointer shadow-md hover:scale-105 active:scale-95"
           >
             <WhatsAppIcon size={20} variant="authentic" />
             <span className="group-hover:text-[#BA9D6A] transition-colors">
@@ -212,7 +218,7 @@ export default function HeroSection() {
               <button
                 type="button"
                 onClick={() => setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)}
-                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-all cursor-pointer"
+                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-colors cursor-pointer"
                 aria-label="Previous slide"
               >
                 <ChevronLeft size={16} />
@@ -220,7 +226,7 @@ export default function HeroSection() {
               <button
                 type="button"
                 onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
-                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-all cursor-pointer"
+                className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full border border-white/35 bg-black/40 backdrop-blur-md text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] active:scale-90 transition-colors cursor-pointer"
                 aria-label="Next slide"
               >
                 <ChevronRight size={16} />

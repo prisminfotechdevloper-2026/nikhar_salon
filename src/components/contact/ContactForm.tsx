@@ -66,10 +66,11 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
+              <label htmlFor="contact-name" className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
                 Full Name *
               </label>
               <input
+                id="contact-name"
                 type="text"
                 required
                 placeholder="e.g. Ishan Sharma"
@@ -80,10 +81,11 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
+              <label htmlFor="contact-phone" className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
                 Phone / WhatsApp *
               </label>
               <input
+                id="contact-phone"
                 type="tel"
                 required
                 placeholder="+91 97847 11323"
@@ -96,10 +98,11 @@ export default function ContactForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
+              <label htmlFor="contact-email" className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
                 Email Address (Optional)
               </label>
               <input
+                id="contact-email"
                 type="email"
                 placeholder="name@example.com"
                 value={formData.email}
@@ -109,10 +112,12 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
+              <label htmlFor="contact-service" className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
                 Service of Interest
               </label>
               <select
+                id="contact-service"
+                aria-label="Service of Interest"
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                 className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white cursor-pointer"
@@ -129,10 +134,11 @@ export default function ContactForm() {
           </div>
 
           <div>
-            <label className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
+            <label htmlFor="contact-message" className="text-[11px] uppercase text-[#7D776D] dark:text-[#A6A29A] tracking-wider block mb-1 font-semibold">
               Your Message or Special Request *
             </label>
             <textarea
+              id="contact-message"
               rows={4}
               required
               placeholder="Tell us about your requirements, wedding date, or preferred stylist..."
@@ -144,7 +150,7 @@ export default function ContactForm() {
 
           <button
             type="submit"
-            className="w-full gold-gradient text-[#0E1012] py-3.5 rounded-xl font-bold uppercase tracking-[0.12em] text-xs flex items-center justify-center gap-2.5 shadow-md shadow-[#BA9D6A]/20 hover:brightness-105 transition cursor-pointer"
+            className="w-full gold-gradient text-[#0E1012] py-3.5 rounded-xl font-bold uppercase tracking-[0.12em] text-xs flex items-center justify-center gap-2.5 shadow-md shadow-[#BA9D6A]/20 hover:brightness-105 transition-colors cursor-pointer"
           >
             <WhatsAppIcon size={18} variant="authentic" /> Send Message via WhatsApp
           </button>

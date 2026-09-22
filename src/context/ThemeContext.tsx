@@ -16,52 +16,47 @@ const STORAGE_KEY = 'nikhar_theme';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     try {
       const savedTheme = localStorage.getItem(STORAGE_KEY) as Theme | null;
       if (savedTheme === 'dark' || savedTheme === 'light') {
         setThemeState(savedTheme);
-        applyTheme(savedTheme);
-      } else {
-        // Default to light theme
-        setThemeState('light');
-        applyTheme('light');
       }
-    } catch {
-      applyTheme('light');
-    }
-    setMounted(true);
+    } catch {}
   }, []);
 
-  const applyTheme = (newTheme: Theme) => {
+  useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute('data-theme', newTheme);
-    if (newTheme === 'dark') {
+    root.setAttribute('data-theme', theme);
+    if (theme === 'dark') {
       root.classList.add('dark');
       root.classList.remove('light');
     } else {
       root.classList.add('light');
       root.classList.remove('dark');
     }
-  };
-
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
     try {
-      localStorage.setItem(STORAGE_KEY, newTheme);
+      localStorage.setItem(STORAGE_KEY, theme);
     } catch {}
-    applyTheme(newTheme);
-  };
+  }, [theme]);
 
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-  };
+  const setTheme = React.useCallback((newTheme: Theme) => {
+    setThemeState(newTheme);
+  }, []);
+
+  const toggleTheme = React.useCallback(() => {
+    setThemeState((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  }, []);
+
+  const contextValue = React.useMemo(() => ({
+    theme,
+    toggleTheme,
+    setTheme,
+  }), [theme, toggleTheme, setTheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );

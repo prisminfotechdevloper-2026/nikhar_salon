@@ -79,7 +79,7 @@ export default function HomeServicesSection() {
         <div className="mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-[#BA9D6A]/50 bg-white dark:bg-white/[0.04] hover:bg-[#BA9D6A]/15 hover:border-[#BA9D6A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8C734B] dark:text-[#C2A774] transition-all shadow-2xs"
+            className="inline-flex items-center gap-2 rounded-full border border-[#BA9D6A]/50 bg-white dark:bg-white/[0.04] hover:bg-[#BA9D6A]/15 hover:border-[#BA9D6A] px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8C734B] dark:text-[#C2A774] transition-colors shadow-2xs"
           >
             <span>Explore Complete Grooming Menu</span>
             <ArrowUpRight size={15} />

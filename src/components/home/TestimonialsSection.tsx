@@ -33,14 +33,19 @@ export default function TestimonialsSection() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
+  const handleNextRef = useRef(handleNext);
+  useEffect(() => {
+    handleNextRef.current = handleNext;
+  });
+
   // Auto-play interval (4.5s) with pause on hover
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      handleNext();
+      handleNextRef.current();
     }, 4500);
     return () => clearInterval(timer);
-  }, [isPaused, handleNext]);
+  }, [isPaused]);
 
   // Touch Swipe Handlers for mobile
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -95,7 +100,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer shadow-xs"
+                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft size={20} />
@@ -103,7 +108,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer shadow-xs"
+                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
                 aria-label="Next testimonials"
               >
                 <ChevronRight size={20} />
@@ -129,7 +134,7 @@ export default function TestimonialsSection() {
                 key={review.id}
                 className="w-full md:w-1/3 shrink-0 p-2 sm:p-3 flex"
               >
-                <div className="w-full bg-white dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/60 rounded-2xl md:rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-xs hover:shadow-md dark:shadow-xl group relative overflow-hidden">
+                <div className="w-full bg-white dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/60 rounded-2xl md:rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-[border-color,box-shadow] duration-300 shadow-xs hover:shadow-md dark:shadow-xl group relative overflow-hidden">
                   {/* Decorative Background Watermark Quote */}
                   <Quote 
                     size={72} 
@@ -195,7 +200,7 @@ export default function TestimonialsSection() {
               key={idx}
               type="button"
               onClick={() => setCurrentIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              className={`h-2 rounded-full transition-[width,background-color] duration-300 cursor-pointer ${
                 currentIndex === idx
                   ? 'w-7 bg-[#BA9D6A]'
                   : 'w-2 bg-[#D9D4CB] dark:bg-white/20 hover:bg-[#BA9D6A]/50'
