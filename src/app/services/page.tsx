@@ -35,7 +35,7 @@ export default function ServicesPage() {
               Reserve Your Slot Now
             </Link>
             <a
-              href="https://wa.me/918239239249?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20know%20about%20groom%20packages."
+              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20know%20about%20groom%20packages."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2.5 border border-[#D9D4CB] dark:border-white/20 hover:border-[#BA9D6A] text-[#181A1C] dark:text-white px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition shadow-2xs hover:scale-105"

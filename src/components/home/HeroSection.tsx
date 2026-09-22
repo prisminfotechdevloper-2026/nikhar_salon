@@ -174,7 +174,7 @@ export default function HeroSection() {
             </button>
 
             <a
-              href="https://wa.me/918239239249?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20inquire%20about%20a%20grooming%20appointment."
+              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20inquire%20about%20a%20grooming%20appointment."
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.1] hover:border-[#BA9D6A] px-4.5 sm:px-5 py-2 sm:py-2.5 text-xs font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer shadow-md hover:scale-105 active:scale-95"
@@ -236,8 +236,13 @@ export default function HeroSection() {
 
       {/* Interactive Booking Modal Dialog (Triggered from Quick Widget) */}
       {isBookingModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full sm:w-[96vw] max-w-6xl xl:max-w-7xl h-[96vh] sm:h-[92vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200">
+        <div
+          role="dialog"
+          aria-modal="true"
+          onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md animate-in fade-in duration-200"
+        >
+          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
             <AppointmentModal 
               defaultService={quickService} 
               onClose={() => setIsBookingModalOpen(false)} 

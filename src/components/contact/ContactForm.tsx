@@ -28,7 +28,7 @@ export default function ContactForm() {
       `💬 *Message:* ${formData.message}\n\n` +
       `_Sent via Nikhar Salon Contact Page_`
     );
-    window.open(`https://wa.me/918239239249?text=${text}`, '_blank');
+    window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
   };
 
   return (
@@ -85,7 +85,7 @@ export default function ContactForm() {
               <input
                 type="tel"
                 required
-                placeholder="+91 8239239249"
+                placeholder="+91 97847 11323"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"

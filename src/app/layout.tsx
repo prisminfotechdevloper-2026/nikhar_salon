@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import FloatingActions from '@/components/FloatingActions';
+import SmoothScroll from '@/components/SmoothScroll';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 export const metadata: Metadata = {
@@ -73,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth antialiased" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" className="antialiased" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -119,22 +120,24 @@ export default function RootLayout({
       </head>
       <body className="bg-[#FAF8F5] dark:bg-[#0E1012] text-[#181A1C] dark:text-[#FAF8F5] min-h-screen flex flex-col antialiased selection:bg-[#BA9D6A] selection:text-white dark:selection:text-[#0E1012] font-sans pb-16 lg:pb-0 transition-colors duration-300">
         <ThemeProvider>
-          {/* Top Navigation Bar (Clean on mobile: Logo + Theme Toggle + Direct Call) */}
-          <Navbar />
+          <SmoothScroll>
+            {/* Top Navigation Bar (Clean on mobile: Logo + Theme Toggle + Direct Call) */}
+            <Navbar />
 
-          {/* Dynamic Page Content */}
-          <main className="flex-grow">
-            {children}
-          </main>
+            {/* Dynamic Page Content */}
+            <main className="flex-grow">
+              {children}
+            </main>
 
-          {/* Fixed Right-Bottom Floating Actions (Book Appointment + WhatsApp) */}
-          <FloatingActions />
+            {/* Fixed Right-Bottom Floating Actions (Book Appointment + WhatsApp) */}
+            <FloatingActions />
 
-          {/* Mobile Bottom Navigation Bar (Home, Services, Lookbook, About, Contact) */}
-          <MobileBottomNav />
+            {/* Mobile Bottom Navigation Bar (Home, About, Services, Contact) */}
+            <MobileBottomNav />
 
-          {/* Footer */}
-          <Footer />
+            {/* Footer */}
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

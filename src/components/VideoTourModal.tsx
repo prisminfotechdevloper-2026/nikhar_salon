@@ -46,7 +46,10 @@ export default function VideoTourModal({
       />
 
       {/* Modal Dialog Box with Viewport-Constrained Height */}
-      <div className="relative w-full max-w-3xl md:max-w-4xl max-h-[90vh] bg-[#141619] border border-[#BA9D6A]/50 rounded-2xl md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden z-10 flex flex-col my-auto transition-all">
+      <div 
+        data-lenis-prevent
+        className="relative w-full max-w-3xl md:max-w-4xl max-h-[90vh] bg-[#141619] border border-[#BA9D6A]/50 rounded-2xl md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden z-10 flex flex-col my-auto transition-all"
+      >
         {/* Header Bar */}
         <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 border-b border-white/[0.08] bg-[#0E1012] shrink-0">
           <div className="flex items-center gap-2">

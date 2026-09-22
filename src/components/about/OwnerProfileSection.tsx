@@ -45,7 +45,7 @@ export default function OwnerProfileSection() {
 
   return (
     <>
-      <section id="founder" className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-4 lg:px-10 lg:py-5 shadow-sm dark:shadow-2xl">
+      <section id="founder" className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-4 lg:px-10 lg:py-2 shadow-sm dark:shadow-2xl">
         {/* Subtle Ambient Gold Glow */}
         <div className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
         <div className="pointer-events-none absolute -right-32 bottom-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
@@ -329,9 +329,9 @@ export default function OwnerProfileSection() {
           role="dialog"
           aria-modal="true"
           onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
+          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
         >
-          <div className="relative w-full sm:w-[96vw] max-w-6xl xl:max-w-7xl h-[96vh] sm:h-[92vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200">
+          <div className="relative w-full sm:w-[94vw] max-w-5xl xl:max-w-6xl h-[88dvh] max-h-[88dvh] sm:h-[88vh] sm:max-h-[88vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200 my-auto">
             <AppointmentModal
               defaultService="Non-Surgical Hair Patch System"
               defaultStylist="Firoz Khan"

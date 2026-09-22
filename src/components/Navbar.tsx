@@ -23,7 +23,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Lookbook', href: '/gallery' },
+    { name: 'Transformations', href: '/transformations' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -72,12 +72,12 @@ export default function Navbar() {
 
           {/* Direct Call Button (Desktop & Tablet only - Hidden on mobile) */}
           <a
-            href="tel:+918239239249"
+            href="tel:+919784711323"
             className="hidden sm:inline-flex group relative items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/[0.06] hover:bg-white/[0.14] hover:border-[#BA9D6A]/60 px-3.5 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-[11px] font-semibold tracking-[0.08em] text-white/90 uppercase transition-all duration-300 backdrop-blur-md cursor-pointer shadow-xs active:scale-95"
-            aria-label="Direct Call: +91 82392 39249"
+            aria-label="Direct Call: +91 97847 11323"
           >
             <Phone className="h-3.5 w-3.5 text-[#BA9D6A] group-hover:scale-110 transition-transform" />
-            <span className="whitespace-nowrap">+91 82392 39249</span>
+            <span className="whitespace-nowrap">+91 97847 11323</span>
           </a>
 
           {/* Desktop & Tablet Book Appointment CTA */}

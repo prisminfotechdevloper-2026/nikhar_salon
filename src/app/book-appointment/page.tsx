@@ -70,10 +70,10 @@ export default function BookAppointmentPage() {
           <div className="border-t border-[#E5E0D8] dark:border-white/[0.08] pt-6">
             <p className="text-[11px] text-[#7D776D] dark:text-[#A6A29A] mb-2">Need an urgent slot or running late?</p>
             <a
-              href="tel:+918239239249"
+              href="tel:+919784711323"
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-[#D9D4CB] dark:border-white/15 bg-[#FAF8F5] dark:bg-white/[0.05] hover:border-[#BA9D6A] text-xs font-semibold text-[#181A1C] dark:text-white uppercase tracking-wider transition shadow-2xs"
             >
-              <Phone size={13} className="text-[#8C734B] dark:text-[#BA9D6A]" /> Call Concierge: +91 82392 39249
+              <Phone size={13} className="text-[#8C734B] dark:text-[#BA9D6A]" /> Call Concierge: +91 97847 11323
             </a>
           </div>
         </aside>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Phone, MapPin, Clock } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import Logo from '@/components/Logo';
 import ThemeToggle from '@/components/ThemeToggle';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
@@ -16,7 +16,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4 pt-2">
             <a
-              href="https://wa.me/918239239249"
+              href="https://wa.me/919784711323"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#BA9D6A] hover:text-[#C2A774] transition-colors"
@@ -46,7 +46,7 @@ export default function Footer() {
               <Link href="/services" className="hover:text-[#BA9D6A] transition-colors duration-200">Services Menu</Link>
             </li>
             <li>
-              <Link href="/gallery" className="hover:text-[#BA9D6A] transition-colors duration-200">Lookbook</Link>
+              <Link href="/transformations" className="hover:text-[#BA9D6A] transition-colors duration-200">Transformations</Link>
             </li>
             <li>
               <Link href="/book-appointment" className="hover:text-[#C2A774] transition-colors duration-200 text-[#BA9D6A] font-semibold">Book Slot</Link>
@@ -98,8 +98,14 @@ export default function Footer() {
             </p>
             <p className="flex items-center gap-2.5 text-white/90">
               <Phone size={15} className="text-[#BA9D6A] shrink-0" />
-              <a href="tel:+918239239249" className="hover:text-[#BA9D6A] transition">
-                +91 82392 39249
+              <a href="tel:+919784711323" className="hover:text-[#BA9D6A] transition">
+                +91 97847 11323
+              </a>
+            </p>
+            <p className="flex items-center gap-2.5 text-white/90">
+              <Mail size={15} className="text-[#BA9D6A] shrink-0" />
+              <a href="mailto:Fk055163@gmail.com" className="hover:text-[#BA9D6A] transition">
+                Fk055163@gmail.com
               </a>
             </p>
             <p className="flex items-center gap-2.5 text-white/90">
@@ -110,7 +116,7 @@ export default function Footer() {
 
           <div className="pt-2 flex gap-3 text-white/70">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/nikhar__mens_parlour?stkn=Z3FmZmwyaG9tb3do&utm_source=qr"
               target="_blank"
               rel="noreferrer"
               className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
@@ -120,17 +126,6 @@ export default function Footer() {
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-              </svg>
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noreferrer"
-              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
-              aria-label="Facebook"
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
             </a>
             <a
@@ -152,11 +147,12 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#736F67]">
         <p>© 2026 Nikhar Salon Kota. All Rights Reserved. Luxury Grooming Experience.</p>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-5 sm:gap-6">
           <Link href="/about" className="hover:text-white transition">About</Link>
           <Link href="/services" className="hover:text-white transition">Services</Link>
+          <Link href="/transformations" className="hover:text-white transition">Transformations</Link>
           <Link href="/contact" className="hover:text-white transition">Contact</Link>
-          <span className="text-[#BA9D6A] font-medium">Made for Excellence</span>
+          <span className="text-[#BA9D6A] font-medium hidden md:inline">Made for Excellence</span>
         </div>
       </div>
     </footer>

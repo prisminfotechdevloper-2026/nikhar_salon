@@ -3,7 +3,7 @@
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function WhatsAppFloat() {
-  const phone = "918239239249";
+  const phone = "919784711323";
   const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a luxury grooming appointment.");
 
   return (

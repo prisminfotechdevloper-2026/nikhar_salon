@@ -10,7 +10,7 @@ interface WhatsAppButtonProps {
   showOnlineStatus?: boolean;
 }
 
-const DEFAULT_PHONE = '918239239249';
+const DEFAULT_PHONE = '919784711323';
 const DEFAULT_MSG = 'Hello Nikhar Salon! I would like to inquire about booking a luxury grooming appointment.';
 
 export default function WhatsAppButton({

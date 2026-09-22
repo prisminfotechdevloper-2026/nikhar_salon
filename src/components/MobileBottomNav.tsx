@@ -2,21 +2,21 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Scissors, Image as ImageIcon, Info, MapPin } from 'lucide-react';
+import { Home, Scissors, BadgeCheck, Info, MapPin } from 'lucide-react';
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
 
   const navItems = [
     { name: 'Home', href: '/', icon: Home },
-    { name: 'Services', href: '/services', icon: Scissors },
-    { name: 'Lookbook', href: '/gallery', icon: ImageIcon },
     { name: 'About', href: '/about', icon: Info },
+    { name: 'Services', href: '/services', icon: Scissors },
+    { name: 'Results', href: '/transformations', icon: BadgeCheck },
     { name: 'Contact', href: '/contact', icon: MapPin },
   ];
 
   return (
-    <nav 
+    <nav
       aria-label="Mobile Bottom Navigation"
       className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0E1012]/98 backdrop-blur-2xl border-t border-white/[0.1] shadow-[0_-8px_30px_rgba(0,0,0,0.7)] px-2 py-1.5 safe-area-bottom"
     >
@@ -29,11 +29,10 @@ export default function MobileBottomNav() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 relative group ${
-                isActive
+              className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 relative group ${isActive
                   ? 'text-[#BA9D6A]'
                   : 'text-white/60 hover:text-white'
-              }`}
+                }`}
             >
               {/* Active Top Glow Pill */}
               {isActive && (
@@ -41,17 +40,15 @@ export default function MobileBottomNav() {
               )}
 
               <div
-                className={`p-1 rounded-lg transition-transform ${
-                  isActive ? 'scale-110' : 'group-hover:scale-105'
-                }`}
+                className={`p-1 rounded-lg transition-transform ${isActive ? 'scale-110' : 'group-hover:scale-105'
+                  }`}
               >
                 <Icon size={19} strokeWidth={isActive ? 2.3 : 1.8} />
               </div>
 
               <span
-                className={`text-[9.5px] tracking-wider uppercase font-sans mt-0.5 ${
-                  isActive ? 'font-bold text-[#BA9D6A]' : 'font-medium'
-                }`}
+                className={`text-[9.5px] tracking-wider uppercase font-sans mt-0.5 ${isActive ? 'font-bold text-[#BA9D6A]' : 'font-medium'
+                  }`}
               >
                 {item.name}
               </span>
