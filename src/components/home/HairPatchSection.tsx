@@ -355,8 +355,8 @@ export default function HairPatchSection() {
   const total = TRANSFORMATIONS.length;
 
   const toggleBase =
-    'inline-flex cursor-pointer items-center gap-1.5 rounded-md px-2.5 py-1 text-[11px] font-semibold transition-all';
-  const toggleActive = 'bg-[#BA9D6A] text-[#0E1012] shadow-sm';
+    'inline-flex cursor-pointer items-center justify-center gap-1.5 rounded-md px-3 py-1.5 text-[11px] font-semibold whitespace-nowrap transition-all';
+  const toggleActive = 'bg-[#BA9D6A] text-[#0E1012] shadow-xs';
   const toggleIdle =
     'text-[#555047] hover:text-[#181A1C] dark:text-white/70 dark:hover:text-white';
 
@@ -440,14 +440,14 @@ export default function HairPatchSection() {
             {/* LEFT: viewer */}
             <div className="min-w-0 space-y-3 lg:col-span-7">
               {/* Mode toggle */}
-              <div className="mx-auto flex w-full max-w-[560px] items-center justify-between gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A]">
+              <div className="mx-auto flex flex-col sm:flex-row w-full max-w-[560px] sm:items-center justify-between gap-2.5 sm:gap-2">
+                <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A]">
                   Interactive Comparison
                 </span>
                 <div
                   role="tablist"
                   aria-label="Comparison view"
-                  className="inline-flex rounded-lg border border-[#E5E0D8] bg-[#FAF8F5] p-0.5 dark:border-white/10 dark:bg-white/[0.05]"
+                  className="inline-flex self-end sm:self-auto items-center rounded-lg border border-[#E5E0D8] bg-[#FAF8F5] p-0.5 dark:border-white/10 dark:bg-white/[0.05]"
                 >
                   <button
                     type="button"
@@ -456,8 +456,8 @@ export default function HairPatchSection() {
                     onClick={() => setViewMode('split')}
                     className={`${toggleBase} ${viewMode === 'split' ? toggleActive : toggleIdle}`}
                   >
-                    <SlidersHorizontal size={12} />
-                    <span>Split Slider</span>
+                    <SlidersHorizontal size={13} className="shrink-0" />
+                    <span className="whitespace-nowrap">Split Slider</span>
                   </button>
                   <button
                     type="button"
@@ -466,8 +466,8 @@ export default function HairPatchSection() {
                     onClick={() => setViewMode('side-by-side')}
                     className={`${toggleBase} ${viewMode === 'side-by-side' ? toggleActive : toggleIdle}`}
                   >
-                    <Columns2 size={12} />
-                    <span>Side by Side</span>
+                    <Columns2 size={13} className="shrink-0" />
+                    <span className="whitespace-nowrap">Side by Side</span>
                   </button>
                 </div>
               </div>

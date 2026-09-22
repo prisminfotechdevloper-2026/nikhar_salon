@@ -146,11 +146,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#736F67]">
-        <div className="space-y-1 text-center sm:text-left">
-          <p>© 2026 Nikhar Salon Kota. All Rights Reserved. Luxury Grooming Experience.</p>
-          <p className="text-[11px] text-[#8A8680]">
-            Designed by <span className="text-[#BA9D6A] font-medium">Prism Infotech Solution</span>
-          </p>
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2 text-center sm:text-left">
+          <span>© 2026 Nikhar Salon Kota.</span>
+          <span className="hidden sm:inline text-white/20">•</span>
+          <span className="text-[#8A8680]">
+            Design by <span className="text-[#BA9D6A] font-medium">Prism Infotech Solution</span>
+          </span>
         </div>
         <div className="flex items-center gap-5 sm:gap-6">
           <Link href="/about" className="hover:text-white transition">About</Link>

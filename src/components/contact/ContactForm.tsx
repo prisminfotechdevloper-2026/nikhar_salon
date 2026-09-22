@@ -123,6 +123,7 @@ export default function ContactForm() {
                 className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white cursor-pointer"
               >
                 <option value="" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Select a service...</option>
+                <option value="Hair Patch" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Hair Patch</option>
                 <option value="Haircut & Styling" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Haircut & Styling</option>
                 <option value="Beard Sculpting" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Beard Sculpting</option>
                 <option value="Facial Care" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Facial Care</option>
