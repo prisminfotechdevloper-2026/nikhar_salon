@@ -23,7 +23,7 @@ export default function Footer() {
             >
               <WhatsAppIcon size={16} variant="authentic" /> Chat on WhatsApp
             </a>
-            <ThemeToggle showLabel />
+            <ThemeToggle showLabel forceDark />
           </div>
         </div>
 

@@ -664,9 +664,9 @@ export default function HairPatchSection() {
           role="dialog"
           aria-modal="true"
           onClick={(e) => e.target === e.currentTarget && setIsBookingModalOpen(false)}
-          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/85 p-4 backdrop-blur-xl sm:p-6"
+          className="animate-in fade-in fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md duration-200"
         >
-          <div className="relative w-full max-w-2xl">
+          <div className="relative w-full sm:w-[96vw] max-w-6xl xl:max-w-7xl h-[96vh] sm:h-[92vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200">
             <AppointmentModal
               defaultService="Non-Surgical Hair Patch System"
               onClose={() => setIsBookingModalOpen(false)}

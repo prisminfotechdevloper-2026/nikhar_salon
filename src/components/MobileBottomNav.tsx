@@ -18,7 +18,7 @@ export default function MobileBottomNav() {
   return (
     <nav 
       aria-label="Mobile Bottom Navigation"
-      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FAF8F5]/98 dark:bg-[#0E1012]/98 backdrop-blur-2xl border-t border-[#E5E0D8] dark:border-white/[0.1] shadow-[0_-4px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_-8px_30px_rgba(0,0,0,0.7)] px-2 py-1.5 safe-area-bottom transition-colors duration-300"
+      className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0E1012]/98 backdrop-blur-2xl border-t border-white/[0.1] shadow-[0_-8px_30px_rgba(0,0,0,0.7)] px-2 py-1.5 safe-area-bottom"
     >
       <div className="flex items-center justify-around max-w-lg mx-auto">
         {navItems.map((item) => {
@@ -31,8 +31,8 @@ export default function MobileBottomNav() {
               href={item.href}
               className={`flex flex-col items-center justify-center py-1 px-2.5 rounded-xl transition-all duration-200 relative group ${
                 isActive
-                  ? 'text-[#8C734B] dark:text-[#BA9D6A]'
-                  : 'text-[#7D776D] hover:text-[#181A1C] dark:text-white/60 dark:hover:text-white'
+                  ? 'text-[#BA9D6A]'
+                  : 'text-white/60 hover:text-white'
               }`}
             >
               {/* Active Top Glow Pill */}
@@ -50,7 +50,7 @@ export default function MobileBottomNav() {
 
               <span
                 className={`text-[9.5px] tracking-wider uppercase font-sans mt-0.5 ${
-                  isActive ? 'font-bold text-[#8C734B] dark:text-[#BA9D6A]' : 'font-medium'
+                  isActive ? 'font-bold text-[#BA9D6A]' : 'font-medium'
                 }`}
               >
                 {item.name}

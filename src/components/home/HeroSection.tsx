@@ -236,8 +236,8 @@ export default function HeroSection() {
 
       {/* Interactive Booking Modal Dialog (Triggered from Quick Widget) */}
       {isBookingModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in">
-          <div className="relative w-full max-w-2xl">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/80 backdrop-blur-sm sm:backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full sm:w-[96vw] max-w-6xl xl:max-w-7xl h-[96vh] sm:h-[92vh] flex flex-col shadow-[0_25px_80px_rgba(0,0,0,0.85)] animate-in zoom-in-95 duration-200">
             <AppointmentModal 
               defaultService={quickService} 
               onClose={() => setIsBookingModalOpen(false)} 
