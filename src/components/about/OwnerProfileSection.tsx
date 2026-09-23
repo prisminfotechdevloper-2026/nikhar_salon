@@ -70,7 +70,7 @@ export default function OwnerProfileSection() {
                   <div className="space-y-0.5 min-w-0">
                     <span className="block text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#BA9D6A]">
                       FOUNDER of Nikhar Salon
-                    </span>
+                    </span>   
                     <h3 className="font-serif-title text-sm sm:text-base font-medium text-white truncate">
                       Nikhar Unisex Salon Kota
                     </h3>
