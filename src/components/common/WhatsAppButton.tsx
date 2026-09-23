@@ -11,7 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 const DEFAULT_PHONE = '919784711323';
-const DEFAULT_MSG = 'Hello Nikhar Salon! I would like to inquire about booking a luxury grooming appointment.';
+const DEFAULT_MSG = 'Hello Nikhar Salon! I would like to inquire about booking a luxury grooming slot.';
 
 export default function WhatsAppButton({
   message = DEFAULT_MSG,

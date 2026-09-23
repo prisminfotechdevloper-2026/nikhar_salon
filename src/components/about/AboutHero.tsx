@@ -92,7 +92,7 @@ export default function AboutHero() {
               className="inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-[linear-gradient(180deg,#E0BC88,#CFA56C)] px-7 py-3.5 font-sans text-[13px] font-semibold text-[#181A1C] shadow-[0_10px_22px_-10px_rgba(186,157,106,0.8)] transition-transform hover:scale-[1.03] active:scale-95"
             >
               <Calendar size={16} strokeWidth={1.8} />
-              <span>Book Appointment</span>
+              <span>Book Slot</span>
               <ArrowRight size={15} strokeWidth={1.8} />
             </Link>
 

@@ -7,7 +7,7 @@ import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 export default function FloatingActions() {
   const pathname = usePathname();
   const phone = "919784711323";
-  const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a luxury grooming appointment.");
+  const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a luxury grooming slot.");
 
   const isBookingPage = pathname === '/book-appointment';
 
@@ -34,11 +34,11 @@ export default function FloatingActions() {
         </span>
       </a>
 
-      {/* 2. Circular Luxury Gold "Book Appointment" Action (Custom Emblem Badge) */}
+      {/* 2. Circular Luxury Gold "Book Slot" Action (Custom Emblem Badge) */}
       {!isBookingPage && (
         <Link
           href="/book-appointment"
-          aria-label="Book Appointment"
+          aria-label="Book Slot"
           className="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white dark:bg-[#0E1012]/95 border border-[#BA9D6A]/60 shadow-[0_4px_16px_rgba(186,157,106,0.25)] dark:shadow-[0_6px_22px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:scale-110 hover:border-[#BA9D6A] hover:shadow-[0_8px_30px_rgba(186,157,106,0.5)] active:scale-95"
         >
           {/* Pulsing Gold Aura Ring */}
@@ -66,7 +66,7 @@ export default function FloatingActions() {
 
           {/* Left Floating Tooltip */}
           <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:group-hover:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#181A1C] dark:bg-[#0E1012] border border-[#BA9D6A]/50 text-[10.5px] font-semibold text-[#BA9D6A] whitespace-nowrap shadow-lg tracking-wider uppercase opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
-            Book Appointment
+            Book Slot
           </span>
         </Link>
       )}

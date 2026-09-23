@@ -81,7 +81,7 @@ function BookingSuccessView({
           REQUEST SENT VIA WHATSAPP
         </span>
         <h3 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">
-          Appointment Requested, {name}!
+          Slot Reserved, {name}!
         </h3>
         <p className="text-xs text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto leading-relaxed">
           Our salon concierge has received your request for <strong>{service}</strong> on <strong>{formattedDate} at {time}</strong>.
@@ -105,7 +105,7 @@ function BookingSuccessView({
 
       <div className="pt-2 flex flex-col sm:flex-row gap-2.5 justify-center max-w-sm mx-auto">
         <a
-          href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Salon! Checking on my appointment for ${service} by ${name}`)}`}
+          href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Salon! Checking on my salon slot for ${service} by ${name}`)}`}
           target="_blank"
           rel="noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-colors"
@@ -437,7 +437,7 @@ function openWhatsAppBooking({
 }) {
   const bookingRef = `NS-${Math.floor(100000 + Math.random() * 900000)}`;
   const text = encodeURIComponent(
-    `*APPOINTMENT RESERVATION - NIKHAR SALON KOTA*\n\n` +
+    `*SALON SLOT RESERVATION - NIKHAR SALON KOTA*\n\n` +
     `*Ref:* #${bookingRef}\n` +
     `*Name:* ${name}\n` +
     `*WhatsApp:* ${phone}\n` +
@@ -599,7 +599,7 @@ export default function SimpleBookingForm(props: SimpleBookingFormProps) {
           type="submit"
           className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D8BE8A] via-[#C9A96E] to-[#B3935B] hover:opacity-95 text-[#0E1012] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-md shadow-[#BA9D6A]/20 flex items-center justify-center gap-2.5 transition transform active:scale-[0.99] cursor-pointer"
         >
-          <WhatsAppIcon size={18} variant="authentic" /> Confirm Appointment on WhatsApp
+          <WhatsAppIcon size={18} variant="authentic" /> Confirm Slot on WhatsApp
         </button>
         <p className="text-[11px] text-center text-[#7D776D] dark:text-[#A6A29A] mt-2">
           100% Free Cancellation • No advance payment required online

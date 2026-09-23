@@ -8,7 +8,7 @@ export default function AboutCta() {
         EXPERIENCE THE DIFFERENCE
       </span>
       <h3 className="font-serif-title text-3xl sm:text-4xl text-[#181A1C] dark:text-white">
-        Book Your Appointment at Nikhar Salon Kota
+        Book Your Slot at Nikhar Salon Kota
       </h3>
       <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] max-w-lg mx-auto">
         Shop Number 9, Old Police Station Ke Samne, Vigyan Nagar, Kota, Rajasthan - 324005. Open all 7 days from 9:00 AM to 10:00 PM.
@@ -18,7 +18,7 @@ export default function AboutCta() {
           href="/book-appointment"
           className="inline-flex items-center gap-2 gold-gradient text-[#0E1012] font-bold text-xs tracking-wider uppercase px-8 py-3.5 rounded-full shadow-md shadow-[#BA9D6A]/20 hover:scale-105 transition"
         >
-          Reserve Your Experience <ArrowRight size={15} />
+          Reserve Your Slot <ArrowRight size={15} />
         </Link>
       </div>
     </section>

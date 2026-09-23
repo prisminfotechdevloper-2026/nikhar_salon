@@ -94,7 +94,7 @@ export default function BookingInfoCard() {
             <Phone size={13} className="text-[#8C734B] dark:text-[#C2A774]" /> Call Salon
           </a>
           <a
-            href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20have%20an%20urgent%20appointment%20query."
+            href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20have%20an%20urgent%20slot%20booking%20query."
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-xs font-semibold text-[#181A1C] dark:text-white transition active:scale-95"

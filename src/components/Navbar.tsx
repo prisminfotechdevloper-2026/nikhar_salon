@@ -29,11 +29,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition duration-300 ${scrolled
           ? 'bg-[#0E1012]/95 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.5)] py-2 sm:py-2.5'
           : 'bg-[#0E1012]/85 backdrop-blur-md border-b border-white/[0.05] py-2.5 sm:py-3.5'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-10 flex items-center justify-between">
         {/* Responsive Brand Logo (Fixed in Dark/Gold Mode) */}
@@ -47,18 +46,16 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`group relative py-1.5 transition-colors duration-200 ${
-                  isActive
+                className={`group relative py-1.5 transition-colors duration-200 ${isActive
                     ? 'text-white font-semibold'
                     : 'text-white/75 hover:text-white'
-                }`}
+                  }`}
               >
                 <span>{link.name}</span>
                 {/* Gold Underline Bar */}
                 <span
-                  className={`absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#BA9D6A] rounded-full transition-[transform,opacity] duration-300 origin-left ${
-                    isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
-                  }`}
+                  className={`absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#BA9D6A] rounded-full transition-[transform,opacity] duration-300 origin-left ${isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100'
+                    }`}
                 />
               </Link>
             );
@@ -80,13 +77,13 @@ export default function Navbar() {
             <span className="whitespace-nowrap">+91 97847 11323</span>
           </a>
 
-          {/* Desktop & Tablet Book Appointment CTA */}
+          {/* Desktop & Tablet Book Slot CTA */}
           <Link
             href="/book-appointment"
             className="hidden sm:inline-flex group relative items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 sm:px-5 py-1.5 sm:py-2 text-[10.5px] sm:text-[11.5px] font-semibold tracking-[0.1em] text-[#141619] uppercase transition duration-300 shadow-[0_2px_14px_rgba(186,157,106,0.25)] hover:shadow-[0_4px_22px_rgba(186,157,106,0.4)] active:scale-95 border border-[#E8D4B0]/40 cursor-pointer whitespace-nowrap"
           >
             <Calendar className="h-3.5 w-3.5 text-[#141619] shrink-0" />
-            <span className="whitespace-nowrap">Book Appointment</span>
+            <span className="whitespace-nowrap">Book Slot</span>
           </Link>
         </div>
       </div>

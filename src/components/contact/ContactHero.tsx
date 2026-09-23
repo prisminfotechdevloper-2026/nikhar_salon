@@ -52,7 +52,7 @@ export default function ContactHero() {
 
               {/* Description Body Text */}
               <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed max-w-md font-light">
-                Have a question, need assistance, or want to book an appointment? Our team at Nikhar Salon is always ready to help you look and feel your best. Reach out to us — we&apos;d love to hear from you.
+                Have a question, need assistance, or want to reserve a salon slot? Our team at Nikhar Salon is always ready to help you look and feel your best. Reach out to us — we&apos;d love to hear from you.
               </p>
 
               {/* Direct Micro Info Pills (Call Us, Visit Us, Email Us) */}
