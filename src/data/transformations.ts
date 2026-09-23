@@ -104,12 +104,12 @@ export const CASE_STUDIES: CaseStudy[] = [
     stylist: 'Firoz Khan',
     duration: '60 Mins',
     longevity: 'Long-life durable foundation',
-    beforeImg: '/images/client3-head-before.jpg',
-    afterImg: '/images/client3-head-after.jpg',
+    beforeImg: '/images/client3-head-before-centered.jpg',
+    afterImg: '/images/client3-head-after-centered.jpg',
     rating: 5,
     testimonial: 'As a practicing doctor, natural appearance was non-negotiable. Nikhar Salon provided complete privacy, dignity, and a world-class hair system.',
     keyBenefits: ['Medical-Grade Attachment', 'Natural Greying Integration', 'Zero Maintenance Stress'],
-    focusY: 'center top',
+    focusY: 'center center',
   },
   {
     id: 'case-youthful-taper',
@@ -137,29 +137,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   
  
-  {
-    id: 'case-hair-botox',
-    title: 'Frizzy Heat-Damaged Hair to High-Gloss Keratin Botox',
-    category: 'spa',
-    categoryLabel: 'Hair Spa & Botox',
-    client: {
-      name: 'Nikhil Kashyap',
-      age: 31,
-      occupation: 'Fitness Trainer',
-      location: 'Dadabari, Kota',
-    },
-    concern: 'Extremely dry, coarse hair damaged by chlorinated pool water and daily hard water hair washes.',
-    solution: 'Intensive Brazilian keratin fiber reconstruction with hot ozone steam seal and argan lipid therapy.',
-    technique: 'Ozone Steam Nano-Infusion + Keratin Thermo-Sealing',
-    stylist: 'Firoz Khan',
-    duration: '75 Mins',
-    longevity: 'Up to 10 Weeks smooth silkiness',
-    beforeImg: '/images/gallery-spa.jpg',
-    afterImg: '/images/service-hair-botox.jpg',
-    rating: 5,
-    testimonial: 'My coarse, unmanageable hair now has incredible natural shine and silkiness. Even after workouts and daily showers, the frizz is totally gone.',
-    keyBenefits: ['Long-Lasting Frizz Control', 'Deep Strand Repair', 'High-Gloss Mirror Finish'],
-  },
+ 
 ];
 
 export const VIDEO_STORIES: VideoStory[] = [
@@ -189,7 +167,7 @@ export const VIDEO_STORIES: VideoStory[] = [
     category: 'Executive Makeover',
     duration: '0:45',
     views: '2.0K Views',
-    thumbnail: '/images/client3-head-after.jpg',
+    thumbnail: '/images/client3-head-after-centered.jpg',
     stylist: 'Firoz Khan & Arman',
     highlights: ['Italian Razor Taper', 'Sculpted Beard Line', 'Instant Confidence Shift'],
   },
