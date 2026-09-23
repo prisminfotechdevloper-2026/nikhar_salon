@@ -121,6 +121,7 @@ export default function VideoStoriesSection() {
         isOpen={activeVideoId !== null}
         onClose={() => setActiveVideoId(null)}
         videoId={activeVideoId || ''}
+        videoTitle={VIDEO_STORIES.find((v) => v.id === activeVideoId)?.title || 'Nikhar Salon • Studio Story'}
       />
     </>
   );
