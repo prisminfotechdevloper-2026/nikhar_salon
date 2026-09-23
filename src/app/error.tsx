@@ -18,8 +18,8 @@ export default function Error({
 
   return (
     <div className="min-h-[75vh] flex flex-col items-center justify-center bg-[#FAF8F5] dark:bg-[#0E1012] text-[#181A1C] dark:text-[#FAF8F5] px-4 py-16 text-center font-sans transition-colors duration-300">
-      <div className="max-w-md space-y-5 p-8 rounded-3xl bg-white dark:bg-[#141619] border border-[#BA9D6A]/30 shadow-xl">
-        <div className="w-12 h-12 rounded-2xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] mx-auto flex items-center justify-center">
+      <div className="max-w-md space-y-5 p-8 rounded-3xl bg-white dark:bg-[#141619] border border-[#BA9D6A]/30 shadow-lg">
+        <div className="size-12 rounded-2xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] mx-auto flex items-center justify-center">
           <AlertCircle size={26} />
         </div>
 

@@ -16,13 +16,13 @@ export default function ContactHero() {
     <>
       <section className="relative w-full bg-[#090A0C] text-white pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden font-sans border-b border-[#BA9D6A]/20 select-none">
         {/* Decorative Luxury Background Glows & Circular Arc Geometry */}
-        <div className="pointer-events-none absolute -top-40 -left-40 w-96 h-96 rounded-full bg-[#BA9D6A]/[0.07] blur-3xl" />
-        <div className="pointer-events-none absolute top-1/2 right-0 w-[500px] h-[500px] rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute -top-40 -left-40 size-96 rounded-full bg-[#BA9D6A]/[0.07] blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 right-0 size-[500px] rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
 
         {/* Ambient Gold Geometric Rings (matching reference image) */}
-        <div className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[420px] h-[420px] lg:w-[580px] lg:h-[580px] rounded-full border border-[#BA9D6A]/15 opacity-60" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[380px] h-[380px] lg:w-[500px] lg:h-[500px] rounded-full border border-[#BA9D6A]/20 opacity-70" />
-        <div className="pointer-events-none absolute -left-20 top-1/3 w-64 h-64 rounded-full border border-[#BA9D6A]/10" />
+        <div className="pointer-events-none absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 size-[420px] lg:size-[580px] rounded-full border border-[#BA9D6A]/15 opacity-60" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-[380px] lg:size-[500px] rounded-full border border-[#BA9D6A]/20 opacity-70" />
+        <div className="pointer-events-none absolute -left-20 top-1/3 size-64 rounded-full border border-[#BA9D6A]/10" />
 
         {/* Outer Section Layout Container */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
@@ -124,7 +124,7 @@ export default function ContactHero() {
                   onClick={() => setIsVideoModalOpen(true)}
                   className="inline-flex items-center gap-2.5 text-xs text-white/90 hover:text-[#BA9D6A] transition-colors cursor-pointer group"
                 >
-                  <div className="w-8 h-8 rounded-full border border-white/25 bg-white/[0.04] flex items-center justify-center text-white group-hover:border-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors duration-200">
+                  <div className="size-8 rounded-full border border-white/25 bg-white/[0.04] flex items-center justify-center text-white group-hover:border-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors duration-200">
                     <Play size={12} className="ml-0.5 fill-current" />
                   </div>
                   <span className="font-medium tracking-wide border-b border-white/30 group-hover:border-[#BA9D6A] pb-0.5">
@@ -139,8 +139,8 @@ export default function ContactHero() {
                 ========================================================================= */}
             <div className="lg:col-span-4 flex justify-center items-center relative z-10 py-6 lg:py-0">
               {/* Behind the image: Gold concentric circular rings wrapping around the photo */}
-              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] lg:w-[420px] lg:h-[420px] rounded-full border border-[#BA9D6A]/25 opacity-70" />
-              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] sm:w-[330px] sm:h-[330px] lg:w-[365px] lg:h-[365px] rounded-full border border-[#BA9D6A]/40 opacity-90" />
+              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[300px] sm:size-[380px] lg:size-[420px] rounded-full border border-[#BA9D6A]/25 opacity-70" />
+              <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[260px] sm:size-[330px] lg:size-[365px] rounded-full border border-[#BA9D6A]/40 opacity-90" />
 
               {/* Decorative Geometric Star Accent at left ring intersection */}
               <div className="absolute left-2 sm:left-[6px] top-[30%] -translate-y-1/2 z-20 pointer-events-none text-[#C2A774] opacity-90 animate-pulse">
@@ -150,8 +150,8 @@ export default function ContactHero() {
               </div>
 
               {/* Circular Porthole Image Frame */}
-              <div className="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[310px] lg:h-[310px]">
-                <div className="relative w-full h-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-[0_20px_50px_rgba(0,0,0,0.85)]">
+              <div className="relative size-[220px] sm:size-[280px] lg:size-[310px]">
+                <div className="relative size-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-xl">
                   <Image
                     src="/images/contact/contact.png"
                     alt="Nikhar Salon Luxury Interior & Styling Ambience"
@@ -176,7 +176,7 @@ export default function ContactHero() {
                 ========================================================================= */}
             <div className="lg:col-span-3 relative flex items-center gap-4 z-10">
               {/* Card */}
-              <div className="w-full bg-[#121417]/80 border border-[#BA9D6A]/15 rounded-2xl p-5 sm:p-6 space-y-4 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+              <div className="w-full bg-[#121417]/80 border border-[#BA9D6A]/15 rounded-2xl p-5 sm:p-6 space-y-4 shadow-xl">
                 {/* Header */}
                 <span className="block text-[10.5px] font-sans tracking-[0.2em] text-[#8C734B] dark:text-[#BA9D6A] font-bold uppercase">
                   CONTACT INFO
@@ -186,7 +186,7 @@ export default function ContactHero() {
                 <div className="space-y-3.5">
                   {/* Phone Item */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
+                    <div className="size-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
                       <Phone size={13} />
                     </div>
                     <div className="space-y-0.5">
@@ -204,7 +204,7 @@ export default function ContactHero() {
 
                   {/* Address Item */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
+                    <div className="size-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
                       <MapPin size={13} />
                     </div>
                     <div className="space-y-0.5">
@@ -219,7 +219,7 @@ export default function ContactHero() {
 
                   {/* Email Item */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
+                    <div className="size-8 rounded-full border border-white/15 bg-white/[0.04] flex items-center justify-center text-[#BA9D6A] shrink-0 mt-0.5">
                       <Mail size={13} />
                     </div>
                     <div className="space-y-0.5">

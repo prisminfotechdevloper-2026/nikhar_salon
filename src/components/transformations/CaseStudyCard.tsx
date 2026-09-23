@@ -22,11 +22,11 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             {/* View Switcher Controls (Mobile & Desktop) */}
             <div className="flex items-center justify-between gap-2 mb-3">
               <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.18em] uppercase text-[#8C734B] dark:text-[#BA9D6A]">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#BA9D6A]" />
+                <span className="size-1.5 rounded-full bg-[#BA9D6A]" />
                 {caseStudy.categoryLabel}
               </span>
 
-              <div className="inline-flex rounded-lg bg-white dark:bg-white/[0.06] p-0.5 border border-[#D9D4CB] dark:border-white/10 text-[10px] font-semibold uppercase tracking-wider">
+              <div className="inline-flex rounded-lg bg-white dark:bg-white/[0.06] p-1.5 border border-[#D9D4CB] dark:border-white/10 text-[10px] font-semibold uppercase tracking-wider">
                 <button
                   type="button"
                   onClick={() => setActiveView('both')}
@@ -82,7 +82,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
                   />
                   {/* Bottom Before Badge (Clears top hair patch area completely) */}
                   <div className="absolute bottom-2.5 left-2.5 z-10">
-                    <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-white font-mono text-[9.5px] uppercase font-bold tracking-wider border border-white/20 shadow-md">
+                    <span className="px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md text-white font-sans text-[10px] uppercase font-bold tracking-wide border border-white/20 shadow-md">
                       Before
                     </span>
                   </div>
@@ -106,7 +106,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
                   />
                   {/* Bottom After Result Badge + Duration (Clears top hair patch area completely) */}
                   <div className="absolute bottom-2.5 left-2.5 z-10 flex items-center gap-1.5">
-                    <span className="px-2.5 py-1 rounded-md bg-[#BA9D6A] text-[#0E1012] font-mono text-[9.5px] uppercase font-bold tracking-wider shadow-md">
+                    <span className="px-2.5 py-1 rounded-md bg-[#BA9D6A] text-[#0E1012] font-sans text-[10px] uppercase font-bold tracking-wide shadow-md">
                       After Result
                     </span>
                     <span className="px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md text-white/90 text-[9px] font-sans font-medium flex items-center gap-1 border border-white/15 shadow-md">
@@ -123,7 +123,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             {/* Client Pill Strip */}
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs border-b border-[#E5E0D8] dark:border-white/[0.06] pb-3">
               <div className="flex items-center gap-2">
-                <div className="h-7 w-7 rounded-full bg-[#BA9D6A]/15 border border-[#BA9D6A]/30 flex items-center justify-center text-[#8C734B] dark:text-[#BA9D6A] font-semibold text-[11px]">
+                <div className="size-7 rounded-full bg-[#BA9D6A]/15 border border-[#BA9D6A]/30 flex items-center justify-center text-[#8C734B] dark:text-[#BA9D6A] font-semibold text-[11px]">
                   {caseStudy.client.name.charAt(0)}
                 </div>
                 <div>
@@ -205,7 +205,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             )}&stylist=${encodeURIComponent(
               caseStudy.stylist.includes('Firoz Khan') ? 'Firoz Khan (Owner)' : caseStudy.stylist.split(' (')[0]
             )}`}
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-sm active:scale-98"
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-sm active:scale-98"
           >
             <span>Book Similar Transformation</span>
             <Calendar size={13} className="shrink-0" />

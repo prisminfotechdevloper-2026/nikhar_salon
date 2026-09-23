@@ -61,8 +61,8 @@ export default function HeroSection() {
 
         {/* Clean Cinematic Dark Overlays for Readability & Contrast */}
         <div className="absolute inset-0 bg-black/45 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/30 to-black/90 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 z-10" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/85 via-black/30 to-black/90 z-10" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/50 via-transparent to-black/50 z-10" />
       </div>
 
       {/* Hero Center Content - snug fit on mobile */}
@@ -91,32 +91,35 @@ export default function HeroSection() {
           {/* 1. Primary CTA: Book Slot Now */}
           <Link
             href="/book-appointment"
-            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-110 px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold tracking-[0.08em] sm:tracking-[0.1em] text-[#141619] uppercase transition-all duration-200 shadow-md shadow-[#BA9D6A]/30 cursor-pointer active:scale-95"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-110 px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold tracking-[0.08em] sm:tracking-[0.1em] text-[#141619] uppercase transition-[transform,filter] duration-200 shadow-md shadow-[#BA9D6A]/30 cursor-pointer active:scale-95"
           >
-            <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#141619]" />
+            <Calendar className="size-3.5 sm:size-4 text-[#141619]" />
             <span>Book Slot Now</span>
-            <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#141619] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="size-3.5 sm:size-4 text-[#141619] group-hover:translate-x-1 transition-transform" />
           </Link>
 
           {/* Secondary actions: 2 side-by-side columns on mobile */}
           <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:items-center sm:gap-4">
             {/* 2. Secondary CTA: Watch Salon Experience */}
-            <a
-              href="#craftsmanship-experience"
-              className="group inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.12] hover:border-[#BA9D6A] px-3 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer shadow-md active:scale-95 text-center"
+            <button
+              type="button"
+              onClick={() => {
+                document.getElementById('craftsmanship-experience')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="group inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.12] hover:border-[#BA9D6A] px-3 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-white transition-colors backdrop-blur-md cursor-pointer shadow-md active:scale-95 text-center"
             >
-              <div className="h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-[#BA9D6A] text-[#0E1012] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs shrink-0">
+              <div className="size-5 sm:size-6 rounded-full bg-[#BA9D6A] text-[#0E1012] flex items-center justify-center group-hover:scale-110 transition-transform shadow-xs shrink-0">
                 <Play size={10} fill="currentColor" className="ml-0.5" />
               </div>
               <span className="group-hover:text-[#BA9D6A] transition-colors truncate">Watch Salon</span>
-            </a>
+            </button>
 
             {/* 3. Concierge: WhatsApp Direct */}
             <a
               href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20book%20a%20grooming%20slot."
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.12] hover:border-[#25D366] px-3 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-white transition-all backdrop-blur-md cursor-pointer shadow-md hover:scale-105 active:scale-95 text-center"
+              className="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full border border-white/20 bg-black/45 hover:bg-white/[0.12] hover:border-[#25D366] px-3 sm:px-5 py-2 sm:py-2.5 text-[11px] sm:text-sm font-semibold uppercase tracking-wider text-white transition-[border-color,transform] backdrop-blur-md cursor-pointer shadow-md hover:scale-105 active:scale-95 text-center"
             >
               <WhatsAppIcon size={16} variant="authentic" />
               <span className="group-hover:text-[#25D366] transition-colors truncate">
@@ -162,15 +165,16 @@ export default function HeroSection() {
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Interactive slide indicators */}
             <div className="flex items-center gap-1 sm:gap-1.5 mr-1 sm:mr-2">
-              {HERO_SLIDES.map((_, idx) => (
+              {HERO_SLIDES.map((slide, idx) => (
                 <button
-                  key={idx}
+                  key={slide.id}
                   type="button"
                   onClick={() => goToSlide(idx)}
-                  className={`h-1 sm:h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlide
+                  className={`h-1 sm:h-1.5 rounded-full transition-[width,background-color] duration-300 cursor-pointer ${
+                    idx === currentSlide
                       ? 'w-5 sm:w-7 bg-[#BA9D6A]'
                       : 'w-1.5 sm:w-2 bg-white/40 hover:bg-white/70'
-                    }`}
+                  }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}

@@ -48,8 +48,8 @@ const TRANSFORMATIONS: Transformation[] = [
     duration: 'Procedure: 60 Mins',
     specs: 'Custom Monofilament Base • Italian Razor Fade • Shower & Gym Ready',
     desc: 'Advanced hair thinning transformed into a polished executive look with natural hairline graduation and healthy shine.',
-    beforeImg: '/images/client3-head-before.jpg',
-    afterImg: '/images/client3-head-after.jpg',
+    beforeImg: '/images/client3-head-before-centered.jpg',
+    afterImg: '/images/client3-head-after-centered.jpg',
     focusY: 'center center',
     tags: ['Executive Polish', 'Gym & Swim Ready', 'Lifetime Styling'],
   },
@@ -279,10 +279,10 @@ function CompareSlider({
 
       {/* Divider + handle */}
       <div
-        className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-white/90 shadow-[0_0_8px_rgba(0,0,0,0.5)]"
+        className="pointer-events-none absolute inset-y-0 w-0.5 -translate-x-1/2 bg-white/90 shadow-xs"
         style={{ left: `${pos}%` }}
       >
-        <div className="absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#BA9D6A] text-[#0E1012] shadow-lg">
+        <div className="absolute left-1/2 top-1/2 flex size-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white bg-[#BA9D6A] text-[#0E1012] shadow-lg">
           <ChevronLeft size={12} className="-mr-0.5" />
           <ChevronRight size={12} className="-ml-0.5" />
         </div>
@@ -363,8 +363,8 @@ export default function HairPatchSection() {
   return (
     <section className="relative overflow-hidden border-b border-[#E5E0D8] bg-[#F5F2ED] py-10 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#101214] sm:py-12 lg:py-14">
       {/* Background ambient glow */}
-      <div className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.06] blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-1/4 h-72 w-72 rounded-full bg-[#25D366]/[0.04] blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-1/4 size-72 rounded-full bg-[#BA9D6A]/[0.06] blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-1/4 size-72 rounded-full bg-[#25D366]/[0.04] blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl space-y-8 px-4 sm:space-y-10 sm:px-6 lg:px-10">
         {/* Editorial Header Section */}
@@ -372,7 +372,7 @@ export default function HairPatchSection() {
           {/* Top Live Metadata Strip */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3 text-left dark:border-white/[0.08]">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-2 w-2 rounded-full bg-[#BA9D6A] animate-pulse" />
+              <span className="flex size-2 rounded-full bg-[#BA9D6A] animate-pulse" />
               <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
                 CHAPTER 03 • PRIMARY SPECIALIZATION
               </span>
@@ -439,101 +439,101 @@ export default function HairPatchSection() {
           <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12 lg:gap-8">
             {/* LEFT: viewer */}
             <div className="min-w-0 space-y-3 lg:col-span-7">
-              {/* Mode toggle */}
+                {/* Mode toggle */}
               <div className="mx-auto flex flex-col sm:flex-row w-full max-w-[560px] sm:items-center justify-between gap-2.5 sm:gap-2">
-                <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A]">
-                  Interactive Comparison
-                </span>
-                <div
-                  role="tablist"
-                  aria-label="Comparison view"
-                  className="inline-flex self-end sm:self-auto items-center rounded-lg border border-[#E5E0D8] bg-[#FAF8F5] p-0.5 dark:border-white/10 dark:bg-white/[0.05]"
-                >
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={viewMode === 'split'}
-                    onClick={() => setViewMode('split')}
-                    className={`${toggleBase} ${viewMode === 'split' ? toggleActive : toggleIdle}`}
+                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#7D776D] dark:text-[#A6A29A]">
+                    Interactive Comparison
+                  </span>
+                  <div
+                    role="tablist"
+                    aria-label="Comparison view"
+                    className="inline-flex self-end sm:self-auto items-center rounded-lg border border-[#E5E0D8] bg-[#FAF8F5] p-1.5 dark:border-white/10 dark:bg-white/[0.05]"
                   >
-                    <SlidersHorizontal size={13} className="shrink-0" />
-                    <span className="whitespace-nowrap">Split Slider</span>
-                  </button>
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={viewMode === 'side-by-side'}
-                    onClick={() => setViewMode('side-by-side')}
-                    className={`${toggleBase} ${viewMode === 'side-by-side' ? toggleActive : toggleIdle}`}
-                  >
-                    <Columns2 size={13} className="shrink-0" />
-                    <span className="whitespace-nowrap">Side by Side</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* key => slider position resets when the case changes */}
-              {viewMode === 'split' ? (
-                <CompareSlider
-                  key={current.id}
-                  beforeSrc={current.beforeImg}
-                  afterSrc={current.afterImg}
-                  title={current.title}
-                  focusY={current.focusY}
-                  priority={activeTransform === 0}
-                />
-              ) : (
-                <SideBySide
-                  key={current.id}
-                  beforeSrc={current.beforeImg}
-                  afterSrc={current.afterImg}
-                  title={current.title}
-                  duration={current.duration}
-                  focusY={current.focusY}
-                  priority={activeTransform === 0}
-                />
-              )}
-
-              {/* Case selector */}
-              <div className="mx-auto flex w-full max-w-[560px] items-center justify-between gap-2 pt-1">
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                  {TRANSFORMATIONS.map((t, idx) => (
                     <button
-                      key={t.id}
                       type="button"
-                      onClick={() => setActiveTransform(idx)}
-                      aria-pressed={idx === activeTransform}
-                      className={`cursor-pointer rounded-lg px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition-all sm:px-3 ${
-                        idx === activeTransform
-                          ? 'bg-[#181A1C] font-bold text-white shadow-sm dark:bg-white dark:text-[#0E1012]'
-                          : 'border border-[#E5E0D8] bg-[#FAF8F5] text-[#555047] hover:bg-[#EAE6DF] dark:border-white/10 dark:bg-white/[0.05] dark:text-[#A6A29A] dark:hover:bg-white/[0.1]'
-                      }`}
+                      role="tab"
+                      aria-selected={viewMode === 'split'}
+                      onClick={() => setViewMode('split')}
+                      className={`${toggleBase} ${viewMode === 'split' ? toggleActive : toggleIdle}`}
                     >
-                      Case {idx + 1}
+                      <SlidersHorizontal size={13} className="shrink-0" />
+                      <span className="whitespace-nowrap">Split Slider</span>
                     </button>
-                  ))}
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={viewMode === 'side-by-side'}
+                      onClick={() => setViewMode('side-by-side')}
+                      className={`${toggleBase} ${viewMode === 'side-by-side' ? toggleActive : toggleIdle}`}
+                    >
+                      <Columns2 size={13} className="shrink-0" />
+                      <span className="whitespace-nowrap">Side by Side</span>
+                    </button>
+                  </div>
                 </div>
 
-                <div className="flex shrink-0 items-center gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => setActiveTransform((p) => (p - 1 + total) % total)}
-                    className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-[#D9D4CB] text-[#181A1C] transition hover:border-[#BA9D6A] hover:text-[#BA9D6A] dark:border-white/20 dark:text-white"
-                    aria-label="Previous transformation"
-                  >
-                    <ChevronLeft size={14} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTransform((p) => (p + 1) % total)}
-                    className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-[#D9D4CB] text-[#181A1C] transition hover:border-[#BA9D6A] hover:text-[#BA9D6A] dark:border-white/20 dark:text-white"
-                    aria-label="Next transformation"
-                  >
-                    <ChevronRight size={14} />
-                  </button>
+                {/* key => slider position resets when the case changes */}
+                {viewMode === 'split' ? (
+                  <CompareSlider
+                    key={current.id}
+                    beforeSrc={current.beforeImg}
+                    afterSrc={current.afterImg}
+                    title={current.title}
+                    focusY={current.focusY}
+                    priority={activeTransform === 0}
+                  />
+                ) : (
+                  <SideBySide
+                    key={current.id}
+                    beforeSrc={current.beforeImg}
+                    afterSrc={current.afterImg}
+                    title={current.title}
+                    duration={current.duration}
+                    focusY={current.focusY}
+                    priority={activeTransform === 0}
+                  />
+                )}
+
+                {/* Case selector */}
+              <div className="mx-auto flex w-full max-w-[560px] items-center justify-between gap-2 pt-1">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {TRANSFORMATIONS.map((t, idx) => (
+                      <button
+                        key={t.id}
+                        type="button"
+                        onClick={() => setActiveTransform(idx)}
+                        aria-pressed={idx === activeTransform}
+                        className={`cursor-pointer rounded-lg px-2.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider transition-all sm:px-3 ${
+                          idx === activeTransform
+                            ? 'bg-[#181A1C] font-bold text-white shadow-sm dark:bg-white dark:text-[#0E1012]'
+                            : 'border border-[#E5E0D8] bg-[#FAF8F5] text-[#555047] hover:bg-[#EAE6DF] dark:border-white/10 dark:bg-white/[0.05] dark:text-[#A6A29A] dark:hover:bg-white/[0.1]'
+                        }`}
+                      >
+                        Case {idx + 1}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex shrink-0 items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setActiveTransform((p) => (p - 1 + total) % total)}
+                      className="flex size-8 cursor-pointer items-center justify-center rounded-full border border-[#D9D4CB] text-[#181A1C] transition hover:border-[#BA9D6A] hover:text-[#BA9D6A] dark:border-white/20 dark:text-white"
+                      aria-label="Previous transformation"
+                    >
+                      <ChevronLeft size={14} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTransform((p) => (p + 1) % total)}
+                      className="flex size-8 cursor-pointer items-center justify-center rounded-full border border-[#D9D4CB] text-[#181A1C] transition hover:border-[#BA9D6A] hover:text-[#BA9D6A] dark:border-white/20 dark:text-white"
+                      aria-label="Next transformation"
+                    >
+                      <ChevronRight size={14} />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
             {/* RIGHT: story */}
             <div className="space-y-3.5 text-left lg:col-span-5 lg:self-center">
@@ -609,7 +609,7 @@ export default function HairPatchSection() {
               className="group relative space-y-2 rounded-2xl border border-[#E5E0D8] bg-white p-4 text-left shadow-xs transition-[border-color,box-shadow] duration-300 hover:border-[#BA9D6A]/60 hover:shadow-md dark:border-white/[0.08] dark:bg-[#141619] sm:p-5"
             >
               <div className="flex items-center justify-between">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">
                   <Icon size={17} />
                 </div>
                 <span className="font-mono text-[10px] font-bold tracking-widest text-[#8C734B]/70 dark:text-[#BA9D6A]/70">

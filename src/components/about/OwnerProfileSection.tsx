@@ -42,8 +42,8 @@ export default function OwnerProfileSection() {
     <>
       <section id="founder" className="relative overflow-hidden rounded-3xl border border-[#E5E0D8] bg-white p-6 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#121417] sm:p-4 lg:px-10 lg:py-2 shadow-sm dark:shadow-2xl">
         {/* Subtle Ambient Gold Glow */}
-        <div className="pointer-events-none absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
-        <div className="pointer-events-none absolute -right-32 bottom-1/4 h-72 w-72 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 top-1/4 size-72 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
+        <div className="pointer-events-none absolute -right-32 bottom-1/4 size-72 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
 
         <div className="relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 items-start">
           {/* ========================================================================= */}
@@ -69,7 +69,7 @@ export default function OwnerProfileSection() {
               </div>
 
               {/* Bottom Anchored Identity Pill (Matching Reference) */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 rounded-2xl border border-white/20 bg-black/85 p-3.5 sm:p-4 text-white backdrop-blur-xl shadow-2xl">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 rounded-2xl border border-white/20 bg-black/85 p-3.5 sm:p-4 text-white backdrop-blur-xl shadow-lg">
                 <div className="flex items-center justify-between gap-3">
                   <div className="space-y-0.5 min-w-0">
                     <span className="block text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#BA9D6A]">
@@ -84,7 +84,7 @@ export default function OwnerProfileSection() {
                   </div>
 
                   {/* Monogram Emblem Seal */}
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#BA9D6A]/60 bg-gradient-to-br from-[#1E2124] to-[#0E1012] shadow-inner">
+                  <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-[#BA9D6A]/60 bg-linear-to-br from-[#1E2124] to-[#0E1012] shadow-inner">
                     <span className="font-serif-title text-base font-bold text-[#BA9D6A] tracking-tighter">
                       FK
                     </span>
@@ -152,7 +152,7 @@ export default function OwnerProfileSection() {
             {/* Feature Callout Box (Matching Reference "We are not a traditional agency") */}
             <div className="rounded-2xl border border-[#BA9D6A]/30 bg-[#FAF8F5] p-4 text-left dark:border-[#BA9D6A]/20 dark:bg-white/[0.03] sm:p-4.5">
               <div className="flex items-start gap-3.5">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A]">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#BA9D6A]/15 text-[#8C734B] dark:text-[#BA9D6A]">
                   <Scissors size={18} />
                 </div>
                 <div className="space-y-1">
@@ -204,7 +204,7 @@ export default function OwnerProfileSection() {
                 href="tel:+919784711323"
                 className="group flex items-center gap-3 rounded-2xl border border-[#E5E0D8] bg-[#FAF8F5] p-3 transition hover:border-[#BA9D6A] dark:border-white/[0.08] dark:bg-[#17191C] dark:hover:border-[#BA9D6A]"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#8C734B] shadow-xs dark:bg-white/[0.06] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#8C734B] shadow-xs dark:bg-white/[0.06] dark:text-[#BA9D6A] group-hover:bg-[#BA9D6A] group-hover:text-[#0E1012] transition-colors">
                   <Phone size={15} />
                 </div>
                 <div className="min-w-0">
@@ -226,7 +226,7 @@ export default function OwnerProfileSection() {
                 rel="noreferrer noopener"
                 className="group flex items-center gap-3 rounded-2xl border border-[#E5E0D8] bg-[#FAF8F5] p-3 transition hover:border-[#BA9D6A] dark:border-white/[0.08] dark:bg-[#17191C] dark:hover:border-[#BA9D6A]"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#25D366] shadow-xs dark:bg-white/[0.06] transition-transform group-hover:scale-105">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#25D366] shadow-xs dark:bg-white/[0.06] transition-transform group-hover:scale-105">
                   <WhatsAppIcon size={17} variant="authentic" />
                 </div>
                 <div className="min-w-0">
@@ -241,7 +241,7 @@ export default function OwnerProfileSection() {
 
               {/* Card 3: Address */}
               <div className="flex items-center gap-3 rounded-2xl border border-[#E5E0D8] bg-[#FAF8F5] p-3 dark:border-white/[0.08] dark:bg-[#17191C]">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#8C734B] shadow-xs dark:bg-white/[0.06] dark:text-[#BA9D6A]">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#8C734B] shadow-xs dark:bg-white/[0.06] dark:text-[#BA9D6A]">
                   <MapPin size={15} />
                 </div>
                 <div className="min-w-0">
@@ -261,20 +261,20 @@ export default function OwnerProfileSection() {
                     href="https://www.instagram.com/nikhar__mens_parlour?stkn=Z3FmZmwyaG9tb3do&utm_source=qr"
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#E4405F] shadow-xs dark:bg-white/[0.06] hover:scale-110 transition-transform"
+                    className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#E4405F] shadow-xs dark:bg-white/[0.06] hover:scale-110 transition-transform"
                     title="Follow on Instagram"
                   >
-                    <InstagramIcon className="h-4.5 w-4.5" />
+                    <InstagramIcon className="size-4.5" />
                   </a>
 
                   <a
                     href="https://youtube.com/@nikharunisexsaloonkota?si=33SamjrNAJU1Vyg2"
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-red-600 shadow-xs dark:bg-white/[0.06] hover:scale-110 transition-transform"
+                    className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-white text-red-600 shadow-xs dark:bg-white/[0.06] hover:scale-110 transition-transform"
                     title="Subscribe on YouTube"
                   >
-                    <YouTubeIcon className="h-4.5 w-4.5" />
+                    <YouTubeIcon className="size-4.5" />
                   </a>
                 </div>
 
@@ -296,7 +296,7 @@ export default function OwnerProfileSection() {
                 className="gold-gradient inline-flex items-center justify-center gap-2 rounded-full px-5 sm:px-6 py-2.5 sm:py-3 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0E1012] shadow-md transition hover:scale-[1.02] active:scale-95 cursor-pointer whitespace-nowrap shrink-0"
               >
                 <span>
-                  Book Consultation <span className="inline lg:hidden xl:inline">with Firoz Khan</span>
+                  Book Consultation <span className="lg:hidden xl:inline">with Firoz Khan</span>
                 </span>
                 <ArrowRight size={14} className="shrink-0" />
               </Link>
@@ -307,7 +307,7 @@ export default function OwnerProfileSection() {
                 rel="noreferrer noopener"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#D9D4CB] px-4 sm:px-5 py-2.5 sm:py-3 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#181A1C] transition hover:border-[#BA9D6A] hover:text-[#8C734B] dark:border-white/20 dark:text-white dark:hover:text-[#BA9D6A] whitespace-nowrap shrink-0"
               >
-                <YouTubeIcon className="h-4 w-4 text-red-500 shrink-0" />
+                <YouTubeIcon className="size-4 text-red-500 shrink-0" />
                 <span>Watch on YouTube</span>
                 <ExternalLink size={13} className="shrink-0" />
               </a>

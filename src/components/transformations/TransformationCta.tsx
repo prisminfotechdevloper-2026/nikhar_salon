@@ -6,10 +6,10 @@ export default function TransformationCta() {
   return (
     <section className="py-14 sm:py-20 bg-[#FAF8F5] dark:bg-[#0E1012] relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#181A1C] via-[#121416] to-[#0A0C0E] border border-[#BA9D6A]/35 p-8 sm:p-12 lg:p-16 text-center text-white shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden bg-linear-to-br from-[#181A1C] via-[#121416] to-[#0A0C0E] border border-[#BA9D6A]/35 p-8 sm:p-12 lg:p-16 text-center text-white shadow-xl">
           {/* Ambient Gold Sheen */}
-          <div className="pointer-events-none absolute -top-32 -left-32 h-80 w-80 rounded-full bg-[#BA9D6A]/15 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -right-32 h-80 w-80 rounded-full bg-[#BA9D6A]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -top-32 -left-32 size-80 rounded-full bg-[#BA9D6A]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -right-32 size-80 rounded-full bg-[#BA9D6A]/15 blur-3xl" />
 
           {/* Tagline */}
           <div className="inline-flex items-center gap-2 mb-4">
@@ -34,7 +34,7 @@ export default function TransformationCta() {
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/book-appointment"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-lg active:scale-95 border border-[#E8D4B0]/40"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-[#C2A774] via-[#BA9D6A] to-[#B3935B] hover:brightness-105 px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#0E1012] transition-[filter,transform] cursor-pointer shadow-lg active:scale-95 border border-[#E8D4B0]/40"
             >
               <Calendar size={16} />
               <span>Book Transformation Slot</span>

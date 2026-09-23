@@ -21,11 +21,11 @@ export default function ServicesFilterGrid() {
 
   const filtered = useMemo(() => {
     if (activeCategory === 'All') return servicesData;
-    if (activeCategory === 'HairPatch') return servicesData.filter((s) => s.category === 'hair-patch' || s.title.includes('Hair Patch'));
-    if (activeCategory === 'Haircut') return servicesData.filter((s) => s.category === 'hair' || s.title.includes('Haircut'));
-    if (activeCategory === 'Beard') return servicesData.filter((s) => s.category === 'beard' || s.title.includes('Beard') || s.title.includes('Shave'));
-    if (activeCategory === 'Facial') return servicesData.filter((s) => s.category === 'skin' || s.title.includes('Facial'));
-    if (activeCategory === 'Spa') return servicesData.filter((s) => s.category === 'spa' || s.title.includes('Spa') || s.title.includes('Treatment'));
+    if (activeCategory === 'HairPatch') return servicesData.filter((s) => s.category === 'hair-patch');
+    if (activeCategory === 'Haircut') return servicesData.filter((s) => s.category === 'hair');
+    if (activeCategory === 'Beard') return servicesData.filter((s) => s.category === 'beard');
+    if (activeCategory === 'Facial') return servicesData.filter((s) => s.category === 'skin');
+    if (activeCategory === 'Spa') return servicesData.filter((s) => s.category === 'spa');
     return servicesData;
   }, [activeCategory]);
 
@@ -43,7 +43,7 @@ export default function ServicesFilterGrid() {
           </span>
           <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
           <span className="hidden sm:inline font-mono text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
-            25 BESPOKE SALON OFFERINGS
+            {servicesData.length} BESPOKE SALON OFFERINGS
           </span>
         </div> 
 
@@ -110,11 +110,11 @@ export default function ServicesFilterGrid() {
             const count = cat.id === 'All'
               ? servicesData.length
               : servicesData.filter((s) => {
-                  if (cat.id === 'HairPatch') return s.category === 'hair-patch' || s.title.includes('Hair Patch');
-                  if (cat.id === 'Haircut') return s.category === 'hair' || s.title.includes('Haircut');
-                  if (cat.id === 'Beard') return s.category === 'beard' || s.title.includes('Beard') || s.title.includes('Shave');
-                  if (cat.id === 'Facial') return s.category === 'skin' || s.title.includes('Facial');
-                  if (cat.id === 'Spa') return s.category === 'spa' || s.title.includes('Spa') || s.title.includes('Treatment');
+                  if (cat.id === 'HairPatch') return s.category === 'hair-patch';
+                  if (cat.id === 'Haircut') return s.category === 'hair';
+                  if (cat.id === 'Beard') return s.category === 'beard';
+                  if (cat.id === 'Facial') return s.category === 'skin';
+                  if (cat.id === 'Spa') return s.category === 'spa';
                   return false;
                 }).length;
 

@@ -170,7 +170,7 @@ export default function RootLayout({
             <Navbar />
 
             {/* Dynamic Page Content */}
-            <main className="flex-grow">
+            <main className="grow">
               {children}
             </main>
 

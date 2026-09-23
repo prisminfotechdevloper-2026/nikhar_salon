@@ -16,7 +16,7 @@ export default function AboutPillars() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         <div className="bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.06] p-6 rounded-2xl space-y-3 hover:border-[#BA9D6A]/50 transition">
-          <div className="h-10 w-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
+          <div className="size-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
             <Scissors size={20} />
           </div>
           <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white">Master Artisans</h4>
@@ -26,7 +26,7 @@ export default function AboutPillars() {
         </div>
 
         <div className="bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.06] p-6 rounded-2xl space-y-3 hover:border-[#BA9D6A]/50 transition">
-          <div className="h-10 w-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
+          <div className="size-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
             <Award size={20} />
           </div>
           <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white">Premium Products</h4>
@@ -36,7 +36,7 @@ export default function AboutPillars() {
         </div>
 
         <div className="bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.06] p-6 rounded-2xl space-y-3 hover:border-[#BA9D6A]/50 transition">
-          <div className="h-10 w-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
+          <div className="size-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
             <ShieldCheck size={20} />
           </div>
           <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white">100% Sanitized</h4>
@@ -46,7 +46,7 @@ export default function AboutPillars() {
         </div>
 
         <div className="bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#E5E0D8] dark:border-white/[0.06] p-6 rounded-2xl space-y-3 hover:border-[#BA9D6A]/50 transition">
-          <div className="h-10 w-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
+          <div className="size-10 rounded-xl bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
             <Heart size={20} />
           </div>
           <h4 className="font-serif-title text-xl text-[#181A1C] dark:text-white">VIP Hospitality</h4>

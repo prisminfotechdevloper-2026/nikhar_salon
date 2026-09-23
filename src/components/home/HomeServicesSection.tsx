@@ -26,7 +26,7 @@ export default function HomeServicesSection() {
   return (
     <section id="services" className="py-12 sm:py-16 lg:py-20 bg-[#FAF8F5] dark:bg-[#0E1012] relative overflow-hidden border-b border-[#E5E0D8] dark:border-white/[0.08] transition-colors duration-300">
       {/* Subtle Ambient Gold Glow */}
-      <div className="pointer-events-none absolute -top-40 left-1/4 h-[500px] w-[500px] rounded-full bg-[#BA9D6A]/[0.06] blur-[160px]" />
+      <div className="pointer-events-none absolute -top-40 left-1/4 size-[500px] rounded-full bg-[#BA9D6A]/[0.06] blur-[160px]" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header Row */}

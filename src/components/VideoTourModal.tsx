@@ -53,12 +53,12 @@ export default function VideoTourModal({
       {/* Modal Dialog Box with Viewport-Constrained Height */}
       <div 
         data-lenis-prevent
-        className="relative w-full max-w-3xl md:max-w-4xl max-h-[90vh] bg-[#141619] border border-[#BA9D6A]/50 rounded-2xl md:rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] overflow-hidden z-10 flex flex-col my-auto transition-opacity duration-200"
+        className="relative w-full max-w-3xl md:max-w-4xl max-h-[90vh] bg-[#141619] border border-[#BA9D6A]/50 rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden z-10 flex flex-col my-auto transition-opacity duration-200"
       >
         {/* Header Bar */}
         <div className="flex items-center justify-between px-4 sm:px-5 py-2.5 sm:py-3 border-b border-white/[0.08] bg-[#0E1012] shrink-0">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#BA9D6A] animate-pulse" />
+            <span className="size-2 rounded-full bg-[#BA9D6A]" />
             <span className="text-[11px] sm:text-xs font-semibold tracking-[0.15em] text-[#BA9D6A] uppercase font-sans line-clamp-1">
               {videoTitle}
             </span>
@@ -67,7 +67,7 @@ export default function VideoTourModal({
           <button
             type="button"
             onClick={onClose}
-            className="h-7 w-7 sm:h-8 sm:w-8 rounded-full border border-white/15 bg-white/[0.05] hover:border-[#BA9D6A] hover:bg-white/[0.1] text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer active:scale-95"
+            className="size-7 sm:size-8 rounded-full border border-white/15 bg-white/[0.05] hover:border-[#BA9D6A] hover:bg-white/[0.1] text-white/80 hover:text-white flex items-center justify-center transition-colors cursor-pointer active:scale-95"
             aria-label="Close video tour"
           >
             <X size={16} />
@@ -77,7 +77,7 @@ export default function VideoTourModal({
         {/* Video Player Container - Height-Constrained for Desktop & Mobile */}
         <div className="relative w-full aspect-video max-h-[56vh] sm:max-h-[62vh] bg-black shrink flex items-center justify-center overflow-hidden">
           <iframe
-            className="w-full h-full object-contain"
+            className="size-full object-contain"
             src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1`}
             title="Nikhar Salon Luxury Experience"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

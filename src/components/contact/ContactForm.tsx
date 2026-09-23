@@ -46,7 +46,7 @@ export default function ContactForm() {
 
       {sent ? (
         <div className="text-center py-12 space-y-3">
-          <div className="h-14 w-14 rounded-full bg-[#BA9D6A]/20 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center mx-auto">
+          <div className="size-14 rounded-full bg-[#BA9D6A]/20 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center mx-auto">
             <CheckCircle2 size={28} />
           </div>
           <h4 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">Inquiry Transmitted!</h4>
@@ -76,7 +76,7 @@ export default function ContactForm() {
                 placeholder="e.g. Ishan Sharma"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
+                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
               />
             </div>
 
@@ -91,7 +91,7 @@ export default function ContactForm() {
                 placeholder="+91 97847 11323"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
+                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
               />
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function ContactForm() {
                 placeholder="name@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
+                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30"
               />
             </div>
 
@@ -120,7 +120,7 @@ export default function ContactForm() {
                 aria-label="Service of Interest"
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white cursor-pointer"
+                className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white cursor-pointer"
               >
                 <option value="" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Select a service...</option>
                 <option value="Hair Patch" className="bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white">Hair Patch</option>
@@ -145,7 +145,7 @@ export default function ContactForm() {
               placeholder="Tell us about your requirements, wedding date, or preferred stylist..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-xs sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30 resize-none"
+              className="w-full bg-[#F5F2ED] dark:bg-[#181A1C] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl px-4 py-3 text-base sm:text-sm focus:outline-none focus:border-[#BA9D6A] text-[#181A1C] dark:text-white placeholder:text-[#7D776D]/60 dark:placeholder:text-white/30 resize-none"
             />
           </div>
 

@@ -64,11 +64,11 @@ export default function VideoStoriesSection() {
                   />
 
                   {/* Dark Vignette Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
 
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-12 w-12 rounded-full bg-[#BA9D6A] group-hover:scale-110 group-hover:brightness-110 transition-transform duration-300 flex items-center justify-center shadow-lg text-[#0E1012] pl-0.5">
+                    <div className="size-12 rounded-full bg-[#BA9D6A] group-hover:scale-110 group-hover:brightness-110 transition-transform duration-300 flex items-center justify-center shadow-lg text-[#0E1012] pl-0.5">
                       <Play size={20} fill="currentColor" />
                     </div>
                   </div>
@@ -91,7 +91,7 @@ export default function VideoStoriesSection() {
                 </button>
 
                 {/* Video Info */}
-                <div className="p-4 space-y-2.5 flex-1 flex flex-col justify-between">
+                <div className="p-4 gap-2.5 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-xs sm:text-[13px] font-bold text-[#181A1C] dark:text-white leading-snug line-clamp-2">
                       {video.title}

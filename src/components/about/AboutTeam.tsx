@@ -38,11 +38,11 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
         />
         {/* Subtle Bottom Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
       </div>
 
       {/* Card Content Body: Clean, Editorial & Balanced */}
-      <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+      <div className="p-5 flex-1 flex flex-col justify-between gap-4">
         <div className="space-y-2.5">
           {/* Stylist Name & Role Header */}
           <div>
@@ -59,14 +59,14 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
             {member.speciality}
           </p>
 
-          {/* Signature Skills Tags */}
+          {/* Key Techniques Tags */}
           <div className="flex flex-wrap gap-1.5 pt-1">
-            {member.skills?.slice(0, 2).map((skill) => (
+            {member.skills?.map((skill) => (
               <span
                 key={skill}
                 className="inline-flex items-center gap-1.5 rounded-full border border-[#E5E0D8] bg-[#FAF8F5] px-2.5 py-1 text-[10px] font-medium text-[#555047] dark:border-white/10 dark:bg-white/[0.04] dark:text-white/80"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#BA9D6A]" />
+                <span className="size-1.5 rounded-full bg-[#BA9D6A]" />
                 <span>{skill}</span>
               </span>
             ))}

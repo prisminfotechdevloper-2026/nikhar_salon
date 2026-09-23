@@ -9,11 +9,11 @@ import { servicesData } from '@/data/services';
 const POPULAR_SERVICES = [
   { title: 'Non-Surgical Hair Patch System', price: '₹5,999 onwards' },
   { title: 'Hair Patch Service & Maintenance', price: '₹499' },
-  { title: 'Executive Fade & Precision Cut', price: '₹350' },
-  { title: 'Royal Beard Sculpting & Razor Lineup', price: '₹200' },
-  { title: 'Charcoal Deep Detox Facial', price: '₹699' },
-  { title: 'Keratin Protein Intensive Hair Spa', price: '₹799' },
-  { title: 'Anti-Tan Fruit Glow Cleanup', price: '₹499' },
+  { title: 'Executive Pompadour & Precision Skin Fade', price: '₹350' },
+  { title: 'Royal Beard Sculpting & Razor Lineup', price: '₹250' },
+  { title: 'O3+ Bridal Groom Radiance Facial', price: '₹999' },
+  { title: 'Keratin Protein Intensive Hair Spa', price: '₹850' },
+  { title: 'Advanced Texture Perm & Curl Restructuring', price: '₹1,499 onwards' },
   { title: 'Hair Patch Scalp Density Consultation', price: 'FREE' },
 ];
 
@@ -73,7 +73,7 @@ function BookingSuccessView({
 }) {
   return (
     <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/40 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-lg">
-      <div className="w-14 h-14 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/60 flex items-center justify-center text-[#C2A774] mx-auto shadow-sm">
+      <div className="size-14 rounded-full bg-[#BA9D6A]/20 border border-[#BA9D6A]/60 flex items-center justify-center text-[#C2A774] mx-auto shadow-sm">
         <CheckCircle size={32} />
       </div>
       <div className="space-y-1">
@@ -149,7 +149,7 @@ function BookingPersonalFields({
             placeholder="e.g. Aman Sharma"
             value={name}
             onChange={(e) => onNameChange(e.target.value)}
-            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
           />
           <User size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
         </div>
@@ -167,7 +167,7 @@ function BookingPersonalFields({
             placeholder="+91 97847 11323"
             value={phone}
             onChange={(e) => onPhoneChange(e.target.value)}
-            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A]"
           />
           <Phone size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
         </div>
@@ -194,7 +194,7 @@ function BookingServiceSelect({
           aria-label="Select Grooming Service"
           value={service}
           onChange={(e) => onServiceChange(e.target.value)}
-          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
         >
           <optgroup label="Popular Services">
             {POPULAR_SERVICES.map((s) => (
@@ -243,7 +243,7 @@ function BookingStylistSelect({
           aria-label="Preferred Specialist or Barber"
           value={stylist}
           onChange={(e) => onStylistChange(e.target.value)}
-          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
         >
           {STYLIST_OPTIONS.map((st) => (
             <option key={st.name} value={st.name}>
@@ -306,7 +306,7 @@ function BookingDateTimeFields({
             required
             value={date}
             onChange={(e) => onDateChange(e.target.value)}
-            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A]"
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A]"
           />
           <Calendar size={14} className="absolute left-3 top-3 text-[#8C734B] dark:text-[#C2A774]" />
         </div>
@@ -322,7 +322,7 @@ function BookingDateTimeFields({
             aria-label="Select Preferred Time Slot"
             value={time}
             onChange={(e) => onTimeChange(e.target.value)}
-            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-xs sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
+            className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-8 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white focus:outline-none focus:border-[#BA9D6A] appearance-none cursor-pointer"
           >
             {TIME_OPTIONS.map((t) => (
               <option key={t} value={t}>
@@ -360,7 +360,7 @@ function BookingNotesField({
           placeholder="e.g. Skin fade with textured top, hair patch consultation, beard shape, etc."
           value={notes}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2 text-xs sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A] resize-none"
+          className="w-full bg-[#FAF8F5] dark:bg-[#181A1E] border border-[#D9D4CB] dark:border-white/[0.1] rounded-xl pl-9 pr-3.5 py-2.5 text-base sm:text-sm text-[#181A1C] dark:text-white placeholder:text-neutral-400 focus:outline-none focus:border-[#BA9D6A] resize-none"
         />
         <MessageSquare
           size={14}
@@ -539,7 +539,7 @@ export default function SimpleBookingForm(props: SimpleBookingFormProps) {
   return (
     <form
       onSubmit={form.handleSubmit}
-      className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-[0_10px_35px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_50px_rgba(0,0,0,0.7)] space-y-4 transition-colors"
+      className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-[#BA9D6A]/30 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-md dark:shadow-2xl dark:shadow-black/50 space-y-4 transition-colors"
     >
       {/* Form Header */}
       <div className="border-b border-[#E5E0D8] dark:border-white/[0.08] pb-3.5 flex items-center justify-between">
@@ -551,7 +551,7 @@ export default function SimpleBookingForm(props: SimpleBookingFormProps) {
             Reserve Your Chair
           </h3>
         </div>
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#BA9D6A]/15 border border-[#BA9D6A]/40 text-[10.5px] text-[#8C734B] dark:text-[#C2A774] font-bold">
+        <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#BA9D6A]/15 border border-[#BA9D6A]/40 text-[10.5px] text-[#8C734B] dark:text-[#C2A774] font-bold">
           <ShieldCheck size={13} /> Zero Waiting
         </div>
       </div>
@@ -597,7 +597,7 @@ export default function SimpleBookingForm(props: SimpleBookingFormProps) {
       <div className="pt-2">
         <button
           type="submit"
-          className="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D8BE8A] via-[#C9A96E] to-[#B3935B] hover:opacity-95 text-[#0E1012] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-md shadow-[#BA9D6A]/20 flex items-center justify-center gap-2.5 transition transform active:scale-[0.99] cursor-pointer"
+          className="w-full py-3.5 px-6 rounded-xl bg-linear-to-r from-[#D8BE8A] via-[#C9A96E] to-[#B3935B] hover:opacity-95 text-[#0E1012] font-bold text-xs sm:text-sm uppercase tracking-[0.12em] shadow-md shadow-[#BA9D6A]/20 flex items-center justify-center gap-2.5 transition transform active:scale-[0.99] cursor-pointer"
         >
           <WhatsAppIcon size={18} variant="authentic" /> Confirm Slot on WhatsApp
         </button>

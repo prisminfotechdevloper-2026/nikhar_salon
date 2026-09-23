@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Subtle Ambient Gold Glow */}
-      <div className="pointer-events-none absolute -top-40 right-1/4 h-[450px] w-[450px] rounded-full bg-[#BA9D6A]/[0.05] blur-[150px]" />
+      <div className="pointer-events-none absolute -top-40 right-1/4 size-[450px] rounded-full bg-[#BA9D6A]/[0.05] blur-[150px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Header Row with Title & Carousel Controls */}
@@ -115,7 +115,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
+                className="size-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft size={20} />
@@ -123,7 +123,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="h-10 w-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
+                className="size-10 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#181A1C] text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#8C734B] dark:hover:text-[#BA9D6A] flex items-center justify-center transition-colors duration-200 active:scale-95 cursor-pointer shadow-xs"
                 aria-label="Next testimonials"
               >
                 <ChevronRight size={20} />
@@ -165,7 +165,7 @@ export default function TestimonialsSection() {
                         ))}
                         <span className="text-[11px] font-semibold text-[#8C734B] dark:text-[#BA9D6A] ml-1.5 font-sans">5.0</span>
                       </div>
-                      <div className="h-7 w-7 rounded-full bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
+                      <div className="size-7 rounded-full bg-[#BA9D6A]/10 text-[#8C734B] dark:text-[#BA9D6A] flex items-center justify-center">
                         <Quote size={13} className="fill-current" />
                       </div>
                     </div>

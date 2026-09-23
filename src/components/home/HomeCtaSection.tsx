@@ -3,9 +3,9 @@ import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function HomeCtaSection() {
   return (
-    <section className="py-12 sm:py-16 bg-gradient-to-b from-[#FAF8F5] to-[#F5F2ED] dark:from-[#0E1012] dark:to-[#0A0C0E] relative overflow-hidden transition-colors duration-300">
+    <section className="py-12 sm:py-16 bg-linear-to-b from-[#FAF8F5] to-[#F5F2ED] dark:from-[#0E1012] dark:to-[#0A0C0E] relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="rounded-2xl md:rounded-3xl border border-[#BA9D6A]/40 bg-white dark:bg-[#141619] p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl dark:shadow-2xl transition-colors duration-300">
+        <div className="rounded-2xl md:rounded-3xl border border-[#BA9D6A]/40 bg-white dark:bg-[#141619] p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-lg dark:shadow-xl transition-colors duration-300">
           <div className="space-y-3 max-w-xl text-center md:text-left">
             <div className="inline-flex items-center gap-2">
               <div className="h-3 w-[2px] bg-[#BA9D6A]" />

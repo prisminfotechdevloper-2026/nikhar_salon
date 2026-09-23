@@ -6,11 +6,11 @@ export default function BookingInfoCard() {
   return (
     <div className="space-y-4">
       {/* Salon Director Profile Card (Firoz Khan) */}
-      <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl sm:rounded-3xl p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6)] space-y-3.5 relative overflow-hidden group">
-        <div className="pointer-events-none absolute -top-12 -right-12 w-28 h-28 rounded-full bg-[#BA9D6A]/10 blur-2xl group-hover:bg-[#BA9D6A]/20 transition-colors duration-300" />
+      <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl sm:rounded-3xl p-5 shadow-md dark:shadow-xl dark:shadow-black/40 space-y-3.5 relative overflow-hidden group">
+        <div className="pointer-events-none absolute -top-12 -right-12 size-28 rounded-full bg-[#BA9D6A]/10 blur-2xl group-hover:bg-[#BA9D6A]/20 transition-colors duration-300" />
         
         <div className="flex items-center gap-3.5">
-          <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#BA9D6A] bg-neutral-900 shrink-0 shadow-sm">
+          <div className="relative size-14 rounded-full overflow-hidden border-2 border-[#BA9D6A] bg-neutral-900 shrink-0 shadow-sm">
             <Image
               src="/images/owner/firoz-khan.png"
               alt="Firoz Khan Master Salon Director"
@@ -39,7 +39,7 @@ export default function BookingInfoCard() {
       </div>
 
       {/* Salon Commitment & VIP Perks */}
-      <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl sm:rounded-3xl p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)] dark:shadow-[0_15px_40px_rgba(0,0,0,0.6)] space-y-3.5">
+      <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl sm:rounded-3xl p-5 shadow-md dark:shadow-xl dark:shadow-black/40 space-y-3.5">
         <div className="flex items-center justify-between border-b border-[#E5E0D8] dark:border-white/[0.06] pb-2.5">
           <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C734B] dark:text-[#C2A774] font-bold">
             WHY BOOK ONLINE

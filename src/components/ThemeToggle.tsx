@@ -32,15 +32,15 @@ export default function ThemeToggle({
     >
       <div className="relative flex items-center justify-center">
         {/* Sun icon: displayed in dark mode (click to switch to light) */}
-        <Sun className="h-[18px] w-[18px] text-[#BA9D6A] hidden dark:block transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
+        <Sun className="size-[18px] text-[#BA9D6A] hidden dark:block transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
         {/* Moon icon: displayed in light mode (click to switch to dark) */}
-        <Moon className="h-[18px] w-[18px] text-[#BA9D6A] block dark:hidden transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
+        <Moon className="size-[18px] text-[#BA9D6A] block dark:hidden transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
       </div>
 
       {showLabel && (
         <span className={`text-[11px] font-semibold uppercase tracking-[0.08em] font-sans ${forceDark ? 'text-white/90' : 'text-[#181A1C] dark:text-white/90'}`}>
           <span className="hidden dark:inline">Light</span>
-          <span className="inline dark:hidden">Dark</span>
+          <span className="dark:hidden">Dark</span>
         </span>
       )}
     </button>

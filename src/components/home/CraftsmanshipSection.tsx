@@ -132,18 +132,18 @@ function EditorialHeader({
       {/* Top Broadcast Bar */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3.5 dark:border-white/[0.08]">
         <div className="flex items-center gap-2.5">
-          <span className="font-mono text-[10.5px] font-semibold tracking-[0.25em] text-[#8C734B] uppercase dark:text-[#BA9D6A]">
+          <span className="font-sans text-[10.5px] font-semibold tracking-[0.15em] text-[#8C734B] uppercase dark:text-[#BA9D6A]">
             REC ● NIKHAR STUDIO REEL ARCHIVE
           </span>
           <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
-          <span className="hidden sm:inline font-mono text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
+          <span className="hidden sm:inline font-sans text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
             KOTA SALON FLOOR • 4K DOCUMENTARY
           </span>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E5E0D8] bg-white/80 px-2.5 py-0.5 text-[10px] font-medium text-[#555047] backdrop-blur-xs dark:border-white/10 dark:bg-white/[0.04] dark:text-[#A6A29A]">
-            <YouTubeIcon className="h-3 w-3 text-red-500" />
+            <YouTubeIcon className="size-3 text-red-500" />
             <span>@nikharunisexsaloonkota</span>
           </span>
         </div>
@@ -211,7 +211,7 @@ function EditorialHeader({
                     : 'text-[#555047] hover:text-[#181A1C] hover:bg-white/60 dark:text-[#A6A29A] dark:hover:text-white dark:hover:bg-white/[0.06]'
                   }`}
               >
-                {active && <span className="h-1.5 w-1.5 rounded-full bg-[#BA9D6A] dark:bg-[#0E1012]" />}
+                {active && <span className="size-1.5 rounded-full bg-[#BA9D6A] dark:bg-[#0E1012]" />}
                 <span>{cat}</span>
                 <span className={`text-[9.5px] rounded-full px-1.5 py-0.2 font-mono ${active
                     ? 'bg-white/20 dark:bg-black/20 text-current'
@@ -246,10 +246,10 @@ function CinemaStage({
 }) {
   return (
     <div className="lg:col-span-7 space-y-4">
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#E5E0D8] bg-black shadow-xl dark:border-white/[0.12] md:rounded-3xl">
+      <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-[#E5E0D8] bg-black shadow-lg dark:border-white/[0.12] md:rounded-3xl">
         {isPlaying ? (
           <iframe
-            className="h-full w-full object-contain"
+            className="size-full object-contain"
             src={`https://www.youtube-nocookie.com/embed/${activeVideo.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
             title={activeVideo.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -258,7 +258,7 @@ function CinemaStage({
         ) : (
           <div
             onClick={onPlay}
-            className="group relative h-full w-full cursor-pointer select-none"
+            className="group relative size-full cursor-pointer select-none"
             role="button"
             tabIndex={0}
             aria-label={`Play ${activeVideo.title}`}
@@ -273,12 +273,12 @@ function CinemaStage({
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/30 transition-colors group-hover:via-black/30" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-black/30 transition-colors group-hover:via-black/30" />
 
             <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/75 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
                 <span className="text-red-500">
-                  <YouTubeIcon className="h-3.5 w-3.5" />
+                  <YouTubeIcon className="size-3.5" />
                 </span>
                 <span>Nikhar Studio</span>
               </span>
@@ -446,11 +446,11 @@ function PlaylistRail({
                   {isActive && isPlaying ? (
                     <div className="flex items-end gap-0.5 h-4 px-2 py-1 rounded-full bg-black/80 backdrop-blur-xs">
                       <span className="w-0.5 bg-[#BA9D6A] h-3 animate-pulse" />
-                      <span className="w-0.5 bg-[#BA9D6A] h-4 animate-bounce" />
+                      <span className="w-0.5 bg-[#BA9D6A] h-4 animate-pulse" />
                       <span className="w-0.5 bg-[#BA9D6A] h-2 animate-pulse" />
                     </div>
                   ) : (
-                    <div className={`flex h-6 w-6 items-center justify-center rounded-full transition-transform group-hover:scale-110 ${isActive ? 'bg-[#BA9D6A] text-[#0E1012]' : 'bg-black/70 text-white'
+                    <div className={`flex size-6 items-center justify-center rounded-full transition-transform group-hover:scale-110 ${isActive ? 'bg-[#BA9D6A] text-[#0E1012]' : 'bg-black/70 text-white'
                       }`}>
                       <Play size={10} fill="currentColor" className="ml-0.5" />
                     </div>
@@ -498,11 +498,11 @@ function PlaylistRail({
 
 function YouTubeCtaBanner() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[#E5E0D8] bg-gradient-to-r from-white via-[#FAF8F5] to-white p-4 dark:border-white/10 dark:from-[#141619] dark:via-[#181A1C] dark:to-[#141619] sm:p-6 shadow-md">
+    <div className="relative overflow-hidden rounded-2xl border border-[#E5E0D8] bg-linear-to-r from-white via-[#FAF8F5] to-white p-4 dark:border-white/10 dark:from-[#141619] dark:via-[#181A1C] dark:to-[#141619] sm:p-6 shadow-md">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3.5 text-left">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-red-600 text-white shadow-lg shadow-red-600/20">
-            <YouTubeIcon className="h-6 w-6" />
+          <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-red-600 text-white shadow-lg shadow-red-600/20">
+            <YouTubeIcon className="size-6" />
           </div>
           <div className="space-y-0.5">
             <div className="inline-flex items-center gap-2">
@@ -526,7 +526,7 @@ function YouTubeCtaBanner() {
             rel="noreferrer noopener"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-red-600 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-red-600/25 transition-transform hover:bg-red-700 hover:scale-105 active:scale-95"
           >
-            <YouTubeIcon className="h-4 w-4" />
+            <YouTubeIcon className="size-4" />
             <span>Subscribe on YouTube</span>
             <ExternalLink size={13} />
           </a>
@@ -560,8 +560,8 @@ export default function CraftsmanshipSection() {
   return (
     <>
       <section id="craftsmanship-experience" className="relative overflow-hidden border-b border-[#E5E0D8] bg-[#F5F2ED] py-5 transition-colors duration-300 dark:border-white/[0.08] dark:bg-[#101214] sm:py-6 lg:py-7">
-        <div className="pointer-events-none absolute -left-40 top-1/3 h-80 w-80 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
-        <div className="pointer-events-none absolute -right-40 bottom-1/3 h-80 w-80 rounded-full bg-[#FF0000]/[0.04] blur-3xl" />
+        <div className="pointer-events-none absolute -left-40 top-1/3 size-80 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 bottom-1/3 size-80 rounded-full bg-[#FF0000]/[0.04] blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 space-y-8 sm:space-y-10">
           <EditorialHeader

@@ -5,14 +5,14 @@ export default function TransformationsHero() {
   return (
     <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 bg-[#F5F2ED] dark:bg-[#0A0C0E] border-b border-[#E5E0D8] dark:border-white/[0.08] transition-colors duration-300 overflow-hidden">
       {/* Subtle Ambient Gold Glow in Background */}
-      <div className="pointer-events-none absolute -top-40 right-10 h-96 w-96 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 left-10 h-80 w-80 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 right-10 size-96 rounded-full bg-[#BA9D6A]/[0.08] blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 left-10 size-80 rounded-full bg-[#BA9D6A]/[0.05] blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         {/* Top Metadata Strip */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] uppercase mb-4 sm:mb-6">
           <span className="flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-[#BA9D6A] animate-pulse" />
+            <span className="size-2 rounded-full bg-[#BA9D6A]" />
             NIKHAR SALON KOTA
           </span>
           <span className="text-black/25 dark:text-white/20">•</span>
@@ -26,7 +26,7 @@ export default function TransformationsHero() {
           <div className="lg:col-span-7 space-y-3 sm:space-y-4">
             <h1 className="font-serif-title text-3xl sm:text-5xl lg:text-6xl text-[#181A1C] dark:text-white font-normal tracking-tight leading-[1.08]">
               Every Transformation Tells a Story of{' '}
-              <span className="bg-gradient-to-r from-[#BA9D6A] via-[#D8BE8A] to-[#BA9D6A] bg-clip-text text-transparent italic font-normal">
+              <span className="text-[#BA9D6A] italic font-normal">
                 Confidence
               </span>
             </h1>

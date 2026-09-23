@@ -24,7 +24,7 @@ export default function AboutHero() {
     >
       {/* Decorative arc – bottom left */}
       <svg
-        className="pointer-events-none absolute -bottom-32 -left-32 hidden h-72 w-72 text-[#BA9D6A]/30 lg:block dark:text-[#BA9D6A]/15"
+        className="pointer-events-none absolute -bottom-32 -left-32 hidden size-72 text-[#BA9D6A]/30 lg:block dark:text-[#BA9D6A]/15"
         viewBox="0 0 200 200"
         fill="none"
         aria-hidden="true"
@@ -35,17 +35,17 @@ export default function AboutHero() {
       <div className="relative z-10 mx-auto grid max-w-[1360px] grid-cols-1 gap-y-8 md:grid-cols-[minmax(150px,0.45fr)_minmax(0,1fr)] md:gap-x-6 lg:grid-cols-[minmax(0,1.45fr)_150px_minmax(0,1fr)] xl:grid-cols-[28px_minmax(0,1.5fr)_minmax(150px,0.36fr)_minmax(0,1fr)] xl:gap-x-8">
         {/* ───────────── 1. Vertical ribbon (xl only) ───────────── */}
         <div className="hidden select-none flex-col items-center gap-3 self-start xl:flex">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
+          <span className="size-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
           <span className="rotate-180 font-sans text-[10px] font-medium uppercase tracking-[0.3em] text-[#181A1C] [writing-mode:vertical-rl] dark:text-white">
             About / Nikhar
           </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
+          <span className="size-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
           <span className="h-28 w-px bg-[#181A1C]/70 dark:bg-white/40" />
         </div>
 
         {/* Horizontal tag (below xl) */}
         <div className="col-span-full flex items-center gap-2 font-sans text-[10px] font-medium uppercase tracking-[0.25em] text-[#181A1C] xl:hidden dark:text-white">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
+          <span className="size-1.5 rounded-full bg-[#181A1C] dark:bg-white" />
           About / Nikhar
         </div>
 
@@ -100,7 +100,7 @@ export default function AboutHero() {
               href="/services"
               className="group inline-flex items-center gap-3 whitespace-nowrap font-sans text-[13px] font-medium text-[#181A1C] dark:text-white"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[#181A1C] dark:border-white/70">
+              <span className="flex size-9 items-center justify-center rounded-full border border-[#181A1C] dark:border-white/70">
                 <Play
                   size={11}
                   className="ml-0.5 fill-[#181A1C] text-[#181A1C] dark:fill-white dark:text-white"

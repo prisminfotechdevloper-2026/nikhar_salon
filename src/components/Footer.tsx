@@ -119,7 +119,7 @@ export default function Footer() {
               href="https://www.instagram.com/nikhar__mens_parlour?stkn=Z3FmZmwyaG9tb3do&utm_source=qr"
               target="_blank"
               rel="noreferrer"
-              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
+              className="size-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
               aria-label="Instagram"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -132,7 +132,7 @@ export default function Footer() {
               href="https://youtube.com/@nikharunisexsaloonkota?si=33SamjrNAJU1Vyg2"
               target="_blank"
               rel="noreferrer"
-              className="h-8 w-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
+              className="size-8 rounded-full border border-white/10 bg-white/[0.05] hover:border-[#BA9D6A] hover:text-[#BA9D6A] flex items-center justify-center transition-colors"
               aria-label="YouTube"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

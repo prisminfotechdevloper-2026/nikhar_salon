@@ -27,7 +27,7 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     category: 'HAIR SERVICES',
     title: 'Hair Cut & Style',
     subtitle: 'Classic cuts to modern styles — crafted for you.',
-    image: '/images/services-hero/hero-card-haircut.jpg',
+    image: '/images/real_customer/customer1.png',
     icon: 'scissors',
     anchorCategory: 'hair',
   },
@@ -37,7 +37,7 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     category: 'BEARD CARE',
     title: 'Beard & Shave',
     subtitle: 'Sharp looks. Clean lines. Total grooming.',
-    image: '/images/services-hero/hero-card-beard.jpg',
+    image: '/images/real_customer/customer6.png',
     icon: 'beard',
     anchorCategory: 'beard',
   },
@@ -45,9 +45,9 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     id: 'facial',
     number: '03',
     category: 'SKIN CARE',
-    title: 'Facials',
-    subtitle: 'Refresh your skin. Reveal your natural glow.',
-    image: '/images/services-hero/hero-card-facial.jpg',
+    title: 'Facials & Glow',
+    subtitle: 'Refresh your skin. Reveal your natural radiance.',
+    image: '/images/real_customer/customer7.png',
     icon: 'facial',
     anchorCategory: 'skin',
   },
@@ -55,9 +55,9 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     id: 'spa',
     number: '04',
     category: 'HAIR TREATMENTS',
-    title: 'Hair Treatments',
-    subtitle: 'Healthy hair. Stronger roots. Longer shine.',
-    image: '/images/services-hero/hero-card-spa.jpg',
+    title: 'Hair Spa & Keratin',
+    subtitle: 'Healthy hair. Stronger roots. Restored shine.',
+    image: '/images/real_customer/customer5.png',
     icon: 'spa',
     anchorCategory: 'spa',
   },
@@ -66,8 +66,8 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     number: '05',
     category: 'HAIR REPLACEMENT',
     title: 'Hair Patch System',
-    subtitle: '100% natural human hair with invisible hairline.',
-    image: '/images/services-hero/hero-card-patch.jpg',
+    subtitle: '100% natural human hair with undetectable hairline.',
+    image: '/images/real-hair-patch-installation.jpg',
     icon: 'patch',
     anchorCategory: 'hair-patch',
   },
@@ -75,11 +75,11 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     id: 'scrub',
     number: '06',
     category: 'DE-TAN & PEEL',
-    title: 'Facial Scrub & De-Tan',
-    subtitle: 'Deep pore exfoliation & sun tan revival therapy.',
-    image: '/images/services-hero/hero-card-scrub.jpg',
+    title: 'Italian Shave & Care',
+    subtitle: 'Warm lather straight-razor shave & hot towel.',
+    image: '/images/real_customer/customer3.png',
     icon: 'scrub',
-    anchorCategory: 'skin',
+    anchorCategory: 'beard',
   },
   {
     id: 'patch-service',
@@ -87,27 +87,27 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     category: 'PATCH MAINTENANCE',
     title: 'Patch Service & Refit',
     subtitle: 'Hygienic scalp cleansing, re-taping & restyling.',
-    image: '/images/services-hero/hero-card-service.jpg',
+    image: '/images/hair-patch-transform-2.jpg',
     icon: 'maintenance',
     anchorCategory: 'hair-patch',
   },
   {
     id: 'color',
     number: '08',
-    category: 'COLOR & STYLE',
-    title: 'Hair Color & Streaks',
-    subtitle: 'Ammonia-free tones & natural grey blending.',
-    image: '/images/services-hero/hero-card-color.jpg',
+    category: 'TEXTURE STYLING',
+    title: 'Textured Crop & Taper',
+    subtitle: 'Tailored fade styling with matte texture definition.',
+    image: '/images/real_customer/customer2.png',
     icon: 'color',
     anchorCategory: 'hair',
   },
   {
     id: 'champi',
     number: '09',
-    category: 'RELAXATION SPA',
-    title: 'Ayurvedic Champi',
-    subtitle: 'Warm herbal oil massage for total relaxation.',
-    image: '/images/services-hero/hero-card-champi.jpg',
+    category: 'TEXTURE PERM',
+    title: 'Perm & Curl Restructure',
+    subtitle: 'Professional bond-building wave perm treatment.',
+    image: '/images/real_customer/customer4.png',
     icon: 'champi',
     anchorCategory: 'spa',
   },
@@ -248,7 +248,7 @@ function ServiceCardItem({
       </div>
 
       {/* Bottom Content Area */}
-      <div className="p-3.5 sm:p-4 pt-2.5 sm:pt-3 flex flex-col justify-between flex-grow">
+      <div className="p-3.5 sm:p-4 pt-2.5 sm:pt-3 flex flex-col justify-between grow">
         <div className="space-y-1">
           <h3 className="font-serif-title text-[14.5px] sm:text-[15.5px] lg:text-base font-normal text-[#181A1C] dark:text-white group-hover:text-[#8C734B] dark:group-hover:text-[#BA9D6A] transition-colors leading-snug">
             {card.title}
@@ -321,18 +321,18 @@ function ServiceHeroPagination({
         <button
           type="button"
           onClick={onPrev}
-          className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] transition-colors cursor-pointer shadow-2xs active:scale-95"
+          className="size-8 sm:size-8.5 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] transition-colors cursor-pointer shadow-2xs active:scale-95"
           aria-label="Previous service"
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronLeft className="size-4" />
         </button>
         <button
           type="button"
           onClick={onNext}
-          className="w-8 h-8 sm:w-8.5 sm:h-8.5 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] transition-colors cursor-pointer shadow-2xs active:scale-95"
+          className="size-8 sm:size-8.5 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:border-[#BA9D6A] hover:text-[#BA9D6A] transition-colors cursor-pointer shadow-2xs active:scale-95"
           aria-label="Next service"
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronRight className="size-4" />
         </button>
       </div>
     </div>
@@ -489,11 +489,11 @@ export default function ServiceHero() {
   return (
     <section className="relative w-full overflow-hidden pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20 transition-colors duration-300">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#BA9D6A]/[0.08] dark:bg-[#BA9D6A]/[0.05] blur-[140px]" />
-        <div className="absolute top-1/2 -right-40 w-[550px] h-[550px] rounded-full bg-[#BA9D6A]/[0.07] dark:bg-[#BA9D6A]/[0.04] blur-[150px]" />
+        <div className="absolute -top-32 -left-32 size-[500px] rounded-full bg-[#BA9D6A]/[0.08] dark:bg-[#BA9D6A]/[0.05] blur-[140px]" />
+        <div className="absolute top-1/2 -right-40 size-[550px] rounded-full bg-[#BA9D6A]/[0.07] dark:bg-[#BA9D6A]/[0.04] blur-[150px]" />
 
         <svg
-          className="absolute -right-12 -bottom-12 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 opacity-25 dark:opacity-10 text-[#8C734B] dark:text-[#BA9D6A]"
+          className="absolute -right-12 -bottom-12 size-64 sm:size-80 lg:size-96 opacity-25 dark:opacity-10 text-[#8C734B] dark:text-[#BA9D6A]"
           viewBox="0 0 200 200"
           fill="none"
           stroke="currentColor"
@@ -558,7 +558,7 @@ export default function ServiceHero() {
               </div>
 
               {/* Right Side Editorial Promo for Wide 2XL screens */}
-              <div className="hidden 2xl:flex flex-col justify-between shrink-0 w-32 py-3 px-1 space-y-3">
+              <div className="hidden 2xl:flex flex-col justify-between shrink-0 w-32 py-3 px-1 gap-3">
                 <div className="space-y-2.5">
                   <p className="font-serif-title text-sm leading-tight text-[#181A1C] dark:text-white font-normal">
                     Because <br />
@@ -576,10 +576,10 @@ export default function ServiceHero() {
                 <button
                   type="button"
                   onClick={nextSlide}
-                  className="group w-9 h-9 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:bg-[#BA9D6A] hover:border-[#BA9D6A] hover:text-[#0E1012] hover:scale-105 transition-[border-color,background-color,color,transform] duration-300 shadow-xs cursor-pointer"
+                  className="group size-9 rounded-full border border-[#D9D4CB] dark:border-white/20 bg-white dark:bg-[#141619] flex items-center justify-center text-[#181A1C] dark:text-white hover:bg-[#BA9D6A] hover:border-[#BA9D6A] hover:text-[#0E1012] hover:scale-105 transition-[border-color,background-color,color,transform] duration-300 shadow-xs cursor-pointer"
                   aria-label="Next slide"
                 >
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                 </button>
               </div>
             </div>

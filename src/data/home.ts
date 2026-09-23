@@ -62,8 +62,8 @@ export const REVIEWS: Review[] = [
     location: "Vigyan Nagar, Kota",
     rating: 5,
     service: "Non-Surgical Hair Patch",
-    text: "Firoz Khan ji ne mera hair patch fixing itne natural tarike se kiya ki koi pehchan hi nahi pata! Invisible hairline aur confident look ne mera confidence double kar diya. Kota me best hair patch centre!",
-    avatar: "/images/avatar-rohit.jpg"
+    text: "Master Firoz Khan installed my hair patch so naturally that even my closest friends couldn't detect it. The undetectable hairline gave me back my youthful appearance and complete confidence. Best hair restoration studio in Kota!",
+    avatar: "/images/real_customer/customer1.png"
   },
   {
     id: 2,
@@ -71,8 +71,8 @@ export const REVIEWS: Review[] = [
     location: "Talwandi, Kota",
     rating: 5,
     service: "Hair Patch Servicing & Fade",
-    text: "Monthly hair patch service aur skin fade karwata hu yaha se. Cleanliness, premium tape/glue bonding, aur styling 10/10 hai. Truly luxury experience.",
-    avatar: "/images/avatar-aman.jpg"
+    text: "I visit every month for my hair patch refitting and skin fade. The hygiene standards, medical-grade bonding tape, and precision styling are 10/10. Truly a premier luxury salon experience.",
+    avatar: "/images/real_customer/customer2.png"
   },
   {
     id: 3,
@@ -80,35 +80,35 @@ export const REVIEWS: Review[] = [
     location: "Gumanpura, Kota",
     rating: 5,
     service: "Royal Beard Sculpting",
-    text: "Best beard styling artist in Kota. Pehli baar meri beard ko exact sharp lines aur healthy shine mila. Highly recommended to everyone.",
-    avatar: "/images/avatar-vikram.jpg"
+    text: "Hands down the finest beard sculpting craft in Kota. Sharp straight-razor lines, soothing hot towel steam compress, and healthy organic beard oil finish. Highly recommended for every gentleman.",
+    avatar: "/images/real_customer/customer6.png"
   },
   {
     id: 4,
     name: "Priyansh Meena",
     location: "Kunhari, Kota",
     rating: 5,
-    service: "Charcoal Detox Facial",
-    text: "Deep clean facial ke baad meri skin fresh aur hydrated feel kar rahi hai. Premium imported products use karte hain.",
-    avatar: "/images/avatar-priyansh.jpg"
+    service: "O3+ Radiance Groom Facial",
+    text: "The O3+ facial treatment completely refreshed my tired skin, removed stubborn sun tan, and added a clean, hydrated glow. Top-shelf imported products and skilled therapists.",
+    avatar: "/images/real_customer/customer7.png"
   },
   {
     id: 5,
     name: "Harshvardhan Singh",
-    location: "Vigyan Nagar, Kota",
+    location: "Mahaveer Nagar, Kota",
     rating: 5,
     service: "Hair Patch & VIP Combo",
-    text: "Mera pre-wedding look Nikhar Salon se ready hua. Hair patch transformation itna natural tha ki shaadi me sab tareef kar rahe the. Zero waiting and royal hospitality.",
-    avatar: "/images/avatar-rohit.jpg"
+    text: "Got my complete pre-wedding styling and grooming package done at Nikhar Salon. The styling was tailored to perfection and everyone complimented my look on the wedding day. Exceptional hospitality.",
+    avatar: "/images/real_customer/customer3.png"
   },
   {
     id: 6,
     name: "Aditya Jain",
     location: "Dadabari, Kota",
     rating: 5,
-    service: "Executive Haircut & Shave",
-    text: "Cleanliness and professional technique is unmatchable. Italian hot towel shave was so relaxing. Kota me best salon experience!",
-    avatar: "/images/avatar-aman.jpg"
+    service: "Keratin Hair Spa & Treatment",
+    text: "The texture treatment and keratin hair spa worked wonders on my hair texture. The salon atmosphere is calm, tools are hospital-grade sterilized, and there's never any rush. Kota's top salon!",
+    avatar: "/images/real_customer/customer5.png"
   }
 ];
 
