@@ -123,9 +123,9 @@ export default function Footer() {
               aria-label="Instagram"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
             </a>
             <a
@@ -136,8 +136,8 @@ export default function Footer() {
               aria-label="YouTube"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
-                <polygon points="10 15 15 12 10 9 10 15"/>
+                <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                <polygon points="10 15 15 12 10 9 10 15" />
               </svg>
             </a>
           </div>
@@ -145,19 +145,22 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#736F67]">
-        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5 sm:gap-2 text-center sm:text-left">
-          <span>© 2026 Nikhar Salon Kota.</span>
+      <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-4 text-xs sm:text-[13px] text-[#A6A29A]">
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-center sm:text-left">
+          <span className="text-white/75 text-xs sm:text-[13px]">© 2026 Nikhar Salon Kota.</span>
           <span className="hidden sm:inline text-white/20">•</span>
-          <span className="text-[#8A8680]">
-            Design by <span className="text-[#BA9D6A] font-medium">Prism Infotech Solution</span>
+          <span className="inline-flex items-center gap-2 text-xs sm:text-[13px] text-white/80">
+            <span>Design by</span>
+            <span className="text-[#BA9D6A] font-bold text-[14px] sm:text-[15px] tracking-wide">
+              Prism Infotech Solution
+            </span>
           </span>
         </div>
-        <div className="flex items-center gap-5 sm:gap-6">
-          <Link href="/about" className="hover:text-white transition">About</Link>
-          <Link href="/services" className="hover:text-white transition">Services</Link>
-          <Link href="/transformations" className="hover:text-white transition">Transformations</Link>
-          <Link href="/contact" className="hover:text-white transition">Contact</Link>
+        <div className="flex items-center gap-5 sm:gap-6 text-xs sm:text-[13px]">
+          <Link href="/about" className="hover:text-[#BA9D6A] transition-colors py-1">About</Link>
+          <Link href="/services" className="hover:text-[#BA9D6A] transition-colors py-1">Services</Link>
+          <Link href="/transformations" className="hover:text-[#BA9D6A] transition-colors py-1">Transformations</Link>
+          <Link href="/contact" className="hover:text-[#BA9D6A] transition-colors py-1">Contact</Link>
           <span className="text-[#BA9D6A] font-medium hidden md:inline">Made for Excellence</span>
         </div>
       </div>
