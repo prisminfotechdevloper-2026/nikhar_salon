@@ -179,7 +179,7 @@ export default function TestimonialsSection() {
                   {/* Bottom: Client Profile */}
                   <div className="pt-5 mt-5 border-t border-[#EAE5DC] dark:border-white/[0.07] flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3 min-w-0">
-                      <div className="relative h-11 w-11 rounded-full overflow-hidden border-2 border-[#BA9D6A] shrink-0 shadow-xs">
+                      <div className="relative size-11 rounded-full overflow-hidden border-2 border-[#BA9D6A] shrink-0 shadow-xs">
                         <Image
                           src={review.avatar}
                           alt={review.name}

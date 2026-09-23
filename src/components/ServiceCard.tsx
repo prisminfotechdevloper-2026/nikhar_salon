@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Clock, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import type { Service } from '@/data/services';
 
 interface ServiceCardProps {
@@ -8,7 +8,9 @@ interface ServiceCardProps {
   tag?: string;
 }
 
-export default function ServiceCard({ service, tag = 'SIGNATURE' }: ServiceCardProps) {
+export default function ServiceCard({ service, tag }: ServiceCardProps) {
+  const badgeText = service.badge || tag;
+
   return (
     <article className="group relative flex flex-col justify-between bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/60 rounded-2xl md:rounded-3xl overflow-hidden transition duration-300 shadow-xs hover:shadow-md dark:shadow-sm dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)]">
       {/* Service Image Container */}
@@ -23,7 +25,13 @@ export default function ServiceCard({ service, tag = 'SIGNATURE' }: ServiceCardP
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20 opacity-60 dark:from-[#141619] dark:via-black/20 dark:to-black/30 dark:opacity-100" />
 
         {/* Floating Badges */}
-      
+        {badgeText && (
+          <div className="absolute top-3.5 left-3.5 z-10">
+            <span className="inline-flex items-center px-2.5 py-0.5 text-[9.5px] font-semibold tracking-[0.2em] text-[#8C734B] dark:text-[#C2A774] bg-white/95 dark:bg-[#141619]/90 backdrop-blur-md border border-[#BA9D6A]/40 rounded-full uppercase shadow-xs">
+              {badgeText}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Card Body */}

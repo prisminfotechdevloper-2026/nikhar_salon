@@ -1,27 +1,27 @@
-# Spec: Production-Grade React Doctor & Design Modernization (Nikhar Salon)
+# Spec: Unused Assets, Data & Component Cleanup (Nikhar Salon)
 
 ## Objective
-Remediate all issues uncovered by `npx react-doctor@latest design --verbose` across the entire Nikhar Salon codebase. Modernize Tailwind v4 utilities, eliminate iOS Safari auto-zoom by ensuring minimum 16px form control typography on mobile viewports, replace deprecated flex layout patterns (`space-y-*` → `gap-*`), collapse duplicate dimensional axes to `size-N`, refine accessibility on floating actions and tooltips, and ensure 100% build and lint compliance.
+Thoroughly clean up all dead weight across the Nikhar Salon codebase by identifying and safely deleting all unused image assets (`public/`), dead data modules (`src/data/`), and unreferenced React components (`src/components/`). Fix the invalid reference to non-existent `customer4.png` in `ServiceHero.tsx`, reducing repository and bundle weight by ~30 MB while preserving 100% of active assets, metadata images, and application functionality.
 
 ---
 
-## Assumptions
-1. Tailwind CSS v4 is used (`@tailwindcss/postcss`). Modern v4 syntax (`bg-linear-to-*`, `shrink-*`, `grow-*`, `size-*`) is fully supported.
-2. The user experience and visual aesthetic (obsidian `#0E1012`, metallic gold `#BA9D6A`, and warm ivory `#FAF8F5`) must remain completely intact.
-3. Form submission flows to WhatsApp and local booking validation must not be altered.
-4. Changes will not degrade the general `react-doctor` score (which is currently 100/100).
+## Assumptions & Boundaries
+1. **Preserve Active Real Assets**: All real customer photos in `public/images/real_customer/` (`customer1.png`, `customer2.png`, `customer3.png`, `customer5.png`, `customer6.png`, `customer7.png`), staff photos (`owner/`, `worker/`), and active case study transformation images MUST NOT be touched.
+2. **Metadata Integrity**: Root metadata assets (`apple-touch-icon.png`, `favicon.svg`, `icon.svg`, `images/og-cover.jpg`) are required by Next.js metadata and must remain intact.
+3. **No Functional Regressions**: All 15 static routes, interactive booking flows, WhatsApp dispatch URLs, and video tour modals must continue to build and function identically.
+4. **Verification Requirement**: After cleanup, verify that `npm run lint`, `npm run build` (15/15 static routes), and `npx react-doctor@latest --verbose` pass cleanly with 100/100 score.
 
 ---
 
 ## Capability Map
 
-| Module ID | Capability & Responsibility | Depends On | Files Touched |
+| Module ID | Capability & Responsibility | Depends On | Files / Targets |
 | :--- | :--- | :--- | :--- |
-| `DOC-01-TAILWIND-V4` | Modernize Tailwind v4 utilities (`bg-gradient-*` → `bg-linear-*`, `flex-shrink-*` → `shrink-*`, `flex-grow-*` → `grow-*`, deprecated blur/shadow utilities) | — | Layout, Navbar, ServiceCard, OwnerProfile, Transformation files, etc. |
-| `DOC-02-FLEX-LAYOUTS` | Layout & sizing hygiene: replace `space-*` on flex with `gap-*`, collapse `w-N h-N` to `size-N`, remove redundant display utilities | `DOC-01-TAILWIND-V4` | ServiceCard, AboutTeam, ServiceHero, VideoStories, ThemeToggle, Loading, Error |
-| `DOC-03-MOBILE-FORMS-UX` | Eliminate iOS mobile focus zoom by applying `text-base sm:text-sm` (16px base font on mobile) and expand cramped padding | — | `SimpleBookingForm.tsx`, `ContactForm.tsx` |
-| `DOC-04-A11Y-SHADOWS` | Refine harsh pure-black shadows to tinted modern shadows, make floating action labels accessible, replace decorative pulsing badges | `DOC-02-FLEX-LAYOUTS` | `FloatingActions.tsx`, `MobileBottomNav.tsx`, `VideoTourModal.tsx`, `BookAppointmentHero.tsx`, `BookingInfoCard.tsx`, `ContactHero.tsx`, `HairPatchSection.tsx`, `loading.tsx` |
-| `DOC-05-VERIFY` | End-to-end multi-axis verification: linting (`npm run lint`), build (`npm run build`), and design doctor verification (`npx react-doctor@latest design`) | All Modules | Entire codebase |
+| `CLEANUP-01-ASSET-REFS` | Fix dangling/broken asset path (`customer4.png` → `gallery-textured-crop.jpg` in `ServiceHero.tsx`) before deletions | — | `src/components/services/ServiceHero.tsx` |
+| `CLEANUP-02-UNUSED-COMPS` | Delete unreferenced dead React components | — | `src/components/common/SectionHeader.tsx`, `src/components/common/WhatsAppButton.tsx` |
+| `CLEANUP-03-UNUSED-DATA` | Delete unreferenced legacy data module | `CLEANUP-01-ASSET-REFS` | `src/data/appointment.ts` |
+| `CLEANUP-04-UNUSED-IMAGES` | Delete confirmed unused public images (~51 files across `public/contact/`, `public/images/`, `public/images/services-hero/`) | `CLEANUP-01-ASSET-REFS` | `public/contact/`, `public/images/services-hero/`, unused `client*-after/before`, unused `service-*`, etc. |
+| `CLEANUP-05-VERIFY` | Complete validation: TypeScript/Linting (`npm run lint`), Production Build (`npm run build`), React Doctor (`npx react-doctor@latest --verbose` & `design`) | All Modules | Entire codebase |
 
 ---
 
@@ -33,33 +33,27 @@ npm run lint
 # Verify Production Build (all 15 static routes pre-rendered)
 npm run build
 
+# Verify React Doctor General Audit (100 / 100 Great score)
+npx react-doctor@latest --verbose
+
 # Verify React Doctor Design Audit
 npx react-doctor@latest design --verbose
-
-# Verify Full General React Health
-npx react-doctor@latest --verbose
 ```
 
 ---
 
-## Code Style & Conventions
-- **Tailwind v4 Gradients**: Use `bg-linear-to-r` or `bg-linear-to-tr` instead of `bg-gradient-to-r`.
-- **Dimensions**: Use `size-6` instead of `w-6 h-6`.
-- **Flex Spacing**: Use `gap-3` on flex containers instead of `space-y-3` or `space-x-3`.
-- **Mobile Input Typography**: Use `text-base sm:text-sm` on `<input>`, `<select>`, `<textarea>` so iOS mobile browsers never auto-zoom on field focus.
-- **Shadows**: Use Tailwind's built-in `shadow-md`, `shadow-xl`, or alpha-blended values like `shadow-black/20` or `shadow-[#BA9D6A]/20` instead of raw harsh `shadow-[0_20px_50px_rgba(0,0,0,0.5)]`.
-
----
-
 ## Boundaries
-- **Always do**: Keep all functionality, links, forms, and WhatsApp dispatch URLs intact; run `npm run lint` and `npm run build` after changes.
-- **Ask first**: Removing features or altering page content.
-- **Never do**: Add `@ts-ignore` or `eslint-disable` comments.
+- **Always do**: Cross-check file references with string search and regex before any file deletion; verify production build after file deletions.
+- **Ask first**: Removing any file that has ambiguous or dynamic references.
+- **Never do**: Delete active customer photos, owner photos, worker photos, or metadata icons.
 
 ---
 
 ## Success Criteria
-1. `npm run lint` passes with 0 errors and 0 warnings.
-2. `npm run build` succeeds cleanly in Turbopack with 15/15 static routes pre-rendered.
-3. `npx react-doctor@latest` maintains 100 / 100 Great score.
-4. `npx react-doctor@latest design` reports all targeted design issues remediated.
+1. Dangling reference in `ServiceHero.tsx` resolved without 404 errors.
+2. Unused components `SectionHeader.tsx` and `WhatsAppButton.tsx` safely removed.
+3. Unused data file `src/data/appointment.ts` safely removed.
+4. Over 50 unused static image files removed, freeing ~30 MB of repository clutter.
+5. `npm run lint` passes with 0 errors and 0 warnings.
+6. `npm run build` succeeds cleanly with Turbopack for all 15 routes.
+7. `npx react-doctor@latest --verbose` passes with 100 / 100 Great score.

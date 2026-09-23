@@ -14,7 +14,6 @@ const CATEGORIES = [
   { id: 'skin', label: 'Facials' },
   { id: 'spa', label: 'Hair Spa' },
 ];
-const TAGS = ['PRIMARY SERVICE', 'ROYAL CRAFT', 'EXECUTIVE', 'SPA THERAPY', 'CLASSIC', 'PREMIUM'];
 
 export default function HomeServicesSection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -66,11 +65,10 @@ export default function HomeServicesSection() {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredServices.map((service, index) => (
+          {filteredServices.map((service) => (
             <ServiceCard 
               key={service.id} 
               service={service} 
-              tag={TAGS[index % TAGS.length]} 
             />
           ))}
         </div>

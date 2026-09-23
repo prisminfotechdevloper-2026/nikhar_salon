@@ -1,59 +1,39 @@
-# Implementation Plan: React Doctor Design & Modernization
+# Implementation Plan: Unused Asset, Data & Component Cleanup
 
-## Overview
-This plan implements the design, accessibility, and modern Tailwind v4 remediations identified by `react-doctor design`, adhering to the specification in [`tasks/spec.md`](file:///D:/prism/main/Nikhar-salon/tasks/spec.md).
-
----
-
-## Architectural Dependency Graph
-
-```
-[DOC-01: Tailwind v4 Modernization]
-        │
-        ▼
-[DOC-02: Flex Layouts & Sizing (gap, size-N)]
-        │
-        ▼
-[DOC-03: Mobile Form Accessibility (16px font)]
-        │
-        ▼
-[DOC-04: Shadows & A11y Polish (FloatingActions, badges)]
-        │
-        ▼
-[DOC-05: Validation & Quality Gates (Lint, Build, React Doctor)]
-```
+## 1. Objectives & Scope
+Eliminate all unreferenced images, dead data files, and unused components across `Nikhar-salon`. Verify with clean build, lint, and `react-doctor` audit.
 
 ---
 
-## Remediation Phases
+## 2. Sequence of Execution
 
-### Phase 1: Modernize Tailwind v4 Syntax (`DOC-01-TAILWIND-V4`)
-- Update `bg-gradient-to-*` to `bg-linear-to-*` across components.
-- Update `flex-shrink-*` to `shrink-*` and `flex-grow-*` to `grow-*`.
-- Update legacy `backdrop-blur-xs` and `shadow-2xs` utilities.
+### Phase 1: Reference Hygiene
+- Update `src/components/services/ServiceHero.tsx` card 09 (Perm & Curl Restructure) to point to `/images/gallery-textured-crop.jpg` instead of non-existent `/images/real_customer/customer4.png`.
 
-### Phase 2: Flex Layouts & Sizing Hygiene (`DOC-02-FLEX-LAYOUTS`)
-- Replace `space-y-*` / `space-x-*` with `gap-*` on flex parents in `ServiceCard.tsx`, `AboutTeam.tsx`, `ServiceHero.tsx`, and `VideoStoriesSection.tsx`.
-- Collapse matching `w-N h-N` classes to `size-N` (e.g. `w-14 h-14` → `size-14`).
-- Remove redundant display classes (`ThemeToggle.tsx`, `OwnerProfileSection.tsx`).
+### Phase 2: Unused Component Removal
+- Remove `src/components/common/SectionHeader.tsx` (0 usages).
+- Remove `src/components/common/WhatsAppButton.tsx` (0 usages; replaced by direct `WhatsAppIcon` integrations).
 
-### Phase 3: Mobile Form Accessibility & Touch Zoom Fix (`DOC-03-MOBILE-FORMS-UX`)
-- In `SimpleBookingForm.tsx` and `ContactForm.tsx`, ensure all `<input>`, `<select>`, and `<textarea>` elements use `text-base sm:text-sm` so iOS Safari does not auto-zoom on field focus while preserving compact desktop presentation.
-- Expand cramped padding where noted.
+### Phase 3: Unused Data Module Removal
+- Remove `src/data/appointment.ts` (0 imports; self-contained in `SimpleBookingForm.tsx`).
 
-### Phase 4: Shadows & A11y Polish (`DOC-04-A11Y-SHADOWS`)
-- In `FloatingActions.tsx`, `MobileBottomNav.tsx`, `VideoTourModal.tsx`, `BookAppointmentHero.tsx`, and `BookingInfoCard.tsx`, replace harsh pure-black `rgba(0,0,0,...)` shadow declarations with modern subtle tinted shadows.
-- Ensure floating action buttons provide accessible labels (`aria-label`) that don't depend exclusively on hover.
-- Replace continuous pulsing animations on static badges with subtle static indicators.
+### Phase 4: Safe Removal of Unused Image Files (~29-30 MB)
+Execute removal of:
+1. `public/contact/` directory (`contact.png`, `contact1.png` - redundant; actual in `public/images/contact/contact.png`)
+2. `public/og-image.jpg` (redundant duplicate of `public/images/og-cover.jpg`)
+3. `public/images/avatar-*.jpg` (aman, priyansh, rohit, vikram)
+4. `public/images/team-*.jpg` (karan, rahul, sameer, vikram)
+5. `public/images/owner/owner.png` (unused 2.3MB portrait; active are `owner-portrait.png`, `firoz-khan.png`, `firoz-khan-clean.png`)
+6. `public/images/owner/owner-portrait.png` (was only in removed `appointment.ts`)
+7. `public/images/client*-after.jpg`, `client*-before.jpg`, `client*-sidebyside.jpg` (12 uncropped/raw files; active are `client*-head-*.jpg`)
+8. `public/images/hair-patch-transform-3.jpg` (unused)
+9. `public/images/real-hair-patch-before-after-2.jpg` (unused)
+10. `public/images/gallery-ambience.jpg`, `public/images/salon-interior.jpg` (unused)
+11. `public/images/service-*.jpg` (15 unused service photos: argan-spa, ayurvedic-champi, beard-color, beard-steam, beard, facial-gold, facial, groom-styling, hair-patch-lace, haircut, products, scalp-detox, shave, spa-master, spa)
+12. `public/images/services-hero/` directory (all 9 unused `hero-card-*.jpg` files)
 
-### Phase 5: Verification & Quality Gate (`DOC-05-VERIFY`)
-- Run `npm run lint` → 0 errors, 0 warnings.
-- Run `npm run build` → 15/15 static pages pre-rendered without warnings.
-- Run `npx react-doctor@latest design --verbose` and `npx react-doctor@latest --verbose`.
-
----
-
-## Risk Mitigation
-- **Visual Regressions**: All visual colors, layout alignments, gold accents, and responsive behavior are verified.
-- **Form Submissions**: WhatsApp message generation and URL formatting remain 100% unaltered.
-- **Turbopack Build**: Clean TypeScript types and fast compile times are maintained.
+### Phase 5: Verification & React Doctor Audit
+- Run `npm run lint` → ensure 0 errors, 0 warnings.
+- Run `npm run build` → verify Turbopack builds all 15 static routes with 0 missing asset errors.
+- Run `npx react-doctor@latest --verbose` → verify 100/100 score.
+- Run `npx react-doctor@latest design --verbose` → verify design health.

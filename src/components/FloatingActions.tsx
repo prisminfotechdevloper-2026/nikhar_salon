@@ -29,7 +29,7 @@ export default function FloatingActions() {
         </div>
 
         {/* Tooltip Label - Only visible on hover */}
-        <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:flex items-center px-2.5 py-1 rounded-lg bg-[#181A1C]/95 dark:bg-[#0E1012]/95 border border-[#BA9D6A]/40 text-xs font-medium text-[#BA9D6A] whitespace-nowrap shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+        <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:flex items-center px-2.5 py-1 rounded-lg bg-[#181A1C]/95 dark:bg-[#0E1012]/95 border border-[#BA9D6A]/40 text-xs font-medium text-[#BA9D6A] whitespace-nowrap shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-200">
           WhatsApp Us
         </span>
       </a>
@@ -65,7 +65,7 @@ export default function FloatingActions() {
           </div>
 
           {/* Tooltip Label - Only visible on hover */}
-          <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#181A1C]/95 dark:bg-[#0E1012]/95 border border-[#BA9D6A]/50 text-xs font-medium text-[#BA9D6A] whitespace-nowrap shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200">
+          <span className="pointer-events-none absolute right-full mr-2.5 hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#181A1C]/95 dark:bg-[#0E1012]/95 border border-[#BA9D6A]/50 text-xs font-medium text-[#BA9D6A] whitespace-nowrap shadow-md opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-[opacity,transform] duration-200">
             Book Slot
           </span>
         </Link>

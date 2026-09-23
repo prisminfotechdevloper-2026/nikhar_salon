@@ -107,7 +107,7 @@ const HERO_SERVICES: ServiceHeroCard[] = [
     category: 'TEXTURE PERM',
     title: 'Perm & Curl Restructure',
     subtitle: 'Professional bond-building wave perm treatment.',
-    image: '/images/real_customer/customer4.png',
+    image: '/images/gallery-textured-crop.jpg',
     icon: 'champi',
     anchorCategory: 'spa',
   },
