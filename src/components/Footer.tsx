@@ -151,9 +151,14 @@ export default function Footer() {
           <span className="hidden sm:inline text-white/20">•</span>
           <span className="inline-flex items-center gap-2 text-xs sm:text-[13px] text-white/80">
             <span>Design by</span>
-            <span className="text-[#BA9D6A] font-bold text-[14px] sm:text-[15px] tracking-wide">
+            <a
+              href="https://prisminfotechsolution.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#BA9D6A] hover:text-[#D4B87D] font-bold text-[14px] sm:text-[15px] tracking-wide transition-colors underline-offset-4 hover:underline cursor-pointer"
+            >
               Prism Infotech Solution
-            </span>
+            </a>
           </span>
         </div>
         <div className="flex items-center gap-5 sm:gap-6 text-xs sm:text-[13px]">
