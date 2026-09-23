@@ -62,18 +62,14 @@ export default function OwnerProfileSection() {
               />
 
               {/* Top Subtle Luxury Signature / Watermark */}
-              <div className="absolute top-4 left-4 sm:top-5 sm:left-5">
-                <span className="font-serif-title text-xl sm:text-2xl italic font-normal tracking-wide text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                  Firoz Khan
-                </span>
-              </div>
+              
 
               {/* Bottom Anchored Identity Pill (Matching Reference) */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 rounded-2xl border border-white/20 bg-black/85 p-3.5 sm:p-4 text-white backdrop-blur-xl shadow-lg">
                 <div className="flex items-center justify-between gap-3">
                   <div className="space-y-0.5 min-w-0">
                     <span className="block text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#BA9D6A]">
-                      FOUNDER & MASTER STYLIST
+                      FOUNDER of Nikhar Salon
                     </span>
                     <h3 className="font-serif-title text-sm sm:text-base font-medium text-white truncate">
                       Nikhar Unisex Salon Kota
