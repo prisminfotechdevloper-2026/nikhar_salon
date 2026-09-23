@@ -6,11 +6,10 @@ import type { Service } from '@/data/services';
 interface ServiceCardProps {
   service: Service;
   tag?: string;
+  priority?: boolean;
 }
 
-export default function ServiceCard({ service, tag }: ServiceCardProps) {
-  const badgeText = service.badge || tag;
-
+export default function ServiceCard({ service, tag, priority = false }: ServiceCardProps) {
   return (
     <article className="group relative flex flex-col justify-between bg-white dark:bg-[#141619] border border-[#E5E0D8] dark:border-white/[0.08] hover:border-[#BA9D6A]/60 rounded-2xl md:rounded-3xl overflow-hidden transition duration-300 shadow-xs hover:shadow-md dark:shadow-sm dark:hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)]">
       {/* Service Image Container */}
@@ -19,12 +18,11 @@ export default function ServiceCard({ service, tag }: ServiceCardProps) {
           src={service.img}
           alt={service.title}
           fill
+          priority={priority}
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/20 opacity-60 dark:from-[#141619] dark:via-black/20 dark:to-black/30 dark:opacity-100" />
-
-        
       </div>
 
       {/* Card Body */}

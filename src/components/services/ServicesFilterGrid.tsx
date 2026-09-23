@@ -168,6 +168,7 @@ export default function ServicesFilterGrid() {
             key={s.id}
             service={s}
             tag={TAGS[index % TAGS.length]}
+            priority={index < 4}
           />
         ))}
       </div>

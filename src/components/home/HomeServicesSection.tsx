@@ -65,10 +65,11 @@ export default function HomeServicesSection() {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredServices.map((service) => (
+          {filteredServices.map((service, index) => (
             <ServiceCard 
               key={service.id} 
               service={service} 
+              priority={index < 4}
             />
           ))}
         </div>
