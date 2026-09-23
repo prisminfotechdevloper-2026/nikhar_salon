@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s | Nikhar Salon Kota"
   },
   description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury salon.",
-  keywords: ["Nikhar Salon Kota", "Luxury Men Salon Kota", "Best Haircut Kota", "Beard Sculpting Kota", "Grooming Salon Rajasthan", "Nikhar Saloon"],
+  keywords: ["Nikhar Salon Kota", "Luxury Men Salon Kota", "Best Haircut Kota", "Beard Sculpting Kota", "Grooming Salon Rajasthan", "Nikhar Unisex Salon"],
   authors: [{ name: "Nikhar Salon Kota" }],
   creator: "Nikhar Salon Kota",
   publisher: "Nikhar Salon Kota",
@@ -101,7 +101,7 @@ const salonSchema = {
   '@context': 'https://schema.org',
   '@type': 'BeautySalon',
   name: 'Nikhar Salon Kota',
-  alternateName: "Nikhar Unisex Saloon",
+  alternateName: "Nikhar Unisex Salon",
   image: 'https://nikharsaloon.vercel.app/images/og-cover.jpg',
   logo: 'https://nikharsaloon.vercel.app/icon.svg',
   telephone: '+919784711323',

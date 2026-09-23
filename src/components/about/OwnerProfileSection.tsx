@@ -54,7 +54,7 @@ export default function OwnerProfileSection() {
             <div className="group relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[#E5E0D8] bg-[#181A1C] shadow-lg dark:border-white/10 md:rounded-3xl">
               <Image
                 src="/images/owner/firoz-khan-clean.png"
-                alt="Firoz Khan - Owner & Founder of Nikhar Unisex Saloon Kota"
+                alt="Firoz Khan - Owner & Founder of Nikhar Unisex Salon Kota"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -76,7 +76,7 @@ export default function OwnerProfileSection() {
                       FOUNDER & MASTER STYLIST
                     </span>
                     <h3 className="font-serif-title text-sm sm:text-base font-medium text-white truncate">
-                      Nikhar Unisex Saloon Kota
+                      Nikhar Unisex Salon Kota
                     </h3>
                     <p className="text-[10.5px] sm:text-[11px] text-white/70 truncate">
                       Specialist in Non-Surgical Hair Systems &amp; Luxury Barbering
@@ -122,7 +122,7 @@ export default function OwnerProfileSection() {
                 <div className="inline-flex items-center gap-2">
                   <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] font-sans">
-                    NIKHAR UNISEX SALOON • FOUNDER &amp; VISIONARY
+                    NIKHAR UNISEX SALON • FOUNDER &amp; VISIONARY
                   </span>
                 </div>
                 <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-[42px] font-normal leading-tight text-[#181A1C] dark:text-white">
@@ -146,7 +146,7 @@ export default function OwnerProfileSection() {
 
             {/* Narrative Paragraph */}
             <p className="text-xs sm:text-[13.5px] leading-relaxed text-[#555047] dark:text-[#A6A29A]">
-              I am Firoz Khan, founder and lead hair artisan at <strong>Nikhar Unisex Saloon Kota</strong>. With over a decade of dedicated craftsmanship in modern hair architecture, Italian razor fade blending, and advanced non-surgical hair replacement systems, I operate with a deep personal commitment to precision, transparency, and individual hospitality.
+              I am Firoz Khan, founder and lead hair artisan at <strong>Nikhar Unisex Salon Kota</strong>. With over a decade of dedicated craftsmanship in modern hair architecture, Italian razor fade blending, and advanced non-surgical hair replacement systems, I operate with a deep personal commitment to precision, transparency, and individual hospitality.
             </p>
 
             {/* Feature Callout Box (Matching Reference "We are not a traditional agency") */}

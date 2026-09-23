@@ -507,7 +507,7 @@ function YouTubeCtaBanner() {
           <div className="space-y-0.5">
             <div className="inline-flex items-center gap-2">
               <h4 className="font-serif-title text-base sm:text-lg font-medium text-[#181A1C] dark:text-white">
-                Nikhar Unisex Saloon Kota
+                Nikhar Unisex Salon Kota
               </h4>
               <span className="rounded-full bg-red-500/15 px-2 py-0.5 text-[9.5px] font-bold text-red-600 dark:text-red-400">
                 Official Channel
