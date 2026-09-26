@@ -155,7 +155,7 @@ export default function Logo({
                 forceDark ? 'text-[#BA9D6A]' : 'text-[#8C734B] dark:text-[#BA9D6A]'
               } uppercase font-sans whitespace-nowrap transition-colors duration-200 ${currentSize.sub}`}
             >
-              MENS • PARLOUR
+              MENS • PARLOUR 
             </span>
             <span className={`w-2 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent ${forceDark ? 'to-[#BA9D6A]' : 'to-[#8C734B] dark:to-[#BA9D6A]'}`} />
           </div>
