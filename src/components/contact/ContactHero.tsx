@@ -101,7 +101,7 @@ export default function ContactHero() {
                   </div>
                   <div className="min-w-0">
                     <span className="block text-[9.5px] uppercase tracking-wider text-neutral-400 font-medium">Email Us</span>
-                    <span className="block text-[10.5px] sm:text-[11px] font-semibold text-white/90 truncate group-hover:text-[#BA9D6A] transition-colors">
+                    <span className="block text-[9px] sm:text-[10px] font-semibold text-white/90 break-all group-hover:text-[#BA9D6A] transition-colors leading-tight">
                       Fk055163@gmail.com
                     </span>
                   </div>
