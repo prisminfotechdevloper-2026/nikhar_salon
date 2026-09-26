@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ export interface SalonVideo {
   highlights: string[];
 }
 
-const SALON_VIDEOS: SalonVideo[] = [
+const PARLOUR_VIDEOS: SalonVideo[] = [
   {
     id: 'cxnnPeX4eVM',
     title: 'Non-Surgical Hair Patch & Micro-Skin Attachment',
@@ -99,7 +99,7 @@ const SALON_VIDEOS: SalonVideo[] = [
     tag: 'Unisex Salon Craft',
     views: '1.5K Views',
     duration: '0:52',
-    desc: 'Flowing natural layers with movement, face-framing graduation, and rich healthy gloss crafted for premium salon clients in Kota.',
+    desc: 'Flowing natural layers with movement, face-framing graduation, and rich healthy gloss crafted for premium parlour clients in Kota.',
     highlights: ['Feathered Layering', 'Custom Face Contouring', 'High-Gloss Blowout'],
   },
 ];
@@ -137,7 +137,7 @@ function EditorialHeader({
           </span>
           <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
           <span className="hidden sm:inline font-sans text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
-            KOTA SALON FLOOR • 4K DOCUMENTARY
+            KOTA PARLOUR FLOOR • 4K DOCUMENTARY
           </span>
         </div>
 
@@ -171,7 +171,7 @@ function EditorialHeader({
         {/* Right Column: Lead Description & Trust Pills */}
         <div className="lg:col-span-5 space-y-3 text-left">
           <p className="text-xs sm:text-[13px] leading-relaxed text-[#555047] dark:text-[#A6A29A] border-l-2 border-[#BA9D6A]/50 pl-3.5">
-            Raw, real, and unfiltered salon footage. Watch founder <strong>Firoz Khan</strong> craft undetectable hair patch attachments, precision fades, and confidence restorations.
+            Raw, real, and unfiltered parlour footage. Watch founder <strong>Firoz Khan</strong> craft undetectable hair patch attachments, precision fades, and confidence restorations.
           </p>
 
           {/* 3 Micro Trust Metrics */}
@@ -198,7 +198,7 @@ function EditorialHeader({
           {CATEGORIES.map((cat) => {
             const count = cat === 'All Videos'
               ? totalCount
-              : SALON_VIDEOS.filter((v) => v.category === cat).length;
+              : PARLOUR_VIDEOS.filter((v) => v.category === cat).length;
             const active = selectedCategory === cat;
 
             return (
@@ -507,7 +507,7 @@ function YouTubeCtaBanner() {
           <div className="space-y-0.5">
             <div className="inline-flex items-center gap-2">
               <h4 className="font-serif-title text-base sm:text-lg font-medium text-[#181A1C] dark:text-white">
-                Nikhar Unisex Salon Kota
+                Nikhar Mens Parlour Kota
               </h4>
               <span className="rounded-full bg-red-500/15 px-2 py-0.5 text-[9.5px] font-bold text-red-600 dark:text-red-400">
                 Official Channel
@@ -541,16 +541,16 @@ function YouTubeCtaBanner() {
 /* -------------------------------------------------------------------------- */
 
 export default function CraftsmanshipSection() {
-  const [activeVideoId, setActiveVideoId] = useState(SALON_VIDEOS[0].id);
+  const [activeVideoId, setActiveVideoId] = useState(PARLOUR_VIDEOS[0].id);
   const [selectedCategory, setSelectedCategory] = useState<string>('All Videos');
   const [isPlaying, setIsPlaying] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const activeVideo = SALON_VIDEOS.find((v) => v.id === activeVideoId) || SALON_VIDEOS[0];
+  const activeVideo = PARLOUR_VIDEOS.find((v) => v.id === activeVideoId) || PARLOUR_VIDEOS[0];
 
   const filteredVideos = selectedCategory === 'All Videos'
-    ? SALON_VIDEOS
-    : SALON_VIDEOS.filter((v) => v.category === selectedCategory);
+    ? PARLOUR_VIDEOS
+    : PARLOUR_VIDEOS.filter((v) => v.category === selectedCategory);
 
   const handleSelectVideo = (id: string) => {
     setActiveVideoId(id);
@@ -568,7 +568,7 @@ export default function CraftsmanshipSection() {
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
             filteredCount={filteredVideos.length}
-            totalCount={SALON_VIDEOS.length}
+            totalCount={PARLOUR_VIDEOS.length}
           />
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-start">

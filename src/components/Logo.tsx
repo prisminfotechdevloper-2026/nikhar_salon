@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 
 interface LogoProps {
   variant?: 'full' | 'mark' | 'horizontal';
@@ -133,7 +133,7 @@ export default function Logo({
         </svg>
       </div>
 
-      {/* Typography: "NIKHAR" + "— SALON • KOTA —" */}
+      {/* Typography: "NIKHAR" + "— PARLOUR • KOTA —" */}
       {variant !== 'mark' && (
         <div className="flex flex-col justify-center">
           <div className="flex items-center">
@@ -155,7 +155,7 @@ export default function Logo({
                 forceDark ? 'text-[#BA9D6A]' : 'text-[#8C734B] dark:text-[#BA9D6A]'
               } uppercase font-sans whitespace-nowrap transition-colors duration-200 ${currentSize.sub}`}
             >
-              SALON • KOTA
+              MENS • PARLOUR
             </span>
             <span className={`w-2 sm:w-3.5 h-[1px] bg-gradient-to-l from-transparent ${forceDark ? 'to-[#BA9D6A]' : 'to-[#8C734B] dark:to-[#BA9D6A]'}`} />
           </div>
@@ -166,7 +166,7 @@ export default function Logo({
 
   if (href) {
     return (
-      <Link href={href} className={`inline-block focus:outline-none shrink-0 ${className}`} aria-label="Nikhar Salon Kota Home">
+      <Link href={href} className={`inline-block focus:outline-none shrink-0 ${className}`} aria-label="Nikhar Mens Parlour Kota Home">
         {LogoContent}
       </Link>
     );

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect } from 'react';
 import Link from 'next/link';
@@ -31,7 +31,7 @@ export default function Error({
             Something Went Wrong
           </h2>
           <p className="text-xs text-[#555047] dark:text-[#A6A29A] leading-relaxed">
-            We apologize for the interruption. You can reload the page or return to our luxury salon homepage.
+            We apologize for the interruption. You can reload the page or return to our luxury parlour homepage.
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -84,7 +84,7 @@ function BookingSuccessView({
           Slot Reserved, {name}!
         </h3>
         <p className="text-xs text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto leading-relaxed">
-          Our salon concierge has received your request for <strong>{service}</strong> on <strong>{formattedDate} at {time}</strong>.
+          Our parlour concierge has received your request for <strong>{service}</strong> on <strong>{formattedDate} at {time}</strong>.
         </p>
       </div>
 
@@ -105,7 +105,7 @@ function BookingSuccessView({
 
       <div className="pt-2 flex flex-col sm:flex-row gap-2.5 justify-center max-w-sm mx-auto">
         <a
-          href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Salon! Checking on my salon slot for ${service} by ${name}`)}`}
+          href={`https://wa.me/919784711323?text=${encodeURIComponent(`Hello Nikhar Mens Parlour! Checking on my parlour slot for ${service} by ${name}`)}`}
           target="_blank"
           rel="noreferrer"
           className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-black font-bold text-xs uppercase tracking-wider shadow-sm transition-colors"
@@ -437,7 +437,7 @@ function openWhatsAppBooking({
 }) {
   const bookingRef = `NS-${Math.floor(100000 + Math.random() * 900000)}`;
   const text = encodeURIComponent(
-    `*SALON SLOT RESERVATION - NIKHAR SALON KOTA*\n\n` +
+    `*PARLOUR SLOT RESERVATION - NIKHAR MENS PARLOUR KOTA*\n\n` +
     `*Ref:* #${bookingRef}\n` +
     `*Name:* ${name}\n` +
     `*WhatsApp:* ${phone}\n` +
@@ -447,7 +447,7 @@ function openWhatsAppBooking({
     `*Time Slot:* ${time}\n` +
     `*Special Notes:* ${notes || 'None'}\n\n` +
     `*Location:* Shop No. 9, Vigyan Nagar, Kota (Raj)\n` +
-    `_Dispatched via Nikhar Salon Online Booking_`
+    `_Dispatched via Nikhar Mens Parlour Online Booking_`
   );
   window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
 }

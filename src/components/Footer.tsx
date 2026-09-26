@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { Phone, MapPin, Clock, Mail } from 'lucide-react';
 import Logo from '@/components/Logo';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="lg:col-span-4 space-y-4">
           <Logo size="lg" forceDark />
           <p className="text-xs sm:text-[13px] leading-relaxed text-[#9E9B95] max-w-sm pt-2">
-            Kota&apos;s premier destination for luxury men&apos;s grooming. Precision haircutting, bespoke beard sculpting, rejuvenating skincare, and VIP salon hospitality.
+            Kota&apos;s premier destination for luxury men&apos;s grooming. Precision haircutting, bespoke beard sculpting, rejuvenating skincare, and VIP parlour hospitality.
           </p>
           <div className="flex items-center gap-4 pt-2">
             <a
@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="inline-flex items-center gap-2 mb-1">
             <div className="h-3 w-[2px] bg-[#BA9D6A]" />
             <h4 className="text-[11px] uppercase tracking-[0.2em] text-white font-semibold">
-              Kota Salon Studio
+              Kota Mens Parlour Studio
             </h4>
           </div>
 
@@ -147,7 +147,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-5 sm:gap-4 text-xs sm:text-[13px] text-[#A6A29A]">
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-center sm:text-left">
-          <span className="text-white/75 text-xs sm:text-[13px]">© 2026 Nikhar Salon Kota.</span>
+          <span className="text-white/75 text-xs sm:text-[13px]">© 2026 Nikhar Mens Parlour Kota.</span>
           <span className="hidden sm:inline text-white/20">•</span>
           <span className="inline-flex items-center gap-2 text-xs sm:text-[13px] text-white/80">
             <span>Design by</span>

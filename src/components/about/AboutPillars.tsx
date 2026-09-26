@@ -1,4 +1,4 @@
-import { Scissors, Award, ShieldCheck, Heart } from 'lucide-react';
+﻿import { Scissors, Award, ShieldCheck, Heart } from 'lucide-react';
 
 export default function AboutPillars() {
   return (
@@ -11,7 +11,7 @@ export default function AboutPillars() {
           </span>
           <div className="h-3 w-[2px] bg-[#BA9D6A]" />
         </div>
-        <h2 className="font-serif-title text-3xl sm:text-4xl text-[#181A1C] dark:text-white">Why Kota Trusts Nikhar Salon</h2>
+        <h2 className="font-serif-title text-3xl sm:text-4xl text-[#181A1C] dark:text-white">Why Kota Trusts Nikhar Mens Parlour</h2>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -121,7 +121,7 @@ export default function VideoStoriesSection() {
         isOpen={activeVideoId !== null}
         onClose={() => setActiveVideoId(null)}
         videoId={activeVideoId || ''}
-        videoTitle={VIDEO_STORIES.find((v) => v.id === activeVideoId)?.title || 'Nikhar Salon • Studio Story'}
+        videoTitle={VIDEO_STORIES.find((v) => v.id === activeVideoId)?.title || 'Nikhar Mens Parlour • Studio Story'}
       />
     </>
   );

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
@@ -20,14 +20,14 @@ export default function ContactForm() {
 
     // Direct WhatsApp send
     const text = encodeURIComponent(
-      `*NEW INQUIRY - NIKHAR SALON KOTA*\n\n` +
+      `*NEW INQUIRY - NIKHAR MENS PARLOUR KOTA*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +
       `*Service Interested:* ${formData.service || 'General Inquiry'}\n` +
       `*Message:* ${formData.message}\n\n` +
       `*Location:* Shop No. 9, Vigyan Nagar, Kota (Raj)\n` +
-      `_Sent via Nikhar Salon Official Website_`
+      `_Sent via Nikhar Mens Parlour Official Website_`
     );
     window.open(`https://wa.me/919784711323?text=${text}`, '_blank');
   };
@@ -51,7 +51,7 @@ export default function ContactForm() {
           </div>
           <h4 className="font-serif-title text-2xl text-[#181A1C] dark:text-white">Inquiry Transmitted!</h4>
           <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] max-w-sm mx-auto">
-            Thank you! Your message has been prepared for our salon WhatsApp concierge.
+            Thank you! Your message has been prepared for our parlour WhatsApp concierge.
           </p>
           <div className="pt-4">
             <button

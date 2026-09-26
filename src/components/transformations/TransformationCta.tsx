@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { Calendar, Phone, MapPin, Clock } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
@@ -41,7 +41,7 @@ export default function TransformationCta() {
             </Link>
 
             <a
-              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon,%20I%20saw%20your%20transformations%20and%20want%20a%20consultation"
+              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Mens%20Parlour,%20I%20saw%20your%20transformations%20and%20want%20a%20consultation"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/[0.08] hover:bg-white/[0.16] hover:border-[#BA9D6A] px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-wider text-white transition-[border-color,background-color] backdrop-blur-md"

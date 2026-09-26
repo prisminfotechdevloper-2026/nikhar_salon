@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useRef } from 'react';
 import { X, ShieldCheck } from 'lucide-react';
@@ -15,7 +15,7 @@ export default function VideoTourModal({
   isOpen,
   onClose,
   videoId = 'fW_n6b6fLhQ', // High-definition luxury grooming tour
-  videoTitle = 'Nikhar Salon • The Cinematic Experience',
+  videoTitle = 'Nikhar Mens Parlour • The Cinematic Experience',
 }: VideoTourModalProps) {
   const onCloseRef = useRef(onClose);
 

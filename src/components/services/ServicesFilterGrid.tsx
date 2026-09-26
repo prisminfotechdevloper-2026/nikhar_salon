@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useMemo } from 'react';
 import { servicesData } from '@/data/services';
@@ -39,11 +39,11 @@ export default function ServicesFilterGrid() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] dark:border-white/[0.08] pb-3.5 text-left">
         <div className="flex items-center gap-2.5">
           <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
-            NIKHAR SALON KOTA • FULL GROOMING DIRECTORY
+            NIKHAR MENS PARLOUR KOTA • FULL GROOMING DIRECTORY
           </span>
           <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
           <span className="hidden sm:inline font-mono text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
-            {servicesData.length} BESPOKE SALON OFFERINGS
+            {servicesData.length} BESPOKE PARLOUR OFFERINGS
           </span>
         </div> 
 
@@ -64,7 +64,7 @@ export default function ServicesFilterGrid() {
           <div className="inline-flex items-center gap-2">
             <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] font-sans">
-              THE COMPLETE SALON DIRECTORY
+              THE COMPLETE PARLOUR DIRECTORY
             </span>
           </div>
 

@@ -1,4 +1,4 @@
-import { TRANSFORMATION_METRICS } from '@/data/transformations';
+﻿import { TRANSFORMATION_METRICS } from '@/data/transformations';
 import { ShieldCheck, Award, Clock } from 'lucide-react';
 
 export default function TransformationsHero() {
@@ -13,7 +13,7 @@ export default function TransformationsHero() {
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] uppercase mb-4 sm:mb-6">
           <span className="flex items-center gap-1.5">
             <span className="size-2 rounded-full bg-[#BA9D6A]" />
-            NIKHAR SALON KOTA
+            NIKHAR MENS PARLOUR KOTA
           </span>
           <span className="text-black/25 dark:text-white/20">•</span>
           <span>VERIFIED CLIENT CASE STUDIES</span>

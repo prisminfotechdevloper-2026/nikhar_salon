@@ -1,4 +1,4 @@
-export interface CaseStudy {
+﻿export interface CaseStudy {
   id: string;
   title: string;
   category: 'hair-patch' | 'makeover' | 'beard' | 'skin' | 'spa';
@@ -57,7 +57,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     beforeImg: '/images/client1-head-before.jpg',
     afterImg: '/images/client1-head-after.jpg',
     rating: 5,
-    testimonial: 'Walking out of Nikhar Salon, I felt like my 25-year-old self again. The hairline is completely undetectable, even when I workout in the gym or ride my bike. Firoz bhai is a true artist.',
+    testimonial: 'Walking out of Nikhar Mens Parlour, I felt like my 25-year-old self again. The hairline is completely undetectable, even when I workout in the gym or ride my bike. Firoz bhai is a true artist.',
     keyBenefits: ['100% Breathable Base', 'Shower & Sweat Proof', 'Undetectable Frontal Hairline'],
     featured: true,
     focusY: 'center top',
@@ -107,7 +107,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     beforeImg: '/images/client3-head-before-centered.jpg',
     afterImg: '/images/client3-head-after-centered.jpg',
     rating: 5,
-    testimonial: 'As a practicing doctor, natural appearance was non-negotiable. Nikhar Salon provided complete privacy, dignity, and a world-class hair system.',
+    testimonial: 'As a practicing doctor, natural appearance was non-negotiable. Nikhar Mens Parlour provided complete privacy, dignity, and a world-class hair system.',
     keyBenefits: ['Medical-Grade Attachment', 'Natural Greying Integration', 'Zero Maintenance Stress'],
     focusY: 'center center',
   },

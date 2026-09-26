@@ -1,33 +1,33 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import TransformationsHero from '@/components/transformations/TransformationsHero';
 import TransformationsGrid from '@/components/transformations/TransformationsGrid';
 import VideoStoriesSection from '@/components/transformations/VideoStoriesSection';
 import TransformationCta from '@/components/transformations/TransformationCta';
 
 export const metadata: Metadata = {
-  title: 'Client Case Studies & Real Transformations | Nikhar Salon Kota',
+  title: 'Client Case Studies & Real Transformations | Nikhar Mens Parlour Kota',
   description:
-    'Explore verified before-and-after client transformations at Nikhar Salon Kota. Real non-surgical hair patch installations, precision razor beard sculpting, and restorative skincare by Firoz Khan.',
+    'Explore verified before-and-after client transformations at Nikhar Mens Parlour Kota. Real non-surgical hair patch installations, precision razor beard sculpting, and restorative skincare by Firoz Khan.',
   keywords: [
     'hair patch before after kota',
-    'nikhar salon transformations',
+    'nikhar mens parlour transformations',
     'hair restoration results kota',
     'non surgical hair patch case study rajasthan',
     'beard styling makeover kota',
-    'firoz khan nikhar salon vigyan nagar',
+    'firoz khan nikhar mens parlour vigyan nagar',
   ],
   openGraph: {
-    title: 'Real Client Transformations & Case Studies | Nikhar Salon Kota',
+    title: 'Real Client Transformations & Case Studies | Nikhar Mens Parlour Kota',
     description:
       'Honest Before & After grooming case studies. See live transformations for crown hair thinning, beard sculpting, and facial glow.',
     url: 'https://nikharsaloon.vercel.app/transformations',
-    siteName: 'Nikhar Salon Kota',
+    siteName: 'Nikhar Mens Parlour Kota',
     images: [
       {
         url: 'https://nikharsaloon.vercel.app/images/real-hair-patch-before-after-1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Nikhar Salon Real Client Transformations',
+        alt: 'Nikhar Mens Parlour Real Client Transformations',
       },
     ],
     locale: 'en_IN',

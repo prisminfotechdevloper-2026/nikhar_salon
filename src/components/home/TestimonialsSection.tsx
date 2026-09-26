@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from 'react';
 import Image from 'next/image';
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
               Trusted by Kota&apos;s Gentlemen
             </h2>
             <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] leading-relaxed">
-              Real experiences from clients who rely on Nikhar Salon for precision barbering, beard styling, and revitalizing skin treatments.
+              Real experiences from clients who rely on Nikhar Mens Parlour for precision barbering, beard styling, and revitalizing skin treatments.
             </p>
           </div>
 

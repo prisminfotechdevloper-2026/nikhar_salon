@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { Calendar, ArrowRight, Play } from 'lucide-react';
 
 /**
@@ -79,7 +79,7 @@ export default function AboutHero() {
 
           {/* Body */}
           <p className="max-w-[430px] font-sans text-[12.5px] leading-[1.9] text-[#3D3A34] sm:text-[13px] dark:text-[#A6A29A]">
-            At Nikhar Salon, we believe grooming is not just about appearance,
+            At Nikhar Mens Parlour, we believe grooming is not just about appearance,
             it&apos;s about confidence, self-care and expressing your unique
             style. Our expert team is here to help you look and feel your best,
             every single day.

@@ -71,7 +71,7 @@ export const REVIEWS: Review[] = [
     location: "Talwandi, Kota",
     rating: 5,
     service: "Hair Patch Servicing & Fade",
-    text: "I visit every month for my hair patch refitting and skin fade. The hygiene standards, medical-grade bonding tape, and precision styling are 10/10. Truly a premier luxury salon experience.",
+    text: "I visit every month for my hair patch refitting and skin fade. The hygiene standards, medical-grade bonding tape, and precision styling are 10/10. Truly a premier luxury parlour experience.",
     avatar: "/images/real_customer/customer2.png"
   },
   {
@@ -98,7 +98,7 @@ export const REVIEWS: Review[] = [
     location: "Mahaveer Nagar, Kota",
     rating: 5,
     service: "Hair Patch & VIP Combo",
-    text: "Got my complete pre-wedding styling and grooming package done at Nikhar Salon. The styling was tailored to perfection and everyone complimented my look on the wedding day. Exceptional hospitality.",
+    text: "Got my complete pre-wedding styling and grooming package done at Nikhar Mens Parlour. The styling was tailored to perfection and everyone complimented my look on the wedding day. Exceptional hospitality.",
     avatar: "/images/real_customer/customer3.png"
   },
   {
@@ -107,7 +107,7 @@ export const REVIEWS: Review[] = [
     location: "Dadabari, Kota",
     rating: 5,
     service: "Keratin Hair Spa & Treatment",
-    text: "The texture treatment and keratin hair spa worked wonders on my hair texture. The salon atmosphere is calm, tools are hospital-grade sterilized, and there's never any rush. Kota's top salon!",
+    text: "The texture treatment and keratin hair spa worked wonders on my hair texture. The parlour atmosphere is calm, tools are hospital-grade sterilized, and there's never any rush. Kota's top mens parlour!",
     avatar: "/images/real_customer/customer5.png"
   }
 ];

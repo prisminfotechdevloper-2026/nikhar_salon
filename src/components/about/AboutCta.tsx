@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default function AboutCta() {
@@ -8,7 +8,7 @@ export default function AboutCta() {
         EXPERIENCE THE DIFFERENCE
       </span>
       <h3 className="font-serif-title text-3xl sm:text-4xl text-[#181A1C] dark:text-white">
-        Book Your Slot at Nikhar Salon Kota
+        Book Your Slot at Nikhar Mens Parlour Kota
       </h3>
       <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] max-w-lg mx-auto">
         Shop Number 9, Old Police Station Ke Samne, Vigyan Nagar, Kota, Rajasthan - 324005. Open all 7 days from 9:00 AM to 10:00 PM.

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import { ShieldCheck, UserCheck, Crown, Coffee } from 'lucide-react';
 
 export default function BookAppointmentHero() {
@@ -8,7 +8,7 @@ export default function BookAppointmentHero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/craft-experience.jpg"
-          alt="Nikhar Salon Craftsmanship Atmosphere"
+          alt="Nikhar Mens Parlour Craftsmanship Atmosphere"
           fill
           priority
           sizes="100vw"

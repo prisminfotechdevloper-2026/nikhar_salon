@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,7 +7,7 @@ import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 export default function FloatingActions() {
   const pathname = usePathname();
   const phone = "919784711323";
-  const defaultMsg = encodeURIComponent("Hello Nikhar Salon! I would like to book a luxury grooming slot.");
+  const defaultMsg = encodeURIComponent("Hello Nikhar Mens Parlour! I would like to book a luxury grooming slot.");
 
   const isBookingPage = pathname === '/book-appointment';
 

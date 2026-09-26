@@ -1,28 +1,28 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 import ServicesFilterGrid from '@/components/services/ServicesFilterGrid';
 import ServiceHero from '@/components/services/ServiceHero';
 
 export const metadata: Metadata = {
-  title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Salon Kota",
+  title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Mens Parlour Kota",
   description:
-    "Browse complete men's grooming services and transparent prices at Nikhar Salon Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
+    "Browse complete men's grooming services and transparent prices at Nikhar Mens Parlour Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
   alternates: {
     canonical: 'https://nikharsaloon.vercel.app/services',
   },
   openGraph: {
-    title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Salon Kota",
+    title: "Grooming & Hair Patch Services Menu & Pricing | Nikhar Mens Parlour Kota",
     description:
-      "Browse complete men's grooming services and transparent prices at Nikhar Salon Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
+      "Browse complete men's grooming services and transparent prices at Nikhar Mens Parlour Kota. Executive haircuts, royal beard sculpting, non-surgical hair systems, and detox facials.",
     url: 'https://nikharsaloon.vercel.app/services',
-    siteName: 'Nikhar Salon Kota',
+    siteName: 'Nikhar Mens Parlour Kota',
     images: [
       {
         url: 'https://nikharsaloon.vercel.app/images/service-hair-patch.jpg',
         width: 1200,
         height: 630,
-        alt: "Nikhar Salon Services Menu Kota",
+        alt: "Nikhar Mens Parlour Services Menu Kota",
       },
     ],
   },
@@ -50,7 +50,7 @@ export default function ServicesPage() {
             Need a Custom Combination or Groom Package?
           </h2>
           <p className="text-xs sm:text-sm text-[#555047] dark:text-[#A6A29A] max-w-lg mx-auto">
-            Connect directly with our salon manager on WhatsApp for personalized packages, wedding groom combos, or special requests.
+            Connect directly with our parlour manager on WhatsApp for personalized packages, wedding groom combos, or special requests.
           </p>
           <div className="pt-3 flex flex-wrap justify-center gap-4">
             <Link
@@ -60,7 +60,7 @@ export default function ServicesPage() {
               Reserve Your Slot Now
             </Link>
             <a
-              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20would%20like%20to%20know%20about%20groom%20packages."
+              href="https://wa.me/919784711323?text=Hello%20Nikhar%20Mens%20Parlour!%20I%20would%20like%20to%20know%20about%20groom%20packages."
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2.5 border border-[#D9D4CB] dark:border-white/20 hover:border-[#BA9D6A] text-[#181A1C] dark:text-white px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition shadow-2xs hover:scale-105"

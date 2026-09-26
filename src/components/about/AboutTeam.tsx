@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -111,7 +111,7 @@ function TeamHeader() {
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E5E0D8] pb-3 text-left dark:border-white/[0.08]">
         <div className="flex items-center gap-2.5">
           <span className="font-mono text-[10px] sm:text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A]">
-            NIKHAR SALON FLOOR • RESIDENT CRAFTSMEN
+            NIKHAR MENS PARLOUR FLOOR • RESIDENT CRAFTSMEN
           </span>
           <span className="hidden sm:inline text-black/20 dark:text-white/20">•</span>
           <span className="hidden sm:inline font-mono text-[10px] text-[#7D776D] dark:text-[#A6A29A]">
@@ -131,7 +131,7 @@ function TeamHeader() {
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-10 items-end text-left">
         {/* Left Column: Title & Subtitle */}
         <div className="lg:col-span-7 space-y-2 text-left">
-          <GoldEyebrow text="THE ARTISANS OF NIKHAR SALON" />
+          <GoldEyebrow text="THE ARTISANS OF NIKHAR MENS PARLOUR" />
 
           <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-[42px] font-normal leading-[1.15] text-[#181A1C] dark:text-white">
             Meet Our Master Stylists &amp;{' '}

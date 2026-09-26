@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
@@ -148,7 +148,7 @@ function ServiceHeroSidebar({
 
       {/* Description */}
       <p className="text-[#555047] dark:text-[#A6A29A] text-xs sm:text-sm leading-relaxed max-w-md font-sans">
-        At Nikhar Salon, we offer a complete range of grooming and beauty services designed to enhance your style,
+        At Nikhar Mens Parlour, we offer a complete range of grooming and beauty services designed to enhance your style,
         boost your confidence, and bring out the best version of you.
       </p>
 

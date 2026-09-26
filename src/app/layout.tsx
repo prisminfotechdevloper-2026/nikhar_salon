@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { Manrope, DM_Serif_Display, Playfair_Display, Caveat } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
@@ -39,14 +39,14 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL('https://nikharsaloon.vercel.app'),
   title: {
-    default: "Nikhar Salon | Luxury Men's Grooming & Styling in Kota",
-    template: "%s | Nikhar Salon Kota"
+    default: "Nikhar Mens Parlour | Luxury Men's Grooming & Styling in Kota",
+    template: "%s | Nikhar Mens Parlour Kota"
   },
-  description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury salon.",
-  keywords: ["Nikhar Salon Kota", "Luxury Men Salon Kota", "Best Haircut Kota", "Beard Sculpting Kota", "Grooming Salon Rajasthan", "Nikhar Unisex Salon"],
-  authors: [{ name: "Nikhar Salon Kota" }],
-  creator: "Nikhar Salon Kota",
-  publisher: "Nikhar Salon Kota",
+  description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury parlour.",
+  keywords: ["Nikhar Mens Parlour Kota", "Luxury Men Salon Kota", "Best Haircut Kota", "Beard Sculpting Kota", "Grooming Salon Rajasthan", "Nikhar Mens Parlour"],
+  authors: [{ name: "Nikhar Mens Parlour Kota" }],
+  creator: "Nikhar Mens Parlour Kota",
+  publisher: "Nikhar Mens Parlour Kota",
   formatDetection: {
     telephone: true,
     address: true,
@@ -56,30 +56,30 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://nikharsaloon.vercel.app',
-    siteName: "Nikhar Salon Kota",
-    title: "Nikhar Salon | Luxury Men's Grooming & Styling in Kota",
-    description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury salon.",
+    siteName: "Nikhar Mens Parlour Kota",
+    title: "Nikhar Mens Parlour | Luxury Men's Grooming & Styling in Kota",
+    description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury parlour.",
     images: [
       {
         url: '/images/og-cover.jpg',
         width: 1200,
         height: 630,
-        alt: "Nikhar Salon Kota - Luxury Men's Grooming",
+        alt: "Nikhar Mens Parlour Kota - Luxury Men's Grooming",
         type: 'image/jpeg',
       },
       {
         url: '/images/icon-square.jpg',
         width: 800,
         height: 800,
-        alt: "Nikhar Salon Emblem",
+        alt: "Nikhar Mens Parlour Emblem",
         type: 'image/jpeg',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Nikhar Salon | Luxury Men's Grooming & Styling in Kota",
-    description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury salon.",
+    title: "Nikhar Mens Parlour | Luxury Men's Grooming & Styling in Kota",
+    description: "Experience royal hair styling, precision beard sculpting, luxury facials, and grooming therapies at Kota's premier luxury parlour.",
     images: ['/images/og-cover.jpg'],
     creator: '@nikharsalon',
   },
@@ -100,8 +100,8 @@ export const metadata: Metadata = {
 const salonSchema = {
   '@context': 'https://schema.org',
   '@type': 'BeautySalon',
-  name: 'Nikhar Salon Kota',
-  alternateName: "Nikhar Unisex Salon",
+  name: 'Nikhar Mens Parlour Kota',
+  alternateName: "Nikhar Mens Parlour",
   image: 'https://nikharsaloon.vercel.app/images/og-cover.jpg',
   logo: 'https://nikharsaloon.vercel.app/icon.svg',
   telephone: '+919784711323',

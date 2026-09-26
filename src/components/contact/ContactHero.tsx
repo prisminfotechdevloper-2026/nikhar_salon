@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -52,7 +52,7 @@ export default function ContactHero() {
 
               {/* Description Body Text */}
               <p className="text-neutral-400 text-xs sm:text-sm leading-relaxed max-w-md font-light">
-                Have a question, need assistance, or want to reserve a salon slot? Our team at Nikhar Salon is always ready to help you look and feel your best. Reach out to us — we&apos;d love to hear from you.
+                Have a question, need assistance, or want to reserve a parlour slot? Our team at Nikhar Mens Parlour is always ready to help you look and feel your best. Reach out to us — we&apos;d love to hear from you.
               </p>
 
               {/* Direct Micro Info Pills (Call Us, Visit Us, Email Us) */}
@@ -75,7 +75,7 @@ export default function ContactHero() {
 
                 {/* Visit Item */}
                 <a
-                  href="https://maps.google.com/?q=Nikhar+Salon+Vigyan+Nagar+Kota"
+                  href="https://maps.google.com/?q=Nikhar+Mens+Parlour+Vigyan+Nagar+Kota"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 group transition-transform hover:-translate-y-0.5"
@@ -111,7 +111,7 @@ export default function ContactHero() {
               {/* Action Buttons: Get Directions & Watch Studio Tour */}
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <a
-                  href="https://maps.google.com/?q=Nikhar+Salon+Vigyan+Nagar+Kota"
+                  href="https://maps.google.com/?q=Nikhar+Mens+Parlour+Vigyan+Nagar+Kota"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 gold-gradient text-[#0E1012] font-bold text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow-md shadow-[#BA9D6A]/20 hover:brightness-105 hover:scale-105 active:scale-95 transition duration-300 cursor-pointer"
@@ -135,7 +135,7 @@ export default function ContactHero() {
             </div>
 
             {/* =========================================================================
-                CENTER COLUMN: Featured Luxury Salon Circular Porthole Cutout
+                CENTER COLUMN: Featured Luxury Parlour Circular Porthole Cutout
                 ========================================================================= */}
             <div className="lg:col-span-4 flex justify-center items-center relative z-10 py-6 lg:py-0">
               {/* Behind the image: Gold concentric circular rings wrapping around the photo */}
@@ -154,7 +154,7 @@ export default function ContactHero() {
                 <div className="relative size-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-xl">
                   <Image
                     src="/images/contact/contact.png"
-                    alt="Nikhar Salon Luxury Interior & Styling Ambience"
+                    alt="Nikhar Mens Parlour Luxury Interior & Styling Ambience"
                     fill
                     priority
                     sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 310px"

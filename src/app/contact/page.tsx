@@ -1,4 +1,4 @@
-import ContactHero from '@/components/contact/ContactHero';
+﻿import ContactHero from '@/components/contact/ContactHero';
 import ContactForm from '@/components/contact/ContactForm';
 import { MessageCircle, ShieldCheck } from 'lucide-react';
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <a
-                  href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20have%20an%20inquiry."
+                  href="https://wa.me/919784711323?text=Hello%20Nikhar%20Mens%20Parlour!%20I%20have%20an%20inquiry."
                   target="_blank"
                   rel="noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 gold-gradient text-[#0E1012] font-bold text-xs uppercase tracking-wider py-3 rounded-xl shadow-xs hover:brightness-105 transition cursor-pointer"
@@ -92,7 +92,7 @@ export default function ContactPage() {
               <div className="inline-flex items-center gap-2">
                 <div className="h-3 w-[2px] bg-[#BA9D6A]" />
                 <span className="text-[10.5px] uppercase tracking-[0.25em] text-[#8C734B] dark:text-[#BA9D6A] font-semibold font-sans">
-                  SALON LOCATION & DIRECTIONS
+                  PARLOUR LOCATION & DIRECTIONS
                 </span>
               </div>
               <h3 className="font-serif-title text-2xl sm:text-3xl text-[#181A1C] dark:text-white">
@@ -100,7 +100,7 @@ export default function ContactPage() {
               </h3>
             </div>
             <a
-              href="https://maps.google.com/?q=Nikhar+Salon+Vigyan+Nagar+Kota"
+              href="https://maps.google.com/?q=Nikhar+Mens+Parlour+Vigyan+Nagar+Kota"
               target="_blank"
               rel="noreferrer"
               className="text-xs font-semibold text-[#8C734B] dark:text-[#BA9D6A] hover:underline"
@@ -111,7 +111,7 @@ export default function ContactPage() {
 
           <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-[#E5E0D8] dark:border-white/[0.08]">
             <iframe
-              title="Nikhar Salon Location Vigyan Nagar Kota"
+              title="Nikhar Mens Parlour Location Vigyan Nagar Kota"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14441.576885361254!2d75.8366472!3d25.1328965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396f84d6a695b263%3A0xe5433a0b59b3c37d!2sVigyan%20Nagar%2C%20Kota%2C%20Rajasthan%20324005!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"

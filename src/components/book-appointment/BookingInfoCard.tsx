@@ -1,11 +1,11 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import { Clock, MapPin, Phone, Award, CheckCircle2, Coffee } from 'lucide-react';
 import WhatsAppIcon from '@/components/common/WhatsAppIcon';
 
 export default function BookingInfoCard() {
   return (
     <div className="space-y-4">
-      {/* Salon Director Profile Card (Firoz Khan) */}
+      {/* Parlour Director Profile Card (Firoz Khan) */}
       <div className="bg-white dark:bg-[#121417] border border-[#E5E0D8] dark:border-white/[0.08] rounded-2xl sm:rounded-3xl p-5 shadow-md dark:shadow-xl dark:shadow-black/40 space-y-3.5 relative overflow-hidden group">
         <div className="pointer-events-none absolute -top-12 -right-12 size-28 rounded-full bg-[#BA9D6A]/10 blur-2xl group-hover:bg-[#BA9D6A]/20 transition-colors duration-300" />
         
@@ -13,7 +13,7 @@ export default function BookingInfoCard() {
           <div className="relative size-14 rounded-full overflow-hidden border-2 border-[#BA9D6A] bg-neutral-900 shrink-0 shadow-sm">
             <Image
               src="/images/owner/firoz-khan.png"
-              alt="Firoz Khan Master Salon Director"
+              alt="Firoz Khan Master Parlour Director"
               fill
               sizes="56px"
               className="object-cover object-top"
@@ -94,7 +94,7 @@ export default function BookingInfoCard() {
             <Phone size={13} className="text-[#8C734B] dark:text-[#C2A774]" /> Call Salon
           </a>
           <a
-            href="https://wa.me/919784711323?text=Hello%20Nikhar%20Salon!%20I%20have%20an%20urgent%20slot%20booking%20query."
+            href="https://wa.me/919784711323?text=Hello%20Nikhar%20Mens%20Parlour!%20I%20have%20an%20urgent%20slot%20booking%20query."
             target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/40 text-xs font-semibold text-[#181A1C] dark:text-white transition active:scale-95"

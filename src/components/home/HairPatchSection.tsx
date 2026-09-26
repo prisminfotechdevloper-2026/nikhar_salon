@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -585,7 +585,7 @@ export default function HairPatchSection() {
 
                 <a
                   href={`https://wa.me/919784711323?text=${encodeURIComponent(
-                    'Hello Firoz Khan ji! I want to consult regarding Hair Patch / Hair Replacement in Nikhar Salon Kota.'
+                    'Hello Firoz Khan ji! I want to consult regarding Hair Patch / Hair Replacement in Nikhar Mens Parlour Kota.'
                   )}`}
                   target="_blank"
                   rel="noreferrer noopener"

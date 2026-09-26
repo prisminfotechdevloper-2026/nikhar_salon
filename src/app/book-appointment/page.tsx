@@ -1,11 +1,11 @@
-import { Suspense } from 'react';
+﻿import { Suspense } from 'react';
 import BookAppointmentHero from '@/components/book-appointment/BookAppointmentHero';
 import SimpleBookingForm from '@/components/book-appointment/SimpleBookingForm';
 import BookingInfoCard from '@/components/book-appointment/BookingInfoCard';
 
 export const metadata = {
-  title: 'Book Salon Slot | Nikhar Salon Kota',
-  description: 'Reserve your grooming slot at Nikhar Salon Vigyan Nagar Kota. Zero waiting time, master stylist selection, and instant WhatsApp confirmation.',
+  title: 'Book Salon Slot | Nikhar Mens Parlour Kota',
+  description: 'Reserve your grooming slot at Nikhar Mens Parlour Vigyan Nagar Kota. Zero waiting time, master stylist selection, and instant WhatsApp confirmation.',
 };
 
 export default function BookAppointmentPage() {

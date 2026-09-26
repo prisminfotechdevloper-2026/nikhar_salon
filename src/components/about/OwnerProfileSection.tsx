@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import {
   Phone,
   MapPin,
@@ -54,7 +54,7 @@ export default function OwnerProfileSection() {
             <div className="group relative aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[#E5E0D8] bg-[#181A1C] shadow-lg dark:border-white/10 md:rounded-3xl">
               <Image
                 src="/images/owner/firoz-khan-clean.png"
-                alt="Firoz Khan - Owner & Founder of Nikhar Unisex Salon Kota"
+                alt="Firoz Khan - Owner & Founder of Nikhar Mens Parlour Kota"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -69,10 +69,10 @@ export default function OwnerProfileSection() {
                 <div className="flex items-center justify-between gap-3">
                   <div className="space-y-0.5 min-w-0">
                     <span className="block text-[9.5px] font-bold uppercase tracking-[0.2em] text-[#BA9D6A]">
-                      FOUNDER of Nikhar Salon
+                      FOUNDER of Nikhar Mens Parlour
                     </span>   
                     <h3 className="font-serif-title text-sm sm:text-base font-medium text-white truncate">
-                      Nikhar Unisex Salon Kota
+                      Nikhar Mens Parlour Kota
                     </h3>
                     <p className="text-[10.5px] sm:text-[11px] text-white/70 truncate">
                       Specialist in Non-Surgical Hair Systems &amp; Luxury Barbering
@@ -95,7 +95,7 @@ export default function OwnerProfileSection() {
                 “
               </span>
               <p className="font-serif italic text-xs sm:text-[13px] leading-relaxed text-[#181A1C] dark:text-white/90">
-                I believe true grooming is not just about changing a hairstyle — it is about restoring a person&apos;s inner confidence. Every hair patch and styling session at Nikhar Salon is personal, precise, and completely undetectable.
+                I believe true grooming is not just about changing a hairstyle — it is about restoring a person&apos;s inner confidence. Every hair patch and styling session at Nikhar Mens Parlour is personal, precise, and completely undetectable.
               </p>
               <div className="flex items-center justify-between pt-2 border-t border-[#E5E0D8] dark:border-white/[0.08] text-[10.5px]">
                 <span className="font-bold tracking-wider text-[#181A1C] uppercase dark:text-white">
@@ -118,7 +118,7 @@ export default function OwnerProfileSection() {
                 <div className="inline-flex items-center gap-2">
                   <div className="h-2.5 w-[2px] bg-[#BA9D6A]" />
                   <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#8C734B] dark:text-[#BA9D6A] font-sans">
-                    NIKHAR UNISEX SALON • FOUNDER &amp; VISIONARY
+                    NIKHAR MENS PARLOUR • FOUNDER &amp; VISIONARY
                   </span>
                 </div>
                 <h2 className="font-serif-title text-3xl sm:text-4xl lg:text-[42px] font-normal leading-tight text-[#181A1C] dark:text-white">
@@ -142,7 +142,7 @@ export default function OwnerProfileSection() {
 
             {/* Narrative Paragraph */}
             <p className="text-xs sm:text-[13.5px] leading-relaxed text-[#555047] dark:text-[#A6A29A]">
-              I am Firoz Khan, founder and lead hair artisan at <strong>Nikhar Unisex Salon Kota</strong>. With over a decade of dedicated craftsmanship in modern hair architecture, Italian razor fade blending, and advanced non-surgical hair replacement systems, I operate with a deep personal commitment to precision, transparency, and individual hospitality.
+              I am Firoz Khan, founder and lead hair artisan at <strong>Nikhar Mens Parlour Kota</strong>. With over a decade of dedicated craftsmanship in modern hair architecture, Italian razor fade blending, and advanced non-surgical hair replacement systems, I operate with a deep personal commitment to precision, transparency, and individual hospitality.
             </p>
 
             {/* Feature Callout Box (Matching Reference "We are not a traditional agency") */}
@@ -153,7 +153,7 @@ export default function OwnerProfileSection() {
                 </div>
                 <div className="space-y-1">
                   <h4 className="font-serif-title text-sm sm:text-base font-semibold text-[#181A1C] dark:text-white">
-                    We are not a high-volume assembly line salon
+                    We are not a high-volume assembly line parlour
                   </h4>
                   <p className="text-xs leading-relaxed text-[#555047] dark:text-[#A6A29A]">
                     We work with dedicated 1-on-1 attention, devoting the necessary time, private scalp contour analysis, and care to each individual client. We have deep specialization in custom monofilament hair patch systems, breathable lace membranes, and razor fade integration that looks 100% natural and undetectable in everyday life.
@@ -216,7 +216,7 @@ export default function OwnerProfileSection() {
               {/* Card 2: Instant WhatsApp */}
               <a
                 href={`https://wa.me/919784711323?text=${encodeURIComponent(
-                  'Hello Firoz Khan ji! I want to book a personal consultation for Hair Patch / Salon Services at Nikhar Salon Kota.'
+                  'Hello Firoz Khan ji! I want to book a personal consultation for Hair Patch / Salon Services at Nikhar Mens Parlour Kota.'
                 )}`}
                 target="_blank"
                 rel="noreferrer noopener"
