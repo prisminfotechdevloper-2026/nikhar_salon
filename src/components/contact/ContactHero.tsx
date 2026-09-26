@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -151,16 +151,19 @@ export default function ContactHero() {
 
               {/* Circular Porthole Image Frame */}
               <div className="relative size-[220px] sm:size-[280px] lg:size-[310px]">
-                <div className="relative size-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-xl">
-                  <Image
-                    src="/images/contact/contact.png"
-                    alt="Nikhar Mens Parlour Luxury Interior & Styling Ambience"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 220px, (max-width: 1024px) 280px, 310px"
-                    className="object-cover object-center select-none"
-                  />
-                </div>
+                <div
+                  className="relative size-full rounded-full overflow-hidden border-[3px] border-[#BA9D6A]/70 shadow-xl"
+                  style={{
+                    backgroundImage: 'url(/images/contact/contact.png)',
+                    backgroundSize: '200%',
+                    backgroundPosition: '38% 42%',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#1a1208',
+                  }}
+                  role="img"
+                  aria-label="Nikhar Mens Parlour Luxury Interior & Styling Ambience"
+                />
+
 
                 {/* Floating Handwritten Luxury Script Accent — overlaps bottom-right edge of the circle */}
                 <div className="absolute bottom-2 sm:bottom-4 -right-6 sm:-right-10 z-20 pointer-events-none select-none">
